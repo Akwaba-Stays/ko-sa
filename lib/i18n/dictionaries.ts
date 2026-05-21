@@ -122,7 +122,7 @@ const en = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Digital concierge · usually replies instantly',
   'chat.greeting':
-    "Akwaaba — I'm Abena, your KO-SA concierge. Ask me anything about the resort, our rooms, or planning your stay.",
+    "Akwaaba I'm Abena, your KO-SA concierge. Ask me anything about the resort, our rooms, or planning your stay.",
   'chat.placeholder': 'Ask anything…',
   'chat.send': 'Send',
   'chat.close': 'Close chat',
@@ -150,7 +150,7 @@ const en = {
   'cultural.eyebrow': 'Adinkra · Symbols of the Akan',
   'cultural.headline': 'Rooted in Ghana.',
   'cultural.description': 'We carry these four symbols through the resort — etched in wood, drawn in linen, traced in every welcome.',
-  'cultural.footer': 'Akwaaba — you are welcome here.',
+  'cultural.footer': 'Akwaaba you are welcome here.',
 
   // Gallery section
   'gallery.eyebrow': 'Through the Lens',
@@ -339,7 +339,7 @@ const fr: Record<keyof typeof en, string> = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Concierge numérique · répond en quelques instants',
   'chat.greeting':
-    'Akwaaba — je suis Abena, votre concierge KO-SA. Posez-moi toutes vos questions sur le domaine, nos chambres ou l\u2019organisation de votre séjour.',
+    'Akwaaba je suis Abena, votre concierge KO-SA. Posez-moi toutes vos questions sur le domaine, nos chambres ou l\u2019organisation de votre séjour.',
   'chat.placeholder': 'Une question ? Je vous écoute…',
   'chat.send': 'Envoyer',
   'chat.close': 'Fermer',
@@ -365,7 +365,7 @@ const fr: Record<keyof typeof en, string> = {
   'cultural.eyebrow': 'Adinkra · Symboles des Akan',
   'cultural.headline': 'Enraciné au Ghana.',
   'cultural.description': 'Nous portons ces quatre symboles à travers le domaine — gravés dans le bois, tissés dans le lin, présents dans chaque accueil.',
-  'cultural.footer': 'Akwaaba — vous êtes ici les bienvenus.',
+  'cultural.footer': 'Akwaaba vous êtes ici les bienvenus.',
 
   'gallery.eyebrow': 'Le domaine en images',
   'gallery.headline': 'Galerie',
@@ -538,7 +538,7 @@ const es: Record<keyof typeof en, string> = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Conserje digital · responde al momento',
   'chat.greeting':
-    'Akwaaba — soy Abena, tu conserje en KO-SA. Pregúntame sobre el resort, las habitaciones o cómo organizar tu estancia.',
+    'Akwaaba soy Abena, tu conserje en KO-SA. Pregúntame sobre el resort, las habitaciones o cómo organizar tu estancia.',
   'chat.placeholder': 'Pregunta lo que quieras…',
   'chat.send': 'Enviar',
   'chat.close': 'Cerrar',
@@ -564,7 +564,7 @@ const es: Record<keyof typeof en, string> = {
   'cultural.eyebrow': 'Adinkra · Símbolos del pueblo Akan',
   'cultural.headline': 'Con raíces en Ghana.',
   'cultural.description': 'Estos cuatro símbolos nos acompañan en todo el resort — grabados en madera, tejidos en lino, presentes en cada bienvenida.',
-  'cultural.footer': 'Akwaaba — aquí eres bienvenido.',
+  'cultural.footer': 'Akwaaba aquí eres bienvenido.',
 
   'gallery.eyebrow': 'A través de la lente',
   'gallery.headline': 'Galería',
@@ -737,7 +737,7 @@ const nl: Record<keyof typeof en, string> = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Digitale conciërge · antwoordt vrijwel direct',
   'chat.greeting':
-    'Akwaaba — ik ben Abena, uw conciërge bij KO-SA. Vraag me gerust alles over het resort, onze kamers of het plannen van uw verblijf.',
+    'Akwaaba ik ben Abena, uw conciërge bij KO-SA. Vraag me gerust alles over het resort, onze kamers of het plannen van uw verblijf.',
   'chat.placeholder': 'Stel uw vraag…',
   'chat.send': 'Versturen',
   'chat.close': 'Sluiten',
@@ -763,7 +763,7 @@ const nl: Record<keyof typeof en, string> = {
   'cultural.eyebrow': 'Adinkra · Symbolen van het Akan-volk',
   'cultural.headline': 'Geworteld in Ghana.',
   'cultural.description': 'Deze vier symbolen dragen we door het hele resort — gegraveerd in hout, geweven in linnen, voelbaar in elk welkom.',
-  'cultural.footer': 'Akwaaba — u bent hier welkom.',
+  'cultural.footer': 'Akwaaba u bent hier welkom.',
 
   'gallery.eyebrow': 'In beeld',
   'gallery.headline': 'Galerij',
@@ -936,7 +936,7 @@ const de: Record<keyof typeof en, string> = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Digitale Concierge · antwortet sofort',
   'chat.greeting':
-    'Akwaaba — ich bin Abena, Ihre Concierge bei KO-SA. Fragen Sie mich alles über das Resort, unsere Zimmer oder die Planung Ihres Aufenthalts.',
+    'Akwaaba ich bin Abena, Ihre Concierge bei KO-SA. Fragen Sie mich alles über das Resort, unsere Zimmer oder die Planung Ihres Aufenthalts.',
   'chat.placeholder': 'Ihre Frage…',
   'chat.send': 'Senden',
   'chat.close': 'Schließen',
@@ -962,7 +962,7 @@ const de: Record<keyof typeof en, string> = {
   'cultural.eyebrow': 'Adinkra · Symbole des Akan-Volks',
   'cultural.headline': 'Verwurzelt in Ghana.',
   'cultural.description': 'Diese vier Symbole begleiten uns durch das gesamte Resort — in Holz graviert, in Leinen gewebt, in jedem Willkommen spürbar.',
-  'cultural.footer': 'Akwaaba — Sie sind hier herzlich willkommen.',
+  'cultural.footer': 'Akwaaba Sie sind hier herzlich willkommen.',
 
   'gallery.eyebrow': 'Im Blickfeld',
   'gallery.headline': 'Galerie',

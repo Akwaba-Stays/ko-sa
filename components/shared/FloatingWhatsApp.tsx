@@ -23,7 +23,7 @@ export function FloatingWhatsApp() {
   if (pathname?.startsWith('/admin')) return null;
 
   const message = encodeURIComponent(
-    "Akwaaba — I'd like to ask about KO-SA Beach Resort.",
+    "Akwaaba I'd like to ask about KO-SA Beach Resort.",
   );
   const href = `https://wa.me/${site.contact.whatsapp}?text=${message}`;
 

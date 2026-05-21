@@ -109,7 +109,7 @@ export function ChatWidget() {
           copy[copy.length - 1] = {
             role: 'assistant',
             content:
-              "Akwaaba — I'm here, but my concierge brain returned a moment of silence. Try again, or WhatsApp +233 24 437 5432.",
+              "Akwaaba I'm here, but my concierge brain returned a moment of silence. Try again, or WhatsApp +233 24 437 5432.",
           };
           return copy;
         });
