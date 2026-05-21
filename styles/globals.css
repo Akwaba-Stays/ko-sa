@@ -1,0 +1,356 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── KO-SA palette — extracted from logo.png ── */
+  --background: #f9f8f4;
+  --foreground: #1a1a1a;
+  --primary: #2c606e;
+  --primary-dark: #234e5a;
+  --primary-foreground: #ffffff;
+  --secondary: #d36f0c;
+  --secondary-foreground: #ffffff;
+  --accent: #d36f0c;
+  --accent-foreground: #ffffff;
+  --muted: #f0ede5;
+  --muted-foreground: #5c5c5c;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --border: #e0ddd4;
+  --input: #e0ddd4;
+  --ring: #2c606e;
+  --destructive: #dc3545;
+  --destructive-foreground: #ffffff;
+  --cta: #d36f0c;
+  --cta-light: #e07f1d;
+  --accent-brown: #3d3530;
+
+  /* Legacy aliases (kept so existing components don't break) */
+  --color-deep-umber: #1a1a1a;
+  --color-warm-brown: #5c5c5c;
+  --color-gold: #d36f0c;
+  --color-sand-light: #f9f8f4;
+  --color-cream: #f9f8f4;
+  --color-warm-grey: #e0ddd4;
+  --color-bg-orange: #f0ede5;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: linear-gradient(135deg, #fdfcf9, #f9f8f4, #f5f3ed);
+  color: var(--foreground);
+  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Brand image grade — DESIGN.md §7
+   "60–65% saturation, editorial eco-luxe — shadows lean teal-navy,
+    midtones warm to amber-gold, highlights soften to bleached linen cream." */
+.branded-img,
+.branded-img img,
+.branded-img video {
+  filter: saturate(0.65) contrast(1.06) brightness(1.02) hue-rotate(-4deg);
+}
+
+/* Editorial eyebrow utility — used wherever a section opens with a Holistika-style label */
+.eyebrow {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-warm-brown);
+  display: inline-block;
+}
+
+/* Hairline divider with center dot, gold — DESIGN.md §5 GoldDivider */
+.gold-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.gold-rule::before,
+.gold-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(44, 96, 110, 0.3);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Marquee */
+.marquee {
+  display: flex;
+  width: max-content;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * KO-SA button utilities (ported from ko-sa.com)
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+.btn {
+  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0;
+}
+@media (max-width: 640px) {
+  .btn {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+}
+@media (min-width: 1024px) {
+  .btn {
+    padding: 0.875rem 2.5rem;
+    font-size: 0.9375rem;
+  }
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn-secondary:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+/* Animated gradient-border CTA (for "Get in Touch" style links) */
+.btn-outline-animated {
+  background: var(--background);
+  color: var(--foreground);
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  z-index: 1;
+}
+.btn-outline-animated::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--background),
+    var(--primary-dark),
+    var(--primary)
+  );
+  background-size: 300% 100%;
+  animation: border-move 3s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+.btn-outline-animated:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+.btn-outline-animated:hover::before {
+  display: none;
+}
+
+@keyframes border-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * 3D card interactions
+ * Applied via the `card-3d` utility. The host element gets perspective; the
+ * inner `card-3d-inner` gets the transform. Use `card-3d-lift` for a softer
+ * lift-only effect with no rotation (good for image-heavy cards).
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+.card-3d {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+.card-3d-inner {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.card-3d:hover .card-3d-inner {
+  transform: rotateX(4deg) rotateY(-6deg) translateZ(24px);
+  box-shadow: 0 30px 60px -20px rgba(26, 26, 26, 0.3),
+    0 18px 36px -18px rgba(44, 96, 110, 0.15);
+}
+/* Lift the inner content (image + text) so it appears to float above the surface */
+.card-3d:hover .card-3d-float {
+  transform: translateZ(48px);
+}
+.card-3d-float {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+}
+
+/* Softer lift-only variant (no rotation) */
+.card-3d-lift .card-3d-inner {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-3d-lift:hover .card-3d-inner {
+  transform: translateY(-10px) translateZ(20px) scale(1.015);
+  box-shadow: 0 28px 50px -22px rgba(26, 26, 26, 0.3);
+}
+
+/* Image zoom-in within a card on hover (paired with .card-3d) */
+.card-3d-img {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-3d:hover .card-3d-img {
+  transform: scale(1.06);
+}
+
+/* Reveal a brand-gold shine sweep across the card on hover */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.card-shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* Honor reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card-3d:hover .card-3d-inner,
+  .card-3d:hover .card-3d-float,
+  .card-3d:hover .card-3d-img,
+  .card-shine::after,
+  .card-3d-lift:hover .card-3d-inner {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Container */
+.container-page {
+  width: 100%;
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-page {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .container-page {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

@@ -1,0 +1,146 @@
+// Prisma schema — KO-SA Beach Resort
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// -------- Auth / Admin --------
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  role      AdminRole @default(EDITOR)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum AdminRole {
+  OWNER
+  EDITOR
+  SUPPORT
+}
+
+// -------- Newsletter --------
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String?
+  consented Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+// -------- Contact enquiries --------
+model ContactEnquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String   @db.Text
+  handled   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// -------- Bookings (local cache of Cloudbeds reservations) --------
+model Booking {
+  id                 String   @id @default(cuid())
+  cloudbedsReservationId String? @unique
+  confirmationNumber String?  @unique
+  guestName          String
+  guestEmail         String
+  guestPhone         String?
+  checkIn            DateTime
+  checkOut           DateTime
+  adults             Int      @default(2)
+  children           Int      @default(0)
+  roomTypeId         String?
+  roomTypeName       String?
+  ratePlanId         String?
+  totalCost          Decimal? @db.Decimal(10, 2)
+  currency           String   @default("GHS")
+  status             BookingStatus @default(PENDING)
+  paymentProvider    String?
+  paymentRef         String?
+  notes              String?  @db.Text
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@index([guestEmail])
+  @@index([checkIn, checkOut])
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+// -------- Cloudbeds OAuth tokens --------
+model CloudbedsToken {
+  id           String   @id @default(cuid())
+  accessToken  String   @db.Text
+  refreshToken String   @db.Text
+  expiresAt    DateTime
+  propertyId   String
+  scope        String?
+  updatedAt    DateTime @updatedAt
+}
+
+// -------- AI Chat --------
+model ChatSession {
+  id            String        @id @default(cuid())
+  sessionId     String        @unique
+  guestName     String?
+  guestEmail    String?
+  reservationId String?
+  status        SessionStatus @default(ACTIVE)
+  sentiment     Sentiment     @default(NEUTRAL)
+  tags          String[]
+  messages      ChatMessage[]
+  createdAt     DateTime      @default(now())
+  lastMessageAt DateTime      @updatedAt
+  resolvedAt    DateTime?
+
+  @@index([status])
+  @@index([guestEmail])
+}
+
+model ChatMessage {
+  id        String      @id @default(cuid())
+  sessionId String
+  session   ChatSession @relation(fields: [sessionId], references: [sessionId], onDelete: Cascade)
+  role      MessageRole
+  content   String      @db.Text
+  sources   String[]
+  flagged   Boolean     @default(false)
+  adminNote String?     @db.Text
+  createdAt DateTime    @default(now())
+
+  @@index([sessionId, createdAt])
+}
+
+enum SessionStatus {
+  ACTIVE
+  NEEDS_ADMIN
+  ADMIN_REPLIED
+  RESOLVED
+}
+
+enum Sentiment {
+  POSITIVE
+  NEUTRAL
+  NEGATIVE
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+  ADMIN
+}
