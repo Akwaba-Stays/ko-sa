@@ -1,22 +1,22 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
-import { testimonials, localize } from '@/lib/content/home';
+import { testimonials } from '@/lib/content/home';
 import { useT } from '@/lib/i18n';
+import type { DictKey } from '@/lib/i18n/dictionaries';
 
 export function Testimonials() {
-  const { t: T, locale } = useT();
+  const { t: T } = useT();
   const [i, setI] = useState(0);
   useEffect(() => {
     const timer = setInterval(() => setI((x) => (x + 1) % testimonials.length), 6000);
     return () => clearInterval(timer);
   }, []);
 
-  const localized = useMemo(() => testimonials.map((tt) => localize(tt, locale)), [locale]);
-  const t = localized[i];
+  const current = testimonials[i];
 
   return (
     <section className="relative py-24 md:py-36 bg-cream overflow-hidden">
@@ -37,7 +37,7 @@ export function Testimonials() {
         <div className="relative mt-12 min-h-[280px] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
-              key={t.name}
+              key={current.name}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
@@ -45,18 +45,18 @@ export function Testimonials() {
               className="flex flex-col items-center"
             >
               <div className="branded-img relative h-20 w-20 rounded-full overflow-hidden border-2 border-primary">
-                <Image src={t.avatar} alt={t.name} fill sizes="80px" className="object-cover" />
+                <Image src={current.avatar} alt={current.name} fill sizes="80px" className="object-cover" />
               </div>
               <div className="mt-4 flex items-center gap-1 text-primary">
-                {Array.from({ length: t.rating }).map((_, idx) => (
+                {Array.from({ length: current.rating }).map((_, idx) => (
                   <Star key={idx} size={16} fill="currentColor" stroke="none" />
                 ))}
               </div>
               <p className="mt-6 font-belleza italic text-2xl md:text-3xl text-umber leading-snug">
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{T(`testimonials.${current.index}.quote` as DictKey)}&rdquo;
               </p>
               <p className="mt-6 font-poppins uppercase tracking-tracked text-xs text-umber/70">
-                {t.name} · {t.country}
+                {current.name} · {T(`testimonials.${current.index}.country` as DictKey)}
               </p>
             </motion.div>
           </AnimatePresence>

@@ -1,14 +1,13 @@
 'use client';
 
-import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/shared/Button';
-import { treatments, localize } from '@/lib/content/home';
+import { treatments } from '@/lib/content/home';
 import { useT } from '@/lib/i18n';
+import type { DictKey } from '@/lib/i18n/dictionaries';
 
 export function Wellness() {
-  const { t, locale } = useT();
-  const localTreatments = useMemo(() => treatments.map((tt) => localize(tt, locale)), [locale]);
+  const { t } = useT();
   return (
     <section className="relative py-24 md:py-36 bg-umber text-cream overflow-hidden">
       <p
@@ -62,14 +61,14 @@ export function Wellness() {
           </p>
 
           <ul className="mt-10 divide-y divide-cream/15">
-            {localTreatments.map((tr) => (
+            {treatments.map((tr) => (
               <li
-                key={tr.name}
+                key={tr.slug}
                 className="flex items-center justify-between py-4 group cursor-default"
               >
                 <div>
                   <p className="font-belleza text-xl group-hover:text-primary transition-colors">
-                    {tr.name}
+                    {t(`treatments.${tr.slug}.name` as DictKey)}
                   </p>
                   <p className="text-xs font-poppins uppercase tracking-tracked text-cream/55">
                     {tr.duration}

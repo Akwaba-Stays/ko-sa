@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
-import { rooms, localize, CATEGORY_DICT_KEY, type Room } from '@/lib/content/home';
+import { rooms, CATEGORY_DICT_KEY, type Room } from '@/lib/content/home';
 import { formatCurrency } from '@/lib/utils';
 import { BRAND_LQIP } from '@/lib/image';
 import { useT } from '@/lib/i18n';
@@ -42,14 +42,11 @@ function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
 }
 
 export function Rooms() {
-  const { t, locale } = useT();
+  const { t } = useT();
   const [active, setActive] = useState<(typeof filters)[number]>('All');
   const filtered = useMemo<Room[]>(
-    () =>
-      (active === 'All' ? rooms : rooms.filter((r: Room & { i18n?: any }) => r.category === active)).map((r: Room & { i18n?: any }) =>
-        localize(r, locale),
-      ),
-    [active, locale],
+    () => (active === 'All' ? rooms : rooms.filter((r: Room) => r.category === active)),
+    [active],
   );
 
   return (
@@ -123,7 +120,7 @@ export function Rooms() {
                 <div className="branded-img card-shine relative aspect-[3/4] overflow-hidden">
                   <Image
                     src={room.image}
-                    alt={room.name}
+                    alt={t(`rooms.${room.slug}.name` as DictKey)}
                     fill
                     sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                     className="card-3d-img object-cover"
@@ -136,9 +133,9 @@ export function Rooms() {
                     {t(CATEGORY_DICT_KEY[room.category])}
                   </span>
                   <h3 className="font-belleza text-2xl text-umber group-hover:text-primary transition-colors">
-                    {room.name}
+                    {t(`rooms.${room.slug}.name` as DictKey)}
                   </h3>
-                  <p className="font-beth text-xl text-umber/70">{room.tagline}</p>
+                  <p className="font-beth text-xl text-umber/70">{t(`rooms.${room.slug}.tagline` as DictKey)}</p>
                   <div className="mt-3 flex items-end justify-between">
                     <span className="text-xs font-poppins uppercase tracking-tracked text-umber/60">
                       {t('rooms.priceFrom')} {formatCurrency(room.price, room.currency)} / {t('rooms.perNight')}

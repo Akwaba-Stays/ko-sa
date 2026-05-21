@@ -5,6 +5,7 @@ import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
 import { adinkraGuide } from '@/lib/content/home';
 import { fadeUp, stagger } from '@/lib/animation/variants';
 import { useT } from '@/lib/i18n';
+import type { DictKey } from '@/lib/i18n/dictionaries';
 
 export function Cultural() {
   const { t } = useT();
@@ -35,9 +36,9 @@ export function Cultural() {
               </div>
               <h3 className="mt-6 font-belleza text-2xl text-umber">{s.twi}</h3>
               <p className="font-poppins uppercase tracking-tracked-sm text-[10px] text-primary mt-1">
-                {s.meaning}
+                {t(`adinkra.${s.name}.meaning` as DictKey)}
               </p>
-              <p className="mt-3 text-sm text-umber/75">{s.line}</p>
+              <p className="mt-3 text-sm text-umber/75">{t(`adinkra.${s.name}.line` as DictKey)}</p>
             </motion.div>
           ))}
         </motion.div>

@@ -5,6 +5,10 @@
 
 import { rooms, experiences, adinkraGuide } from '@/lib/content/home';
 import { formatCurrency } from '@/lib/utils';
+import { translate, type DictKey } from '@/lib/i18n/dictionaries';
+
+// AI knowledge base operates in English; fetch EN strings from the dictionary.
+const en = (key: DictKey) => translate('en', key);
 
 export interface KnowledgeDoc {
   id: string;
@@ -149,28 +153,41 @@ const STATIC: KnowledgeDoc[] = [
   },
 ];
 
-const ROOM_DOCS: KnowledgeDoc[] = rooms.map((r) => ({
-  id: `room-${r.slug}`,
-  category: 'room',
-  title: r.name,
-  content: `${r.name} ${r.tagline}. Category: ${r.category}. From ${formatCurrency(r.price, r.currency)} per night, breakfast included. Book at /book?room=${r.slug}.`,
-  metadata: { price: r.price, currency: r.currency, slug: r.slug, image: r.image },
-}));
+const ROOM_DOCS: KnowledgeDoc[] = rooms.map((r) => {
+  const name = en(`rooms.${r.slug}.name` as DictKey);
+  const tagline = en(`rooms.${r.slug}.tagline` as DictKey);
+  return {
+    id: `room-${r.slug}`,
+    category: 'room',
+    title: name,
+    content: `${name} ${tagline}. Category: ${r.category}. From ${formatCurrency(r.price, r.currency)} per night, breakfast included. Book at /book?room=${r.slug}.`,
+    metadata: { price: r.price, currency: r.currency, slug: r.slug, image: r.image },
+  };
+});
 
-const EXPERIENCE_DOCS: KnowledgeDoc[] = experiences.map((e) => ({
-  id: `experience-${e.slug}`,
-  category: 'experience',
-  title: e.title,
-  content: `${e.label}: ${e.title}. ${e.description}`,
-  metadata: { slug: e.slug, image: e.image },
-}));
+const EXPERIENCE_DOCS: KnowledgeDoc[] = experiences.map((e) => {
+  const label = en(`experiences.${e.slug}.label` as DictKey);
+  const title = en(`experiences.${e.slug}.title` as DictKey);
+  const description = en(`experiences.${e.slug}.description` as DictKey);
+  return {
+    id: `experience-${e.slug}`,
+    category: 'experience',
+    title,
+    content: `${label}: ${title}. ${description}`,
+    metadata: { slug: e.slug, image: e.image },
+  };
+});
 
-const CULTURE_DOCS: KnowledgeDoc[] = adinkraGuide.map((a) => ({
-  id: `culture-${a.twi.toLowerCase()}`,
-  category: 'culture',
-  title: `${a.twi} ${a.meaning}`,
-  content: `${a.twi} is the Akan symbol for ${a.meaning.toLowerCase()}. At KO-SA: ${a.line}`,
-}));
+const CULTURE_DOCS: KnowledgeDoc[] = adinkraGuide.map((a) => {
+  const meaning = en(`adinkra.${a.name}.meaning` as DictKey);
+  const line = en(`adinkra.${a.name}.line` as DictKey);
+  return {
+    id: `culture-${a.twi.toLowerCase()}`,
+    category: 'culture',
+    title: `${a.twi} ${meaning}`,
+    content: `${a.twi} is the Akan symbol for ${meaning.toLowerCase()}. At KO-SA: ${line}`,
+  };
+});
 
 export const KNOWLEDGE: KnowledgeDoc[] = [...STATIC, ...ROOM_DOCS, ...EXPERIENCE_DOCS, ...CULTURE_DOCS];
 

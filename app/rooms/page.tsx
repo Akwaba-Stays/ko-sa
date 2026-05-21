@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PageHero } from '@/components/shared/PageHero';
-import { rooms } from '@/lib/content/home';
+import { rooms, CATEGORY_DICT_KEY } from '@/lib/content/home';
 import { formatCurrency } from '@/lib/utils';
+import { getT } from '@/lib/i18n/server';
+import type { DictKey } from '@/lib/i18n/dictionaries';
 
 export const metadata: Metadata = {
   title: 'Rooms & Villas',
@@ -12,12 +14,13 @@ export const metadata: Metadata = {
 };
 
 export default function RoomsPage() {
+  const { t } = getT();
   return (
     <>
       <PageHero
-        eyebrow="Stay in the Feeling"
-        title="Rooms & Villas at KO-SA"
-        subtitle="Twelve rooms and four suites each composed for slow mornings and full nights of rest."
+        eyebrow={t('rooms.eyebrow')}
+        title={t('rooms.headline')}
+        subtitle={t('rooms.headline')}
         image="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=2000"
       />
 
@@ -33,7 +36,7 @@ export default function RoomsPage() {
                   <div className="branded-img card-shine relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={r.image}
-                      alt={r.name}
+                      alt={t(`rooms.${r.slug}.name` as DictKey)}
                       fill
                       sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                       className="card-3d-img object-cover"
@@ -41,18 +44,18 @@ export default function RoomsPage() {
                   </div>
                   <div className="card-3d-float p-6">
                     <span className="font-poppins uppercase tracking-tracked text-[10px] text-primary">
-                      {r.category}
+                      {t(CATEGORY_DICT_KEY[r.category])}
                     </span>
                     <h2 className="mt-2 font-belleza text-2xl text-umber group-hover:text-primary transition-colors">
-                      {r.name}
+                      {t(`rooms.${r.slug}.name` as DictKey)}
                     </h2>
-                    <p className="font-beth text-xl text-umber/70 mt-1">{r.tagline}</p>
+                    <p className="font-beth text-xl text-umber/70 mt-1">{t(`rooms.${r.slug}.tagline` as DictKey)}</p>
                     <div className="mt-4 flex justify-between items-end">
                       <span className="text-xs font-poppins uppercase tracking-tracked text-umber/60">
-                        From {formatCurrency(r.price, r.currency)} / night
+                        {t('rooms.priceFrom')} {formatCurrency(r.price, r.currency)} / {t('rooms.perNight')}
                       </span>
                       <span className="text-xs font-poppins uppercase tracking-tracked-sm text-primary transition-transform group-hover:translate-x-1">
-                        View →
+                        {t('rooms.view')} →
                       </span>
                     </div>
                   </div>

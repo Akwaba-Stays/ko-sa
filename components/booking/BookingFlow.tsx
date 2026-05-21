@@ -11,6 +11,8 @@ import { Button } from '@/components/shared/Button';
 import { rooms } from '@/lib/content/home';
 import { formatCurrency } from '@/lib/utils';
 import { site } from '@/lib/site';
+import { useT } from '@/lib/i18n';
+import type { DictKey } from '@/lib/i18n/dictionaries';
 
 interface Props {
   initial: { checkIn?: string; checkOut?: string; adults?: string; children?: string; room?: string };
@@ -32,6 +34,7 @@ function daysBetween(a: string, b: string) {
 }
 
 export function BookingFlow({ initial }: Props) {
+  const { t } = useT();
   const today = new Date().toISOString().slice(0, 10);
   const tomorrow = new Date(Date.now() + 86400 * 2 * 1000).toISOString().slice(0, 10);
 
@@ -139,10 +142,10 @@ export function BookingFlow({ initial }: Props) {
                   }`}
                 >
                   <div className="branded-img relative aspect-[4/3]">
-                    <Image src={r.image} alt={r.name} fill sizes="33vw" className="object-cover" />
+                    <Image src={r.image} alt={t(`rooms.${r.slug}.name` as DictKey)} fill sizes="33vw" className="object-cover" />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-belleza text-xl text-umber group-hover:text-primary">{r.name}</h3>
+                    <h3 className="font-belleza text-xl text-umber group-hover:text-primary">{t(`rooms.${r.slug}.name` as DictKey)}</h3>
                     <p className="text-xs text-umber/60 mt-1">
                       {formatCurrency(r.price, r.currency)} × {nights} nights = {formatCurrency(r.price * nights, r.currency)}
                     </p>
@@ -175,8 +178,8 @@ export function BookingFlow({ initial }: Props) {
             </div>
             <aside className="lg:col-span-5">
               <div className="sticky top-28 bg-umber text-cream rounded-md p-6 space-y-3">
-                <h3 className="font-belleza text-xl text-primary">{selectedRoom.name}</h3>
-                <p className="text-cream/70 text-sm">{selectedRoom.tagline}</p>
+                <h3 className="font-belleza text-xl text-primary">{t(`rooms.${selectedRoom.slug}.name` as DictKey)}</h3>
+                <p className="text-cream/70 text-sm">{t(`rooms.${selectedRoom.slug}.tagline` as DictKey)}</p>
                 <div className="border-t border-cream/10 pt-3 text-sm space-y-2">
                   <Row label="Check in" value={new Date(checkIn).toDateString()} />
                   <Row label="Check out" value={new Date(checkOut).toDateString()} />
