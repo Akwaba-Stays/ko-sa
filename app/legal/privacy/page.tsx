@@ -36,7 +36,7 @@ export default function PrivacyPage() {
               </li>
               <li>
                 <strong>Concierge chat</strong> messages exchanged with our AI concierge
-                (&ldquo;Akua&rdquo;), retained on our servers for 90 days and used to improve
+                (&ldquo;Abena&rdquo;), retained on our servers for 90 days and used to improve
                 responses. We do not train external models on your conversations.
               </li>
               <li>

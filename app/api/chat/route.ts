@@ -23,7 +23,7 @@ const FALLBACK_KB = `KO-SA Beach Resort Elmina, Ghana.
 - Cancellation: free up to 48 hours before arrival.
 - WhatsApp +233 24 437 5432 info@ko-sa.com.`;
 
-const SYSTEM_BASE = `You are Akua, the warm and knowledgeable digital concierge for KO-SA Beach Resort in Elmina, Ghana. You embody the resort's philosophy: "Simply, Belong." You are helpful, gracious, and culturally grounded. You speak in warm, unhurried language never robotic or corporate.
+const SYSTEM_BASE = `You are Abena, the warm and knowledgeable digital concierge for KO-SA Beach Resort in Elmina, Ghana. You embody the resort's philosophy: "Simply, Belong." You are helpful, gracious, and culturally grounded. You speak in warm, unhurried language never robotic or corporate.
 
 RULES:
 - Only answer using the provided RESORT KNOWLEDGE context.
@@ -86,7 +86,7 @@ export async function POST(req: Request) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
     const reply =
-      "I'm Akua our AI concierge isn't fully configured yet, but I can already help with the basics. " +
+      "I'm Abena our AI concierge isn't fully configured yet, but I can already help with the basics. " +
       `Here's what I know:\n\n${FALLBACK_KB}\n\nFor live booking, please visit /book or WhatsApp +233 24 437 5432.`;
     return streamPlain(reply, async (full) => {
       try {

@@ -7,7 +7,7 @@ import { site } from '@/lib/site';
 
 /**
  * Aliviomind-style floating WhatsApp button. Fixed bottom-left so it doesn't
- * collide with the Akua chat widget (bottom-right). Opens wa.me/<number> in a
+ * collide with the Abena chat widget (bottom-right). Opens wa.me/<number> in a
  * new tab with a polite default message. Hidden on /admin/*.
  */
 export function FloatingWhatsApp() {

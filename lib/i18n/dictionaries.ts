@@ -116,11 +116,11 @@ const en = {
   'footer.admin': 'Admin',
 
   // Chat widget
-  'chat.cta': 'Chat with Akua',
-  'chat.title': 'Akua',
+  'chat.cta': 'Chat with Abena',
+  'chat.title': 'Abena',
   'chat.subtitle': 'Digital concierge · usually replies instantly',
   'chat.greeting':
-    "Akwaaba — I'm Akua, your KO-SA concierge. Ask me anything about the resort, our rooms, or planning your stay.",
+    "Akwaaba — I'm Abena, your KO-SA concierge. Ask me anything about the resort, our rooms, or planning your stay.",
   'chat.placeholder': 'Ask anything…',
   'chat.send': 'Send',
   'chat.close': 'Close chat',
@@ -265,11 +265,11 @@ const fr: Record<keyof typeof en, string> = {
   'footer.terms': 'Conditions',
   'footer.admin': 'Admin',
 
-  'chat.cta': 'Discuter avec Akua',
-  'chat.title': 'Akua',
+  'chat.cta': 'Discuter avec Abena',
+  'chat.title': 'Abena',
   'chat.subtitle': 'Concierge numérique · réponse quasi instantanée',
   'chat.greeting':
-    'Akwaaba — je suis Akua, votre concierge KO-SA. Posez-moi vos questions sur la station, nos chambres ou la planification de votre séjour.',
+    'Akwaaba — je suis Abena, votre concierge KO-SA. Posez-moi vos questions sur la station, nos chambres ou la planification de votre séjour.',
   'chat.placeholder': 'Posez votre question…',
   'chat.send': 'Envoyer',
   'chat.close': 'Fermer la conversation',
@@ -409,11 +409,11 @@ const es: Record<keyof typeof en, string> = {
   'footer.terms': 'Términos',
   'footer.admin': 'Admin',
 
-  'chat.cta': 'Chatea con Akua',
-  'chat.title': 'Akua',
+  'chat.cta': 'Chatea con Abena',
+  'chat.title': 'Abena',
   'chat.subtitle': 'Conserje digital · suele responder al instante',
   'chat.greeting':
-    'Akwaaba — soy Akua, tu conserje de KO-SA. Pregúntame lo que quieras sobre el resort, las habitaciones o cómo planificar tu estancia.',
+    'Akwaaba — soy Abena, tu conserje de KO-SA. Pregúntame lo que quieras sobre el resort, las habitaciones o cómo planificar tu estancia.',
   'chat.placeholder': 'Pregunta lo que quieras…',
   'chat.send': 'Enviar',
   'chat.close': 'Cerrar chat',

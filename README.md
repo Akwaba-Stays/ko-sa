@@ -11,7 +11,7 @@ Eco-luxury beach resort website — Next.js 14, TypeScript, Tailwind, Framer Mot
 - **Frontend:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS · Framer Motion · Lenis (smooth scroll) · @photo-sphere-viewer/core (virtual tour)
 - **Backend:** Next.js API routes · Prisma + Supabase Postgres · Supabase Storage · Resend (email)
 - **Booking:** Cloudbeds OAuth 2.0 PMS — availability, room types, reservations, guest creation, cancellation
-- **AI Concierge ("Akua"):** OpenRouter (Gemma → Qwen → GPT-OSS fallback chain) with in-memory keyword-scored knowledge retrieval — zero infra, deterministic, ~50 docs covering rooms, experiences, policies, FAQs, location
+- **AI Concierge ("Abena"):** OpenRouter (Gemma → Qwen → GPT-OSS fallback chain) with in-memory keyword-scored knowledge retrieval — zero infra, deterministic, ~50 docs covering rooms, experiences, policies, FAQs, location
 - **Virtual tour:** Google Drive service-account-backed scene fetch with fallback Unsplash scenes for dev
 - **SEO:** Metadata API, sitemap.ts, schema.org JSON-LD (LodgingBusiness, HotelRoom, Article), OG images
 - **Auth:** NextAuth (admin only; routes scaffolded)
