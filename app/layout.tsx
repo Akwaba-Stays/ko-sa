@@ -1,32 +1,31 @@
+// Root layout. Intentionally minimal only renders <html><body> plus
+// providers. Public chrome (Navbar/Footer/Chat/WhatsApp) lives in the (site)
+// route group; admin chrome lives in /admin/layout.tsx. This separation lets
+// the two surfaces be deployed and styled independently (see DEPLOYMENT.md).
+
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
-import { belleza, raleway, bethEllen, poppins } from './fonts';
+import { playfair, raleway, openSans } from './fonts';
 import '../styles/globals.css';
 import { site } from '@/lib/site';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import { SmoothScroll } from '@/components/layout/SmoothScroll';
-import { Preloader } from '@/components/layout/Preloader';
-import { ChatWidget } from '@/components/chat/ChatWidget';
-import { FloatingWhatsApp } from '@/components/shared/FloatingWhatsApp';
-import { JsonLd } from '@/components/seo/JsonLd';
 import { Providers } from '@/components/providers/Providers';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · Eco-Luxury Beach Resort, Elmina, Ghana`,
+    default: `${site.name} · Ghana's coastal retreat for the soul`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
   keywords: [
-    'eco-luxury beach resort Ghana',
-    'Elmina beach resort',
-    'Ghana beachside hotel',
-    'Kosa Palms',
-    'African coastal sanctuary',
-    'wellness retreat Ghana',
+    'KO-SA Beach Resort',
+    'Ghana beach resort',
+    'Elmina coastal retreat',
+    'wellness resort Ghana',
+    'Ghana wedding venue',
+    'KOSA Tea Bar',
+    'Akwaaba Stays',
   ],
   authors: [{ name: site.brand }],
   openGraph: {
@@ -61,7 +60,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#2c606e',
+  themeColor: '#0F7B8F',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -72,23 +71,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${belleza.variable} ${raleway.variable} ${bethEllen.variable} ${poppins.variable}`}
+      className={`${playfair.variable} ${raleway.variable} ${openSans.variable}`}
     >
-      <body className="min-h-screen bg-bg-orange text-umber antialiased">
-        <Providers>
-          <a href="#main" className="skip-link">
-            Skip to content
-          </a>
-          <JsonLd />
-          <Preloader />
-          <SmoothScroll />
-          <Navbar />
-          <main id="main">{children}</main>
-          <Footer />
-          <ChatWidget />
-          <FloatingWhatsApp />
-          <Analytics />
-        </Providers>
+      <body className="min-h-screen bg-sand text-forest antialiased font-sans">
+        <Providers>{children}</Providers>
+        <Analytics />
         {gtm && (
           <Script id="gtm" strategy="lazyOnload">
             {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtm}');`}

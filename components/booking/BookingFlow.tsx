@@ -18,16 +18,6 @@ interface Props {
   initial: { checkIn?: string; checkOut?: string; adults?: string; children?: string; room?: string };
 }
 
-const guestSchema = z.object({
-  firstName: z.string().min(1, 'Required'),
-  lastName: z.string().min(1, 'Required'),
-  email: z.string().email('Valid email required'),
-  phone: z.string().optional(),
-  country: z.string().optional(),
-  notes: z.string().optional(),
-});
-type GuestValues = z.infer<typeof guestSchema>;
-
 function daysBetween(a: string, b: string) {
   const ms = new Date(b).getTime() - new Date(a).getTime();
   return Math.max(1, Math.round(ms / 86_400_000));
@@ -37,6 +27,20 @@ export function BookingFlow({ initial }: Props) {
   const { t } = useT();
   const today = new Date().toISOString().slice(0, 10);
   const tomorrow = new Date(Date.now() + 86400 * 2 * 1000).toISOString().slice(0, 10);
+
+  const guestSchema = useMemo(
+    () =>
+      z.object({
+        firstName: z.string().min(1, t('book.errRequired')),
+        lastName: z.string().min(1, t('book.errRequired')),
+        email: z.string().email(t('book.errEmail')),
+        phone: z.string().optional(),
+        country: z.string().optional(),
+        notes: z.string().optional(),
+      }),
+    [t],
+  );
+  type GuestValues = z.infer<typeof guestSchema>;
 
   const [step, setStep] = useState(initial.room ? 1 : 0);
   const [checkIn, setCheckIn] = useState(initial.checkIn || today);
@@ -82,17 +86,17 @@ export function BookingFlow({ initial }: Props) {
         body: JSON.stringify(body),
       });
       const data = await res.json();
-      if (!res.ok || !data.ok) throw new Error(data.error || 'Booking failed');
+      if (!res.ok || !data.ok) throw new Error(data.error || t('book.failed'));
       setConfirmation({ id: data.confirmationNumber });
       setStep(3);
-    } catch (e) {
+    } catch {
       // Cloudbeds not configured in dev still progress to a "request received" state
       setConfirmation({ id: `REQ-${Date.now().toString(36).toUpperCase()}` });
       setStep(3);
     }
   }
 
-  const steps = ['Dates', 'Room', 'Guest', 'Confirm'];
+  const steps = [t('book.step.dates'), t('book.step.room'), t('book.step.guest'), t('book.step.confirm')];
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -118,14 +122,14 @@ export function BookingFlow({ initial }: Props) {
         {step === 0 && (
           <motion.div key="dates" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}>
             <div className="bg-cream rounded-md p-6 md:p-8 shadow-xl space-y-5">
-              <h2 className="font-belleza text-2xl text-umber">When would you like to stay?</h2>
+              <h2 className="font-belleza text-2xl text-umber">{t('book.datesHeading')}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <DateField label="Check in" icon><input type="date" min={today} value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="input" /></DateField>
-                <DateField label="Check out" icon><input type="date" min={checkIn} value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="input" /></DateField>
-                <DateField label="Adults"><select value={adults} onChange={(e) => setAdults(+e.target.value)} className="input">{[1,2,3,4,5,6].map(n => <option key={n} value={n}>{n}</option>)}</select></DateField>
-                <DateField label="Children"><select value={children} onChange={(e) => setChildren(+e.target.value)} className="input">{[0,1,2,3,4].map(n => <option key={n} value={n}>{n}</option>)}</select></DateField>
+                <DateField label={t('book.checkIn')} icon><input type="date" min={today} value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="input" /></DateField>
+                <DateField label={t('book.checkOut')} icon><input type="date" min={checkIn} value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="input" /></DateField>
+                <DateField label={t('book.adults')}><select value={adults} onChange={(e) => setAdults(+e.target.value)} className="input">{[1,2,3,4,5,6].map(n => <option key={n} value={n}>{n}</option>)}</select></DateField>
+                <DateField label={t('book.children')}><select value={children} onChange={(e) => setChildren(+e.target.value)} className="input">{[0,1,2,3,4].map(n => <option key={n} value={n}>{n}</option>)}</select></DateField>
               </div>
-              <Button onClick={() => setStep(1)} size="lg">Continue <ChevronRight size={16} /></Button>
+              <Button onClick={() => setStep(1)} size="lg">{t('book.continue')} <ChevronRight size={16} /></Button>
             </div>
           </motion.div>
         )}
@@ -147,14 +151,14 @@ export function BookingFlow({ initial }: Props) {
                   <div className="p-5">
                     <h3 className="font-belleza text-xl text-umber group-hover:text-primary">{t(`rooms.${r.slug}.name` as DictKey)}</h3>
                     <p className="text-xs text-umber/60 mt-1">
-                      {formatCurrency(r.price, r.currency)} × {nights} nights = {formatCurrency(r.price * nights, r.currency)}
+                      {formatCurrency(r.price, r.currency)} × {nights} {t('book.nightsUnit')} = {formatCurrency(r.price * nights, r.currency)}
                     </p>
                   </div>
                 </button>
               ))}
             </div>
             <div className="mt-6">
-              <button onClick={() => setStep(0)} className="text-xs uppercase tracking-tracked text-umber/60 hover:text-primary">← Edit dates</button>
+              <button onClick={() => setStep(0)} className="text-xs uppercase tracking-tracked text-umber/60 hover:text-primary">← {t('book.editDates')}</button>
             </div>
           </motion.div>
         )}
@@ -162,18 +166,18 @@ export function BookingFlow({ initial }: Props) {
         {step === 2 && selectedRoom && (
           <motion.form key="guest" onSubmit={handleSubmit(onConfirm)} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-7 bg-cream rounded-md p-6 md:p-8 shadow-xl space-y-5">
-              <h2 className="font-belleza text-2xl text-umber">Your details</h2>
+              <h2 className="font-belleza text-2xl text-umber">{t('book.guestHeading')}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <FormField label="First name" error={errors.firstName?.message}><input {...register('firstName')} className="input" /></FormField>
-                <FormField label="Last name" error={errors.lastName?.message}><input {...register('lastName')} className="input" /></FormField>
-                <FormField label="Email" error={errors.email?.message}><input type="email" {...register('email')} className="input" /></FormField>
-                <FormField label="Phone"><input {...register('phone')} className="input" /></FormField>
-                <FormField label="Country"><input {...register('country')} className="input" /></FormField>
+                <FormField label={t('book.firstName')} error={errors.firstName?.message}><input {...register('firstName')} className="input" /></FormField>
+                <FormField label={t('book.lastName')} error={errors.lastName?.message}><input {...register('lastName')} className="input" /></FormField>
+                <FormField label={t('book.email')} error={errors.email?.message}><input type="email" {...register('email')} className="input" /></FormField>
+                <FormField label={t('book.phone')}><input {...register('phone')} className="input" /></FormField>
+                <FormField label={t('book.country')}><input {...register('country')} className="input" /></FormField>
               </div>
-              <FormField label="Notes (optional)"><textarea rows={4} {...register('notes')} className="input resize-y" /></FormField>
+              <FormField label={t('book.notes')}><textarea rows={4} {...register('notes')} className="input resize-y" /></FormField>
               <Button type="submit" disabled={isSubmitting} size="lg">
                 {isSubmitting ? <Loader2 size={16} className="animate-spin" /> : null}
-                Confirm Reservation
+                {t('book.confirmReservation')}
               </Button>
             </div>
             <aside className="lg:col-span-5">
@@ -181,16 +185,16 @@ export function BookingFlow({ initial }: Props) {
                 <h3 className="font-belleza text-xl text-primary">{t(`rooms.${selectedRoom.slug}.name` as DictKey)}</h3>
                 <p className="text-cream/70 text-sm">{t(`rooms.${selectedRoom.slug}.tagline` as DictKey)}</p>
                 <div className="border-t border-cream/10 pt-3 text-sm space-y-2">
-                  <Row label="Check in" value={new Date(checkIn).toDateString()} />
-                  <Row label="Check out" value={new Date(checkOut).toDateString()} />
-                  <Row label="Guests" value={`${adults} adults · ${children} children`} />
-                  <Row label="Nights" value={String(nights)} />
+                  <Row label={t('book.checkIn')} value={new Date(checkIn).toLocaleDateString()} />
+                  <Row label={t('book.checkOut')} value={new Date(checkOut).toLocaleDateString()} />
+                  <Row label={t('book.guests')} value={`${adults} ${t('book.adultsUnit')} · ${children} ${t('book.childrenUnit')}`} />
+                  <Row label={t('book.nights')} value={String(nights)} />
                 </div>
                 <div className="border-t border-cream/10 pt-3 flex justify-between font-belleza text-2xl text-primary">
-                  <span>Total</span>
+                  <span>{t('book.total')}</span>
                   <span>{formatCurrency(total, selectedRoom.currency)}</span>
                 </div>
-                <p className="text-[10px] text-cream/50">Taxes and breakfast included. Free cancellation up to 48 hours.</p>
+                <p className="text-[10px] text-cream/50">{t('book.taxesLine')}</p>
               </div>
             </aside>
           </motion.form>
@@ -201,18 +205,20 @@ export function BookingFlow({ initial }: Props) {
             <div className="mx-auto h-16 w-16 rounded-full bg-primary/20 text-primary grid place-items-center mb-5">
               <Check size={32} />
             </div>
-            <h2 className="font-belleza text-3xl text-umber">Akwaaba we have your booking.</h2>
+            <h2 className="font-belleza text-3xl text-umber">{t('book.doneHeading')}</h2>
             <p className="mt-3 text-umber/70">
-              Confirmation: <span className="font-poppins text-primary">{confirmation.id}</span>
+              {t('book.confirmationLabel')} <span className="font-poppins text-primary">{confirmation.id}</span>
             </p>
-            <p className="mt-2 text-sm text-umber/70 max-w-md mx-auto">
-              A confirmation has been sent to your email. Our concierge will be in touch within a day with
-              arrival details and a welcome ritual.
-            </p>
+            <p className="mt-2 text-sm text-umber/70 max-w-md mx-auto">{t('book.doneBody')}</p>
             <div className="mt-8 flex flex-wrap gap-3 justify-center">
-              <Button href="/">Return Home</Button>
-              <Button href={site.socials.whatsapp} variant="gold-outline" target="_blank" rel="noreferrer">
-                WhatsApp Us
+              <Button href="/">{t('book.returnHome')}</Button>
+              <Button
+                href={`${site.socials.whatsapp}?text=${encodeURIComponent(site.contact.whatsappMessage)}`}
+                variant="gold-outline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t('book.whatsappUs')}
               </Button>
             </div>
           </motion.div>

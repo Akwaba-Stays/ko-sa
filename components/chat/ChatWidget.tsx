@@ -59,11 +59,11 @@ export function ChatWidget() {
 
   async function send(text: string) {
     if (!text.trim() || loading) return;
-    // Ensure sessionId is valid (≥4 chars) before sending — getSessionId() runs
+    // Ensure sessionId is valid (≥4 chars) before sending getSessionId() runs
     // in a useEffect after mount, so it can briefly be '' if the user is fast.
     const sid = sessionId || getSessionId();
     if (!sid || sid.length < 4) {
-      console.warn('[chat] no sessionId — aborting send');
+      console.warn('[chat] no sessionId aborting send');
       return;
     }
 
@@ -108,8 +108,7 @@ export function ChatWidget() {
           const copy = [...m];
           copy[copy.length - 1] = {
             role: 'assistant',
-            content:
-              "Akwaaba I'm here, but my concierge brain returned a moment of silence. Try again, or WhatsApp +233 24 437 5432.",
+            content: t('chat.errorEmpty'),
           };
           return copy;
         });
@@ -122,9 +121,7 @@ export function ChatWidget() {
         const isAbort = reason.includes('chat-timeout') || (e as DOMException)?.name === 'AbortError';
         copy[copy.length - 1] = {
           role: 'assistant',
-          content: isAbort
-            ? 'That took longer than expected — please try again, or WhatsApp +233 24 437 5432.'
-            : "I'm having trouble reaching the resort knowledge right now. Please WhatsApp us at +233 24 437 5432 — we'll respond shortly.",
+          content: isAbort ? t('chat.errorTimeout') : t('chat.errorGeneric'),
         };
         return copy;
       });
@@ -166,7 +163,7 @@ export function ChatWidget() {
             transition={{ duration: 0.25 }}
             className="fixed inset-0 md:inset-auto md:bottom-6 md:right-6 z-50 md:w-[420px] md:h-[640px] bg-cream md:rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-umber/10"
             role="dialog"
-            aria-label="Resort chat"
+            aria-label={t('a11y.resortChat')}
           >
             <header className="flex items-center justify-between bg-umber text-cream px-5 py-4">
               <div className="flex items-center gap-3">

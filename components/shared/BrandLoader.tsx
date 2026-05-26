@@ -8,13 +8,16 @@ interface BrandLoaderProps {
   /** Show a label beneath the logo */
   label?: string;
   className?: string;
-  /** When true, breathing pulse animation is disabled (e.g. for static placeholders). */
+  /** When true, the breathing/ripple animation is disabled (static placeholder). */
   static?: boolean;
 }
 
 /**
- * Branded loading indicator using the KO-SA logo. Soft golden pulse on a
- * transparent background so it composes cleanly over any surface.
+ * Branded loading indicator — the KO-SA logo with a calming "tide" animation:
+ * the mark breathes slowly while soft concentric rings ripple outward like
+ * water settling, in brand teal. Mirrors the wave motif of the brand guide.
+ *
+ * Used by route-level loading screens and the virtual-tour viewer.
  */
 export function BrandLoader({
   size = 64,
@@ -22,38 +25,68 @@ export function BrandLoader({
   className = '',
   static: isStatic = false,
 }: BrandLoaderProps) {
-  const pulse = isStatic
-    ? {}
-    : {
-        animate: { scale: [1, 1.08, 1], opacity: [0.85, 1, 0.85] },
-        transition: { duration: 2.2, repeat: Infinity, ease: 'easeInOut' as const },
-      };
+  // Outer ring frame is ~2.4× the logo so ripples have room to expand.
+  const frame = Math.round(size * 2.4);
 
   return (
-    <div className={`flex flex-col items-center gap-3 ${className}`}>
-      <motion.div
-        {...pulse}
-        className="relative grid place-items-center"
-        style={{ width: size, height: size }}
-      >
-        {/* Soft halo */}
+    <div className={`flex flex-col items-center gap-4 ${className}`}>
+      <div className="relative grid place-items-center" style={{ width: frame, height: frame }}>
+        {/* Calming tide ripples — three rings expanding + fading in sequence */}
+        {!isStatic &&
+          [0, 1, 2].map((i) => (
+            <motion.span
+              key={i}
+              aria-hidden
+              className="absolute rounded-full border border-teal/30"
+              style={{ width: size, height: size }}
+              initial={{ scale: 0.6, opacity: 0 }}
+              animate={{ scale: [0.6, 2.2], opacity: [0, 0.5, 0] }}
+              transition={{
+                duration: 3.6,
+                repeat: Infinity,
+                ease: 'easeOut',
+                delay: i * 1.2,
+              }}
+            />
+          ))}
+
+        {/* Soft halo behind the mark */}
         <span
           aria-hidden
-          className="absolute inset-0 rounded-full bg-primary/20 blur-xl"
+          className="absolute rounded-full bg-teal/15 blur-2xl"
+          style={{ width: size, height: size }}
         />
-        <Image
-          src="/logo.png"
-          alt="KO-SA"
-          width={size}
-          height={size}
-          priority
-          className="relative object-contain drop-shadow-sm"
-        />
-      </motion.div>
+
+        {/* The logo, breathing gently */}
+        <motion.div
+          className="relative grid place-items-center"
+          style={{ width: size, height: size }}
+          animate={isStatic ? undefined : { scale: [1, 1.06, 1], opacity: [0.9, 1, 0.9] }}
+          transition={
+            isStatic
+              ? undefined
+              : { duration: 2.8, repeat: Infinity, ease: 'easeInOut' }
+          }
+        >
+          <Image
+            src="/logo.png"
+            alt="KO-SA"
+            width={size}
+            height={size}
+            priority
+            className="relative object-contain drop-shadow-sm"
+          />
+        </motion.div>
+      </div>
+
       {label && (
-        <span className="font-poppins uppercase tracking-tracked text-[10px] text-umber/70">
+        <motion.span
+          className="font-opensans uppercase tracking-tracked text-[10px] text-forest/70"
+          animate={isStatic ? undefined : { opacity: [0.5, 1, 0.5] }}
+          transition={isStatic ? undefined : { duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+        >
           {label}
-        </span>
+        </motion.span>
       )}
     </div>
   );

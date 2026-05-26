@@ -1,4 +1,17 @@
 // Prisma schema — KO-SA Beach Resort
+//
+// Two domains live side-by-side:
+//   1. Operational: AdminUser, NewsletterSubscriber, ContactEnquiry, Booking,
+//      CloudbedsToken, ChatSession, ChatMessage. These existed before the CMS
+//      and are unchanged.
+//   2. CMS: Room, Treatment, Experience, DiningVenue, MenuSection, MenuItem,
+//      GalleryItem, JournalPost, VirtualTourScene, Testimonial, SiteSetting,
+//      MediaAsset. These power the admin dashboard and the public site.
+//
+// Localisation convention (see ADMIN_CMS_PROGRESS.md): primary fields hold the
+// English copy; a `translations` `Json` column overlays other locales as
+// `{ "<locale>": { "<field>": "<value>" } }`. Missing keys fall back to EN.
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,15 +22,20 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-// -------- Auth / Admin --------
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  AUTH / ADMIN                                                          ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
 model AdminUser {
-  id        String   @id @default(cuid())
-  email     String   @unique
+  id        String    @id @default(cuid())
+  email     String    @unique
   name      String?
   password  String
   role      AdminRole @default(EDITOR)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  active    Boolean   @default(true)
+  lastSeen  DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 enum AdminRole {
@@ -26,7 +44,10 @@ enum AdminRole {
   SUPPORT
 }
 
-// -------- Newsletter --------
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  MARKETING / TRANSACTIONAL                                             ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
 model NewsletterSubscriber {
   id        String   @id @default(cuid())
   email     String   @unique
@@ -35,7 +56,6 @@ model NewsletterSubscriber {
   createdAt DateTime @default(now())
 }
 
-// -------- Contact enquiries --------
 model ContactEnquiry {
   id        String   @id @default(cuid())
   name      String
@@ -47,29 +67,32 @@ model ContactEnquiry {
   createdAt DateTime @default(now())
 }
 
-// -------- Bookings (local cache of Cloudbeds reservations) --------
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  BOOKINGS (Cloudbeds cache)                                            ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
 model Booking {
-  id                 String   @id @default(cuid())
-  cloudbedsReservationId String? @unique
-  confirmationNumber String?  @unique
-  guestName          String
-  guestEmail         String
-  guestPhone         String?
-  checkIn            DateTime
-  checkOut           DateTime
-  adults             Int      @default(2)
-  children           Int      @default(0)
-  roomTypeId         String?
-  roomTypeName       String?
-  ratePlanId         String?
-  totalCost          Decimal? @db.Decimal(10, 2)
-  currency           String   @default("GHS")
-  status             BookingStatus @default(PENDING)
-  paymentProvider    String?
-  paymentRef         String?
-  notes              String?  @db.Text
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  id                     String        @id @default(cuid())
+  cloudbedsReservationId String?       @unique
+  confirmationNumber     String?       @unique
+  guestName              String
+  guestEmail             String
+  guestPhone             String?
+  checkIn                DateTime
+  checkOut               DateTime
+  adults                 Int           @default(2)
+  children               Int           @default(0)
+  roomTypeId             String?
+  roomTypeName           String?
+  ratePlanId             String?
+  totalCost              Decimal?      @db.Decimal(10, 2)
+  currency               String        @default("GHS")
+  status                 BookingStatus @default(PENDING)
+  paymentProvider        String?
+  paymentRef             String?
+  notes                  String?       @db.Text
+  createdAt              DateTime      @default(now())
+  updatedAt              DateTime      @updatedAt
 
   @@index([guestEmail])
   @@index([checkIn, checkOut])
@@ -82,7 +105,6 @@ enum BookingStatus {
   COMPLETED
 }
 
-// -------- Cloudbeds OAuth tokens --------
 model CloudbedsToken {
   id           String   @id @default(cuid())
   accessToken  String   @db.Text
@@ -93,7 +115,10 @@ model CloudbedsToken {
   updatedAt    DateTime @updatedAt
 }
 
-// -------- AI Chat --------
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  AI CHAT                                                               ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
 model ChatSession {
   id            String        @id @default(cuid())
   sessionId     String        @unique
@@ -143,4 +168,259 @@ enum MessageRole {
   USER
   ASSISTANT
   ADMIN
+}
+
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  CMS · CONTENT MODELS                                                  ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum RoomCategory {
+  SUITE
+  PALM_SIDE
+  BEACH_VIEW
+  BUNGALOW
+  VILLA
+}
+
+// ─── Rooms ────────────────────────────────────────────────────────────────
+
+model Room {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  name         String
+  tagline      String?
+  category     RoomCategory
+  description  String?       @db.Text
+  price        Decimal       @db.Decimal(10, 2)
+  currency     String        @default("USD")
+  maxGuests    Int           @default(2)
+  bedConfig    String?
+  sizeSqm      Int?
+  image        String?
+  gallery      String[]
+  amenities    String[]
+  features     String[]
+  // Cloudbeds linkage (optional — overrides price/availability when set)
+  cloudbedsRoomTypeId String?
+  status       PublishStatus @default(PUBLISHED)
+  sortOrder    Int           @default(0)
+  translations Json?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+// ─── Wellness treatments ──────────────────────────────────────────────────
+
+model Treatment {
+  id            String        @id @default(cuid())
+  slug          String        @unique
+  name          String
+  description   String?       @db.Text
+  durationMin   Int           @default(60)
+  price         Decimal       @db.Decimal(10, 2)
+  currency      String        @default("USD")
+  image         String?
+  category      String?       // "Spa", "Yoga", "Sound", "Group"
+  status        PublishStatus @default(PUBLISHED)
+  sortOrder     Int           @default(0)
+  translations  Json?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+// ─── Experiences ──────────────────────────────────────────────────────────
+
+model Experience {
+  id            String        @id @default(cuid())
+  slug          String        @unique
+  label         String
+  title         String
+  description   String        @db.Text
+  longBody      String?       @db.Text
+  image         String?
+  gallery       String[]
+  adinkra       String?       // adinkra icon name
+  duration      String?
+  status        PublishStatus @default(PUBLISHED)
+  sortOrder     Int           @default(0)
+  translations  Json?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+// ─── Dining ───────────────────────────────────────────────────────────────
+
+model DiningVenue {
+  id           String         @id @default(cuid())
+  slug         String         @unique
+  name         String
+  tagline      String?
+  description  String?        @db.Text
+  hours        String?
+  image        String?
+  gallery      String[]
+  sections     MenuSection[]
+  status       PublishStatus  @default(PUBLISHED)
+  sortOrder    Int            @default(0)
+  translations Json?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+model MenuSection {
+  id           String      @id @default(cuid())
+  venueId      String
+  venue        DiningVenue @relation(fields: [venueId], references: [id], onDelete: Cascade)
+  name         String
+  description  String?     @db.Text
+  sortOrder    Int         @default(0)
+  items        MenuItem[]
+  translations Json?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  @@index([venueId, sortOrder])
+}
+
+model MenuItem {
+  id           String      @id @default(cuid())
+  sectionId    String
+  section      MenuSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  name         String
+  description  String?     @db.Text
+  price        Decimal?    @db.Decimal(10, 2)
+  currency     String      @default("USD")
+  dietary      String[]    // "VG", "GF", "DF", etc.
+  isFeatured   Boolean     @default(false)
+  sortOrder    Int         @default(0)
+  translations Json?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  @@index([sectionId, sortOrder])
+}
+
+// ─── Gallery ──────────────────────────────────────────────────────────────
+
+model GalleryItem {
+  id           String        @id @default(cuid())
+  imageUrl     String
+  caption      String?
+  alt          String?
+  category     String?       // free-form ("rooms","beach","food","wellness")
+  width        Int?
+  height       Int?
+  status       PublishStatus @default(PUBLISHED)
+  sortOrder    Int           @default(0)
+  translations Json?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+  @@index([category])
+}
+
+// ─── Journal / Blog ───────────────────────────────────────────────────────
+
+model JournalPost {
+  id           String        @id @default(cuid())
+  slug         String        @unique
+  title        String
+  excerpt      String?       @db.Text
+  body         String        @db.Text       // HTML
+  image        String?
+  author       String?
+  tags         String[]
+  status       PublishStatus @default(DRAFT)
+  publishedAt  DateTime?
+  seoTitle     String?
+  seoDescription String?     @db.Text
+  translations Json?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([status, publishedAt])
+}
+
+// ─── Virtual Tour ─────────────────────────────────────────────────────────
+
+model VirtualTourScene {
+  id           String        @id @default(cuid())
+  sceneId      String        @unique   // stable id for the URL
+  name         String
+  imageUrl     String
+  thumbnailUrl String?
+  description  String?       @db.Text
+  status       PublishStatus @default(PUBLISHED)
+  sortOrder    Int           @default(0)
+  translations Json?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+// ─── Testimonials ─────────────────────────────────────────────────────────
+
+model Testimonial {
+  id           String        @id @default(cuid())
+  guestName    String
+  country      String?
+  rating       Int           @default(5)
+  quote        String        @db.Text
+  avatarUrl    String?
+  source       String?       // "TripAdvisor", "Direct", etc.
+  status       PublishStatus @default(PUBLISHED)
+  sortOrder    Int           @default(0)
+  translations Json?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+// ─── Site Settings (key/value) ────────────────────────────────────────────
+//
+// One row per logical group (e.g. "hero", "footer", "contact", "integrations",
+// "seo"). `value` is JSON — opaque to Prisma; schema enforced in zod.
+
+model SiteSetting {
+  key       String   @id
+  value     Json
+  updatedBy String?
+  updatedAt DateTime @updatedAt
+}
+
+// ─── Media Library ────────────────────────────────────────────────────────
+
+model MediaAsset {
+  id          String   @id @default(cuid())
+  path        String   @unique  // storage path
+  url         String              // public URL
+  bucket      String   @default("kosa-public")
+  filename    String
+  mimeType    String
+  size        Int
+  width       Int?
+  height      Int?
+  alt         String?
+  folder      String?  // virtual folder for grouping
+  uploadedBy  String?
+  createdAt   DateTime @default(now())
+
+  @@index([folder])
+  @@index([createdAt])
 }

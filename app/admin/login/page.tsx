@@ -4,7 +4,7 @@ import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
-import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
+import Image from 'next/image';
 import { Button } from '@/components/shared/Button';
 
 export default function AdminLoginPage() {
@@ -37,8 +37,15 @@ export default function AdminLoginPage() {
     <main className="min-h-screen bg-bg-orange flex items-center justify-center px-6 py-20">
       <div className="w-full max-w-md">
         <div className="text-center">
-          <Link href="/" aria-label="Home">
-            <AdinkraIcon name="palm" size={56} className="text-primary mx-auto" />
+          <Link href="/" aria-label="Home" className="inline-block">
+            <Image
+              src="/logo.png"
+              alt="KO-SA Beach Resort"
+              width={120}
+              height={80}
+              priority
+              className="mx-auto h-16 w-auto object-contain"
+            />
           </Link>
           <p className="mt-6 font-poppins text-xs uppercase tracking-tracked text-brown">
             KO-SA · Staff

@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
-import { rooms, experiences } from '@/lib/content/home';
+import { prisma } from '@/lib/prisma';
+import { rooms as fallbackRooms, experiences as fallbackExperiences } from '@/lib/content/home';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const staticPaths = [
     '/',
@@ -18,12 +19,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/book',
   ];
 
+  // Pull live slugs from the CMS. Fall back to the editorial defaults when the
+  // DB is empty or unreachable so the sitemap never blanks.
+  const [roomRows, experienceRows, postRows] = await Promise.all([
+    prisma.room.findMany({ where: { status: 'PUBLISHED' }, select: { slug: true, updatedAt: true } }).catch(() => [] as { slug: string; updatedAt: Date }[]),
+    prisma.experience.findMany({ where: { status: 'PUBLISHED' }, select: { slug: true, updatedAt: true } }).catch(() => [] as { slug: string; updatedAt: Date }[]),
+    prisma.journalPost.findMany({
+      where: { status: 'PUBLISHED', publishedAt: { lte: new Date() } },
+      select: { slug: true, updatedAt: true },
+    }).catch(() => [] as { slug: string; updatedAt: Date }[]),
+  ]);
+
+  const roomSlugs = roomRows.length ? roomRows.map((r) => r.slug) : fallbackRooms.map((r) => r.slug);
+  const experienceSlugs = experienceRows.length
+    ? experienceRows.map((e) => e.slug)
+    : fallbackExperiences.map((e) => e.slug);
+
   const dynamicPaths = [
-    ...rooms.map((r) => `/rooms/${r.slug}`),
-    ...experiences.map((e) => `/experiences/${e.slug}`),
-    '/blog/things-to-do-in-elmina',
-    '/blog/ghana-beach-holiday-guide',
-    '/blog/rituals-of-the-shore',
+    ...roomSlugs.map((s) => `/rooms/${s}`),
+    ...experienceSlugs.map((s) => `/experiences/${s}`),
+    ...postRows.map((p) => `/blog/${p.slug}`),
   ];
 
   return [...staticPaths, ...dynamicPaths].map((path) => ({

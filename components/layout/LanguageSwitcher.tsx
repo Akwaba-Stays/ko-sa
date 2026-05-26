@@ -8,7 +8,7 @@ import { LOCALE_META, SUPPORTED_LOCALES, type Locale } from '@/lib/i18n/dictiona
 import { cn } from '@/lib/utils';
 
 interface Props {
-  /** Visual treatment — controls colors against the surrounding navbar surface */
+  /** Visual treatment controls colors against the surrounding navbar surface */
   tone?: 'cream' | 'umber';
   /** Compact pill (default) vs full-width inline button (for mobile menus) */
   variant?: 'pill' | 'block';

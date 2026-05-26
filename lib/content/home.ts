@@ -130,7 +130,7 @@ export const adinkraGuide: { name: AdinkraName; twi: string }[] = [
 // ───────────────────────────────────────────────────────────────────────────────
 
 export interface Testimonial {
-  /** stable index — used to look up `testimonials.<index>.country` / `.quote`. */
+  /** stable index used to look up `testimonials.<index>.country` / `.quote`. */
   index: number;
   name: string;
   rating: number;

@@ -4,19 +4,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
-import { rooms, CATEGORY_DICT_KEY, type Room } from '@/lib/content/home';
 import { formatCurrency } from '@/lib/utils';
 import { BRAND_LQIP } from '@/lib/image';
 import { useT } from '@/lib/i18n';
 import type { DictKey } from '@/lib/i18n/dictionaries';
+import type { PublicRoom } from '@/lib/cms/types';
+import { displayCategory } from '@/lib/cms/types';
 
-const filters = ['All', 'Beach View', 'Palm Side', 'Suite'] as const;
-const FILTER_DICT_KEY: Record<(typeof filters)[number], DictKey> = {
+type DisplayCategory = 'Suite' | 'Palm Side' | 'Beach View';
+const FILTER_DICT_KEY: Record<'All' | DisplayCategory, DictKey> = {
   All: 'rooms.filter.all',
   'Beach View': 'rooms.filter.beachView',
   'Palm Side': 'rooms.filter.palmSide',
   Suite: 'rooms.filter.suite',
 };
+const filters = ['All', 'Beach View', 'Palm Side', 'Suite'] as const;
 
 function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement | null>(null);
@@ -41,13 +43,15 @@ function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
   );
 }
 
-export function Rooms() {
+export function Rooms({ rooms = [] }: { rooms?: PublicRoom[] }) {
   const { t } = useT();
   const [active, setActive] = useState<(typeof filters)[number]>('All');
-  const filtered = useMemo<Room[]>(
-    () => (active === 'All' ? rooms : rooms.filter((r: Room) => r.category === active)),
-    [active],
-  );
+  const filtered = useMemo(() => {
+    if (active === 'All') return rooms;
+    return rooms.filter((r) => displayCategory(r.category) === active);
+  }, [active, rooms]);
+
+  const suiteCount = rooms.filter((r) => r.category === 'SUITE' || r.category === 'VILLA').length;
 
   return (
     <section className="relative bg-bg-orange">
@@ -66,8 +70,8 @@ export function Rooms() {
           <h2 className="mt-4 font-belleza text-display-lg">{t('rooms.headline')}</h2>
           <div className="mt-10 flex flex-wrap gap-x-10 gap-y-3 justify-center text-cream/90">
             {[
-              { n: 12, l: t('rooms.statRooms') },
-              { n: 4, l: t('rooms.statSuites') },
+              { n: rooms.length || 12, l: t('rooms.statRooms') },
+              { n: suiteCount || 4, l: t('rooms.statSuites') },
               { n: 1, l: t('rooms.statBeach') },
             ].map((s) => (
               <p key={s.l} className="font-belleza text-3xl md:text-4xl">
@@ -104,7 +108,7 @@ export function Rooms() {
         >
           {filtered.map((room, i) => (
             <motion.div
-              key={room.slug}
+              key={room.id}
               layout
               initial={{ opacity: 0, y: 30, rotateX: -8 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -118,24 +122,28 @@ export function Rooms() {
                 className="card-3d-inner group block bg-cream rounded-lg overflow-hidden shadow-sm transition-all duration-500"
               >
                 <div className="branded-img card-shine relative aspect-[3/4] overflow-hidden">
-                  <Image
-                    src={room.image}
-                    alt={t(`rooms.${room.slug}.name` as DictKey)}
-                    fill
-                    sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-                    className="card-3d-img object-cover"
-                    placeholder="blur"
-                    blurDataURL={BRAND_LQIP}
-                  />
+                  {room.image && (
+                    <Image
+                      src={room.image}
+                      alt={room.name}
+                      fill
+                      sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                      className="card-3d-img object-cover"
+                      placeholder="blur"
+                      blurDataURL={BRAND_LQIP}
+                    />
+                  )}
                 </div>
                 <div className="card-3d-float p-6 flex flex-col gap-2">
                   <span className="font-poppins uppercase tracking-tracked text-[10px] text-primary">
-                    {t(CATEGORY_DICT_KEY[room.category])}
+                    {displayCategory(room.category)}
                   </span>
                   <h3 className="font-belleza text-2xl text-umber group-hover:text-primary transition-colors">
-                    {t(`rooms.${room.slug}.name` as DictKey)}
+                    {room.name}
                   </h3>
-                  <p className="font-beth text-xl text-umber/70">{t(`rooms.${room.slug}.tagline` as DictKey)}</p>
+                  {room.tagline && (
+                    <p className="font-beth text-xl text-umber/70">{room.tagline}</p>
+                  )}
                   <div className="mt-3 flex items-end justify-between">
                     <span className="text-xs font-poppins uppercase tracking-tracked text-umber/60">
                       {t('rooms.priceFrom')} {formatCurrency(room.price, room.currency)} / {t('rooms.perNight')}

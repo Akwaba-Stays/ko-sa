@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { Loader2, ArrowRight, Check } from 'lucide-react';
+import { useT } from '@/lib/i18n';
 
 export function NewsletterForm() {
+  const { t } = useT();
   const [email, setEmail] = useState('');
   const [hp, setHp] = useState('');
   const [state, setState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -20,13 +22,13 @@ export function NewsletterForm() {
         body: JSON.stringify({ email, source: 'footer' }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Subscription failed');
+      if (!res.ok) throw new Error(data.error || t('newsletter.failed'));
       setState('success');
-      setMsg('Welcome ashore.');
+      setMsg(t('newsletter.success'));
       setEmail('');
     } catch (err) {
       setState('error');
-      setMsg(err instanceof Error ? err.message : 'Something went wrong');
+      setMsg(err instanceof Error ? err.message : t('newsletter.error'));
     }
   }
 
@@ -38,8 +40,8 @@ export function NewsletterForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@somewhere.com"
-          aria-label="Email address"
+          placeholder={t('newsletter.placeholder')}
+          aria-label={t('newsletter.ariaEmail')}
           className="w-full bg-transparent border border-cream/30 rounded-full pl-5 pr-12 py-3 text-sm placeholder:text-cream/40 focus:border-primary focus:outline-none"
         />
         <input
@@ -54,7 +56,7 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={state === 'loading'}
-          aria-label="Subscribe"
+          aria-label={t('newsletter.ariaSubscribe')}
           className="absolute right-1.5 top-1/2 -translate-y-1/2 grid place-items-center h-9 w-9 rounded-full bg-primary text-umber hover:bg-cream transition-colors"
         >
           {state === 'loading' ? (

@@ -4,16 +4,16 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { gallery } from '@/lib/content/home';
 import { Button } from '@/components/shared/Button';
 import { useT } from '@/lib/i18n';
+import type { PublicGalleryItem } from '@/lib/cms/types';
 
-export function Gallery() {
+export function Gallery({ items = [] }: { items?: PublicGalleryItem[] }) {
   const { t } = useT();
   const [open, setOpen] = useState<number | null>(null);
   const [count, setCount] = useState(9);
 
-  const visible = gallery.slice(0, count);
+  const visible = items.slice(0, count);
 
   return (
     <section className="relative py-24 md:py-36 bg-bg-orange">
@@ -30,30 +30,34 @@ export function Gallery() {
           </p>
         </div>
 
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
-          {visible.map((src, i) => (
-            <button
-              key={src}
-              onClick={() => setOpen(i)}
-              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-sm branded-img bg-sand-light"
-              aria-label={`Open image ${i + 1}`}
-            >
-              <Image
-                src={src}
-                alt={`KO-SA gallery image ${i + 1}`}
-                width={900}
-                height={1200}
-                sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <span className="absolute inset-0 bg-umber/0 group-hover:bg-umber/30 transition-colors" />
-            </button>
-          ))}
-        </div>
+        {visible.length === 0 ? (
+          <p className="text-center text-umber/60 text-sm">{t('gallery.empty')}</p>
+        ) : (
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
+            {visible.map((item, i) => (
+              <button
+                key={item.id}
+                onClick={() => setOpen(i)}
+                className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-sm branded-img bg-sand-light"
+                aria-label={item.caption ?? item.alt ?? `Open image ${i + 1}`}
+              >
+                <Image
+                  src={item.imageUrl}
+                  alt={item.alt ?? item.caption ?? `KO-SA gallery image ${i + 1}`}
+                  width={item.width ?? 900}
+                  height={item.height ?? 1200}
+                  sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <span className="absolute inset-0 bg-umber/0 group-hover:bg-umber/30 transition-colors" />
+              </button>
+            ))}
+          </div>
+        )}
 
-        {count < gallery.length && (
+        {count < items.length && (
           <div className="mt-12 text-center">
-            <Button onClick={() => setCount((c) => Math.min(c + 6, gallery.length))} variant="gold-outline">
+            <Button onClick={() => setCount((c) => Math.min(c + 6, items.length))} variant="gold-outline">
               {t('gallery.loadMore')}
             </Button>
           </div>
@@ -70,18 +74,18 @@ export function Gallery() {
             onClick={() => setOpen(null)}
           >
             <button
-              aria-label="Close"
+              aria-label={t('a11y.close')}
               className="absolute top-6 right-6 text-cream hover:text-primary"
               onClick={() => setOpen(null)}
             >
               <X size={28} />
             </button>
             <button
-              aria-label="Previous"
+              aria-label={t('a11y.previous')}
               className="absolute left-6 text-cream hover:text-primary"
               onClick={(e) => {
                 e.stopPropagation();
-                setOpen((i) => (i === null ? null : (i - 1 + gallery.length) % gallery.length));
+                setOpen((i) => (i === null ? null : (i - 1 + items.length) % items.length));
               }}
             >
               <ChevronLeft size={36} />
@@ -93,14 +97,20 @@ export function Gallery() {
               className="relative max-w-5xl w-full aspect-[4/3] branded-img"
               onClick={(e) => e.stopPropagation()}
             >
-              <Image src={gallery[open]} alt="" fill sizes="100vw" className="object-contain" />
+              <Image
+                src={items[open].imageUrl}
+                alt={items[open].alt ?? ''}
+                fill
+                sizes="100vw"
+                className="object-contain"
+              />
             </motion.div>
             <button
-              aria-label="Next"
+              aria-label={t('a11y.next')}
               className="absolute right-6 text-cream hover:text-primary"
               onClick={(e) => {
                 e.stopPropagation();
-                setOpen((i) => (i === null ? null : (i + 1) % gallery.length));
+                setOpen((i) => (i === null ? null : (i + 1) % items.length));
               }}
             >
               <ChevronRight size={36} />

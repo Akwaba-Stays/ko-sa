@@ -22,9 +22,8 @@ export function FloatingWhatsApp() {
 
   if (pathname?.startsWith('/admin')) return null;
 
-  const message = encodeURIComponent(
-    "Akwaaba I'd like to ask about KO-SA Beach Resort.",
-  );
+  // Pre-filled message per Website Content Brief §02.
+  const message = encodeURIComponent(site.contact.whatsappMessage);
   const href = `https://wa.me/${site.contact.whatsapp}?text=${message}`;
 
   return (

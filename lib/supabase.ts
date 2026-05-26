@@ -34,9 +34,40 @@ export function publicAssetUrl(path: string, bucket?: string): string | null {
   return `${url}/storage/v1/object/public/${b}/${clean}`;
 }
 
+// Cache buckets we've already ensured exist saves a roundtrip per upload.
+const ensuredBuckets = new Set<string>();
+
 /**
- * Server-side upload helper. Returns the public URL on success.
- * Bucket must exist and be public, or use Storage policies for fine-grained access.
+ * Idempotent bucket bootstrap. Creates the bucket as public if it doesn't yet
+ * exist. Subsequent calls are a no-op thanks to the in-process cache.
+ */
+export async function ensureBucket(bucket: string): Promise<{ ok: true } | { error: string }> {
+  if (ensuredBuckets.has(bucket)) return { ok: true };
+  const client = getSupabaseAdmin();
+  if (!client) return { error: 'Supabase admin not configured' };
+  const { data: existing, error: getErr } = await client.storage.getBucket(bucket);
+  if (existing) {
+    ensuredBuckets.add(bucket);
+    return { ok: true };
+  }
+  // getBucket returns a non-404 error only when something else is wrong.
+  if (getErr && !/not.found|does.not.exist/i.test(getErr.message)) {
+    // fall through and try creating anyway
+  }
+  const { error: createErr } = await client.storage.createBucket(bucket, {
+    public: true,
+    fileSizeLimit: 50 * 1024 * 1024,
+  });
+  if (createErr && !/already.exists/i.test(createErr.message)) {
+    return { error: createErr.message };
+  }
+  ensuredBuckets.add(bucket);
+  return { ok: true };
+}
+
+/**
+ * Server-side upload helper. Returns the public URL on success. Auto-creates
+ * the bucket as public if missing.
  */
 export async function uploadAsset(
   path: string,
@@ -47,6 +78,10 @@ export async function uploadAsset(
   const client = getSupabaseAdmin();
   if (!client) return { error: 'Supabase admin not configured' };
   const b = bucket || process.env.SUPABASE_STORAGE_BUCKET || 'kosa-public';
+
+  const ensured = await ensureBucket(b);
+  if ('error' in ensured) return { error: ensured.error };
+
   const { error } = await client.storage.from(b).upload(path, data, {
     contentType,
     upsert: true,

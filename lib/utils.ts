@@ -13,10 +13,16 @@ const customTwMerge = extendTailwindMerge({
       'text-color': [
         {
           text: [
-            'umber',
-            'cream',
-            'gold',
+            // New brand palette
+            'teal',
+            'forest',
+            'coral',
             'sand',
+            'cream',
+            'sunshine',
+            // Legacy aliases retained for compatibility
+            'umber',
+            'gold',
             'brown',
             'warm-grey',
             'bg-orange',

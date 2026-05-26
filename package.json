@@ -4,8 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:site": "APP_TARGET=site next dev",
+    "dev:admin": "APP_TARGET=admin next dev",
     "build": "prisma generate && next build",
+    "build:site": "APP_TARGET=site prisma generate && APP_TARGET=site next build",
+    "build:admin": "APP_TARGET=admin prisma generate && APP_TARGET=admin next build",
     "start": "next start",
+    "start:site": "APP_TARGET=site next start",
+    "start:admin": "APP_TARGET=admin next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "postinstall": "prisma generate",
@@ -13,6 +19,7 @@
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
     "sync:rooms": "tsx scripts/sync-cloudbeds-rooms.ts",
+    "db:seed-cms": "tsx scripts/seed-cms.ts",
     "sitemap": "next-sitemap"
   },
   "dependencies": {

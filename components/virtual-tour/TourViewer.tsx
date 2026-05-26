@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Loader2, Maximize2 } from 'lucide-react';
 import { BrandLoader } from '@/components/shared/BrandLoader';
+import { useT } from '@/lib/i18n';
 
 export interface Scene {
   sceneId: string;
@@ -27,6 +28,7 @@ function supportsWebGL() {
 }
 
 export function TourViewer({ scenes }: Props) {
+  const { t } = useT();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const viewerRef = useRef<unknown>(null);
   const [active, setActive] = useState(0);
@@ -45,14 +47,14 @@ export function TourViewer({ scenes }: Props) {
 
     // Safely destroy a Photo Sphere Viewer instance. PSV calls removeChild()
     // internally; in dev (StrictMode/HMR) React may already have detached the
-    // node, throwing NotFoundError. Swallow it — the GC will reclaim the rest.
+    // node, throwing NotFoundError. Swallow it the GC will reclaim the rest.
     const safeDestroy = (instance: unknown) => {
       const v = instance as { destroy?: () => void } | null;
       if (!v?.destroy) return;
       try {
         v.destroy();
       } catch {
-        /* node already removed by React — ignore */
+        /* node already removed by React ignore */
       }
     };
 
@@ -83,7 +85,7 @@ export function TourViewer({ scenes }: Props) {
         }) as typeof v;
       } catch (err) {
         // PSV constructor can throw NotFoundError in dev StrictMode if a stale
-        // DOM ref was held. Bail silently — the next render cycle will retry.
+        // DOM ref was held. Bail silently the next render cycle will retry.
         console.warn('[TourViewer] PSV init failed (likely StrictMode double-invoke):', err);
         return;
       }
@@ -103,7 +105,7 @@ export function TourViewer({ scenes }: Props) {
   if (!scenes.length) {
     return (
       <div className="aspect-[16/9] grid place-items-center bg-sand-light rounded-md text-umber/70">
-        Loading tour…
+        {t('tour.loadingTour')}
       </div>
     );
   }
@@ -115,9 +117,7 @@ export function TourViewer({ scenes }: Props) {
           <Image src={scenes[active].imageUrl} alt={scenes[active].sceneName} fill sizes="100vw" className="object-cover" />
         </div>
         <SceneStrip scenes={scenes} active={active} onSelect={setActive} />
-        <p className="text-center text-xs text-umber/60">
-          Your device doesn&apos;t support 360° viewing enjoy a still-image gallery instead.
-        </p>
+        <p className="text-center text-xs text-umber/60">{t('tour.noWebgl')}</p>
       </div>
     );
   }
@@ -135,13 +135,13 @@ export function TourViewer({ scenes }: Props) {
             <div className="flex flex-col items-center gap-4">
               <BrandLoader size={72} />
               <p className="font-poppins uppercase tracking-tracked text-xs flex items-center gap-2 text-cream">
-                <Loader2 size={14} className="animate-spin" /> Loading {scenes[active].sceneName}…
+                <Loader2 size={14} className="animate-spin" /> {t('tour.loading')} {scenes[active].sceneName}…
               </p>
             </div>
           </div>
         )}
         <button
-          aria-label="Fullscreen"
+          aria-label={t('tour.fullscreen')}
           onClick={() => {
             const el = containerRef.current?.querySelector('canvas')?.parentElement;
             el?.requestFullscreen?.();

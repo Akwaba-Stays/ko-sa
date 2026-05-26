@@ -2,11 +2,20 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/shared/Button';
-import { treatments } from '@/lib/content/home';
 import { useT } from '@/lib/i18n';
-import type { DictKey } from '@/lib/i18n/dictionaries';
+import { formatCurrency } from '@/lib/utils';
+import type { PublicTreatment } from '@/lib/cms/types';
 
-export function Wellness() {
+interface Props {
+  /**
+   * Treatments to render. Public pages should pass server-resolved data via
+   * `listPublicTreatments()`. If omitted the component renders nothing for
+   * the treatments list (heading still appears).
+   */
+  treatments?: PublicTreatment[];
+}
+
+export function Wellness({ treatments = [] }: Props) {
   const { t } = useT();
   return (
     <section className="relative py-24 md:py-36 bg-umber text-cream overflow-hidden">
@@ -60,24 +69,28 @@ export function Wellness() {
             {t('wellness.blurb')}
           </p>
 
-          <ul className="mt-10 divide-y divide-cream/15">
-            {treatments.map((tr) => (
-              <li
-                key={tr.slug}
-                className="flex items-center justify-between py-4 group cursor-default"
-              >
-                <div>
-                  <p className="font-belleza text-xl group-hover:text-primary transition-colors">
-                    {t(`treatments.${tr.slug}.name` as DictKey)}
-                  </p>
-                  <p className="text-xs font-poppins uppercase tracking-tracked text-cream/55">
-                    {tr.duration}
-                  </p>
-                </div>
-                <span className="text-primary font-poppins text-sm">${tr.price}</span>
-              </li>
-            ))}
-          </ul>
+          {treatments.length > 0 && (
+            <ul className="mt-10 divide-y divide-cream/15">
+              {treatments.map((tr) => (
+                <li
+                  key={tr.id}
+                  className="flex items-center justify-between py-4 group cursor-default"
+                >
+                  <div>
+                    <p className="font-belleza text-xl group-hover:text-primary transition-colors">
+                      {tr.name}
+                    </p>
+                    <p className="text-xs font-poppins uppercase tracking-tracked text-cream/55">
+                      {tr.durationMin} min
+                    </p>
+                  </div>
+                  <span className="text-primary font-poppins text-sm">
+                    {formatCurrency(tr.price, tr.currency)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="mt-10">
             <Button href="/wellness" variant="gold-outline" className="bg-transparent text-cream border-primary hover:bg-primary hover:text-umber">

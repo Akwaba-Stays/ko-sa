@@ -1,14 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Calendar, Users, ArrowRight, Shield, ShieldCheck, BadgeCheck } from 'lucide-react';
 import { Button } from '@/components/shared/Button';
 import { useT } from '@/lib/i18n';
+import { site } from '@/lib/site';
 
 export function BookingCTA() {
-  const router = useRouter();
   const { t } = useT();
   const today = new Date().toISOString().slice(0, 10);
   const tomorrow = new Date(Date.now() + 86400 * 2 * 1000).toISOString().slice(0, 10);
@@ -19,16 +18,12 @@ export function BookingCTA() {
   const [children, setChildren] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  async function onSubmit(e: React.FormEvent) {
+  function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    const params = new URLSearchParams({
-      checkIn,
-      checkOut,
-      adults: String(adults),
-      children: String(children),
-    });
-    router.push(`/book?${params.toString()}`);
+    // External Cloudbeds booking engine (opens in a new tab).
+    window.open(site.bookingUrl, '_blank', 'noopener,noreferrer');
+    setLoading(false);
   }
 
   return (

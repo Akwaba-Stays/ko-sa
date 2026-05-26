@@ -1,17 +1,27 @@
+// Site-level configuration. Keep aligned with KOSA Brand Guide + Website
+// Content Brief. The nav structure here drives Navbar, Footer and the
+// AdminShell's "View site" link.
+
 export const site = {
   name: 'KO-SA Beach Resort',
-  brand: 'Kosa Palms',
+  brand: 'Akwaaba Stays',
+  group: 'Akwaaba Stays Hospitality Group',
   domain: 'ko-sa.com',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://ko-sa.com',
   description:
-    'Eco-luxury beach resort in Elmina, Ghana. Where the Atlantic meets African coastal soul Simply, Belong.',
-  tagline: 'Simply, Belong.',
+    "Ghana's coastal retreat for the soul. KO-SA Beach Resort in Elmina rest, reconnect, come back to yourself.",
+  tagline: 'Rest. Reconnect. Come back to yourself.',
   taglines: ['Simply, Belong', 'Simply, Breathe', 'Simply, Beach'] as const,
   location: { lat: 5.0853, lng: -1.3496, city: 'Elmina', country: 'Ghana' },
+  // External Cloudbeds booking engine. Every "Book Now" / room-booking CTA
+  // points here for now (opens in a new tab). Swap this single value when the
+  // native booking flow goes live.
+  bookingUrl: 'https://us2.cloudbeds.com/en/reservation/65CAqa?currency=ghs',
   contact: {
     email: 'info@ko-sa.com',
     phone: '+233 24 437 5432',
     whatsapp: '233244375432',
+    whatsappMessage: "Hi Ko-Sa! I'd like to find out more about booking a stay.",
     address: 'Beach Road No.1, Ampenyi, Elmina, Ghana',
   },
   socials: {
@@ -20,16 +30,26 @@ export const site = {
     tripadvisor: 'https://www.tripadvisor.com/Hotel_Review-Ko-Sa-Beach-Resort',
     whatsapp: 'https://wa.me/233244375432',
   },
+  reviews: {
+    google: { score: 4.8, max: 5, url: 'https://maps.google.com/?cid=ko-sa-beach-resort' },
+    booking: { score: 9.1, max: 10, url: 'https://booking.com/hotel/gh/ko-sa-beach-resort' },
+    tripadvisor: { score: 4.7, max: 5, url: 'https://www.tripadvisor.com/Hotel_Review-Ko-Sa-Beach-Resort' },
+    totalGuests: 5000,
+  },
+  // Primary navigation per the Content Brief §02. `dictKey` is the i18n
+  // dictionary key used at render time.
   nav: [
-    { label: 'Stay', href: '/rooms', dictKey: 'nav.rooms' },
-    { label: 'Experiences', href: '/experiences', dictKey: 'nav.experiences' },
+    { label: 'Stay', href: '/rooms', dictKey: 'nav.stay' },
     { label: 'Wellness', href: '/wellness', dictKey: 'nav.wellness' },
-    { label: 'Dining', href: '/dining', dictKey: 'nav.dining' },
-    { label: 'Virtual Tour', href: '/virtual-tour', dictKey: 'nav.virtualTour' },
-    { label: 'Gallery', href: '/gallery', dictKey: 'nav.gallery' },
-    { label: 'Journal', href: '/blog', dictKey: 'nav.blog' },
-    { label: 'About', href: '/about', dictKey: 'nav.about' },
-    { label: 'Contact', href: '/contact', dictKey: 'nav.contact' },
+    { label: 'Dine', href: '/dining', dictKey: 'nav.dine' },
+    { label: 'Explore', href: '/experiences', dictKey: 'nav.explore' },
+    { label: 'Plan Your Visit', href: '/plan', dictKey: 'nav.plan' },
+    { label: 'Our Story', href: '/about', dictKey: 'nav.about' },
+  ] as const,
+  // Explore dropdown (sub-nav)
+  exploreSubNav: [
+    { label: 'Experiences & Activities', href: '/experiences', dictKey: 'nav.experiences' },
+    { label: 'Events & Gatherings', href: '/events', dictKey: 'nav.events' },
   ] as const,
 } as const;
 

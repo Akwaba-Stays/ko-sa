@@ -4,18 +4,20 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
-import { testimonials } from '@/lib/content/home';
 import { useT } from '@/lib/i18n';
-import type { DictKey } from '@/lib/i18n/dictionaries';
+import type { PublicTestimonial } from '@/lib/cms/types';
 
-export function Testimonials() {
+export function Testimonials({ testimonials = [] }: { testimonials?: PublicTestimonial[] }) {
   const { t: T } = useT();
   const [i, setI] = useState(0);
+
   useEffect(() => {
+    if (testimonials.length < 2) return;
     const timer = setInterval(() => setI((x) => (x + 1) % testimonials.length), 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [testimonials.length]);
 
+  if (testimonials.length === 0) return null;
   const current = testimonials[i];
 
   return (
@@ -37,35 +39,38 @@ export function Testimonials() {
         <div className="relative mt-12 min-h-[280px] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
-              key={current.name}
+              key={current.id}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.6 }}
               className="flex flex-col items-center"
             >
-              <div className="branded-img relative h-20 w-20 rounded-full overflow-hidden border-2 border-primary">
-                <Image src={current.avatar} alt={current.name} fill sizes="80px" className="object-cover" />
-              </div>
+              {current.avatarUrl && (
+                <div className="branded-img relative h-20 w-20 rounded-full overflow-hidden border-2 border-primary">
+                  <Image src={current.avatarUrl} alt={current.guestName} fill sizes="80px" className="object-cover" />
+                </div>
+              )}
               <div className="mt-4 flex items-center gap-1 text-primary">
                 {Array.from({ length: current.rating }).map((_, idx) => (
                   <Star key={idx} size={16} fill="currentColor" stroke="none" />
                 ))}
               </div>
               <p className="mt-6 font-belleza italic text-2xl md:text-3xl text-umber leading-snug">
-                &ldquo;{T(`testimonials.${current.index}.quote` as DictKey)}&rdquo;
+                &ldquo;{current.quote}&rdquo;
               </p>
               <p className="mt-6 font-poppins uppercase tracking-tracked text-xs text-umber/70">
-                {current.name} · {T(`testimonials.${current.index}.country` as DictKey)}
+                {current.guestName}
+                {current.country ? ` · ${current.country}` : ''}
               </p>
             </motion.div>
           </AnimatePresence>
         </div>
 
         <div className="mt-10 flex justify-center gap-2">
-          {testimonials.map((_, idx) => (
+          {testimonials.map((t, idx) => (
             <button
-              key={idx}
+              key={t.id}
               onClick={() => setI(idx)}
               aria-label={`Show testimonial ${idx + 1}`}
               className={`h-1.5 rounded-full transition-all ${

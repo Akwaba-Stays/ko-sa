@@ -60,7 +60,8 @@ html.lenis body {
 body {
   background: linear-gradient(135deg, #fdfcf9, #f9f8f4, #f5f3ed);
   color: var(--foreground);
-  font-family: var(--font-raleway), system-ui, sans-serif;
+  /* Open Sans is the brand body font (KOSA Brand Guide §4). */
+  font-family: var(--font-open-sans), system-ui, sans-serif;
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
 
@@ -80,7 +81,7 @@ body {
 
 /* Editorial eyebrow utility — used wherever a section opens with a Holistika-style label */
 .eyebrow {
-  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-family: var(--font-raleway), system-ui, sans-serif;
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.18em;
