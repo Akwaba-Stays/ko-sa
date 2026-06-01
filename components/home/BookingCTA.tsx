@@ -33,7 +33,7 @@ export function BookingCTA() {
         className="absolute inset-0 opacity-20 bg-cover bg-center branded-img"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&q=80&w=2000')",
+            "url('https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/12-772A2007.webp')",
         }}
       />
       <div className="container-page relative">

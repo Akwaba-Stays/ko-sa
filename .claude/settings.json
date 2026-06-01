@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /tmp/d.html -w '%{http_code}' --max-time 20 http://localhost:3310/rooms/garden-chalet)",
+      "Bash(echo \"detail: $\\(curl -s -o /tmp/d.html -w '%{http_code}' --max-time 20 http://localhost:3310/rooms/garden-chalet\\) bytes=$\\(wc -c </tmp/d.html\\)\")",
+      "Bash(curl -s -o /tmp/home.html -w '%{http_code}' --max-time 20 http://localhost:3310/)",
+      "Bash(echo \"home:   $\\(curl -s -o /tmp/home.html -w '%{http_code}' --max-time 20 http://localhost:3310/\\) bytes=$\\(wc -c </tmp/home.html\\)\")",
+      "Bash(curl -s -o /tmp/g.html -w '%{http_code}' --max-time 20 http://localhost:3310/gallery)",
+      "Bash(PORT=3000 npm start)",
+      "Bash(curl -s -o /tmp/zzz.html -w '%{http_code}' --max-time 15 http://localhost:3000/rooms/zzz-does-not-exist-123)",
+      "Bash(echo \"random nonexistent slug: $\\(curl -s -o /tmp/zzz.html -w '%{http_code}' --max-time 15 http://localhost:3000/rooms/zzz-does-not-exist-123\\)\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' --max-time 15 http://localhost:3000/rooms/garden-chalet)",
+      "Bash(echo \"garden-chalet: $\\(curl -s -o /dev/null -w '%{http_code}' --max-time 15 http://localhost:3000/rooms/garden-chalet\\)\")",
+      "Bash(sips -Z 1100 /tmp/rooms-local-montage.jpg --out /tmp/rooms-local-montage-sm.jpg)",
+      "Bash(sips -Z 1000 /tmp/others-montage.jpg --out /tmp/others-sm.jpg)",
+      "Bash(echo \"TSC: $?\")",
+      "Bash(echo \"BUILD: $?\")",
+      "Bash(curl -s --max-time 20 \"http://localhost:3000/rooms\" -o /tmp/r.html)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/rooms)",
+      "Bash(echo \"bytes=$\\(wc -c </tmp/r.html\\) http=$\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/rooms\\)\")",
+      "Bash(python3 /tmp/depunct.py lib/i18n/dictionaries.ts)",
+      "Bash(pkill -9 -f \"next\")",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs kill -9)"
+    ]
+  }
+}

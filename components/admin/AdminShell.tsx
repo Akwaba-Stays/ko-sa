@@ -102,7 +102,7 @@ export function AdminShell({
         </div>
       </header>
 
-      {/* Desktop sidebar — fixed, full height */}
+      {/* Desktop sidebar fixed, full height */}
       <aside
         className={cn(
           'hidden md:flex md:flex-col',
@@ -134,7 +134,7 @@ export function AdminShell({
         </div>
       )}
 
-      {/* Main content — offset by the fixed sidebar width on desktop */}
+      {/* Main content offset by the fixed sidebar width on desktop */}
       <main className="md:pl-64 min-h-screen">{children}</main>
     </div>
   );
@@ -150,7 +150,7 @@ function SidebarContent({
   const pathname = usePathname();
   return (
     <>
-      {/* Brand row (desktop only — mobile drawer has its own header) */}
+      {/* Brand row (desktop only mobile drawer has its own header) */}
       <div className="hidden md:flex h-16 items-center px-6 border-b border-warm-grey/30 shrink-0">
         <Link href="/admin" className="font-belleza text-xl text-umber hover:text-primary">
           KO-SA · Admin

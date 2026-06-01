@@ -355,3 +355,54 @@ body {
     padding-right: 3rem;
   }
 }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Calm image loading — shimmer + blur-up (used by <SmoothImage>)
+   A slow, low-contrast sweep over warm sand/cream tones. Nothing flashes;
+   it breathes. Paired with a fade-in so images settle in gently.
+─────────────────────────────────────────────────────────────────────────── */
+@keyframes kosa-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.kosa-shimmer {
+  background-color: #e7e1d4;
+  background-image: linear-gradient(
+    100deg,
+    rgba(231, 225, 212, 0) 20%,
+    rgba(244, 241, 234, 0.9) 40%,
+    rgba(223, 216, 201, 0.6) 60%,
+    rgba(231, 225, 212, 0) 80%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: kosa-shimmer 2.6s ease-in-out infinite;
+}
+
+/* Soft branded gradient shown if an image ever fails to load — never a broken
+   icon, just a calm wash of cream → teal. */
+.kosa-img-fallback {
+  background: linear-gradient(160deg, #f0ede5 0%, #cdc9c1 45%, #2c606e 100%);
+}
+
+.kosa-fade-in {
+  opacity: 0;
+  transition: opacity 0.7s ease-out;
+}
+.kosa-fade-in[data-loaded='true'] {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kosa-shimmer {
+    animation: none;
+  }
+  .kosa-fade-in {
+    transition: none;
+  }
+}

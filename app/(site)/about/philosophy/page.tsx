@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import Link from 'next/link';
 import { Section, Eyebrow, Heading, Lede, GoldDivider } from '@/components/shared/Section';
 import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
@@ -9,11 +9,11 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'The Five Layers of Self KO-SA Philosophy',
   description:
-    'KO-SA Beach Resort is built on a quiet framework: the five layers of self. Body, breath, mind, knowing, joy the Akan-rooted lens we use to design every stay.',
+    'KO-SA Beach Resort is built on a quiet framework: the five layers of self. Body, breath, mind, knowing, joy the Akan-rooted lens we use to design every stay',
   alternates: { canonical: '/about/philosophy' },
   openGraph: {
     title: 'The Five Layers of Self KO-SA',
-    description: 'A quiet framework rooted in Akan thought, woven into every part of the resort.',
+    description: 'A quiet framework rooted in Akan thought, woven into every part of the resort',
     type: 'article',
   },
 };
@@ -26,7 +26,7 @@ const layers = [
     glyph: 'denkyem',
     pillar: 'Breathe',
     body:
-      'Soft linen on raffia beds. Salt-water plunges before breakfast. Massage with shea butter the kitchen also cooks with. We treat the body as the first room you stay in the one before the suite.',
+      'Soft linen on raffia beds. Salt-water plunges before breakfast. Massage with shea butter the kitchen also cooks with. We treat the body as the first room you stay in the one before the suite',
   },
   {
     n: '02',
@@ -35,7 +35,7 @@ const layers = [
     glyph: 'denkyem',
     pillar: 'Breathe',
     body:
-      'Sunrise yoga on the dune. Sound bowls at dusk. The rhythm of the surf at thirty-eight breaths per minute slower than yours when you arrive, the same as yours when you leave. Breath is the pace we keep.',
+      'Sunrise yoga on the dune. Sound bowls at dusk. The rhythm of the surf at thirty-eight breaths per minute slower than yours when you arrive, the same as yours when you leave. Breath is the pace we keep',
   },
   {
     n: '03',
@@ -44,7 +44,7 @@ const layers = [
     glyph: 'asetena',
     pillar: 'Live',
     body:
-      'Books in the library curated by Ghanaian writers. No televisions in the rooms. A chess set on the verandah. The mind is given less to chew on, so it can taste again the Atlantic, the palm wine, the conversation across the table.',
+      'Books in the library curated by Ghanaian writers. No televisions in the rooms. A chess set on the verandah. The mind is given less to chew on, so it can taste again the Atlantic, the palm wine, the conversation across the table',
   },
   {
     n: '04',
@@ -53,7 +53,7 @@ const layers = [
     glyph: 'knonsonkonson',
     pillar: 'Belong',
     body:
-      'The quiet sense of place that arrives on the second morning. The fishermen wave by name. The cook knows you take ginger in your tea. Knowing is what unhurried hospitality grows on its own we just leave it space.',
+      'The quiet sense of place that arrives on the second morning. The fishermen wave by name. The cook knows you take ginger in your tea. Knowing is what unhurried hospitality grows on its own we just leave it space',
   },
   {
     n: '05',
@@ -62,7 +62,7 @@ const layers = [
     glyph: 'community',
     pillar: 'Together',
     body:
-      'Drumming circles where guests join the rhythm without asking permission. The kitchen feast on Friday. Children of the village teaching guests to climb a coconut palm. Joy is communal here. It is not entertainment it is the by-product of belonging.',
+      'Drumming circles where guests join the rhythm without asking permission. The kitchen feast on Friday. Children of the village teaching guests to climb a coconut palm. Joy is communal here. It is not entertainment it is the by-product of belonging',
   },
 ];
 
@@ -73,7 +73,7 @@ export default function PhilosophyPage() {
       <section className="relative h-[80vh] min-h-[560px] w-full overflow-hidden text-cream">
         <div className="absolute inset-0 branded-img">
           <Image
-            src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&q=80&w=2200"
+            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
             alt="A guest pausing on a sun-warmed verandah at KO-SA, palm shadows on the cane chair"
             fill
             priority
@@ -136,15 +136,15 @@ export default function PhilosophyPage() {
                 <div className="lg:col-span-5 relative">
                   <div className="branded-img relative aspect-[4/5] w-full overflow-hidden rounded-lg">
                     <Image
-                      src={`https://images.unsplash.com/photo-${
+                      src={
                         [
-                          '1540555700478-4be289fbecef', // body beach/spa
-                          '1545389336-cf090694435e', // breath yoga
-                          '1481627834876-b7833e8f5570', // mind books verandah
-                          '1554190259-32a1cb6f31bd', // knowing village/path
-                          '1530103862676-de8c9debad1d', // joy drumming/circle
+                          'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/wellness/2-772A2097.webp', // body
+                          'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/wellness/3-772A2129.webp', // breath
+                          'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/10-772A4925.webp', // mind
+                          'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/11-772A4926.webp', // knowing
+                          'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/12-772A4928.webp', // joy
                         ][i]
-                      }?auto=format&fit=crop&q=80&w=1400`}
+                      }
                       alt={`A scene from KO-SA evoking ${layer.en.toLowerCase()}`}
                       fill
                       sizes="(min-width: 1024px) 40vw, 100vw"

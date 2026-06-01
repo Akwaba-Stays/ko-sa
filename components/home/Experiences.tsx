@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';

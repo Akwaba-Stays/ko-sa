@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Instagram, Facebook, MessageCircle, Star } from 'lucide-react';
-import { site } from '@/lib/site';
+import { site, allNavLinks } from '@/lib/site';
 import { Logo } from './Logo';
 import { NewsletterForm } from '@/components/shared/NewsletterForm';
 import { useT } from '@/lib/i18n';
@@ -14,13 +14,14 @@ export function Footer() {
   const { t } = useT();
   if (pathname?.startsWith('/admin')) return null;
 
-  const quickLinks = [
-    ...site.nav,
-    ...site.exploreSubNav,
-    { href: '/gallery', dictKey: 'nav.gallery' as const },
-    { href: '/blog', dictKey: 'nav.blog' as const },
-    { href: '/contact', dictKey: 'nav.contact' as const },
-  ];
+  // Quick Links = every reachable nav destination (top-level + children),
+  // de-duplicated by href, in source order.
+  const seen = new Set<string>();
+  const quickLinks = allNavLinks.filter((l) => {
+    if (seen.has(l.href)) return false;
+    seen.add(l.href);
+    return true;
+  });
 
   return (
     <footer className="relative bg-forest-900 text-cream pt-20 pb-10">

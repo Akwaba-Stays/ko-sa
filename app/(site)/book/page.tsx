@@ -6,7 +6,7 @@ import { getT } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Book Your Stay',
-  description: 'Reserve your stay at KO-SA Beach Resort secure booking, best-rate guarantee, instant confirmation.',
+  description: 'Reserve your stay at KO-SA Beach Resort secure booking, best-rate guarantee, instant confirmation',
 };
 
 export const dynamic = 'force-dynamic';
@@ -23,7 +23,7 @@ export default function BookPage({ searchParams }: Props) {
         eyebrow={t('bookPage.eyebrow')}
         title={t('bookPage.title')}
         subtitle={t('bookPage.subtitle')}
-        image="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-honeymoon-chalet/0-IMG_3258.webp"
         height="sm"
       />
       <section className="py-16 bg-sand-light">

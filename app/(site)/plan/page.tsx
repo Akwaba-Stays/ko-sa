@@ -8,7 +8,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Plan Your Stay',
   description:
-    'Everything you need to arrive ready sample itineraries, getting here, airport transfers and FAQs for KO-SA Beach Resort, Ghana.',
+    'Everything you need to arrive ready sample itineraries, getting here, airport transfers and FAQs for KO-SA Beach Resort, Ghana',
 };
 
 export const dynamic = 'force-dynamic';
@@ -39,7 +39,7 @@ export default function PlanPage() {
       <PageHero
         eyebrow={t('nav.plan')}
         title={t('planPage.headline')}
-        image="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { EventEnquiryForm } from '@/components/marketing/EventEnquiryForm';
@@ -7,7 +7,7 @@ import { EventEnquiryForm } from '@/components/marketing/EventEnquiryForm';
 export const metadata: Metadata = {
   title: 'Events & Gatherings',
   description:
-    "Make it unforgettable. Weddings, wellness retreats and corporate offsites at KO-SA Beach Resort between the ocean and the garden.",
+    "Make it unforgettable. Weddings, wellness retreats and corporate offsites at KO-SA Beach Resort between the ocean and the garden",
 };
 
 export const dynamic = 'force-dynamic';
@@ -18,19 +18,19 @@ const BLOCKS = [
     titleKey: 'eventsPage.weddings.title',
     bodyKey: 'eventsPage.weddings.body',
     ctaKey: 'eventsPage.weddings.cta',
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1400',
+    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/12-772A2007.webp',
   },
   {
     key: 'retreats',
     titleKey: 'eventsPage.retreats.title',
     bodyKey: 'eventsPage.retreats.body',
-    image: 'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&q=80&w=1400',
+    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/wellness/5-772A2142.webp',
   },
   {
     key: 'corporate',
     titleKey: 'eventsPage.corporate.title',
     bodyKey: 'eventsPage.corporate.body',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1400',
+    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/12-772A4928.webp',
   },
 ] as const;
 
@@ -41,7 +41,7 @@ export default function EventsPage() {
       <PageHero
         eyebrow={t('nav.events')}
         title={t('eventsPage.headline')}
-        image="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">

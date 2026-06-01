@@ -10,7 +10,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Wellness',
   description:
-    'Well-being, the Ko-Sa way. Wellness journeys, coaching, spa services and the KOSA Tea Bar at KO-SA Beach Resort, Ghana.',
+    'Well-being, the Ko-Sa way. Wellness journeys, coaching, spa services and the KOSA Tea Bar at KO-SA Beach Resort, Ghana',
 };
 
 export const dynamic = 'force-dynamic';
@@ -32,7 +32,7 @@ export default async function WellnessPage() {
       <PageHero
         eyebrow={t('nav.wellness')}
         title={t('wellnessPage.headline')}
-        image="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/wellness/4-772A2130.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">

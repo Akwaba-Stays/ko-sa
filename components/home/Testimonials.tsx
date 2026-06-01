@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { useT } from '@/lib/i18n';

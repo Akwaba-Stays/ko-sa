@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import Link from 'next/link';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
@@ -10,7 +10,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Dining',
   description:
-    'Food the way the coast intended. Fresh, local, Ghanaian cooking restaurant, bar, breakfast and private dining at KO-SA Beach Resort.',
+    'Food the way the coast intended. Fresh, local, Ghanaian cooking restaurant, bar, breakfast and private dining at KO-SA Beach Resort',
 };
 
 export const dynamic = 'force-dynamic';
@@ -20,26 +20,30 @@ const SECTIONS = [
     key: 'restaurant',
     titleKey: 'diningPage.restaurant.title',
     bodyKey: 'diningPage.restaurant.body',
-    image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1400',
+    hoursKey: 'diningPage.restaurant.hours' as const,
+    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/0-772A1897.webp',
     cta: { labelKey: 'diningPage.restaurant.cta', href: '/contact' },
   },
   {
     key: 'bar',
+    // Show the bar's real name ("Kooki Beach Bar") under the section title.
     titleKey: 'diningPage.bar.title',
+    nameKey: 'diningPage.bar.name' as const,
     bodyKey: 'diningPage.bar.body',
-    image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=1400',
+    hoursKey: 'diningPage.bar.hours' as const,
+    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/9-772A2299.webp',
   },
   {
     key: 'breakfast',
     titleKey: 'diningPage.breakfast.title',
     bodyKey: 'diningPage.breakfast.body',
-    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1400',
+    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/2-772A1911.webp',
   },
   {
     key: 'private',
     titleKey: 'diningPage.private.title',
     bodyKey: 'diningPage.private.body',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=1400',
+    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/11-772A2399.webp',
     cta: { labelKey: 'diningPage.private.cta', href: '/contact' },
   },
 ] as const;
@@ -53,7 +57,7 @@ export default async function DiningPage() {
       <PageHero
         eyebrow={t('nav.dine')}
         title={t('diningPage.headline')}
-        image="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/12-772A2400.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
@@ -78,7 +82,15 @@ export default async function DiningPage() {
               </div>
               <div className="lg:col-span-6">
                 <h2 className="font-playfair text-display-sm text-teal">{t(s.titleKey)}</h2>
+                {'nameKey' in s && s.nameKey && (
+                  <p className="mt-1 font-raleway italic text-coral">{t(s.nameKey)}</p>
+                )}
                 <p className="mt-4 font-raleway text-forest/80 leading-relaxed">{t(s.bodyKey)}</p>
+                {'hoursKey' in s && s.hoursKey && (
+                  <p className="mt-3 font-opensans uppercase tracking-tracked text-[10px] text-forest/60">
+                    {t(s.hoursKey)}
+                  </p>
+                )}
                 {'cta' in s && s.cta && (
                   <Link
                     href={s.cta.href}

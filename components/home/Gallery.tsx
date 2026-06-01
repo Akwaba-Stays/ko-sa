@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -47,6 +47,7 @@ export function Gallery({ items = [] }: { items?: PublicGalleryItem[] }) {
                   width={item.width ?? 900}
                   height={item.height ?? 1200}
                   sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
+                  wrapperClassName="block w-full"
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="absolute inset-0 bg-umber/0 group-hover:bg-umber/30 transition-colors" />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { MessageCircle } from 'lucide-react';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
@@ -8,7 +8,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Our Story',
   description:
-    'Two decades by the sea. The story and values behind KO-SA Beach Resort part of the Akwaaba Stays Hospitality Group.',
+    'Two decades by the sea. The story and values behind KO-SA Beach Resort part of the Akwaaba Stays Hospitality Group',
 };
 
 export const dynamic = 'force-dynamic';
@@ -30,18 +30,20 @@ export default function AboutPage() {
       <PageHero
         eyebrow={t('nav.story')}
         title={t('aboutPage.headline')}
-        image="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/12-772A2007.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
         <div className="container-page grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-7 space-y-6 max-w-prose">
             <p className="font-raleway text-lg leading-relaxed text-forest/85">{t('aboutPage.opening')}</p>
+            <p className="font-raleway text-forest/75 leading-relaxed">{t('aboutPage.enrichedSetting')}</p>
+            <p className="font-raleway text-forest/75 leading-relaxed">{t('aboutPage.enrichedEco')}</p>
             <p className="font-raleway text-forest/75 leading-relaxed">{t('aboutPage.continued')}</p>
           </div>
           <div className="lg:col-span-5 relative aspect-[4/5] rounded-md overflow-hidden branded-img">
             <Image
-              src="https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&q=80&w=1400"
+              src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/0-772A1802.webp"
               alt={t('alt.aboutSea')}
               fill
               sizes="(min-width:1024px) 40vw, 100vw"
@@ -61,6 +63,28 @@ export default function AboutPage() {
                 <p className="mt-3 font-raleway text-sm text-forest/80 leading-relaxed">{t(v.bodyKey)}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sea Turtle Project real conservation work at Ko-Sa */}
+      <section className="py-16 md:py-20 bg-sand-light">
+        <div className="container-page grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-5 relative aspect-[4/5] rounded-md overflow-hidden branded-img">
+            <Image
+              src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/13-772A2010.webp"
+              alt={t('aboutPage.seaTurtle.title')}
+              fill
+              sizes="(min-width:1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="lg:col-span-7 max-w-prose">
+            <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">
+              Conservation
+            </p>
+            <h2 className="font-playfair text-display-sm text-teal">{t('aboutPage.seaTurtle.title')}</h2>
+            <p className="mt-4 font-raleway text-forest/80 leading-relaxed">{t('aboutPage.seaTurtle.body')}</p>
           </div>
         </div>
       </section>

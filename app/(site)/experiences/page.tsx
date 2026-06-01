@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import Link from 'next/link';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
@@ -9,7 +9,7 @@ import { AdinkraIcon, type AdinkraName } from '@/components/shared/AdinkraIcon';
 export const metadata: Metadata = {
   title: 'Experiences & Activities',
   description:
-    'Ghana begins here. On-property calm and guided journeys into Cape Coast, Elmina, Kakum and the fishing villages from KO-SA Beach Resort.',
+    'Ghana begins here. On-property calm and guided journeys into Cape Coast, Elmina, Kakum and the fishing villages from KO-SA Beach Resort',
 };
 
 export const dynamic = 'force-dynamic';
@@ -23,7 +23,7 @@ export default async function ExperiencesPage() {
       <PageHero
         eyebrow={t('nav.experiences')}
         title={t('experiencesPage.headline')}
-        image="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/0-772A4907.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
@@ -38,7 +38,7 @@ export default async function ExperiencesPage() {
         <div className="container-page grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           <article className="relative rounded-md overflow-hidden min-h-[320px] flex items-end branded-img">
             <Image
-              src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=1400"
+              src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/11-772A4926.webp"
               alt={t('experiencesPage.property.title')}
               fill
               sizes="(min-width:1024px) 50vw, 100vw"
@@ -52,7 +52,7 @@ export default async function ExperiencesPage() {
           </article>
           <article className="relative rounded-md overflow-hidden min-h-[320px] flex items-end branded-img">
             <Image
-              src="https://images.unsplash.com/photo-1604999333679-b86d54738315?auto=format&fit=crop&q=80&w=1400"
+              src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/12-772A4928.webp"
               alt={t('experiencesPage.ghana.title')}
               fill
               sizes="(min-width:1024px) 50vw, 100vw"
@@ -101,6 +101,38 @@ export default async function ExperiencesPage() {
           </div>
         </section>
       )}
+
+      {/* Signature experiences real activities at Ko-Sa */}
+      <section className="py-16 md:py-24 bg-cream">
+        <div className="container-page">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">
+              {t('experiencesPage.signature.eyebrow')}
+            </p>
+            <h2 className="font-playfair text-display-sm text-teal">
+              {t('experiencesPage.signature.headline')}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {(
+              [
+                { t: 'experiencesPage.signature.ampenyi.title', b: 'experiencesPage.signature.ampenyi.body' },
+                { t: 'experiencesPage.signature.turtle.title', b: 'experiencesPage.signature.turtle.body' },
+                { t: 'experiencesPage.signature.capeCoast.title', b: 'experiencesPage.signature.capeCoast.body' },
+                { t: 'experiencesPage.signature.elmina.title', b: 'experiencesPage.signature.elmina.body' },
+                { t: 'experiencesPage.signature.kakum.title', b: 'experiencesPage.signature.kakum.body' },
+                { t: 'experiencesPage.signature.massage.title', b: 'experiencesPage.signature.massage.body' },
+                { t: 'experiencesPage.signature.horse.title', b: 'experiencesPage.signature.horse.body' },
+              ] as const
+            ).map((item) => (
+              <article key={item.t} className="bg-sand-light rounded-md p-6 shadow-sm">
+                <h3 className="font-playfair text-xl text-teal">{t(item.t)}</h3>
+                <p className="mt-3 font-raleway text-sm text-forest/80 leading-relaxed">{t(item.b)}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="bg-teal-700 text-cream py-16 text-center">
         <div className="container-page max-w-2xl">

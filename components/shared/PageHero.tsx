@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { cn } from '@/lib/utils';
 
 interface Props {

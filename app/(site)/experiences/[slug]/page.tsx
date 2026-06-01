@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { notFound } from 'next/navigation';
 import { getPublicExperienceBySlug } from '@/lib/cms/experiences';
 import { Button } from '@/components/shared/Button';

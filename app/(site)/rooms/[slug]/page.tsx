@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { listPublicRooms, getPublicRoomBySlug, displayCategory } from '@/lib/cms/rooms';
 import { Button } from '@/components/shared/Button';
 import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
-import { formatCurrency } from '@/lib/utils';
 import { site } from '@/lib/site';
 import { getT } from '@/lib/i18n/server';
 
@@ -20,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!room) return {};
   return {
     title: `${room.name} · Rooms`,
-    description: `${room.tagline ?? room.description ?? ''} From ${formatCurrency(room.price, room.currency)}/night at KO-SA Beach Resort.`,
+    description: `${room.tagline ?? room.description ?? ''} ${room.name} at KO-SA Beach Resort, Elmina, Ghana.`.trim(),
     openGraph: { images: room.image ? [{ url: room.image, width: 1400, height: 900 }] : undefined },
   };
 }
@@ -65,8 +64,7 @@ export default async function RoomDetailPage({ params }: Props) {
     })),
     offers: {
       '@type': 'Offer',
-      price: room.price,
-      priceCurrency: room.currency,
+      availability: 'https://schema.org/InStock',
       url: `${site.url}/rooms/${room.slug}`,
     },
   };
@@ -128,12 +126,11 @@ export default async function RoomDetailPage({ params }: Props) {
 
           <aside className="lg:col-span-5">
             <div className="sticky top-28 bg-cream rounded-md p-6 shadow-xl">
-              <p className="font-poppins uppercase tracking-tracked text-xs text-umber/60">{t('roomDetail.from')}</p>
-              <p className="font-belleza text-4xl text-umber mt-1">
-                {formatCurrency(room.price, room.currency)}
-                <span className="text-base text-umber/60"> / {t('rooms.perNight')}</span>
-              </p>
-              <p className="text-xs text-umber/60 mt-1">{t('roomDetail.taxesIncluded')}</p>
+              <p className="font-poppins uppercase tracking-tracked text-xs text-umber/60">{t('nav.stay')}</p>
+              <p className="font-belleza text-3xl text-umber mt-1 leading-tight">{room.name}</p>
+              {room.tagline && (
+                <p className="font-raleway italic text-sm text-umber/70 mt-2">{room.tagline}</p>
+              )}
               <div className="mt-6 space-y-3">
                 <Button href={site.bookingUrl} target="_blank" rel="noreferrer" fullWidth size="lg">
                   {t('roomDetail.reserve')} {room.name}
@@ -167,10 +164,8 @@ export default async function RoomDetailPage({ params }: Props) {
                       )}
                     </div>
                     <div className="card-3d-float p-5">
-                      <h3 className="font-belleza text-xl text-umber group-hover:text-primary">{r.name}</h3>
-                      <p className="text-xs text-umber/60 mt-1">
-                        {t('rooms.priceFrom')} {formatCurrency(r.price, r.currency)}/{t('rooms.perNight')}
-                      </p>
+                      <h3 className="font-belleza text-xl text-umber group-hover:text-primary line-clamp-1">{r.name}</h3>
+                      <p className="text-xs text-umber/60 mt-1 line-clamp-1">{r.tagline ?? displayCategory(r.category)}</p>
                     </div>
                   </Link>
                 </div>

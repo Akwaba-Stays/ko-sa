@@ -3,7 +3,7 @@ import { Section, Eyebrow, Heading, GoldDivider } from '@/components/shared/Sect
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'The terms governing your use of the KO-SA Beach Resort website and services.',
+  description: 'The terms governing your use of the KO-SA Beach Resort website and services',
   alternates: { canonical: '/legal/terms' },
 };
 

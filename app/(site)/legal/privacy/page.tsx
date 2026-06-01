@@ -3,7 +3,7 @@ import { Section, Eyebrow, Heading, GoldDivider } from '@/components/shared/Sect
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How KO-SA Beach Resort collects, uses, and protects your personal information.',
+  description: 'How KO-SA Beach Resort collects, uses, and protects your personal information',
   alternates: { canonical: '/legal/privacy' },
 };
 

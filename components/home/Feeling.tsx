@@ -4,7 +4,7 @@
 // atmospheric copy that describes a *feeling*, not amenities. Content brief
 // §01 → The Feeling Section.
 
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { motion } from 'framer-motion';
 import { useT } from '@/lib/i18n';
 
@@ -21,7 +21,7 @@ export function Feeling() {
           className="lg:col-span-7 relative aspect-[4/3] rounded-md overflow-hidden branded-img"
         >
           <Image
-            src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1600"
+            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/10-772A1994.webp"
             alt={t('alt.feelingHammock')}
             fill
             sizes="(min-width:1024px) 58vw, 100vw"

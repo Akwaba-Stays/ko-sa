@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
@@ -56,7 +56,7 @@ export function Intro() {
         >
           <div className="branded-img relative aspect-[4/5] w-full overflow-hidden rounded-lg">
             <Image
-              src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1400"
+              src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/11-772A2002.webp"
               alt="A linen-curtained Kosa room opening onto palm canopy at golden hour"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"

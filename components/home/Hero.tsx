@@ -23,14 +23,14 @@ export function Hero() {
       className="relative h-[100svh] min-h-[640px] w-full overflow-hidden text-cream"
       aria-label={t('home.hero.headline')}
     >
-      <div className="absolute inset-0 branded-img">
+      <div className="absolute inset-0 branded-img kosa-shimmer">
         <video
           autoPlay
           muted
           loop
           playsInline
           preload="none"
-          poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2000"
+          poster="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
           className="hidden md:block h-full w-full object-cover"
         >
           <source
@@ -39,7 +39,7 @@ export function Hero() {
           />
         </video>
         <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1400"
+          src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
           alt={t('alt.heroShoreline')}
           className="md:hidden h-full w-full object-cover"
         />

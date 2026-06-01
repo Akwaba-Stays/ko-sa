@@ -39,7 +39,7 @@ export function Wellness({ treatments = [] }: Props) {
             muted
             loop
             playsInline
-            poster="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1400"
+            poster="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/wellness/0-772A2086.webp"
             className="h-full w-full object-cover"
           >
             <source

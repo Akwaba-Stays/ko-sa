@@ -13,7 +13,7 @@ interface BrandLoaderProps {
 }
 
 /**
- * Branded loading indicator — the KO-SA logo with a calming "tide" animation:
+ * Branded loading indicator the KO-SA logo with a calming "tide" animation:
  * the mark breathes slowly while soft concentric rings ripple outward like
  * water settling, in brand teal. Mirrors the wave motif of the brand guide.
  *
@@ -31,7 +31,7 @@ export function BrandLoader({
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
       <div className="relative grid place-items-center" style={{ width: frame, height: frame }}>
-        {/* Calming tide ripples — three rings expanding + fading in sequence */}
+        {/* Calming tide ripples three rings expanding + fading in sequence */}
         {!isStatic &&
           [0, 1, 2].map((i) => (
             <motion.span

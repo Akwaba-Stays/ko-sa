@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { Button } from '@/components/shared/Button';
@@ -32,7 +32,7 @@ export function VirtualTourTeaser() {
           className="relative aspect-[16/9] w-full overflow-hidden rounded-md branded-img group"
         >
           <Image
-            src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=2000"
+            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-honeymoon-chalet/0-IMG_3258.webp"
             alt="360° preview of the Kosa beachfront suite"
             fill
             sizes="100vw"

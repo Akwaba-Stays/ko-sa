@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Users, ChevronRight, Check, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';

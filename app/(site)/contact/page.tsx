@@ -7,7 +7,7 @@ import { getT } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Reach the KO-SA Beach Resort concierge enquiries, reservations, group bookings, weddings.',
+  description: 'Reach the KO-SA Beach Resort concierge enquiries, reservations, group bookings, weddings',
 };
 
 export const dynamic = 'force-dynamic';
@@ -20,7 +20,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow={t('contactPage.eyebrow')}
         title={t('contactPage.title')}
-        image="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/1-772A4909.webp"
         height="sm"
       />
       <section className="py-20 bg-sand-light">

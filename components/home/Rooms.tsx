@@ -1,10 +1,9 @@
 'use client';
 
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import Link from 'next/link';
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
-import { formatCurrency } from '@/lib/utils';
 import { BRAND_LQIP } from '@/lib/image';
 import { useT } from '@/lib/i18n';
 import type { DictKey } from '@/lib/i18n/dictionaries';
@@ -59,7 +58,7 @@ export function Rooms({ rooms = [] }: { rooms?: PublicRoom[] }) {
         className="relative h-[55vh] min-h-[420px] w-full overflow-hidden bg-cover bg-center bg-fixed branded-img"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=2000')",
+            "url('https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-family-chalet/0-IMG_3338.webp')",
         }}
       >
         <div className="absolute inset-0 bg-umber/40" />
@@ -119,7 +118,7 @@ export function Rooms({ rooms = [] }: { rooms?: PublicRoom[] }) {
             >
               <Link
                 href={`/rooms/${room.slug}`}
-                className="card-3d-inner group block bg-cream rounded-lg overflow-hidden shadow-sm transition-all duration-500"
+                className="card-3d-inner group flex flex-col h-full bg-cream rounded-lg overflow-hidden shadow-sm transition-all duration-500"
               >
                 <div className="branded-img card-shine relative aspect-[3/4] overflow-hidden">
                   {room.image && (
@@ -134,21 +133,18 @@ export function Rooms({ rooms = [] }: { rooms?: PublicRoom[] }) {
                     />
                   )}
                 </div>
-                <div className="card-3d-float p-6 flex flex-col gap-2">
+                <div className="card-3d-float p-6 flex flex-col flex-1 gap-2">
                   <span className="font-poppins uppercase tracking-tracked text-[10px] text-primary">
                     {displayCategory(room.category)}
                   </span>
-                  <h3 className="font-belleza text-2xl text-umber group-hover:text-primary transition-colors">
+                  <h3 className="font-belleza text-2xl text-umber group-hover:text-primary transition-colors line-clamp-1 min-h-[2rem]">
                     {room.name}
                   </h3>
-                  {room.tagline && (
-                    <p className="font-beth text-xl text-umber/70">{room.tagline}</p>
-                  )}
-                  <div className="mt-3 flex items-end justify-between">
-                    <span className="text-xs font-poppins uppercase tracking-tracked text-umber/60">
-                      {t('rooms.priceFrom')} {formatCurrency(room.price, room.currency)} / {t('rooms.perNight')}
-                    </span>
-                    <span className="text-xs font-poppins uppercase tracking-tracked-sm text-primary border-b border-primary/40 pb-0.5 transition-transform group-hover:translate-x-1">
+                  <p className="font-beth text-xl text-umber/70 line-clamp-1 min-h-[1.75rem]">
+                    {room.tagline || ' '}
+                  </p>
+                  <div className="mt-auto pt-4">
+                    <span className="inline-flex w-full items-center justify-center rounded-full bg-primary/10 text-primary font-poppins text-xs uppercase tracking-tracked-sm px-4 py-2.5 transition-colors group-hover:bg-primary group-hover:text-cream">
                       {t('rooms.view')} →
                     </span>
                   </div>

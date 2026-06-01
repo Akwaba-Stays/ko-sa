@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { PageHero } from '@/components/shared/PageHero';
 import { listPublicJournalPosts } from '@/lib/cms/journal';
 import { formatDate } from '@/lib/utils';
@@ -8,7 +8,7 @@ import { getT } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Journal',
-  description: 'Letters from the shore — guides to Elmina, Ghana, wellness rituals, and slow travel notes.',
+  description: 'Letters from the shore guides to Elmina, Ghana, wellness rituals, and slow travel notes',
 };
 
 export const dynamic = 'force-dynamic';
@@ -21,7 +21,7 @@ export default async function BlogIndex() {
       <PageHero
         eyebrow={t('blogPage.eyebrow')}
         title={t('nav.blog')}
-        image="https://images.unsplash.com/photo-1531219432768-9f540ce086d4?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/13-772A4933.webp"
         height="sm"
       />
       <section className="py-20 bg-sand-light">

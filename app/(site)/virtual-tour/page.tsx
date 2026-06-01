@@ -7,7 +7,7 @@ import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: '360° Virtual Tour',
-  description: 'Step inside KO-SA Beach Resort virtual tour of suites, spa, pool and shoreline in Elmina, Ghana.',
+  description: 'Step inside KO-SA Beach Resort virtual tour of suites, spa, pool and shoreline in Elmina, Ghana',
 };
 
 export const dynamic = 'force-dynamic';
@@ -33,7 +33,7 @@ export default async function VirtualTourPage() {
         eyebrow={t('tour.eyebrow')}
         title={t('tour.headline')}
         subtitle={t('tour.description')}
-        image="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=2000"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-standard-chalet/0-IMG_3290.webp"
         height="sm"
       />
       <section className="py-16 md:py-20 bg-sand-light">

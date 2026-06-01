@@ -23,7 +23,7 @@ import type { Prisma } from '@prisma/client';
 const NON_EN: Locale[] = SUPPORTED_LOCALES.filter((l) => l !== 'en') as Locale[];
 
 function dict(locale: Locale, key: string): string | null {
-  // Cast is safe — the dictionary type is exact, but we want runtime lookup.
+  // Cast is safe the dictionary type is exact, but we want runtime lookup.
   const v = (dictionaries[locale] as unknown as Record<string, string | undefined>)[key];
   return typeof v === 'string' && v.trim().length ? v : null;
 }
@@ -143,7 +143,7 @@ async function seedGallery() {
   let added = 0;
   const existing = await prisma.galleryItem.count();
   if (existing > 0) {
-    console.log(`Gallery: ${existing} item(s) already present — skipped`);
+    console.log(`Gallery: ${existing} item(s) already present skipped`);
     return;
   }
   for (let i = 0; i < fallbackGallery.length; i++) {
@@ -159,7 +159,7 @@ async function seedTestimonials() {
   let added = 0;
   const existing = await prisma.testimonial.count();
   if (existing > 0) {
-    console.log(`Testimonials: ${existing} row(s) already present — skipped`);
+    console.log(`Testimonials: ${existing} row(s) already present skipped`);
     return;
   }
   for (let i = 0; i < fallbackTestimonials.length; i++) {

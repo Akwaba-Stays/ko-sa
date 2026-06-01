@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { notFound } from 'next/navigation';
 import { site } from '@/lib/site';
 import { getPublicJournalPostBySlug } from '@/lib/cms/journal';
