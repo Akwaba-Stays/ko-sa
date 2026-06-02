@@ -17,6 +17,25 @@ import { getSupabaseAdmin } from '../lib/supabase';
 import { ingestImage } from './lib/ingest';
 
 const CDN = 'https://ko-sa.com/Rooms';
+const UA =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
+
+/**
+ * ko-sa.com serves a room's photos as <BASE>.jpg, <BASE>2.jpg, <BASE>3.jpg …
+ * (real JPEGs); missing indices fall back to the SPA's HTML shell (text/html).
+ * Probe sequentially until a non-image is hit, capped at 8.
+ */
+async function discoverRoomImages(base: string): Promise<string[]> {
+  const urls: string[] = [];
+  for (let i = 1; i <= 8; i++) {
+    const url = `${CDN}/${base}${i === 1 ? '' : i}.jpg`;
+    const res = await fetch(url, { method: 'GET', headers: { 'User-Agent': UA } });
+    const ct = res.headers.get('content-type') ?? '';
+    if (res.ok && ct.startsWith('image/')) urls.push(url);
+    else if (i > 1) break;
+  }
+  return urls;
+}
 
 type SeedRoom = {
   slug: string;
@@ -220,15 +239,21 @@ async function main() {
 
   let sortOrder = 0;
   for (const room of ROOMS) {
-    console.log(`\n${room.name}: ingesting image…`);
-    const asset = await ingestImage(`${CDN}/${room.img}.jpg`, {
-      folder: `rooms/${room.slug}`,
-      name: `0-${room.img}`,
-      alt: `${room.name} — KO-SA Beach Resort`,
-      maxEdge: 2200,
-      quality: 84,
-    });
-    console.log(`  ✓ ${asset.width}x${asset.height}`);
+    const sources = await discoverRoomImages(room.img);
+    console.log(`\n${room.name}: ${sources.length} image(s) found, ingesting…`);
+
+    const urls: string[] = [];
+    for (let i = 0; i < sources.length; i++) {
+      const asset = await ingestImage(sources[i], {
+        folder: `rooms/${room.slug}`,
+        name: `${i}-${room.img}${i === 0 ? '' : i + 1}`,
+        alt: `${room.name} — KO-SA Beach Resort`,
+        maxEdge: 2200,
+        quality: 84,
+      });
+      urls.push(asset.url);
+      process.stdout.write(`  ✓ ${asset.width}x${asset.height}\n`);
+    }
 
     const data = {
       name: room.name,
@@ -239,8 +264,8 @@ async function main() {
       currency: 'EUR',
       maxGuests: room.maxGuests,
       bedConfig: room.bedConfig,
-      image: asset.url,
-      gallery: [asset.url],
+      image: urls[0] ?? null,
+      gallery: urls,
       amenities: room.amenities,
       features: room.features,
       status: 'PUBLISHED' as const,

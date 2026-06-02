@@ -12,25 +12,28 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic';
 
+const MEDIA = 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/events';
+
+// Real KO-SA beach-event photography (ceremonies, gatherings, celebrations).
 const BLOCKS = [
   {
     key: 'weddings',
     titleKey: 'eventsPage.weddings.title',
     bodyKey: 'eventsPage.weddings.body',
     ctaKey: 'eventsPage.weddings.cta',
-    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/12-772A2007.webp',
+    image: `${MEDIA}/special-events-img_1141.webp`,
   },
   {
     key: 'retreats',
     titleKey: 'eventsPage.retreats.title',
     bodyKey: 'eventsPage.retreats.body',
-    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/wellness/5-772A2142.webp',
+    image: `${MEDIA}/special-events-img_1126.webp`,
   },
   {
     key: 'corporate',
     titleKey: 'eventsPage.corporate.title',
     bodyKey: 'eventsPage.corporate.body',
-    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/12-772A4928.webp',
+    image: `${MEDIA}/special-events-img_1113.webp`,
   },
 ] as const;
 
@@ -41,7 +44,7 @@ export default function EventsPage() {
       <PageHero
         eyebrow={t('nav.events')}
         title={t('eventsPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
+        image={`${MEDIA}/special-events-img_1181.webp`}
       />
 
       <section className="py-16 md:py-24 bg-sand-light">

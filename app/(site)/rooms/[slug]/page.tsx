@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { listPublicRooms, getPublicRoomBySlug, displayCategory } from '@/lib/cms/rooms';
 import { Button } from '@/components/shared/Button';
+import { Carousel } from '@/components/shared/Carousel';
 import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
 import { site } from '@/lib/site';
 import { getT } from '@/lib/i18n/server';
@@ -113,13 +114,15 @@ export default async function RoomDetailPage({ params }: Props) {
                 ))}
               </ul>
             </div>
-            {room.gallery.length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 pt-8">
-                {room.gallery.map((src, i) => (
-                  <div key={`${src}-${i}`} className="relative aspect-square branded-img rounded-md overflow-hidden">
-                    <Image src={src} alt={`${room.name} ${i + 1}`} fill sizes="250px" className="object-cover" />
-                  </div>
-                ))}
+            {room.gallery.length > 1 && (
+              <div className="pt-8">
+                <Carousel
+                  images={room.gallery}
+                  alt={room.name}
+                  aspect="aspect-[3/2]"
+                  autoplay
+                  sizes="(min-width:1024px) 58vw, 100vw"
+                />
               </div>
             )}
           </div>

@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Upload, Trash2, ImagePlus } from 'lucide-react';
 import { FieldShell } from './FormField';
+import { toUploadableImage } from '@/lib/admin/heic';
 
 interface SingleProps {
   label: string;
@@ -23,10 +24,11 @@ export function MediaPickerSingle({ label, name, value, onChange, hint, folder }
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function onFile(file: File) {
+  async function onFile(raw: File) {
     setUploading(true);
     setError(null);
     try {
+      const file = await toUploadableImage(raw);
       const fd = new FormData();
       fd.append('file', file);
       if (folder) fd.append('folder', folder);
@@ -87,7 +89,7 @@ export function MediaPickerSingle({ label, name, value, onChange, hint, folder }
           ref={fileRef}
           type="file"
           hidden
-          accept="image/*,video/*,application/pdf"
+          accept="image/*,.heic,.heif,video/*,application/pdf"
           onChange={(e) => {
             const f = e.target.files?.[0];
             if (f) onFile(f);
@@ -119,7 +121,8 @@ export function MediaPickerMulti({ label, name, values, onChange, hint, folder }
     setError(null);
     const next = [...values];
     try {
-      for (const file of Array.from(files)) {
+      for (const raw of Array.from(files)) {
+        const file = await toUploadableImage(raw);
         const fd = new FormData();
         fd.append('file', file);
         if (folder) fd.append('folder', folder);
@@ -236,7 +239,7 @@ export function MediaPickerMulti({ label, name, values, onChange, hint, folder }
           type="file"
           hidden
           multiple
-          accept="image/*"
+          accept="image/*,.heic,.heif"
           onChange={(e) => {
             if (e.target.files?.length) onFiles(e.target.files);
             e.target.value = '';

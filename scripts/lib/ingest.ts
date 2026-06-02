@@ -9,6 +9,9 @@
 // Used by scripts/seed-kosa-rooms.ts and scripts/seed-kosa-media.ts.
 
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import sharp from 'sharp';
 import { prisma } from '../../lib/prisma';
 import { getSupabaseAdmin, ensureBucket, publicAssetUrl } from '../../lib/supabase';
@@ -158,8 +161,37 @@ export async function ingestImage(sourceUrl: string, opts: IngestOptions): Promi
   return ingestBuffer(input, opts);
 }
 
-/** Read a local image file → ingest. */
+/**
+ * Read a local image file → ingest. Transparently converts HEIC/HEIF to JPEG
+ * first (via macOS `sips`, since sharp's libvips build here lacks a HEIC
+ * decoder) so iPhone photos can be ingested directly.
+ */
 export async function ingestLocalImage(filePath: string, opts: IngestOptions): Promise<IngestedAsset> {
-  const input = await fs.promises.readFile(filePath);
+  let input: Buffer;
+  if (/\.(heic|heif)$/i.test(filePath)) {
+    const tmp = path.join(os.tmpdir(), `kosa-heic-${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`);
+    try {
+      execFileSync('sips', ['-s', 'format', 'jpeg', filePath, '--out', tmp], { stdio: 'ignore' });
+      input = await fs.promises.readFile(tmp);
+    } finally {
+      fs.promises.unlink(tmp).catch(() => {});
+    }
+  } else {
+    input = await fs.promises.readFile(filePath);
+  }
   return ingestBuffer(input, opts);
+}
+
+/** Decode any local image (HEIC included) to a sharp-readable JPEG buffer. */
+export async function readLocalAsBuffer(filePath: string): Promise<Buffer> {
+  if (/\.(heic|heif)$/i.test(filePath)) {
+    const tmp = path.join(os.tmpdir(), `kosa-heic-${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`);
+    try {
+      execFileSync('sips', ['-s', 'format', 'jpeg', filePath, '--out', tmp], { stdio: 'ignore' });
+      return await fs.promises.readFile(tmp);
+    } finally {
+      fs.promises.unlink(tmp).catch(() => {});
+    }
+  }
+  return fs.promises.readFile(filePath);
 }

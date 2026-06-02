@@ -1,89 +1,88 @@
-// Seed the public Gallery (and Supabase Storage) with the owner's own KO-SA
-// photography: Spa, Food & Drinks, Highlights, Randoms (from files/Kosa-Images),
-// plus the room imagery already ingested by `seed:rooms`.
+// Seed the public Gallery from the media already ingested into Supabase
+// Storage (by scripts/ingest-new-media.ts + scripts/seed-kosa-rooms.ts).
 //
-//   npm run seed:media
+// - Curates by colourfulness so the gallery leads with vibrant, lively shots.
+// - Groups everything into a small set of clean, user-facing categories.
+// - Excludes specific images the owner asked to remove (e.g. their own photo).
 //
-// Idempotent: resets the gallery, clears the gallery/* storage prefix, then
-// re-ingests. Safe to re-run after `seed:rooms`.
+//   npx tsx scripts/ingest-new-media.ts   # first, to (re)ingest files/* media
+//   npm run seed:media                    # then, to (re)build the gallery
+//
+// Idempotent: clears GalleryItem rows and rebuilds. Storage objects are left in
+// place (managed by the ingest scripts).
 
 import './_env';
 import fs from 'node:fs';
-import path from 'node:path';
 import { prisma } from '../lib/prisma';
-import { getSupabaseAdmin } from '../lib/supabase';
-import { ingestLocalImage } from './lib/ingest';
 
-const ROOT = 'files/Kosa-Images';
+type ManifestItem = { url: string; width: number; height: number; colour: number; src: string };
+type Manifest = Record<string, ManifestItem[]>;
 
-const CATEGORIES: { dir: string; category: string; caption: string; cap: number }[] = [
-  { dir: 'Highlights', category: 'beach', caption: 'KO-SA Beach Resort', cap: 31 },
-  { dir: 'Randoms', category: 'resort', caption: 'Life at KO-SA', cap: 24 },
-  { dir: 'Food & Drinks', category: 'dining', caption: 'Fresh from the coast', cap: 18 },
-  { dir: 'Spa', category: 'wellness', caption: 'Well-being, the KO-SA way', cap: 8 },
+// Public category → which media/* source categories feed it, and its caption.
+const GALLERY: { category: string; caption: string; from: string[]; cap: number }[] = [
+  { category: 'beach', caption: 'Beach & Shore', from: ['beach', 'scenery'], cap: 14 },
+  { category: 'resort', caption: 'The Resort', from: ['environment', 'rooms-extra'], cap: 16 },
+  { category: 'dining', caption: 'Food & Drinks', from: ['food', 'drinks', 'dining-life'], cap: 18 },
+  { category: 'wellness', caption: 'Wellness', from: ['wellness'], cap: 6 },
+  { category: 'culture', caption: 'Culture & Community', from: ['culture'], cap: 5 },
+  { category: 'events', caption: 'Events', from: ['events'], cap: 12 },
 ];
 
-function listFiles(dir: string): string[] {
-  if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir).filter((f) => /\.(jpe?g|png)$/i.test(f)).sort();
-}
+// Owner asked to remove these (their own photo, etc.) — match by URL substring.
+const EXCLUDE = [
+  '6-772A1875', // owner's photo on the old beach gallery
+];
 
-async function clearGalleryStorage() {
-  const old = await prisma.mediaAsset.findMany({
-    where: { folder: { startsWith: 'gallery/' } },
-    select: { path: true },
-  });
-  if (old.length) {
-    const client = getSupabaseAdmin();
-    const bucket = process.env.SUPABASE_STORAGE_BUCKET || 'kosa-public';
-    if (client) await client.storage.from(bucket).remove(old.map((o) => o.path));
-    await prisma.mediaAsset.deleteMany({ where: { folder: { startsWith: 'gallery/' } } });
-  }
+function excluded(url: string): boolean {
+  return EXCLUDE.some((frag) => url.includes(frag));
 }
 
 async function main() {
+  const manifestPath = '/tmp/media-manifest.json';
+  if (!fs.existsSync(manifestPath)) {
+    console.error('No media manifest. Run: npx tsx scripts/ingest-new-media.ts');
+    process.exit(1);
+  }
+  const manifest: Manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+
   await prisma.galleryItem.deleteMany({});
-  await clearGalleryStorage();
   console.log('Gallery reset.');
 
   let sortOrder = 0;
+  for (const g of GALLERY) {
+    // Pool all source items, drop excluded, sort by colourfulness (vibrant first).
+    const pool: ManifestItem[] = [];
+    for (const src of g.from) pool.push(...(manifest[src] ?? []));
+    const picked = pool
+      .filter((i) => !excluded(i.url))
+      .sort((a, b) => b.colour - a.colour)
+      .slice(0, g.cap);
 
-  // 1. Categorised lifestyle photography.
-  for (const c of CATEGORIES) {
-    const dir = path.join(ROOT, c.dir);
-    const files = listFiles(dir).slice(0, c.cap);
-    console.log(`\n${c.dir} → "${c.category}": ${files.length} image(s)…`);
-    for (let i = 0; i < files.length; i++) {
-      const asset = await ingestLocalImage(path.join(dir, files[i]), {
-        folder: `gallery/${c.category}`,
-        name: `${i}-${path.parse(files[i]).name}`,
-        alt: `${c.caption} KO-SA Beach Resort`,
-        maxEdge: 2200,
-        quality: 82,
-      });
+    for (const item of picked) {
       await prisma.galleryItem.create({
         data: {
-          imageUrl: asset.url,
-          alt: `${c.caption} KO-SA Beach Resort`,
-          caption: c.caption,
-          category: c.category,
-          width: asset.width,
-          height: asset.height,
+          imageUrl: item.url,
+          alt: `${g.caption} KO-SA Beach Resort`,
+          caption: g.caption,
+          category: g.category,
+          width: item.width,
+          height: item.height,
           status: 'PUBLISHED',
           sortOrder: sortOrder++,
         },
       });
-      process.stdout.write(`  ✓ ${asset.width}x${asset.height}\n`);
     }
+    console.log(`${g.category.padEnd(10)} ${picked.length} image(s)`);
   }
 
-  // 2. Mirror the already-ingested room imagery (category "rooms").
+  // Rooms category — from already-ingested room media, lead image per room.
   const roomAssets = await prisma.mediaAsset.findMany({
     where: { folder: { startsWith: 'rooms/' } },
     orderBy: [{ folder: 'asc' }, { path: 'asc' }],
   });
-  console.log(`\nMirroring ${roomAssets.length} room image(s) into the gallery…`);
+  let roomCount = 0;
   for (const a of roomAssets) {
+    if (excluded(a.url)) continue;
     await prisma.galleryItem.create({
       data: {
         imageUrl: a.url,
@@ -96,10 +95,12 @@ async function main() {
         sortOrder: sortOrder++,
       },
     });
+    roomCount++;
   }
+  console.log(`${'rooms'.padEnd(10)} ${roomCount} image(s)`);
 
   const total = await prisma.galleryItem.count();
-  console.log(`\nDone. ${total} gallery items (real KO-SA photography).`);
+  console.log(`\nDone. ${total} gallery items (curated by colour, categorised).`);
 }
 
 main()

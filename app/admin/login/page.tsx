@@ -1,14 +1,13 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/shared/Button';
 
 export default function AdminLoginPage() {
-  const router = useRouter();
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') || '/admin';
   const [email, setEmail] = useState('');
@@ -25,12 +24,16 @@ export default function AdminLoginPage() {
       password,
       redirect: false,
     });
-    setLoading(false);
-    if (res?.ok) {
-      router.replace(callbackUrl);
-    } else {
+    if (res?.error || !res?.ok) {
+      setLoading(false);
       setError('Invalid email or password.');
+      return;
     }
+    // Auth cookie is set by the time signIn resolves. Use a hard navigation so
+    // the middleware sees the new session on the very first request — a
+    // client-side router.replace() can race the cookie and bounce back to
+    // /login (the "click twice" bug). Keep `loading` true through the redirect.
+    window.location.assign(callbackUrl);
   }
 
   return (

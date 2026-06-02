@@ -52,7 +52,9 @@ export function Navbar() {
 
   // Visual state:
   //   transparent     only on home, only at top, only when mobile drawer closed.
-  //                     Cream text floats over the hero video.
+  //                     Cream text floats over the hero video. DESKTOP ONLY —
+  //                     on mobile the bar always carries a solid brand backdrop
+  //                     so the hamburger never floats over light page content.
   //   translucent     once scrolled OR on any inner page. Soft teal tint
   //                     plus heavy backdrop blur headings stay readable
   //                     under the bar without being eclipsed by a solid wall.
@@ -63,9 +65,12 @@ export function Navbar() {
       <header
         className={cn(
           'fixed top-0 inset-x-0 z-50 transition-colors duration-500',
+          // Mobile: always solid brand teal (never transparent under the hamburger).
+          'bg-teal-700 text-cream shadow-[0_2px_18px_-10px_rgba(0,0,0,0.35)] border-b border-cream/10',
+          // Desktop: transparent over the hero, translucent once scrolled / inner pages.
           transparent
-            ? 'bg-transparent text-cream'
-            : 'bg-teal-700/40 text-cream backdrop-blur-xl shadow-[0_2px_18px_-10px_rgba(0,0,0,0.35)] border-b border-cream/10',
+            ? 'lg:bg-transparent lg:shadow-none lg:border-transparent'
+            : 'lg:bg-teal-700/40 lg:backdrop-blur-xl',
         )}
       >
         <div className="container-page flex items-center justify-between h-20">

@@ -420,11 +420,15 @@ const en = {
     "Yes please do · Spa, coaching and group sessions fill up quickly · Tell us what you'd like before you arrive",
 
   // Our Story (brief §02 page 08)
-  'aboutPage.headline': 'Two decades by the sea · And still, every guest feels like the first',
+  'aboutPage.headline': 'Two decades by the sea',
   'aboutPage.opening':
-    'Ko-Sa Beach Resort was not built from a business plan · It was built from a belief that the Ghanaian coast is one of the most restorative places on earth, and that everyone who comes here should be able to feel that · For over twenty years, we have held that belief · It shows in the fishermen we partner with, the farmers who supply our kitchen, the artisans whose hands shaped what you see around you',
+    'KO-SA Beach Resort has been part of the Ampenyi coastline for over two decades, a sanctuary where life slows down and the ocean leads the rhythm',
+  'aboutPage.enrichedSetting':
+    "We believe in wellness through simplicity: clean air, nourishing food, meaningful rest, and connection with nature · For 23 years, we've welcomed guests seeking refuge from the noise of modern life, offering them a place to breathe, reflect, and reconnect",
+  'aboutPage.enrichedEco':
+    "Our philosophy is rooted in the belief that true luxury isn't about excess, it's about authenticity · It's the feeling of sand between your toes, the sound of waves at dawn, the taste of fresh, local ingredients prepared with care, and the warmth of genuine hospitality",
   'aboutPage.continued':
-    'We are part of the Akwaaba Stays Hospitality Group a family of properties across Ghana and West Africa that share a commitment to hospitality rooted in care, community, and the places we call home · Ko-Sa is where that commitment lives closest to the water',
+    'Every corner of KO-SA tells a story of the land, the people, and the rhythms of coastal living that have remained unchanged for generations · We honour this heritage while creating modern comfort, ensuring that every guest experiences both the peace of the past and the ease of the present',
   'aboutPage.values': 'Our Values',
   'aboutPage.values.authenticity.title': 'Authenticity',
   'aboutPage.values.authenticity.body':
@@ -483,6 +487,10 @@ const en = {
   'home.itineraries.heading': 'A few ways to spend your time',
 
   // Rooms page
+  'roomsPage.searchPlaceholder': 'Search rooms, beds, sea view…',
+  'roomsPage.resultsOne': '1 room',
+  'roomsPage.resultsMany': '{n} rooms',
+  'roomsPage.searchEmpty': 'No rooms match your search yet — try another word or filter',
   'roomsPage.upTo': 'Up to',
   'roomsPage.guestsUnit': 'guests',
 
@@ -633,8 +641,6 @@ const en = {
   'alt.heroShoreline': 'Aerial view of the KO-SA shoreline, Elmina, Ghana',
   'alt.feelingHammock': 'A quiet hammock between palms at KO-SA',
   'alt.aboutSea': 'KO-SA Beach Resort by the sea',
-  'aboutPage.enrichedSetting': 'Set in Ampenyi, a fishing village a short drive west of Elmina and Cape Coast, Ko-Sa is a cluster of colourful houses tucked between coconut palms a few steps from the sea, a few minutes from the daily catch',
-  'aboutPage.enrichedEco': 'The kitchen draws from our own organic garden and from the nets of the fishermen we have worked with for years · Care for the shoreline shapes every choice · It is how the place was built',
   'aboutPage.seaTurtle.title': 'The Sea Turtle Project',
   'aboutPage.seaTurtle.body': 'With Wild Seas Conservation Ghana, we help local fishermen release sea turtles caught in their nets compensating them for damaged gear and training Ampenyi residents in tagging and data collection · Between November and March, guests can join evening beach walks to see turtles laying their eggs',
   'diningPage.bar.name': 'Kooki Beach Bar',
@@ -1036,11 +1042,11 @@ const fr: Record<keyof typeof en, string> = {
   'planPage.faq.wellness.a':
     "Oui c’est même conseillé. Spa, coaching et séances de groupe se remplissent vite · Dites-nous ce qui vous tente avant votre venue",
 
-  'aboutPage.headline': 'Deux décennies au bord de la mer · Et chaque invité, toujours, se sent comme le premier',
+  'aboutPage.headline': 'Deux décennies au bord de la mer',
   'aboutPage.opening':
-    "Ko-Sa Beach Resort n’est pas né d’un plan d’affaires · Il est né d’une conviction que la côte ghanéenne est l’un des lieux les plus régénérants au monde, et que celles et ceux qui y viennent devraient pouvoir le ressentir · Depuis plus de vingt ans, nous tenons cette promesse · Elle se voit chez les pêcheurs qui sont nos partenaires, les agriculteurs qui approvisionnent notre cuisine, les artisans dont les mains ont façonné ce que vous voyez autour de vous",
+    "Le KO-SA Beach Resort fait partie du littoral d’Ampenyi depuis plus de deux décennies, un refuge où la vie ralentit et où l’océan mène la cadence",
   'aboutPage.continued':
-    "Nous appartenons au groupe Akwaaba Stays une famille de propriétés au Ghana et en Afrique de l’Ouest qui partagent un engagement pour une hospitalité ancrée dans le soin, la communauté et les lieux que nous appelons chez nous · Ko-Sa, c’est là où cet engagement vit le plus près de l’eau",
+    "Chaque recoin de KO-SA raconte la terre, les gens et les rythmes d’une vie côtière restée inchangée depuis des générations · Nous honorons cet héritage tout en créant un confort moderne, pour que chaque invité goûte à la fois la paix du passé et la douceur du présent",
   'aboutPage.values': 'Nos valeurs',
   'aboutPage.values.authenticity.title': 'Authenticité',
   'aboutPage.values.authenticity.body':
@@ -1094,6 +1100,10 @@ const fr: Record<keyof typeof en, string> = {
   'home.hero.location': 'Elmina · Ghana',
   'home.itineraries.heading': 'Quelques façons de passer votre temps',
 
+  'roomsPage.searchPlaceholder': 'Rechercher : chambres, lits, vue mer…',
+  'roomsPage.resultsOne': '1 chambre',
+  'roomsPage.resultsMany': '{n} chambres',
+  'roomsPage.searchEmpty': 'Aucune chambre ne correspond essayez un autre mot ou filtre',
   'roomsPage.upTo': "Jusqu’à",
   'roomsPage.guestsUnit': 'voyageurs',
 
@@ -1629,11 +1639,11 @@ const es: Record<keyof typeof en, string> = {
   'planPage.faq.wellness.a':
     'Sí mejor hacerlo · Spa, coaching y sesiones de grupo se llenan rápido · Dinos qué te apetece antes de venir',
 
-  'aboutPage.headline': 'Dos décadas junto al mar · Y aun así, cada huésped se siente como el primero',
+  'aboutPage.headline': 'Dos décadas junto al mar',
   'aboutPage.opening':
-    'Ko-Sa Beach Resort no nació de un plan de negocio · Nació de una creencia que la costa ghanesa es uno de los lugares más restauradores de la tierra, y que quien venga aquí debería poder sentirlo · Llevamos más de veinte años sosteniendo esa creencia · Se nota en los pescadores con los que trabajamos, en los agricultores que abastecen la cocina y en los artesanos cuyas manos dieron forma a lo que ves alrededor',
+    'KO-SA Beach Resort forma parte de la costa de Ampenyi desde hace más de dos décadas, un santuario donde la vida se calma y el océano marca el ritmo',
   'aboutPage.continued':
-    'Somos parte del Akwaaba Stays Hospitality Group una familia de propiedades en Ghana y África Occidental que comparten un compromiso con una hospitalidad arraigada en el cuidado, la comunidad y los lugares que llamamos casa · Ko-Sa es donde ese compromiso vive más cerca del agua',
+    'Cada rincón de KO-SA cuenta la historia de la tierra, su gente y los ritmos de la vida costera que siguen intactos desde hace generaciones · Honramos esta herencia creando comodidad moderna, para que cada huésped viva tanto la paz del pasado como la facilidad del presente',
   'aboutPage.values': 'Nuestros valores',
   'aboutPage.values.authenticity.title': 'Autenticidad',
   'aboutPage.values.authenticity.body':
@@ -1687,6 +1697,10 @@ const es: Record<keyof typeof en, string> = {
   'home.hero.location': 'Elmina · Ghana',
   'home.itineraries.heading': 'Algunas formas de pasar tu tiempo',
 
+  'roomsPage.searchPlaceholder': 'Buscar habitaciones, camas, vista al mar…',
+  'roomsPage.resultsOne': '1 habitación',
+  'roomsPage.resultsMany': '{n} habitaciones',
+  'roomsPage.searchEmpty': 'Ninguna habitación coincide prueba otra palabra o filtro',
   'roomsPage.upTo': 'Hasta',
   'roomsPage.guestsUnit': 'huéspedes',
 
@@ -2222,11 +2236,11 @@ const nl: Record<keyof typeof en, string> = {
   'planPage.faq.wellness.a':
     'Ja graag zelfs · Spa, coaching en groepslessen zijn snel vol · Laat ons weten wat je wilt voordat je komt',
 
-  'aboutPage.headline': 'Twee decennia aan zee · En toch voelt elke gast als de eerste',
+  'aboutPage.headline': 'Twee decennia aan zee',
   'aboutPage.opening':
-    'Ko-Sa Beach Resort is niet ontstaan uit een businessplan · Het is ontstaan uit een overtuiging dat de Ghanese kust een van de meest herstellende plekken op aarde is, en dat iedereen die hierheen komt dat zou moeten voelen · Al ruim twintig jaar dragen we die overtuiging · Je ziet het in de vissers met wie we samenwerken, de boeren die onze keuken bevoorraden, de ambachtslieden wier handen vormgaven aan wat je hier ziet',
+    'KO-SA Beach Resort maakt al meer dan twee decennia deel uit van de kust van Ampenyi, een toevluchtsoord waar het leven vertraagt en de oceaan het ritme bepaalt',
   'aboutPage.continued':
-    'We maken deel uit van Akwaaba Stays Hospitality Group een familie van panden in Ghana en West-Afrika die de toewijding delen aan een gastvrijheid geworteld in zorg, gemeenschap en de plekken die we thuis noemen · Ko-Sa is waar die toewijding het dichtst bij het water leeft',
+    'Elke hoek van KO-SA vertelt het verhaal van het land, de mensen en de ritmes van het kustleven die al generaties onveranderd zijn · We eren dit erfgoed en creëren modern comfort, zodat elke gast zowel de rust van het verleden als het gemak van het heden ervaart',
   'aboutPage.values': 'Onze waarden',
   'aboutPage.values.authenticity.title': 'Authenticiteit',
   'aboutPage.values.authenticity.body':
@@ -2280,6 +2294,10 @@ const nl: Record<keyof typeof en, string> = {
   'home.hero.location': 'Elmina · Ghana',
   'home.itineraries.heading': 'Een paar manieren om je tijd door te brengen',
 
+  'roomsPage.searchPlaceholder': 'Zoek kamers, bedden, zeezicht…',
+  'roomsPage.resultsOne': '1 kamer',
+  'roomsPage.resultsMany': '{n} kamers',
+  'roomsPage.searchEmpty': 'Geen kamers gevonden probeer een ander woord of filter',
   'roomsPage.upTo': 'Tot',
   'roomsPage.guestsUnit': 'gasten',
 
@@ -2815,11 +2833,11 @@ const de: Record<keyof typeof en, string> = {
   'planPage.faq.wellness.a':
     'Ja bitte tu das · Spa, Coaching und Gruppensessions sind schnell ausgebucht · Sag uns vorher, was du gerne möchtest',
 
-  'aboutPage.headline': 'Zwei Jahrzehnte am Meer · Und doch fühlt sich jeder Gast wie der erste',
+  'aboutPage.headline': 'Zwei Jahrzehnte am Meer',
   'aboutPage.opening':
-    'Ko-Sa Beach Resort entstand nicht aus einem Businessplan · Es entstand aus einer Überzeugung dass die ghanaische Küste einer der erholsamsten Orte der Welt ist und dass jede*r, der*die hierherkommt, das spüren können sollte · Seit über zwanzig Jahren tragen wir diese Überzeugung · Man sieht sie an den Fischern, mit denen wir zusammenarbeiten, den Bauern, die unsere Küche beliefern, den Handwerker*innen, deren Hände geformt haben, was du um dich herum siehst',
+    'Das KO-SA Beach Resort gehört seit über zwei Jahrzehnten zur Küste von Ampenyi, ein Rückzugsort, an dem das Leben langsamer wird und das Meer den Rhythmus vorgibt',
   'aboutPage.continued':
-    'Wir sind Teil der Akwaaba Stays Hospitality Group einer Familie von Häusern in Ghana und Westafrika, die sich einer Gastfreundschaft verschrieben hat, die in Fürsorge, Gemeinschaft und in den Orten, die wir Zuhause nennen, wurzelt · Bei Ko-Sa lebt diese Verpflichtung am nächsten am Wasser',
+    'Jeder Winkel von KO-SA erzählt vom Land, den Menschen und den Rhythmen des Küstenlebens, die seit Generationen unverändert sind · Wir ehren dieses Erbe und schaffen modernen Komfort, damit jeder Gast die Ruhe der Vergangenheit und die Leichtigkeit der Gegenwart erlebt',
   'aboutPage.values': 'Unsere Werte',
   'aboutPage.values.authenticity.title': 'Authentizität',
   'aboutPage.values.authenticity.body':
@@ -2873,6 +2891,10 @@ const de: Record<keyof typeof en, string> = {
   'home.hero.location': 'Elmina · Ghana',
   'home.itineraries.heading': 'Ein paar Arten, deine Zeit zu verbringen',
 
+  'roomsPage.searchPlaceholder': 'Zimmer, Betten, Meerblick suchen…',
+  'roomsPage.resultsOne': '1 Zimmer',
+  'roomsPage.resultsMany': '{n} Zimmer',
+  'roomsPage.searchEmpty': 'Keine Zimmer gefunden versuche ein anderes Wort oder Filter',
   'roomsPage.upTo': 'Bis zu',
   'roomsPage.guestsUnit': 'Gäste',
 
