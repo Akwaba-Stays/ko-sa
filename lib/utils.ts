@@ -53,6 +53,12 @@ export function formatDate(d: Date | string) {
   });
 }
 
+/** Rough reading time in minutes from HTML or plain text (≈200 wpm, min 1). */
+export function readingTime(html: string): number {
+  const words = html.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 export function slugify(s: string) {
   return s
     .toLowerCase()

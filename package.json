@@ -24,6 +24,7 @@
     "ingest:media": "tsx scripts/ingest-new-media.ts",
     "seed:media": "tsx scripts/seed-kosa-media.ts",
     "seed:reviews": "tsx scripts/seed-reviews.ts",
+    "seed:journal": "tsx scripts/seed-journal.ts",
     "sitemap": "next-sitemap"
   },
   "dependencies": {

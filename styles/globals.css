@@ -406,3 +406,60 @@ body {
     transition: none;
   }
 }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Journal article typography — a calm, readable measure in brand tones.
+   Generous line-height and spacing so the words breathe.
+─────────────────────────────────────────────────────────────────────────── */
+.kosa-prose {
+  font-family: var(--font-raleway), system-ui, sans-serif;
+  color: #2d4f2c; /* forest */
+  font-size: 1.125rem;
+  line-height: 1.85;
+}
+.kosa-prose > * + * {
+  margin-top: 1.4em;
+}
+.kosa-prose h2 {
+  font-family: var(--font-playfair), Georgia, serif;
+  color: #0f7b8f; /* teal */
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin-top: 2.2em;
+  margin-bottom: 0.2em;
+}
+.kosa-prose h3 {
+  font-family: var(--font-playfair), Georgia, serif;
+  color: #0f7b8f;
+  font-size: 1.3rem;
+  margin-top: 1.8em;
+}
+.kosa-prose p {
+  color: rgba(45, 79, 44, 0.85);
+}
+.kosa-prose a {
+  color: #e8765b; /* coral */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.kosa-prose em {
+  color: #0f7b8f;
+  font-style: italic;
+}
+.kosa-prose strong {
+  color: #2d4f2c;
+  font-weight: 600;
+}
+.kosa-prose blockquote {
+  border-left: 2px solid rgba(232, 118, 91, 0.4);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: rgba(45, 79, 44, 0.75);
+}
+.kosa-prose ul,
+.kosa-prose ol {
+  padding-left: 1.25rem;
+}
+.kosa-prose li + li {
+  margin-top: 0.5em;
+}
