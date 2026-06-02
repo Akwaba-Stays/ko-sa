@@ -20,6 +20,9 @@
     "db:studio": "prisma studio",
     "sync:rooms": "tsx scripts/sync-cloudbeds-rooms.ts",
     "db:seed-cms": "tsx scripts/seed-cms.ts",
+    "seed:rooms": "tsx scripts/seed-kosa-rooms.ts",
+    "seed:media": "tsx scripts/seed-kosa-media.ts",
+    "seed:reviews": "tsx scripts/seed-reviews.ts",
     "sitemap": "next-sitemap"
   },
   "dependencies": {

@@ -21,7 +21,16 @@
       "Bash(python3 /tmp/depunct.py lib/i18n/dictionaries.ts)",
       "Bash(pkill -9 -f \"next\")",
       "Bash(lsof -ti:3000)",
-      "Bash(xargs kill -9)"
+      "Bash(xargs kill -9)",
+      "Bash(curl -s --max-time 60 \"https://r.jina.ai/https://ko-sa.com/rooms\" -o /tmp/kosa_rooms.txt -w \"code=%{http_code} bytes=%{size_download}\\\\n\")",
+      "Bash(grep -iE 'chalet|room|dorm|bungalow|suite|bed|night|€|EUR|GHS|\\\\$[0-9]' /tmp/kosa_rooms.txt)",
+      "Bash(curl -s --max-time 60 \"https://r.jina.ai/https://ko-sa.com\" -o /tmp/kosa_home.txt -w \"code=%{http_code}\\\\n\")",
+      "WebFetch(domain:www.tripadvisor.com)",
+      "Bash(perl -i -pe 's{\\(\"seed:rooms\": \"tsx scripts/seed-kosa-rooms.ts\",\\)}{$1\\\\n    \"seed:reviews\": \"tsx scripts/seed-reviews.ts\",}' package.json)",
+      "Bash(python3 /tmp/calm.py lib/i18n/dictionaries.ts)",
+      "Bash(curl -s --max-time 20 http://localhost:3000/ -o /tmp/home.html)",
+      "Bash(sed 's/^/  ENV8 sea image refs: /')",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

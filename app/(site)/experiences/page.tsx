@@ -9,7 +9,7 @@ import { AdinkraIcon, type AdinkraName } from '@/components/shared/AdinkraIcon';
 export const metadata: Metadata = {
   title: 'Experiences & Activities',
   description:
-    'Ghana begins here. On-property calm and guided journeys into Cape Coast, Elmina, Kakum and the fishing villages from KO-SA Beach Resort',
+    'Ghana begins here · On-property calm and guided journeys into Cape Coast, Elmina, Kakum and the fishing villages from KO-SA Beach Resort',
 };
 
 export const dynamic = 'force-dynamic';

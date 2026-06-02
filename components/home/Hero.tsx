@@ -24,24 +24,12 @@ export function Hero() {
       aria-label={t('home.hero.headline')}
     >
       <div className="absolute inset-0 branded-img kosa-shimmer">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          poster="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
-          className="hidden md:block h-full w-full object-cover"
-        >
-          <source
-            src="https://cdn.coverr.co/videos/coverr-aerial-view-of-a-tropical-beach-3024/1080p.mp4"
-            type="video/mp4"
-          />
-        </video>
+        {/* Sea image for now — swap to the resort video when ready: drop a
+            <video> here with this image as its poster. */}
         <img
-          src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
+          src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/site/hero/ENV8.webp"
           alt={t('alt.heroShoreline')}
-          className="md:hidden h-full w-full object-cover"
+          className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-forest/40 via-teal-900/20 to-teal-900/70" />
       </div>

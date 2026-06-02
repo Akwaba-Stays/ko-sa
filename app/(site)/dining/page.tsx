@@ -10,7 +10,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Dining',
   description:
-    'Food the way the coast intended. Fresh, local, Ghanaian cooking restaurant, bar, breakfast and private dining at KO-SA Beach Resort',
+    'Food the way the coast intended · Fresh, local, Ghanaian cooking restaurant, bar, breakfast and private dining at KO-SA Beach Resort',
 };
 
 export const dynamic = 'force-dynamic';

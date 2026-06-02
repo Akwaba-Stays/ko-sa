@@ -33,7 +33,7 @@ export default async function VirtualTourPage() {
         eyebrow={t('tour.eyebrow')}
         title={t('tour.headline')}
         subtitle={t('tour.description')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-standard-chalet/0-IMG_3290.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/deluxe-twin-sea-view/0-DTRWSV.webp"
         height="sm"
       />
       <section className="py-16 md:py-20 bg-sand-light">

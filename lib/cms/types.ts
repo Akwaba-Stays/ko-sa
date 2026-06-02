@@ -78,5 +78,6 @@ export interface PublicTestimonial {
   rating: number;
   quote: string;
   avatarUrl: string | null;
+  source: string | null;
   sortOrder: number;
 }

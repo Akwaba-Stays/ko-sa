@@ -9,9 +9,9 @@ export const site = {
   domain: 'ko-sa.com',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://ko-sa.com',
   description:
-    "Eco-luxury beach resort in Ampenyi, Elmina Ghana's coastal sanctuary for the soul. Rest, reconnect, come back to yourself",
-  tagline: 'Rest. Reconnect. Come back to yourself',
-  taglines: ['Simply, Belong', 'Simply, Breathe', 'Simply, Beach'] as const,
+    "Eco-luxury beach resort in Ampenyi, Elmina Ghana's coastal sanctuary for the soul. Reconnect, recharge, renew",
+  tagline: 'Life is better at the beach',
+  taglines: ['Life is better at the beach', 'Simply, Breathe', 'Simply, Beach'] as const,
   location: { lat: 5.0853, lng: -1.3496, city: 'Ampenyi · Elmina', region: 'Central Region', country: 'Ghana' },
   // External Cloudbeds booking engine. Every "Book Now" / room-booking CTA
   // points here for now (opens in a new tab). Swap this single value when the
@@ -39,10 +39,13 @@ export const site = {
   // Primary navigation per the Content Brief §02 + 2026 restructure. Each
   // top-level item may declare a `children` array Navbar renders that as a
   // hover/click dropdown, Footer flattens children into Quick Links.
+  // Plain links first, dropdown menus moved to the end of the list.
   nav: [
     { label: 'Stay', href: '/rooms', dictKey: 'nav.stay' },
     { label: 'Wellness', href: '/wellness', dictKey: 'nav.wellness' },
     { label: 'Dine', href: '/dining', dictKey: 'nav.dine' },
+    { label: 'Plan Your Visit', href: '/plan', dictKey: 'nav.plan' },
+    { label: 'Our Story', href: '/about', dictKey: 'nav.about' },
     {
       label: 'Experience',
       href: '/experiences',
@@ -63,8 +66,6 @@ export const site = {
         { label: 'Contact', href: '/contact', dictKey: 'nav.contact' },
       ],
     },
-    { label: 'Plan Your Visit', href: '/plan', dictKey: 'nav.plan' },
-    { label: 'Our Story', href: '/about', dictKey: 'nav.about' },
   ] as const,
 } as const;
 

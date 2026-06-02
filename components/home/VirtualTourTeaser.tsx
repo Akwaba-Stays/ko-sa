@@ -32,7 +32,7 @@ export function VirtualTourTeaser() {
           className="relative aspect-[16/9] w-full overflow-hidden rounded-md branded-img group"
         >
           <Image
-            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-honeymoon-chalet/0-IMG_3258.webp"
+            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/luxury-double-sea-view/0-LDRWSV.webp"
             alt="360° preview of the Kosa beachfront suite"
             fill
             sizes="100vw"

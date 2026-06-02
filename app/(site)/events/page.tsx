@@ -7,7 +7,7 @@ import { EventEnquiryForm } from '@/components/marketing/EventEnquiryForm';
 export const metadata: Metadata = {
   title: 'Events & Gatherings',
   description:
-    "Make it unforgettable. Weddings, wellness retreats and corporate offsites at KO-SA Beach Resort between the ocean and the garden",
+    "Make it unforgettable · Weddings, wellness retreats and corporate offsites at KO-SA Beach Resort between the ocean and the garden",
 };
 
 export const dynamic = 'force-dynamic';

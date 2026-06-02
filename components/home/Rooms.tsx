@@ -58,7 +58,7 @@ export function Rooms({ rooms = [] }: { rooms?: PublicRoom[] }) {
         className="relative h-[55vh] min-h-[420px] w-full overflow-hidden bg-cover bg-center bg-fixed branded-img"
         style={{
           backgroundImage:
-            "url('https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-family-chalet/0-IMG_3338.webp')",
+            "url('https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/deluxe-double-sea-view/0-DDRWSV.webp')",
         }}
       >
         <div className="absolute inset-0 bg-umber/40" />

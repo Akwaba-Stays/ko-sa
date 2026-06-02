@@ -23,7 +23,7 @@ export default function BookPage({ searchParams }: Props) {
         eyebrow={t('bookPage.eyebrow')}
         title={t('bookPage.title')}
         subtitle={t('bookPage.subtitle')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-honeymoon-chalet/0-IMG_3258.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/luxury-double-sea-view/0-LDRWSV.webp"
         height="sm"
       />
       <section className="py-16 bg-sand-light">

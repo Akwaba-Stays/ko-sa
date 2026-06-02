@@ -10,7 +10,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Rooms & Accommodation',
   description:
-    'Your place by the sea. Garden retreats to ocean-facing suites at KO-SA Beach Resort, Elmina, Ghana designed for true rest',
+    'Your place by the sea · Garden retreats to ocean-facing suites at KO-SA Beach Resort, Elmina, Ghana designed for true rest',
 };
 
 export const dynamic = 'force-dynamic';
@@ -30,7 +30,7 @@ export default async function RoomsPage() {
       <PageHero
         eyebrow={t('nav.stay')}
         title={t('roomsPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/sea-view-honeymoon-chalet/0-IMG_3258.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/luxury-double-sea-view/0-LDRWSV.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">

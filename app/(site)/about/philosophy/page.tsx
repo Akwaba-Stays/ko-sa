@@ -9,7 +9,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'The Five Layers of Self KO-SA Philosophy',
   description:
-    'KO-SA Beach Resort is built on a quiet framework: the five layers of self. Body, breath, mind, knowing, joy the Akan-rooted lens we use to design every stay',
+    'KO-SA Beach Resort is built on a quiet framework: the five layers of self · Body, breath, mind, knowing, joy the Akan-rooted lens we use to design every stay',
   alternates: { canonical: '/about/philosophy' },
   openGraph: {
     title: 'The Five Layers of Self KO-SA',
@@ -26,7 +26,7 @@ const layers = [
     glyph: 'denkyem',
     pillar: 'Breathe',
     body:
-      'Soft linen on raffia beds. Salt-water plunges before breakfast. Massage with shea butter the kitchen also cooks with. We treat the body as the first room you stay in the one before the suite',
+      'Soft linen on raffia beds · Salt-water plunges before breakfast · Massage with shea butter the kitchen also cooks with · We treat the body as the first room you stay in the one before the suite',
   },
   {
     n: '02',
@@ -35,7 +35,7 @@ const layers = [
     glyph: 'denkyem',
     pillar: 'Breathe',
     body:
-      'Sunrise yoga on the dune. Sound bowls at dusk. The rhythm of the surf at thirty-eight breaths per minute slower than yours when you arrive, the same as yours when you leave. Breath is the pace we keep',
+      'Sunrise yoga on the dune · Sound bowls at dusk · The rhythm of the surf at thirty-eight breaths per minute slower than yours when you arrive, the same as yours when you leave · Breath is the pace we keep',
   },
   {
     n: '03',
@@ -44,7 +44,7 @@ const layers = [
     glyph: 'asetena',
     pillar: 'Live',
     body:
-      'Books in the library curated by Ghanaian writers. No televisions in the rooms. A chess set on the verandah. The mind is given less to chew on, so it can taste again the Atlantic, the palm wine, the conversation across the table',
+      'Books in the library curated by Ghanaian writers · No televisions in the rooms · A chess set on the verandah · The mind is given less to chew on, so it can taste again the Atlantic, the palm wine, the conversation across the table',
   },
   {
     n: '04',
@@ -53,7 +53,7 @@ const layers = [
     glyph: 'knonsonkonson',
     pillar: 'Belong',
     body:
-      'The quiet sense of place that arrives on the second morning. The fishermen wave by name. The cook knows you take ginger in your tea. Knowing is what unhurried hospitality grows on its own we just leave it space',
+      'The quiet sense of place that arrives on the second morning · The fishermen wave by name · The cook knows you take ginger in your tea · Knowing is what unhurried hospitality grows on its own we just leave it space',
   },
   {
     n: '05',
@@ -62,7 +62,7 @@ const layers = [
     glyph: 'community',
     pillar: 'Together',
     body:
-      'Drumming circles where guests join the rhythm without asking permission. The kitchen feast on Friday. Children of the village teaching guests to climb a coconut palm. Joy is communal here. It is not entertainment it is the by-product of belonging',
+      'Drumming circles where guests join the rhythm without asking permission · The kitchen feast on Friday · Children of the village teaching guests to climb a coconut palm · Joy is communal here · It is not entertainment it is the by-product of belonging',
   },
 ];
 

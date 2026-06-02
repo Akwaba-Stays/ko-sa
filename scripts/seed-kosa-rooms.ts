@@ -1,204 +1,206 @@
-// Seed the real KO-SA Beach Resort room inventory into the CMS, with the
-// owner's own high-res room photography (files/Kosa-Images/Rooms/*) optimized to
-// WebP and stored in Supabase Storage.
+// Seed the KO-SA Beach Resort room inventory to mirror the live ko-sa.com/rooms
+// page exactly: the 9 official room types, their names, descriptions, amenity
+// tags and their official images (ingested from ko-sa.com into Supabase
+// Storage as optimized WebP).
 //
-// Folder → room mapping (from visual review of the owner's sorted photos):
-//   Room A         → Sea View Honeymoon Chalet (cosy, decorated double)
-//   Room C         → Sea View Family Chalet     (double + extra beds)
-//   Room B         → Sea View Standard Chalet   (spacious, A/C)
-//   Room D         → Garden Chalet              (double, garden side)
-//   Room E         → Standard Room              (twin)
-//   Rooms(Others)  → Budget Room + Dormitory    (simple doubles / twin)
-//
-// Copy follows the owner's Website Content Brief voice. Every room is fully
-// editable afterwards at /admin/rooms and renders on the public site from the DB.
+// Every room is fully editable afterwards at /admin/rooms and renders on the
+// public site from the database.
 //
 // Idempotent: upserts each Room by slug, removes any room not in this set, and
-// upserts each image by storage path. Safe to re-run.
+// clears prior room media from storage first.
 //
 //   npm run seed:rooms
 
 import './_env';
-import fs from 'node:fs';
-import path from 'node:path';
 import { prisma } from '../lib/prisma';
 import { getSupabaseAdmin } from '../lib/supabase';
-import { ingestLocalImage } from './lib/ingest';
+import { ingestImage } from './lib/ingest';
 
-const ROOMS_DIR = 'files/Kosa-Images/Rooms';
+const CDN = 'https://ko-sa.com/Rooms';
 
 type SeedRoom = {
   slug: string;
   name: string;
   category: 'SUITE' | 'PALM_SIDE' | 'BEACH_VIEW' | 'BUNGALOW' | 'VILLA';
-  price: number; // EUR/night (stored, hidden on the public site)
   maxGuests: number;
   bedConfig: string;
   tagline: string;
   description: string;
   amenities: string[];
   features: string[];
-  srcDir: string; // folder under ROOMS_DIR
-  files?: string[]; // specific filenames; otherwise all (capped by `take`)
-  take?: number;
+  /** official ko-sa.com image file (without extension) */
+  img: string;
   translations: Record<string, { name?: string; tagline?: string }>;
 };
 
+// Order = display order (sea-view premium → garden → value). Mirrors the live
+// site's nine rooms; taglines added in the brand voice (one-line essence).
 const ROOMS: SeedRoom[] = [
   {
-    slug: 'sea-view-honeymoon-chalet',
-    name: 'Sea View Honeymoon Chalet',
+    slug: 'luxury-double-sea-view',
+    name: 'Luxury Double Room with Sea View',
     category: 'SUITE',
-    price: 110,
-    maxGuests: 2,
-    bedConfig: 'One double bed',
-    tagline: 'Just the two of you, and the tide',
-    description:
-      'A private beachfront chalet made for closeness. Wake to the sea, watch the sun fall into it, and let the days go slow',
-    amenities: ['Air-conditioning', 'Ceiling fan', 'Private bathroom', 'Hot shower', 'Mosquito net', 'Private terrace', 'Sea view'],
-    features: ['Beachfront', 'For two'],
-    srcDir: 'Room A',
-    take: 6,
-    translations: {
-      fr: { name: 'Chalet lune de miel vue mer', tagline: 'Rien que vous deux, et la marée.' },
-      es: { name: 'Chalet luna de miel con vista al mar', tagline: 'Solo ustedes dos y la marea.' },
-      de: { name: 'Honeymoon-Chalet mit Meerblick', tagline: 'Nur ihr beide und die Gezeiten.' },
-      nl: { name: 'Huwelijksreischalet met zeezicht', tagline: 'Alleen jullie twee en het tij.' },
-    },
-  },
-  {
-    slug: 'sea-view-family-chalet',
-    name: 'Sea View Family Chalet',
-    category: 'VILLA',
-    price: 130,
-    maxGuests: 4,
-    bedConfig: 'One double bed + additional beds',
-    tagline: 'Room to breathe, together',
-    description:
-      'Our most spacious beachfront chalet, with room for the whole family. The Atlantic is your front garden, and the children will never forget it',
-    amenities: ['Air-conditioning', 'Ceiling fan', 'Private bathroom', 'Hot shower', 'Mosquito net', 'Private terrace', 'Sea view'],
-    features: ['Beachfront', 'Family-friendly', 'Self-contained'],
-    srcDir: 'Room C',
-    translations: {
-      fr: { name: 'Chalet familial vue mer', tagline: "De l'espace pour respirer, ensemble." },
-      es: { name: 'Chalet familiar con vista al mar', tagline: 'Espacio para respirar, en familia.' },
-      de: { name: 'Familien-Chalet mit Meerblick', tagline: 'Raum zum Atmen, gemeinsam.' },
-      nl: { name: 'Familiechalet met zeezicht', tagline: 'Ruimte om te ademen, samen.' },
-    },
-  },
-  {
-    slug: 'sea-view-standard-chalet',
-    name: 'Sea View Standard Chalet',
-    category: 'BEACH_VIEW',
-    price: 95,
-    maxGuests: 2,
-    bedConfig: 'One double bed',
-    tagline: 'Wake where the waves begin',
-    description:
-      'A bright, comfortable chalet on the beachfront. Step off your terrace and the ocean is already there',
-    amenities: ['Air-conditioning', 'Ceiling fan', 'Private bathroom', 'Hot shower', 'Mosquito net', 'Private terrace', 'Sea view'],
-    features: ['Beachfront'],
-    srcDir: 'Room B',
-    take: 6,
-    translations: {
-      fr: { name: 'Chalet standard vue mer', tagline: 'Réveillez-vous où naissent les vagues.' },
-      es: { name: 'Chalet estándar con vista al mar', tagline: 'Despierta donde nacen las olas.' },
-      de: { name: 'Standard-Chalet mit Meerblick', tagline: 'Erwache, wo die Wellen beginnen.' },
-      nl: { name: 'Standaardchalet met zeezicht', tagline: 'Word wakker waar de golven beginnen.' },
-    },
-  },
-  {
-    slug: 'garden-chalet',
-    name: 'Garden Chalet',
-    category: 'BUNGALOW',
-    price: 75,
-    maxGuests: 2,
-    bedConfig: 'One double bed',
-    tagline: 'Garden-facing calm for those who came to be still',
-    description:
-      'Tucked among the palms and bougainvillea, a short barefoot walk from the beach. Shade, birdsong, and the quiet you didn’t realise you needed',
-    amenities: ['Ceiling fan', 'Private bathroom', 'Hot shower', 'Mosquito net', 'Garden setting'],
-    features: ['Garden', 'Standalone'],
-    srcDir: 'Room D',
-    translations: {
-      fr: { name: 'Chalet jardin', tagline: 'Le calme du jardin, pour qui vient se poser.' },
-      es: { name: 'Chalet jardín', tagline: 'La calma del jardín, para quien viene a calmarse.' },
-      de: { name: 'Garten-Chalet', tagline: 'Gartenruhe für alle, die zur Ruhe kommen wollen.' },
-      nl: { name: 'Tuinchalet', tagline: 'Tuinrust voor wie tot stilstand wil komen.' },
-    },
-  },
-  {
-    slug: 'standard-room',
-    name: 'Standard Room',
-    category: 'PALM_SIDE',
-    price: 55,
-    maxGuests: 2,
-    bedConfig: 'Twin beds (or double)',
-    tagline: 'Simple comfort, wrapped in green',
-    description:
-      'A calm room among the gardens, a few steps from the sea. Everything you need, nothing you don’t',
-    amenities: ['Ceiling fan', 'Private bathroom', 'Hot shower', 'Mosquito net'],
-    features: ['Garden', 'Value'],
-    srcDir: 'Room E',
-    translations: {
-      fr: { name: 'Chambre standard', tagline: 'Un confort simple, entouré de verdure.' },
-      es: { name: 'Habitación estándar', tagline: 'Comodidad sencilla, rodeada de verde.' },
-      de: { name: 'Standardzimmer', tagline: 'Schlichter Komfort, umgeben von Grün.' },
-      nl: { name: 'Standaardkamer', tagline: 'Eenvoudig comfort, omringd door groen.' },
-    },
-  },
-  {
-    slug: 'budget-room',
-    name: 'Budget Room',
-    category: 'PALM_SIDE',
-    price: 40,
     maxGuests: 2,
     bedConfig: 'Double bed',
-    tagline: 'Light on the wallet, easy on the soul',
+    tagline: 'Our finest, with the ocean at the foot of the bed',
     description:
-      'A clean, simple room for the unfussy traveller. Spend less time in your room and more by the water',
-    amenities: ['Ceiling fan', 'Mosquito net', 'Private bathroom'],
-    features: ['Value'],
-    srcDir: 'Rooms(Others)',
-    files: ['IMG_3384.jpeg', 'IMG_3385.jpeg', 'IMG_3460.jpeg'],
+      'Experience ultimate comfort in our premium double room with breathtaking sea views',
+    amenities: ['Sea view', 'Double bed', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
+    features: ['Sea view', 'Premium'],
+    img: 'LDRWSV',
     translations: {
-      fr: { name: 'Chambre économique', tagline: 'Léger pour le portefeuille, doux pour l’âme.' },
-      es: { name: 'Habitación económica', tagline: 'Ligera para el bolsillo, suave para el alma.' },
-      de: { name: 'Budget-Zimmer', tagline: 'Leicht für den Geldbeutel, gut für die Seele.' },
-      nl: { name: 'Budgetkamer', tagline: 'Licht voor de portemonnee, goed voor de ziel.' },
+      fr: { name: 'Chambre double de luxe vue mer', tagline: "Notre plus belle, l'océan au pied du lit" },
+      es: { name: 'Habitación doble de lujo con vista al mar', tagline: 'La mejor, con el mar a los pies de la cama' },
+      de: { name: 'Luxus-Doppelzimmer mit Meerblick', tagline: 'Unser schönstes, das Meer zu Füßen des Betts' },
+      nl: { name: 'Luxe tweepersoonskamer met zeezicht', tagline: 'Onze mooiste, de zee aan het voeteneind' },
     },
   },
   {
-    slug: 'dormitory',
-    name: 'Dormitory',
-    category: 'PALM_SIDE',
-    price: 20,
-    maxGuests: 1,
-    bedConfig: 'Shared room (price per bed)',
-    tagline: 'Good company, by the sea',
-    description:
-      'A simple shared room the social heart of Ko-Sa. Perfect for backpackers and friends travelling far',
-    amenities: ['Ceiling fan', 'Mosquito net', 'Shared bathroom'],
-    features: ['Backpacker', 'Shared room', 'Per bed'],
-    srcDir: 'Rooms(Others)',
-    files: ['IMG_3491.jpeg', 'IMG_3461.jpeg'],
+    slug: 'deluxe-double-sea-view',
+    name: 'Deluxe Double Room with Sea View',
+    category: 'BEACH_VIEW',
+    maxGuests: 2,
+    bedConfig: 'Double bed',
+    tagline: 'Wake to the ocean, sleep to the surf',
+    description: 'Luxurious double room featuring stunning ocean views and premium amenities',
+    amenities: ['Sea view', 'Double bed', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
+    features: ['Sea view'],
+    img: 'DDRWSV',
     translations: {
-      fr: { name: 'Dortoir', tagline: 'De la bonne compagnie, au bord de la mer.' },
-      es: { name: 'Dormitorio compartido', tagline: 'Buena compañía, junto al mar.' },
-      de: { name: 'Schlafsaal', tagline: 'Gute Gesellschaft, am Meer.' },
-      nl: { name: 'Slaapzaal', tagline: 'Goed gezelschap, aan zee.' },
+      fr: { name: 'Chambre double deluxe vue mer', tagline: "Réveil sur l'océan, sommeil bercé par les vagues" },
+      es: { name: 'Habitación doble deluxe con vista al mar', tagline: 'Despierta con el mar, duerme con las olas' },
+      de: { name: 'Deluxe-Doppelzimmer mit Meerblick', tagline: 'Erwachen am Meer, einschlafen mit der Brandung' },
+      nl: { name: 'Deluxe tweepersoonskamer met zeezicht', tagline: 'Word wakker met de zee, slaap met de branding' },
+    },
+  },
+  {
+    slug: 'deluxe-twin-sea-view',
+    name: 'Deluxe Twin Room with Sea View',
+    category: 'BEACH_VIEW',
+    maxGuests: 2,
+    bedConfig: 'Twin beds',
+    tagline: 'Two beds, one endless horizon',
+    description: 'Premium twin room with spectacular ocean views and modern comforts',
+    amenities: ['Sea view', 'Twin beds', 'Private bathroom', 'Air conditioning', 'Balcony', 'WiFi'],
+    features: ['Sea view', 'Twin'],
+    img: 'DTRWSV',
+    translations: {
+      fr: { name: 'Chambre twin deluxe vue mer', tagline: 'Deux lits, un horizon sans fin' },
+      es: { name: 'Habitación twin deluxe con vista al mar', tagline: 'Dos camas, un horizonte infinito' },
+      de: { name: 'Deluxe-Zweibettzimmer mit Meerblick', tagline: 'Zwei Betten, ein endloser Horizont' },
+      nl: { name: 'Deluxe twinkamer met zeezicht', tagline: 'Twee bedden, één eindeloze horizon' },
+    },
+  },
+  {
+    slug: 'family-room-private-bathroom',
+    name: 'Family Room with Private Bathroom',
+    category: 'VILLA',
+    maxGuests: 4,
+    bedConfig: 'Multiple beds',
+    tagline: 'Room to breathe, together',
+    description: 'Spacious family accommodation perfect for groups, featuring a private bathroom',
+    amenities: ['Private bathroom', 'Multiple beds', 'Family friendly', 'Air conditioning', 'WiFi', 'Balcony'],
+    features: ['Family-friendly', 'Spacious'],
+    img: 'FRWPB',
+    translations: {
+      fr: { name: 'Chambre familiale avec salle de bain privée', tagline: "De l'espace pour respirer, ensemble" },
+      es: { name: 'Habitación familiar con baño privado', tagline: 'Espacio para respirar, en familia' },
+      de: { name: 'Familienzimmer mit eigenem Bad', tagline: 'Raum zum Atmen, gemeinsam' },
+      nl: { name: 'Familiekamer met eigen badkamer', tagline: 'Ruimte om te ademen, samen' },
+    },
+  },
+  {
+    slug: 'triple-room-private-bathroom',
+    name: 'Triple Room with Private Bathroom',
+    category: 'BUNGALOW',
+    maxGuests: 3,
+    bedConfig: 'Three beds',
+    tagline: 'Made for small groups and good company',
+    description: 'Comfortable triple room ideal for small groups or families',
+    amenities: ['Private bathroom', 'Three beds', 'Air conditioning', 'WiFi', 'Balcony'],
+    features: ['Groups'],
+    img: 'TBWPB',
+    translations: {
+      fr: { name: 'Chambre triple avec salle de bain privée', tagline: 'Pensée pour les petits groupes et la bonne compagnie' },
+      es: { name: 'Habitación triple con baño privado', tagline: 'Para grupos pequeños y buena compañía' },
+      de: { name: 'Dreibettzimmer mit eigenem Bad', tagline: 'Für kleine Gruppen und gute Gesellschaft' },
+      nl: { name: 'Driepersoonskamer met eigen badkamer', tagline: 'Voor kleine groepen en goed gezelschap' },
+    },
+  },
+  {
+    slug: 'double-room-garden-view',
+    name: 'Double Room with Garden View',
+    category: 'BUNGALOW',
+    maxGuests: 2,
+    bedConfig: 'Double bed',
+    tagline: 'Garden-facing calm for those who came to be still',
+    description: 'Peaceful double room overlooking our lush tropical gardens',
+    amenities: ['Garden view', 'Double bed', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
+    features: ['Garden view'],
+    img: 'DRWGV',
+    translations: {
+      fr: { name: 'Chambre double vue jardin', tagline: 'Le calme du jardin, pour qui vient se poser' },
+      es: { name: 'Habitación doble con vista al jardín', tagline: 'La calma del jardín, para quien viene a calmarse' },
+      de: { name: 'Doppelzimmer mit Gartenblick', tagline: 'Gartenruhe für alle, die zur Ruhe kommen wollen' },
+      nl: { name: 'Tweepersoonskamer met tuinzicht', tagline: 'Tuinrust voor wie tot stilstand wil komen' },
+    },
+  },
+  {
+    slug: 'twin-room-garden-view',
+    name: 'Twin Room with Garden View',
+    category: 'PALM_SIDE',
+    maxGuests: 2,
+    bedConfig: 'Twin beds',
+    tagline: 'Quiet mornings among the palms',
+    description: 'Serene twin room with views of our beautiful gardens',
+    amenities: ['Garden view', 'Twin beds', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
+    features: ['Garden view', 'Twin'],
+    img: 'TRWGV',
+    translations: {
+      fr: { name: 'Chambre twin vue jardin', tagline: 'Des matins paisibles au milieu des palmiers' },
+      es: { name: 'Habitación twin con vista al jardín', tagline: 'Mañanas tranquilas entre las palmeras' },
+      de: { name: 'Zweibettzimmer mit Gartenblick', tagline: 'Stille Morgen zwischen den Palmen' },
+      nl: { name: 'Twinkamer met tuinzicht', tagline: 'Stille ochtenden tussen de palmen' },
+    },
+  },
+  {
+    slug: 'traveling-palm-double-garden',
+    name: 'Traveling Palm Double Garden Room',
+    category: 'PALM_SIDE',
+    maxGuests: 2,
+    bedConfig: 'Double bed · shared bathroom',
+    tagline: 'Light on the wallet, easy on the soul',
+    description: 'Comfortable and affordable double room with shared bathroom facilities',
+    amenities: ['Double bed', 'Shared bathroom', 'Fan', 'WiFi', 'Balcony'],
+    features: ['Value', 'Shared bathroom'],
+    img: 'SDRWSB',
+    translations: {
+      fr: { name: 'Chambre double jardin Traveling Palm', tagline: 'Léger pour le portefeuille, doux pour l’âme' },
+      es: { name: 'Habitación doble jardín Traveling Palm', tagline: 'Ligera para el bolsillo, suave para el alma' },
+      de: { name: 'Traveling Palm Doppel-Gartenzimmer', tagline: 'Leicht für den Geldbeutel, gut für die Seele' },
+      nl: { name: 'Traveling Palm tweepersoons tuinkamer', tagline: 'Licht voor de portemonnee, goed voor de ziel' },
+    },
+  },
+  {
+    slug: 'traveling-palm-twin-garden',
+    name: 'Traveling Palm Twin Garden Room',
+    category: 'PALM_SIDE',
+    maxGuests: 2,
+    bedConfig: 'Twin beds · shared bathroom',
+    tagline: 'Good company, by the sea',
+    description: 'Comfortable and affordable twin room with shared bathroom facilities',
+    amenities: ['Twin beds', 'Shared bathroom', 'Fan', 'WiFi', 'Balcony'],
+    features: ['Value', 'Shared bathroom', 'Twin'],
+    img: 'STRWSB',
+    translations: {
+      fr: { name: 'Chambre twin jardin Traveling Palm', tagline: 'De la bonne compagnie, au bord de la mer' },
+      es: { name: 'Habitación twin jardín Traveling Palm', tagline: 'Buena compañía, junto al mar' },
+      de: { name: 'Traveling Palm Twin-Gartenzimmer', tagline: 'Gute Gesellschaft, am Meer' },
+      nl: { name: 'Traveling Palm twin tuinkamer', tagline: 'Goed gezelschap, aan zee' },
     },
   },
 ];
 
-function listFiles(dir: string): string[] {
-  return fs
-    .readdirSync(dir)
-    .filter((f) => /\.(jpe?g|png)$/i.test(f))
-    .sort();
-}
-
-/** Remove all previously-ingested room images (storage objects + MediaAsset rows). */
 async function clearRoomMedia() {
   const old = await prisma.mediaAsset.findMany({
     where: { folder: { startsWith: 'rooms/' } },
@@ -207,48 +209,38 @@ async function clearRoomMedia() {
   if (!old.length) return;
   const client = getSupabaseAdmin();
   const bucket = process.env.SUPABASE_STORAGE_BUCKET || 'kosa-public';
-  if (client) {
-    await client.storage.from(bucket).remove(old.map((o) => o.path));
-  }
+  if (client) await client.storage.from(bucket).remove(old.map((o) => o.path));
   await prisma.mediaAsset.deleteMany({ where: { folder: { startsWith: 'rooms/' } } });
   console.log(`Cleared ${old.length} previous room image(s) from storage.`);
 }
 
 async function main() {
   const keepSlugs = ROOMS.map((r) => r.slug);
-  let sortOrder = 0;
-
   await clearRoomMedia();
 
+  let sortOrder = 0;
   for (const room of ROOMS) {
-    const dir = path.join(ROOMS_DIR, room.srcDir);
-    const files = (room.files ?? listFiles(dir)).slice(0, room.take ?? 99);
-    console.log(`\n${room.name} (${room.srcDir}): ingesting ${files.length} image(s)…`);
-
-    const urls: string[] = [];
-    for (let i = 0; i < files.length; i++) {
-      const asset = await ingestLocalImage(path.join(dir, files[i]), {
-        folder: `rooms/${room.slug}`,
-        name: `${i}-${path.parse(files[i]).name}`,
-        alt: `${room.name} KO-SA Beach Resort`,
-        maxEdge: 2200,
-        quality: 82,
-      });
-      urls.push(asset.url);
-      process.stdout.write(`  ✓ ${asset.width}x${asset.height}\n`);
-    }
+    console.log(`\n${room.name}: ingesting image…`);
+    const asset = await ingestImage(`${CDN}/${room.img}.jpg`, {
+      folder: `rooms/${room.slug}`,
+      name: `0-${room.img}`,
+      alt: `${room.name} — KO-SA Beach Resort`,
+      maxEdge: 2200,
+      quality: 84,
+    });
+    console.log(`  ✓ ${asset.width}x${asset.height}`);
 
     const data = {
       name: room.name,
       tagline: room.tagline,
       category: room.category,
       description: room.description,
-      price: room.price,
+      price: 0, // price hidden on the public site; Book Now → Cloudbeds
       currency: 'EUR',
       maxGuests: room.maxGuests,
       bedConfig: room.bedConfig,
-      image: urls[0] ?? null,
-      gallery: urls,
+      image: asset.url,
+      gallery: [asset.url],
       amenities: room.amenities,
       features: room.features,
       status: 'PUBLISHED' as const,
@@ -261,11 +253,9 @@ async function main() {
       update: data,
       create: { slug: room.slug, ...data },
     });
-    console.log(`  → upserted "${room.slug}" with ${urls.length} image(s).`);
+    console.log(`  → upserted "${room.slug}"`);
   }
 
-  // Remove any prior images for these rooms that we no longer reference, plus
-  // stale rooms not in this set.
   const removed = await prisma.room.deleteMany({ where: { slug: { notIn: keepSlugs } } });
   console.log(`\nRemoved ${removed.count} stale room(s).`);
   const total = await prisma.room.count();

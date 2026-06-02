@@ -63,6 +63,11 @@ export function Testimonials({ testimonials = [] }: { testimonials?: PublicTesti
                 {current.guestName}
                 {current.country ? ` · ${current.country}` : ''}
               </p>
+              {current.source && (
+                <p className="mt-1 font-poppins uppercase tracking-tracked-sm text-[10px] text-primary/80">
+                  {T('testimonials.via')} {current.source}
+                </p>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

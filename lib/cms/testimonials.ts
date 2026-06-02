@@ -25,6 +25,7 @@ export async function listPublicTestimonials(): Promise<PublicTestimonial[]> {
           rating: r.rating,
           quote: r.quote,
           avatarUrl: r.avatarUrl,
+          source: r.source,
           sortOrder: r.sortOrder,
           translations: r.translations,
         })),
@@ -43,6 +44,7 @@ export async function listPublicTestimonials(): Promise<PublicTestimonial[]> {
     rating: t.rating,
     quote: translate(locale, `testimonials.${t.index}.quote` as never),
     avatarUrl: t.avatar,
+    source: null,
     sortOrder: i,
   }));
 }

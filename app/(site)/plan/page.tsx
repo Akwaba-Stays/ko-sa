@@ -1,23 +1,20 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { MapPin, Plane } from 'lucide-react';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { FaqAccordion } from '@/components/marketing/FaqAccordion';
+import { listPublicExperiences } from '@/lib/cms/experiences';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Plan Your Stay',
   description:
-    'Everything you need to arrive ready sample itineraries, getting here, airport transfers and FAQs for KO-SA Beach Resort, Ghana',
+    'Everything you need to arrive ready what to do, getting here, airport transfers and FAQs for KO-SA Beach Resort, Ghana',
 };
 
 export const dynamic = 'force-dynamic';
-
-const ITINERARIES = [
-  { labelKey: 'home.itineraries.weekend', titleKey: 'home.itineraries.weekend.title', bodyKey: 'home.itineraries.weekend.body' },
-  { labelKey: 'home.itineraries.short', titleKey: 'home.itineraries.short.title', bodyKey: 'home.itineraries.short.body' },
-  { labelKey: 'home.itineraries.full', titleKey: 'home.itineraries.full.title', bodyKey: 'home.itineraries.full.body' },
-] as const;
 
 const FAQS = [
   { q: 'planPage.faq.checkin.q', a: 'planPage.faq.checkin.a' },
@@ -30,9 +27,10 @@ const FAQS = [
   { q: 'planPage.faq.wellness.q', a: 'planPage.faq.wellness.a' },
 ] as const;
 
-export default function PlanPage() {
+export default async function PlanPage() {
   const { t } = getT();
   const wa = `${site.socials.whatsapp}?text=${encodeURIComponent(site.contact.whatsappMessage)}`;
+  const experiences = await listPublicExperiences();
 
   return (
     <>
@@ -48,34 +46,54 @@ export default function PlanPage() {
         </div>
       </section>
 
-      {/* Sample itineraries */}
-      <section className="pb-8 bg-sand-light">
-        <div className="container-page">
-          <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-2">
-            {t('planPage.itineraries.eyebrow')}
-          </p>
-          <p className="font-raleway text-forest/75 max-w-2xl leading-relaxed mb-10">
-            {t('planPage.itineraries.body')}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {ITINERARIES.map((it) => (
-              <article key={it.titleKey} className="bg-cream rounded-md p-6 shadow-sm flex flex-col">
-                <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral">{t(it.labelKey)}</p>
-                <h3 className="mt-2 font-playfair text-xl text-teal">{t(it.titleKey)}</h3>
-                <p className="mt-3 text-sm font-raleway text-forest/75 leading-relaxed flex-1">{t(it.bodyKey)}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <a href={site.bookingUrl} target="_blank" rel="noreferrer" className="text-[10px] font-opensans uppercase tracking-tracked-sm text-cream bg-coral rounded-full px-3 py-2 hover:bg-coral-600">
-                    {t('planPage.itineraries.cta1')}
-                  </a>
-                  <a href={wa} target="_blank" rel="noreferrer" className="text-[10px] font-opensans uppercase tracking-tracked-sm text-teal border border-teal/40 rounded-full px-3 py-2 hover:border-coral hover:text-coral">
-                    {t('planPage.itineraries.cta2')}
-                  </a>
-                </div>
-              </article>
-            ))}
+      {/* What to do here — real experiences from the CMS */}
+      {experiences.length > 0 && (
+        <section className="pb-8 bg-sand-light">
+          <div className="container-page">
+            <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-2">
+              {t('planPage.experiences.eyebrow')}
+            </p>
+            <p className="font-raleway text-forest/75 max-w-2xl leading-relaxed mb-10">
+              {t('planPage.experiences.body')}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {experiences.map((e) => (
+                <Link
+                  key={e.id}
+                  href={`/experiences/${e.slug}`}
+                  className="group relative aspect-[3/4] rounded-md overflow-hidden branded-img flex items-end shadow-sm"
+                >
+                  {e.image && (
+                    <Image
+                      src={e.image}
+                      alt={e.title}
+                      fill
+                      sizes="(min-width:1024px) 25vw, (min-width:768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-umber/85 via-umber/20 to-transparent" />
+                  <div className="relative p-5 text-cream">
+                    <p className="font-opensans uppercase tracking-tracked text-[10px] text-sunshine">{e.label}</p>
+                    <h3 className="mt-1 font-playfair text-xl leading-tight">{e.title}</h3>
+                    <span className="mt-2 inline-block font-opensans uppercase tracking-tracked-sm text-[10px] text-cream/80 group-hover:text-sunshine transition-colors">
+                      {t('experiences.discover')} →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/experiences" className="text-xs font-opensans uppercase tracking-tracked-sm text-cream bg-coral rounded-full px-5 py-2.5 hover:bg-coral-600 transition-colors">
+                {t('planPage.experiences.cta')}
+              </Link>
+              <a href={wa} target="_blank" rel="noreferrer" className="text-xs font-opensans uppercase tracking-tracked-sm text-teal border border-teal/40 rounded-full px-5 py-2.5 hover:border-coral hover:text-coral transition-colors">
+                {t('planPage.itineraries.cta2')}
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Getting here */}
       <section className="py-16 md:py-24 bg-cream">
