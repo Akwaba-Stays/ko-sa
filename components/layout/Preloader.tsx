@@ -19,7 +19,7 @@ export function Preloader() {
     return () => window.removeEventListener('load', finish);
   }, []);
 
-  const word = 'Simply, Belong';
+  const word = 'Simply, Breathe';
 
   return (
     <AnimatePresence>
@@ -28,6 +28,11 @@ export function Preloader() {
           key="preloader"
           initial={{ y: 0 }}
           exit={{ y: '-100%', transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] } }}
+          // Inline positioning + colours guarantee a full-screen overlay even
+          // before the stylesheet loads. Without this the SSR'd markup (which
+          // sits above <Navbar> in the DOM) flashes in normal document flow,
+          // making the tagline read as an error "above the nav bar".
+          style={{ position: 'fixed', inset: 0, zIndex: 100, backgroundColor: '#1a1a1a', color: '#f9f8f4' }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-umber text-cream"
         >
           <div className="flex flex-col items-center gap-8">

@@ -8,6 +8,13 @@ import { PageHero } from '@/components/shared/PageHero';
 import { WellnessEnquiryForm } from '@/components/marketing/WellnessEnquiryForm';
 import { getT } from '@/lib/i18n/server';
 import { listPublicTreatments } from '@/lib/cms/treatments';
+import {
+  TREATMENTS_FALLBACK,
+  treatmentPriceGhs,
+  formatGhs,
+  waLink,
+  waPrefill,
+} from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Wellness',
@@ -56,7 +63,17 @@ const STRIP = [
 
 export default async function WellnessPage() {
   const { t } = getT();
-  const treatments = await listPublicTreatments();
+  const cmsTreatments = await listPublicTreatments();
+  // Normalise to a single shape (name · duration · GHS price · slug) and fall
+  // back to a curated menu so every treatment is bookable (Change Request §Page 03).
+  const treatments = (cmsTreatments.length ? cmsTreatments : TREATMENTS_FALLBACK).map((tr) => ({
+    id: 'id' in tr ? tr.id : tr.slug,
+    slug: tr.slug,
+    name: tr.name,
+    durationMin: tr.durationMin,
+    category: tr.category ?? null,
+    priceGhs: treatmentPriceGhs(tr.slug, 'price' in tr ? tr.price : undefined),
+  }));
   const programmes = [...FEATURES.map((f) => t(f.titleKey)), ...treatments.map((tr) => tr.name)];
 
   return (
@@ -143,7 +160,7 @@ export default async function WellnessPage() {
         </div>
       </section>
 
-      {/* Holistic approach — image + copy */}
+      {/* Holistic approach - image + copy */}
       <section className="py-16 md:py-24 bg-cream">
         <div className="container-page grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-6 relative aspect-[4/3] rounded-lg overflow-hidden branded-img shadow-sm order-1 lg:order-2">
@@ -200,7 +217,7 @@ export default async function WellnessPage() {
         </div>
       </section>
 
-      {/* Treatments menu, if present in the CMS */}
+      {/* Treatments menu - every treatment bookable (Change Request §Page 03) */}
       {treatments.length > 0 && (
         <section className="py-16 md:py-24 bg-cream">
           <div className="container-page">
@@ -209,13 +226,25 @@ export default async function WellnessPage() {
             </h2>
             <div className="max-w-3xl mx-auto divide-y divide-sand-300/60 bg-sand-light rounded-md shadow-sm">
               {treatments.map((tr) => (
-                <div key={tr.id} className="flex items-center justify-between gap-4 px-6 py-4">
+                <div
+                  key={tr.id}
+                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-6 py-5"
+                >
                   <div>
                     <p className="font-playfair text-lg text-teal">{tr.name}</p>
                     <p className="text-xs font-opensans uppercase tracking-tracked text-forest/50">
-                      {tr.durationMin} min{tr.category ? ` · ${tr.category}` : ''}
+                      {tr.durationMin} min · {formatGhs(tr.priceGhs)}
+                      {tr.category ? ` · ${tr.category}` : ''}
                     </p>
                   </div>
+                  <a
+                    href={waLink(waPrefill.treatment(tr.name))}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-5 py-2.5 hover:bg-coral-600 transition-colors"
+                  >
+                    {t('wellnessPage.treatment.book')} →
+                  </a>
                 </div>
               ))}
             </div>
@@ -223,7 +252,7 @@ export default async function WellnessPage() {
         </section>
       )}
 
-      {/* Enquiry — day guests welcome */}
+      {/* Enquiry - day guests welcome */}
       <section className="py-16 md:py-24 bg-teal-700 text-cream">
         <div className="container-page grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <div className="lg:col-span-5">
@@ -233,9 +262,9 @@ export default async function WellnessPage() {
             <h2 className="mt-3 font-playfair text-display-sm">{t('wellnessPage.enquiry.title')}</h2>
             <p className="mt-4 font-raleway text-cream/85 leading-relaxed">{t('wellnessPage.enquiry.body')}</p>
             <ul className="mt-6 space-y-2 text-cream/80 text-sm font-raleway">
-              <li>— {t('wellnessPage.enquiry.point1')}</li>
-              <li>— {t('wellnessPage.enquiry.point2')}</li>
-              <li>— {t('wellnessPage.enquiry.point3')}</li>
+              <li>{t('wellnessPage.enquiry.point1')}</li>
+              <li>{t('wellnessPage.enquiry.point2')}</li>
+              <li>{t('wellnessPage.enquiry.point3')}</li>
             </ul>
           </div>
           <div className="lg:col-span-7">

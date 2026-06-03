@@ -5,6 +5,7 @@ import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { listPublicExperiences } from '@/lib/cms/experiences';
 import { AdinkraIcon, type AdinkraName } from '@/components/shared/AdinkraIcon';
+import { EXPERIENCE_DETAILS, formatGhs, waLink, waPrefill } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Experiences & Activities',
@@ -116,35 +117,54 @@ export default async function ExperiencesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {(
               [
-                { t: 'experiencesPage.signature.ampenyi.title', b: 'experiencesPage.signature.ampenyi.body' },
-                { t: 'experiencesPage.signature.turtle.title', b: 'experiencesPage.signature.turtle.body' },
-                { t: 'experiencesPage.signature.capeCoast.title', b: 'experiencesPage.signature.capeCoast.body' },
-                { t: 'experiencesPage.signature.elmina.title', b: 'experiencesPage.signature.elmina.body' },
-                { t: 'experiencesPage.signature.kakum.title', b: 'experiencesPage.signature.kakum.body' },
-                { t: 'experiencesPage.signature.massage.title', b: 'experiencesPage.signature.massage.body' },
-                { t: 'experiencesPage.signature.horse.title', b: 'experiencesPage.signature.horse.body' },
+                { key: 'ampenyi', t: 'experiencesPage.signature.ampenyi.title', b: 'experiencesPage.signature.ampenyi.body' },
+                { key: 'turtle', t: 'experiencesPage.signature.turtle.title', b: 'experiencesPage.signature.turtle.body' },
+                { key: 'capeCoast', t: 'experiencesPage.signature.capeCoast.title', b: 'experiencesPage.signature.capeCoast.body' },
+                { key: 'elmina', t: 'experiencesPage.signature.elmina.title', b: 'experiencesPage.signature.elmina.body' },
+                { key: 'kakum', t: 'experiencesPage.signature.kakum.title', b: 'experiencesPage.signature.kakum.body' },
+                { key: 'massage', t: 'experiencesPage.signature.massage.title', b: 'experiencesPage.signature.massage.body' },
+                { key: 'horse', t: 'experiencesPage.signature.horse.title', b: 'experiencesPage.signature.horse.body' },
               ] as const
-            ).map((item) => (
-              <article key={item.t} className="bg-sand-light rounded-md p-6 shadow-sm">
-                <h3 className="font-playfair text-xl text-teal">{t(item.t)}</h3>
-                <p className="mt-3 font-raleway text-sm text-forest/80 leading-relaxed">{t(item.b)}</p>
-              </article>
-            ))}
+            ).map((item) => {
+              const detail = EXPERIENCE_DETAILS[item.key];
+              const name = t(item.t);
+              return (
+                <article key={item.t} className="bg-sand-light rounded-md p-6 shadow-sm flex flex-col">
+                  <h3 className="font-playfair text-xl text-teal">{name}</h3>
+                  {/* Duration · price (Change Request §Page 05) */}
+                  <p className="mt-2 font-opensans uppercase tracking-tracked text-[10px] text-forest/55">
+                    {detail.duration} · From {formatGhs(detail.fromGhs)} {t('experiencesPage.perPerson')}
+                  </p>
+                  <p className="mt-3 font-raleway text-sm text-forest/80 leading-relaxed">{t(item.b)}</p>
+                  <a
+                    href={waLink(waPrefill.experience(name))}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 font-opensans uppercase tracking-tracked text-xs text-coral hover:text-coral-700"
+                  >
+                    {t('experiencesPage.tile.book')} →
+                  </a>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
+      {/* Build Your Perfect Day (Change Request §Page 05) */}
       <section className="bg-teal-700 text-cream py-16 text-center">
         <div className="container-page max-w-2xl">
           <p className="font-raleway text-lg text-cream/90 leading-relaxed">
             {t('experiencesPage.buildDay')}
           </p>
-          <Link
-            href="/contact"
+          <a
+            href={waLink(waPrefill.planMyStay())}
+            target="_blank"
+            rel="noreferrer"
             className="mt-6 inline-block rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
           >
-            {t('experiencesPage.cta')}
-          </Link>
+            {t('experiencesPage.buildDay.cta')} →
+          </a>
         </div>
       </section>
     </>

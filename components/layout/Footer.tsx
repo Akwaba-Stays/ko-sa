@@ -9,13 +9,20 @@ import { NewsletterForm } from '@/components/shared/NewsletterForm';
 import { useT } from '@/lib/i18n';
 import type { DictKey } from '@/lib/i18n/dictionaries';
 
-// A short, focused set of footer links — the primary destinations only.
+// Footer links — primary destinations plus the secondary pages that were
+// removed from the streamlined primary nav (Events, Gallery, Journal, Virtual
+// Tour, Contact) so every page stays reachable.
 const QUICK_LINKS: { href: string; dictKey: DictKey }[] = [
   { href: '/rooms', dictKey: 'nav.stay' },
   { href: '/wellness', dictKey: 'nav.wellness' },
   { href: '/dining', dictKey: 'nav.dine' },
   { href: '/experiences', dictKey: 'nav.experiences' },
+  { href: '/events', dictKey: 'nav.events' },
   { href: '/plan', dictKey: 'nav.plan' },
+  { href: '/about', dictKey: 'nav.about' },
+  { href: '/gallery', dictKey: 'nav.gallery' },
+  { href: '/blog', dictKey: 'nav.blog' },
+  { href: '/virtual-tour', dictKey: 'nav.virtualTour' },
   { href: '/contact', dictKey: 'nav.contact' },
 ];
 

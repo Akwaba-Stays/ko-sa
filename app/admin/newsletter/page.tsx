@@ -27,10 +27,10 @@ export default async function Page() {
         emptyMessage="No subscribers yet."
         columns={[
           { header: 'Email', cell: (s) => s.email },
-          { header: 'Source', cell: (s) => s.source ?? '—', className: 'hidden md:table-cell' },
+          { header: 'Source', cell: (s) => s.source ?? '-', className: 'hidden md:table-cell' },
           {
             header: 'Consented',
-            cell: (s) => (s.consented ? '✓' : '—'),
+            cell: (s) => (s.consented ? '✓' : '-'),
             className: 'w-24',
           },
           {

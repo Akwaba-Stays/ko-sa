@@ -23,7 +23,7 @@ import { BRAND_LQIP } from '@/lib/image';
 
 type Props = ImageProps & { wrapperClassName?: string };
 
-export function SmoothImage({ className, wrapperClassName, onLoad, onError, fill, ...props }: Props) {
+export function SmoothImage({ className, wrapperClassName, onLoad, onError, fill, quality, ...props }: Props) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
   const ref = useRef<HTMLImageElement | null>(null);
@@ -52,6 +52,9 @@ export function SmoothImage({ className, wrapperClassName, onLoad, onError, fill
       {...props}
       ref={ref}
       fill={fill}
+      // High default quality so the AVIF/WebP variants stay crisp and vivid
+      // (Next/Image defaults to 75). Callers can still override per-image.
+      quality={quality ?? 90}
       placeholder="blur"
       blurDataURL={(props.blurDataURL as string) ?? BRAND_LQIP}
       onLoad={(e) => {

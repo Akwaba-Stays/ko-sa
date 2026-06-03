@@ -166,7 +166,7 @@ export function RoomForm({ initial }: { initial?: Partial<RoomFormValues> }) {
               value={values.category}
               onChange={(e) => set('category', e.target.value as RoomFormValues['category'])}
               options={[
-                { value: 'SUITE', label: 'Suite' },
+                { value: 'SUITE', label: 'Garden View' },
                 { value: 'VILLA', label: 'Villa' },
                 { value: 'PALM_SIDE', label: 'Palm Side' },
                 { value: 'BEACH_VIEW', label: 'Beach View' },

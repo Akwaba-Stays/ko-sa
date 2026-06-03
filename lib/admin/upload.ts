@@ -98,7 +98,7 @@ export async function handleUpload(input: UploadInput): Promise<UploadResult> {
       // decoder — ask for JPEG/PNG rather than failing silently.
       if (input.contentType === 'image/heic' || input.contentType === 'image/heif') {
         throw Object.assign(
-          new Error('This HEIC image could not be converted — please try again or upload a JPEG/PNG'),
+          new Error('This HEIC image could not be converted - please try again or upload a JPEG/PNG'),
           { status: 415 },
         );
       }

@@ -70,13 +70,15 @@ body {
   color: var(--primary-foreground);
 }
 
-/* Brand image grade — DESIGN.md §7
-   "60–65% saturation, editorial eco-luxe — shadows lean teal-navy,
-    midtones warm to amber-gold, highlights soften to bleached linen cream." */
+/* Brand image grade — vivid, punchy coastal photography.
+   Saturation at 1.42 makes the teal sea, amber sand and green palms pop.
+   Contrast at 1.13 gives the frames depth and shadow separation.
+   Brightness at 1.05 lifts highlights without washing out midtones.
+   Result: images that feel alive and vibrant — never muted or editorial-flat. */
 .branded-img,
 .branded-img img,
 .branded-img video {
-  filter: saturate(0.65) contrast(1.06) brightness(1.02) hue-rotate(-4deg);
+  filter: saturate(1.42) contrast(1.13) brightness(1.05);
 }
 
 /* Editorial eyebrow utility — used wherever a section opens with a Holistika-style label */

@@ -8,22 +8,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useT } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
+import { site } from '@/lib/site';
+import { packageLine, type PackageKey } from '@/lib/pricing';
 
 const TABS = [
   {
-    key: 'weekend',
+    key: 'weekend' as PackageKey,
     labelKey: 'home.itineraries.weekend' as const,
     titleKey: 'home.itineraries.weekend.title' as const,
     bodyKey: 'home.itineraries.weekend.body' as const,
   },
   {
-    key: 'short',
+    key: 'short' as PackageKey,
     labelKey: 'home.itineraries.short' as const,
     titleKey: 'home.itineraries.short.title' as const,
     bodyKey: 'home.itineraries.short.body' as const,
   },
   {
-    key: 'full',
+    key: 'full' as PackageKey,
     labelKey: 'home.itineraries.full' as const,
     titleKey: 'home.itineraries.full.title' as const,
     bodyKey: 'home.itineraries.full.body' as const,
@@ -76,6 +78,21 @@ export function Itineraries() {
           >
             <h3 className="font-playfair text-2xl md:text-3xl text-teal">{t(tab.titleKey)}</h3>
             <p className="mt-4 font-raleway text-forest/85 leading-relaxed">{t(tab.bodyKey)}</p>
+
+            {/* Bookable package: price + inclusions + Book Now (Change Request §Page 01) */}
+            <div className="mt-6 pt-6 border-t border-teal/15">
+              <p className="font-opensans text-sm md:text-base text-forest font-medium">
+                {packageLine(tab.key)}
+              </p>
+              <a
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
+              >
+                {t('home.itineraries.bookNow')} →
+              </a>
+            </div>
           </motion.div>
         </AnimatePresence>
 

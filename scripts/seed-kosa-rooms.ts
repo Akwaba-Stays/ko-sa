@@ -63,7 +63,7 @@ const ROOMS: SeedRoom[] = [
     bedConfig: 'Double bed',
     tagline: 'Our finest, with the ocean at the foot of the bed',
     description:
-      'Experience ultimate comfort in our premium double room with breathtaking sea views',
+      "This is the room you'll struggle to leave. The ocean fills the window from the moment you wake. The bed faces the sea. The air carries salt and quiet. Everything else — the cool bathroom, the private balcony, the soft light at golden hour — is the room working around that view.",
     amenities: ['Sea view', 'Double bed', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Sea view', 'Premium'],
     img: 'LDRWSV',
@@ -81,7 +81,8 @@ const ROOMS: SeedRoom[] = [
     maxGuests: 2,
     bedConfig: 'Double bed',
     tagline: 'Wake to the ocean, sleep to the surf',
-    description: 'Luxurious double room featuring stunning ocean views and premium amenities',
+    description:
+      'Open your eyes and the sea is already there. A calm, light-filled double where the surf is your alarm and the balcony is where the day slows down. Everything you need, nothing you don’t.',
     amenities: ['Sea view', 'Double bed', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Sea view'],
     img: 'DDRWSV',
@@ -99,7 +100,8 @@ const ROOMS: SeedRoom[] = [
     maxGuests: 2,
     bedConfig: 'Twin beds',
     tagline: 'Two beds, one endless horizon',
-    description: 'Premium twin room with spectacular ocean views and modern comforts',
+    description:
+      'Two beds, one wide horizon. Made for friends or family who want the ocean in view and the day at their own pace — sea breeze through the window, soft light at dusk.',
     amenities: ['Sea view', 'Twin beds', 'Private bathroom', 'Air conditioning', 'Balcony', 'WiFi'],
     features: ['Sea view', 'Twin'],
     img: 'DTRWSV',
@@ -117,7 +119,8 @@ const ROOMS: SeedRoom[] = [
     maxGuests: 4,
     bedConfig: 'Multiple beds',
     tagline: 'Room to breathe, together',
-    description: 'Spacious family accommodation perfect for groups, featuring a private bathroom',
+    description:
+      'Room to spread out and still be together. Space for the whole family, a private bathroom, and the kind of easy comfort that lets everyone — the little ones included — settle into the slow rhythm of the coast.',
     amenities: ['Private bathroom', 'Multiple beds', 'Family friendly', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Family-friendly', 'Spacious'],
     img: 'FRWPB',
@@ -135,7 +138,8 @@ const ROOMS: SeedRoom[] = [
     maxGuests: 3,
     bedConfig: 'Three beds',
     tagline: 'Made for small groups and good company',
-    description: 'Comfortable triple room ideal for small groups or families',
+    description:
+      'For small groups and good company. Three beds, a private bathroom, and plenty of room to come and go — close to the beach, easy on everyone.',
     amenities: ['Private bathroom', 'Three beds', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Groups'],
     img: 'TBWPB',
@@ -153,7 +157,8 @@ const ROOMS: SeedRoom[] = [
     maxGuests: 2,
     bedConfig: 'Double bed',
     tagline: 'Garden-facing calm for those who came to be still',
-    description: 'Peaceful double room overlooking our lush tropical gardens',
+    description:
+      'Garden-facing calm for those who came to be still. Wake to birdsong and green light, with the sea a short barefoot walk away. Quiet, simple, and deeply restful.',
     amenities: ['Garden view', 'Double bed', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Garden view'],
     img: 'DRWGV',
@@ -171,7 +176,8 @@ const ROOMS: SeedRoom[] = [
     maxGuests: 2,
     bedConfig: 'Twin beds',
     tagline: 'Quiet mornings among the palms',
-    description: 'Serene twin room with views of our beautiful gardens',
+    description:
+      'Quiet mornings among the palms. Two beds, garden views, and the unhurried hush of the gardens — a gentle base for a couple of friends or a restful solo stay.',
     amenities: ['Garden view', 'Twin beds', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Garden view', 'Twin'],
     img: 'TRWGV',
@@ -189,7 +195,8 @@ const ROOMS: SeedRoom[] = [
     maxGuests: 2,
     bedConfig: 'Double bed · shared bathroom',
     tagline: 'Light on the wallet, easy on the soul',
-    description: 'Comfortable and affordable double room with shared bathroom facilities',
+    description:
+      'Light on the wallet, easy on the soul. A simple, comfortable double among the palms with shared facilities — all the coast, none of the fuss.',
     amenities: ['Double bed', 'Shared bathroom', 'Fan', 'WiFi', 'Balcony'],
     features: ['Value', 'Shared bathroom'],
     img: 'SDRWSB',
@@ -207,7 +214,8 @@ const ROOMS: SeedRoom[] = [
     maxGuests: 2,
     bedConfig: 'Twin beds · shared bathroom',
     tagline: 'Good company, by the sea',
-    description: 'Comfortable and affordable twin room with shared bathroom facilities',
+    description:
+      'Good company, by the sea. Two beds, garden surrounds and shared facilities — an easy, affordable way to wake up on the coast with the people you travel best with.',
     amenities: ['Twin beds', 'Shared bathroom', 'Fan', 'WiFi', 'Balcony'],
     features: ['Value', 'Shared bathroom', 'Twin'],
     img: 'STRWSB',

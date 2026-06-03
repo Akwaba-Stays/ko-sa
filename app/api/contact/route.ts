@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     await sendMail({
       to: site.contact.email,
       subject: `New enquiry · ${data.subject ?? data.name}`,
-      text: `From: ${data.name} <${data.email}>\nPhone: ${data.phone ?? '—'}\n\n${data.message}`,
+      text: `From: ${data.name} <${data.email}>\nPhone: ${data.phone ?? '-'}\n\n${data.message}`,
     });
 
     return NextResponse.json({ ok: true });

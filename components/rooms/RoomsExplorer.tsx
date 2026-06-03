@@ -9,6 +9,7 @@ import { useMemo, useState } from 'react';
 import { Search, X } from 'lucide-react';
 import { Carousel } from '@/components/shared/Carousel';
 import { displayCategory, type PublicRoom } from '@/lib/cms/types';
+import { roomFromPerNight } from '@/lib/pricing';
 
 type Labels = {
   searchPlaceholder: string;
@@ -26,14 +27,14 @@ type Labels = {
   bookingUrl: string;
 };
 
-const CATS = ['All', 'Suite', 'Beach View', 'Palm Side'] as const;
+const CATS = ['All', 'Garden View', 'Beach View', 'Palm Side'] as const;
 
 export function RoomsExplorer({ rooms, labels }: { rooms: PublicRoom[]; labels: Labels }) {
   const [query, setQuery] = useState('');
   const [active, setActive] = useState<(typeof CATS)[number]>('All');
 
   const catLabel = (c: (typeof CATS)[number]) =>
-    c === 'All' ? labels.all : c === 'Suite' ? labels.suite : c === 'Palm Side' ? labels.palmSide : labels.beachView;
+    c === 'All' ? labels.all : c === 'Garden View' ? labels.suite : c === 'Palm Side' ? labels.palmSide : labels.beachView;
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -98,7 +99,7 @@ export function RoomsExplorer({ rooms, labels }: { rooms: PublicRoom[]; labels: 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filtered.map((r) => {
             const cat = displayCategory(r.category);
-            const catText = cat === 'Suite' ? labels.suite : cat === 'Palm Side' ? labels.palmSide : labels.beachView;
+            const catText = cat === 'Garden View' ? labels.suite : cat === 'Palm Side' ? labels.palmSide : labels.beachView;
             const images = r.gallery?.length ? r.gallery : r.image ? [r.image] : [];
             return (
               <article
@@ -135,6 +136,10 @@ export function RoomsExplorer({ rooms, labels }: { rooms: PublicRoom[]; labels: 
                     {r.sizeSqm ? <span>· {r.sizeSqm} m²</span> : null}
                     {r.bedConfig ? <span>· {r.bedConfig}</span> : null}
                   </div>
+                  {/* Starting price (Change Request §Page 02) */}
+                  <p className="mt-4 font-opensans text-sm text-teal font-semibold">
+                    {roomFromPerNight(r.slug, r.price)}
+                  </p>
                   <div className="mt-auto pt-5 border-t border-sand-300/60 flex gap-2">
                     <Link
                       href={`/rooms/${r.slug}`}

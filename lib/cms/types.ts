@@ -21,15 +21,15 @@ export interface PublicRoom {
   sortOrder: number;
 }
 
-const CATEGORY_TO_DISPLAY: Record<string, 'Suite' | 'Palm Side' | 'Beach View'> = {
-  SUITE: 'Suite',
+const CATEGORY_TO_DISPLAY: Record<string, 'Garden View' | 'Palm Side' | 'Beach View'> = {
+  SUITE: 'Garden View',
   PALM_SIDE: 'Palm Side',
   BEACH_VIEW: 'Beach View',
-  VILLA: 'Suite',
+  VILLA: 'Garden View',
   BUNGALOW: 'Beach View',
 };
 
-export function displayCategory(cat: string): 'Suite' | 'Palm Side' | 'Beach View' {
+export function displayCategory(cat: string): 'Garden View' | 'Palm Side' | 'Beach View' {
   return CATEGORY_TO_DISPLAY[cat] ?? 'Beach View';
 }
 

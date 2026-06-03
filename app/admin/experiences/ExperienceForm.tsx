@@ -43,7 +43,7 @@ const EMPTY: ExperienceFormValues = {
 };
 
 const ADINKRA_OPTIONS = [
-  { value: '', label: '—' },
+  { value: '', label: '-' },
   { value: 'knonsonkonson', label: 'Knonsonkonson · Belong' },
   { value: 'asetena', label: 'Asetena Pa · Good Life' },
   { value: 'denkyem', label: 'Denkyem · Breathe' },

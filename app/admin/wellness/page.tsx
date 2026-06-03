@@ -52,7 +52,7 @@ export default async function TreatmentsListPage() {
             cell: (t) => formatCurrency(Number(t.price), t.currency),
             className: 'hidden md:table-cell',
           },
-          { header: 'Category', cell: (t) => t.category || '—', className: 'hidden lg:table-cell' },
+          { header: 'Category', cell: (t) => t.category || '-', className: 'hidden lg:table-cell' },
           { header: 'Status', cell: (t) => <StatusBadge status={t.status} />, className: 'w-32' },
           {
             header: '',

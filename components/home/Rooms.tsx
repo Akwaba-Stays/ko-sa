@@ -10,14 +10,14 @@ import type { DictKey } from '@/lib/i18n/dictionaries';
 import type { PublicRoom } from '@/lib/cms/types';
 import { displayCategory } from '@/lib/cms/types';
 
-type DisplayCategory = 'Suite' | 'Palm Side' | 'Beach View';
+type DisplayCategory = 'Garden View' | 'Palm Side' | 'Beach View';
 const FILTER_DICT_KEY: Record<'All' | DisplayCategory, DictKey> = {
   All: 'rooms.filter.all',
   'Beach View': 'rooms.filter.beachView',
   'Palm Side': 'rooms.filter.palmSide',
-  Suite: 'rooms.filter.suite',
+  'Garden View': 'rooms.filter.suite',
 };
-const filters = ['All', 'Beach View', 'Palm Side', 'Suite'] as const;
+const filters = ['All', 'Beach View', 'Palm Side', 'Garden View'] as const;
 
 function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement | null>(null);

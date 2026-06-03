@@ -36,51 +36,25 @@ export const site = {
     tripadvisor: { score: 4.7, max: 5, url: 'https://www.tripadvisor.com/Hotel_Review-Ko-Sa-Beach-Resort' },
     totalGuests: 5000,
   },
-  // Primary navigation per the Content Brief §02 + 2026 restructure. Each
-  // top-level item may declare a `children` array Navbar renders that as a
-  // hover/click dropdown, Footer flattens children into Quick Links.
-  // Plain links first, dropdown menus moved to the end of the list.
+  // Primary navigation — Website Change Request (June 2026). Experiences is a
+  // top-level item (not buried in a dropdown) and the order is fixed:
+  //   Stay · Wellness · Dine · Experiences · Plan Your Visit · Our Story · [Book Now]
+  // Secondary destinations (Events, Gallery, Journal, Virtual Tour, Contact)
+  // remain reachable from the footer's Quick Links so nothing is orphaned.
   nav: [
     { label: 'Stay', href: '/rooms', dictKey: 'nav.stay' },
     { label: 'Wellness', href: '/wellness', dictKey: 'nav.wellness' },
     { label: 'Dine', href: '/dining', dictKey: 'nav.dine' },
+    { label: 'Experiences', href: '/experiences', dictKey: 'nav.experiences' },
     { label: 'Plan Your Visit', href: '/plan', dictKey: 'nav.plan' },
     { label: 'Our Story', href: '/about', dictKey: 'nav.about' },
-    {
-      label: 'Experience',
-      href: '/experiences',
-      dictKey: 'nav.experience',
-      children: [
-        { label: 'Experiences & Activities', href: '/experiences', dictKey: 'nav.experiences' },
-        { label: 'Events & Gatherings', href: '/events', dictKey: 'nav.events' },
-      ],
-    },
-    {
-      label: 'Explore',
-      href: '/gallery',
-      dictKey: 'nav.explore',
-      children: [
-        { label: 'Gallery', href: '/gallery', dictKey: 'nav.gallery' },
-        { label: 'Journal', href: '/blog', dictKey: 'nav.blog' },
-        { label: 'Virtual Tour', href: '/virtual-tour', dictKey: 'nav.virtualTour' },
-        { label: 'Contact', href: '/contact', dictKey: 'nav.contact' },
-      ],
-    },
   ] as const,
 } as const;
 
 export type Site = typeof site;
 
-// Convenience: flat list of all reachable nav items (top-level + children).
-// Used by the Footer Quick Links.
-export const allNavLinks = (() => {
-  const out: { href: string; dictKey: string }[] = [];
-  for (const item of site.nav) {
-    if ('children' in item && item.children) {
-      for (const c of item.children) out.push({ href: c.href, dictKey: c.dictKey });
-    } else {
-      out.push({ href: item.href, dictKey: item.dictKey });
-    }
-  }
-  return out;
-})();
+// Convenience: flat list of all reachable primary nav items.
+export const allNavLinks: { href: string; dictKey: string }[] = site.nav.map((item) => ({
+  href: item.href,
+  dictKey: item.dictKey,
+}));

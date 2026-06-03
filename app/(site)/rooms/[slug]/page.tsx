@@ -8,6 +8,7 @@ import { Carousel } from '@/components/shared/Carousel';
 import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
 import { site } from '@/lib/site';
 import { getT } from '@/lib/i18n/server';
+import { roomFromPerNight } from '@/lib/pricing';
 
 export const dynamic = 'force-dynamic';
 
@@ -43,7 +44,7 @@ export default async function RoomDetailPage({ params }: Props) {
   const { t } = getT();
   const cat = displayCategory(room.category);
   const categoryDictKey: Record<string, 'rooms.filter.suite' | 'rooms.filter.palmSide' | 'rooms.filter.beachView'> = {
-    Suite: 'rooms.filter.suite',
+    'Garden View': 'rooms.filter.suite',
     'Palm Side': 'rooms.filter.palmSide',
     'Beach View': 'rooms.filter.beachView',
   };
@@ -134,6 +135,10 @@ export default async function RoomDetailPage({ params }: Props) {
               {room.tagline && (
                 <p className="font-raleway italic text-sm text-umber/70 mt-2">{room.tagline}</p>
               )}
+              {/* Starting price (Change Request §Page 02) */}
+              <p className="mt-4 font-belleza text-2xl text-primary">
+                {roomFromPerNight(room.slug, room.price)}
+              </p>
               <div className="mt-6 space-y-3">
                 <Button href={site.bookingUrl} target="_blank" rel="noreferrer" fullWidth size="lg">
                   {t('roomDetail.reserve')} {room.name}

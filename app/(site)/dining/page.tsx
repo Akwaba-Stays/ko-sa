@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import { SmoothImage as Image } from '@/components/shared/SmoothImage';
-import Link from 'next/link';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { listPublicDiningVenues } from '@/lib/cms/dining';
 import { formatCurrency } from '@/lib/utils';
-import { site } from '@/lib/site';
+import { waLink, waPrefill } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Dining',
@@ -22,7 +21,7 @@ const SECTIONS = [
     bodyKey: 'diningPage.restaurant.body',
     hoursKey: 'diningPage.restaurant.hours' as const,
     image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/0-772A1897.webp',
-    cta: { labelKey: 'diningPage.restaurant.cta', href: '/contact' },
+    cta: { labelKey: 'diningPage.restaurant.cta', href: waLink(waPrefill.reserveTable()) },
   },
   {
     key: 'bar',
@@ -37,14 +36,16 @@ const SECTIONS = [
     key: 'breakfast',
     titleKey: 'diningPage.breakfast.title',
     bodyKey: 'diningPage.breakfast.body',
+    hoursKey: 'diningPage.breakfast.hours' as const,
     image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/2-772A1911.webp',
   },
   {
     key: 'private',
     titleKey: 'diningPage.private.title',
+    leadKey: 'diningPage.private.lead' as const,
     bodyKey: 'diningPage.private.body',
     image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/11-772A2399.webp',
-    cta: { labelKey: 'diningPage.private.cta', href: '/contact' },
+    cta: { labelKey: 'diningPage.private.cta', href: waLink(waPrefill.privateDining()) },
   },
 ] as const;
 
@@ -65,6 +66,15 @@ export default async function DiningPage() {
           <p className="font-raleway text-lg md:text-xl text-forest/85 leading-relaxed">
             {t('diningPage.intro')}
           </p>
+          {/* Reserve a Table immediately after the intro (Change Request §Page 04) */}
+          <a
+            href={waLink(waPrefill.reserveTable())}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
+          >
+            {t('diningPage.reserveCta')} →
+          </a>
         </div>
       </section>
 
@@ -85,6 +95,9 @@ export default async function DiningPage() {
                 {'nameKey' in s && s.nameKey && (
                   <p className="mt-1 font-raleway italic text-coral">{t(s.nameKey)}</p>
                 )}
+                {'leadKey' in s && s.leadKey && (
+                  <p className="mt-4 font-playfair text-xl text-coral">{t(s.leadKey)}</p>
+                )}
                 <p className="mt-4 font-raleway text-forest/80 leading-relaxed">{t(s.bodyKey)}</p>
                 {'hoursKey' in s && s.hoursKey && (
                   <p className="mt-3 font-opensans uppercase tracking-tracked text-[10px] text-forest/60">
@@ -92,12 +105,14 @@ export default async function DiningPage() {
                   </p>
                 )}
                 {'cta' in s && s.cta && (
-                  <Link
+                  <a
                     href={s.cta.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="mt-6 inline-flex items-center gap-2 font-opensans uppercase tracking-tracked text-xs text-coral hover:text-coral-700"
                   >
                     {t(s.cta.labelKey)} →
-                  </Link>
+                  </a>
                 )}
               </div>
             </article>

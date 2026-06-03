@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Check } from 'lucide-react';
 import { PageHero } from '@/components/shared/PageHero';
 import { RoomsExplorer } from '@/components/rooms/RoomsExplorer';
 import { listPublicRooms } from '@/lib/cms/rooms';
@@ -80,6 +80,25 @@ export default async function RoomsPage() {
               <MessageCircle size={14} /> {t('common.whatsapp')}
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Booking confidence strip (Change Request §Page 02) */}
+      <section className="bg-sand-light border-t border-sand-300/60 py-8">
+        <div className="container-page">
+          <ul className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center">
+            {[
+              t('roomsPage.confidence.rate'),
+              t('roomsPage.confidence.cancel'),
+              t('roomsPage.confidence.welcome'),
+              t('roomsPage.confidence.desk'),
+            ].map((item) => (
+              <li key={item} className="inline-flex items-center gap-2 font-opensans text-sm text-forest/80">
+                <Check size={16} className="text-coral shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

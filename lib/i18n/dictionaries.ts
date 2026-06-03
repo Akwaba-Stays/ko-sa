@@ -53,12 +53,12 @@ const en = {
   'rooms.eyebrow': 'Stay with us',
   'rooms.headline': 'Boutique by the Atlantic',
   'rooms.statRooms': 'Rooms',
-  'rooms.statSuites': 'Suites',
+  'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Beach',
   'rooms.filter.all': 'All',
   'rooms.filter.beachView': 'Beach View',
   'rooms.filter.palmSide': 'Palm Side',
-  'rooms.filter.suite': 'Suite',
+  'rooms.filter.suite': 'Garden View',
   'rooms.priceFrom': 'From',
   'rooms.perNight': 'night',
   'rooms.view': 'View',
@@ -245,15 +245,17 @@ const en = {
   'nav.events': 'Events & Gatherings',
   'nav.story': 'Our Story',
 
-  // Hero (brief §01)
-  'home.hero.headline': 'Reconnect · Recharge · Renew',
-  'home.hero.subhead': 'Life is better at the beach',
+  // Hero (Change Request §Page 01)
+  'home.hero.headline': 'Rest. Reconnect. Come back to yourself.',
+  'home.hero.subhead': "Ghana's coastal retreat for the soul - Ampenyi, Elmina",
   'home.hero.ctaPrimary': 'Book Your Stay',
   'home.hero.ctaSecondary': 'Explore Ko-Sa',
+  // Urgency nudge beneath the hero buttons (Change Request §Page 01)
+  'home.hero.urgency': 'Rooms filling for July & August - book direct for the best rate',
 
-  // Social proof (brief §01)
+  // Social proof bar — score + real guest quote (Change Request §Page 01)
   'home.social.copy':
-    'Loved by 5,000+ guests. Rated 9.1/10 on Booking.com · 4.8/5 on Google · 4.7/5 on TripAdvisor',
+    '5,000+ guests · 9.1/10 on Booking.com · “The most peaceful place I’ve been in years.” · Book direct - best rate guaranteed.',
 
   // Feeling section (brief §01)
   'home.feeling.headline': 'This is what slowing down looks like',
@@ -305,12 +307,12 @@ const en = {
 
   // Wellness page (brief §02 page 03)
   'wellnessPage.headline': 'Well-being, the Ko-Sa way',
-  'wellnessPage.hero.title': 'Your wellness journey starts here',
+  'wellnessPage.hero.title': 'Well-being, the Ko-Sa way.',
   'wellnessPage.hero.sub': 'Nature restores discover balance in body and mind',
   'wellnessPage.approach.eyebrow': 'Our approach',
   'wellnessPage.approach.title': 'Wellness through nature',
-  'wellnessPage.approach.body1': 'KO-SA’s wellness philosophy is simple: nature restores Â· Through wellness coaching, personalised spa treatments, yoga, and a curated tea bar, guests rediscover balance in body and mind',
-  'wellnessPage.approach.body2': 'Our wellness team offers guidance for calm, clarity, and long-lasting well-being Â· Every treatment, every session, every moment is designed to help you reconnect with your natural state of peace',
+  'wellnessPage.approach.body1': 'You don’t need a programme. You need permission to stop. Ko-Sa gives you that - in the sea air, in the slow mornings, in the hands of a therapist who knows exactly where you’re carrying it.',
+  'wellnessPage.approach.body2': 'Wellness here isn’t something you do. It’s something you remember.',
   'wellnessPage.features.heading': 'Wellness features',
   'wellnessPage.feat.spa.title': 'Spa Services',
   'wellnessPage.feat.spa.body': 'Herbal treatments and massage therapies using natural local ingredients',
@@ -326,7 +328,7 @@ const en = {
   'wellnessPage.feat.nature.body': 'Restorative walks and immersive experiences in a coastal environment',
   'wellnessPage.holistic.eyebrow': 'A holistic approach',
   'wellnessPage.holistic.title': 'Body, mind and spirit',
-  'wellnessPage.holistic.body1': 'Our wellness programmes address the whole person body, mind, and spirit Â· Whether you seek deep relaxation, renewed energy, or inner peace, our experienced team will guide you on a personalised journey',
+  'wellnessPage.holistic.body1': 'Our wellness programmes address the whole person body, mind, and spirit · Whether you seek deep relaxation, renewed energy, or inner peace, our experienced team will guide you on a personalised journey',
   'wellnessPage.holistic.body2': 'From sunrise yoga on the beach to sunset meditation, from nourishing herbal teas to therapeutic massages, every element works together to restore your natural balance',
   'wellnessPage.benefits.heading': 'The benefits of wellness at KO-SA',
   'wellnessPage.benefit.stress.title': 'Stress Relief',
@@ -368,10 +370,11 @@ const en = {
   'diningPage.breakfast.title': 'Breakfast',
   'diningPage.breakfast.body':
     'The first meal of your day should feel like a gift · Colourful, fresh, and unhurried Ghanaian, continental, and full options available · Dietary needs accommodated just let us know',
-  'diningPage.private.title': 'Private & Special Dining',
+  'diningPage.private.title': 'Private & Beach Dining',
+  'diningPage.private.lead': 'A table just for you.',
   'diningPage.private.body':
-    'Celebrating something? Let us set a table just for you on the beach, under the stars, with the ocean as your backdrop · Tell us what the occasion is and we’ll take care of the rest',
-  'diningPage.private.cta': 'Plan a Special Dinner',
+    'Celebrating something? Let us set a table on the beach - under the stars, with the ocean as your backdrop. Tell us the occasion and we’ll take care of everything else.',
+  'diningPage.private.cta': 'Enquire About Private Dining',
 
   // Experiences page (brief §02 page 05)
   'experiencesPage.headline': 'Ghana begins here',
@@ -428,39 +431,39 @@ const en = {
   'planPage.faqs.title': 'Frequently Asked Questions',
   'planPage.faq.checkin.q': 'What time is check-in and check-out?',
   'planPage.faq.checkin.a':
-    "Check-in is from 3 pm and check-out is until 11 am · We are flexible where we can be just ask",
+    'Check-in is from 2pm. Check-out is by 11am. We have a 24-hour front desk - if you’re arriving late, just let us know and we’ll make sure someone is ready for you.',
   'planPage.faq.cancellation.q': 'What is your cancellation policy?',
   'planPage.faq.cancellation.a':
-    "A 50% refund applies for cancellations received at least 20 days before arrival; thereafter no refund · Peak-season bookings are non-refundable · Reservations can be modified up to 48 hours before arrival a 50% deposit confirms the booking",
+    'Free cancellation up to 72 hours (3 days) before arrival. Cancellations within 3 days receive a 50% refund of the deposit. Cancellations within 24 hours or no-shows forfeit 50% of the deposit. A 30% deposit is required to confirm all bookings - the deposit invoice is valid for 2 days. The remaining balance is due on arrival.',
   'planPage.faq.airport.q': 'Do you offer airport transfers?',
   'planPage.faq.airport.a':
-    'Yes · Comfortable, private transfers from Kotoka International Airport in Accra · Book in advance so we can meet you at arrivals',
+    'Yes. We arrange door-to-door transfers from Kotoka International Airport. WhatsApp us your flight details before you travel and we handle the rest.',
   'planPage.faq.halal.q': 'Are halal meals available?',
   'planPage.faq.halal.a':
-    'Yes · Halal options are available across our menus · Vegetarian, vegan and other dietary needs are warmly accommodated',
+    'Yes. Our kitchen accommodates halal, vegetarian, and other dietary requirements. Just let us know at the time of booking.',
   'planPage.faq.children.q': 'Can I bring children?',
   'planPage.faq.children.a':
-    "Of course · Ko-Sa is calm but family-friendly · Tell us their ages and we'll set you up for the easiest possible stay",
+    'Children are warmly welcome at Ko-Sa. We have family rooms and can arrange cots and child-friendly meals on request.',
   'planPage.faq.payment.q': 'What payment methods do you accept?',
   'planPage.faq.payment.a':
-    'All major cards, mobile money, and bank transfer · Pay a deposit to confirm and settle the balance on arrival',
+    'We accept Visa, Mastercard, and mobile money (MTN MoMo, Vodafone Cash). All transactions are processed in GHS.',
   'planPage.faq.swim.q': 'Is the beach swimmable?',
   'planPage.faq.swim.a':
-    'The Atlantic has currents we’ll always let you know the safest hours · The pool is open all day',
+    'The beach at Ampenyi is best enjoyed at low tide. We share a daily tide schedule on arrival and will always point you to the best access spots.',
   'planPage.faq.wellness.q': 'Can I book wellness treatments in advance?',
   'planPage.faq.wellness.a':
-    "Yes please do · Spa, coaching and group sessions fill up quickly · Tell us what you'd like before you arrive",
+    'Yes - and we recommend it. WhatsApp us before you arrive and we’ll reserve your treatments so you’re not waiting on the day.',
 
   // Our Story (brief §02 page 08)
-  'aboutPage.headline': 'Two decades by the sea',
+  'aboutPage.headline': 'Two decades by the sea. And still, every guest feels like the first.',
   'aboutPage.opening':
-    'KO-SA Beach Resort has been part of the Ampenyi coastline for over two decades, a sanctuary where life slows down and the ocean leads the rhythm',
+    'Ko-Sa Beach Resort was not built from a business plan. It was built from a belief - that the Ghanaian coast is one of the most restorative places on earth, and that everyone who comes here should be able to feel that. For over twenty years, we have held that belief.',
   'aboutPage.enrichedSetting':
-    "We believe in wellness through simplicity: clean air, nourishing food, meaningful rest, and connection with nature · For 23 years, we've welcomed guests seeking refuge from the noise of modern life, offering them a place to breathe, reflect, and reconnect",
+    'It shows in the fishermen we partner with, the farmers who supply our kitchen, the artisans whose hands shaped what you see around you.',
   'aboutPage.enrichedEco':
-    "Our philosophy is rooted in the belief that true luxury isn't about excess, it's about authenticity · It's the feeling of sand between your toes, the sound of waves at dawn, the taste of fresh, local ingredients prepared with care, and the warmth of genuine hospitality",
+    "We never set out to build a luxury resort. We set out to build a place where people could feel the coast the way it actually is - unhurried, generous, alive.",
   'aboutPage.continued':
-    'Every corner of KO-SA tells a story of the land, the people, and the rhythms of coastal living that have remained unchanged for generations · We honour this heritage while creating modern comfort, ensuring that every guest experiences both the peace of the past and the ease of the present',
+    'We are part of the Akwaaba Stays Hospitality Group - a family of properties across Ghana and West Africa that share a commitment to hospitality rooted in care, community, and the places we call home. Ko-Sa is where that commitment lives closest to the water.',
   'aboutPage.values': 'Our Values',
   'aboutPage.values.authenticity.title': 'Authenticity',
   'aboutPage.values.authenticity.body':
@@ -522,7 +525,7 @@ const en = {
   'roomsPage.searchPlaceholder': 'Search rooms, beds, sea view…',
   'roomsPage.resultsOne': '1 room',
   'roomsPage.resultsMany': '{n} rooms',
-  'roomsPage.searchEmpty': 'No rooms match your search yet — try another word or filter',
+  'roomsPage.searchEmpty': 'No rooms match your search yet - try another word or filter',
   'roomsPage.upTo': 'Up to',
   'roomsPage.guestsUnit': 'guests',
 
@@ -555,7 +558,7 @@ const en = {
   'wellnessPage.enquiry.point3': 'Couples and small groups can be arranged',
   'wellnessForm.interest': 'What you’re interested in',
   'wellnessForm.choose': 'Choose a programme',
-  'wellnessForm.notSure': 'Not sure yet — please advise',
+  'wellnessForm.notSure': 'Not sure yet - please advise',
   'wellnessForm.guestType': 'Are you staying with us?',
   'wellnessForm.day': 'Day guest (not staying)',
   'wellnessForm.staying': 'Staying at Ko-Sa',
@@ -571,7 +574,8 @@ const en = {
   'wellnessPage.beginHeadline': 'Begin your way back',
 
   // Experiences page
-  'experiencesPage.buildDay': 'Ask us to build your perfect day',
+  'experiencesPage.buildDay':
+    'Not sure where to start? Tell us how many days you have and what draws you - we’ll put together a plan that’s entirely yours.',
 
   // Contact page
   'contactPage.eyebrow': 'Get in Touch',
@@ -702,6 +706,40 @@ const en = {
   'experiencesPage.signature.massage.body': 'Choose where: on the beach with the waves, in the garden under the palms, or in the privacy of your room',
   'experiencesPage.signature.horse.title': 'Horse riding & jewellery making',
   'experiencesPage.signature.horse.body': 'Beach riding at golden hour, hands-on jewellery sessions with local artisans small things that turn a stay into a memory',
+
+  // ─── Website Change Request (June 2026) ────────────────────────────────────
+  // Sitewide
+  'nav.bookMicro': 'Book direct · Best rate guaranteed',
+
+  // Home — itinerary packages + room teaser pricing
+  'home.itineraries.bookNow': 'Book Now',
+  'common.perNight': 'per night',
+
+  // Rooms — booking confidence strip (Change Request §Page 02)
+  'roomsPage.confidence.rate': 'Best rate when you book direct',
+  'roomsPage.confidence.cancel': 'Free cancellation up to 72 hours before arrival',
+  'roomsPage.confidence.welcome': 'Welcome drink on arrival',
+  'roomsPage.confidence.desk': '24-hour front desk',
+
+  // Wellness — bookable treatments (Change Request §Page 03)
+  'wellnessPage.treatment.book': 'Book This Treatment',
+
+  // Dining — reserve a table + breakfast hours (Change Request §Page 04)
+  'diningPage.reserveCta': 'Reserve a Table',
+  'diningPage.breakfast.hours': 'Breakfast served 7–10 am, every day',
+
+  // Experiences — bookable tiles + planning CTA (Change Request §Page 05)
+  'experiencesPage.tile.book': 'Book This Experience',
+  'experiencesPage.perPerson': 'per person',
+  'experiencesPage.buildDay.cta': 'Start the conversation',
+
+  // Plan Your Stay — itineraries above the FAQ (Change Request §Page 07)
+  'planPage.itineraries.heading': 'Your Stay, Your Way',
+  'planPage.itineraries.eachClose': 'This is one version of your Ko-Sa stay. Yours will be your own.',
+  'planPage.itineraries.bookThis': 'Book This Stay',
+
+  // About — sea turtle guest CTA (Change Request §Page 08)
+  'aboutPage.seaTurtle.cta': 'Ask About the Turtle Walks',
 } as const;
 
 // ─── FRENCH ──────────────────────────────────────────────────────────────────
@@ -714,7 +752,7 @@ const en = {
 //   • "Restez dans l'instant" → "Gardez le cap sur l'essentiel" (stay in the feeling)
 //   • error messages softened to match the brand's warm tone
 // ─────────────────────────────────────────────────────────────────────────────
-const fr: Record<keyof typeof en, string> = {
+const fr: Partial<Record<keyof typeof en, string>> = {
   'nav.rooms': 'Chambres',
   'nav.experiences': 'Expériences',
   'nav.dining': 'Table',
@@ -745,12 +783,12 @@ const fr: Record<keyof typeof en, string> = {
   'rooms.eyebrow': 'Séjournez avec nous',
   'rooms.headline': 'Boutique face à l\u2019Atlantique',
   'rooms.statRooms': 'Chambres',
-  'rooms.statSuites': 'Suites',
+  'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Plage',
   'rooms.filter.all': 'Tout',
   'rooms.filter.beachView': 'Vue mer',
   'rooms.filter.palmSide': 'Côté palmeraie',
-  'rooms.filter.suite': 'Suite',
+  'rooms.filter.suite': 'Garden View',
   'rooms.priceFrom': 'À partir de',
   'rooms.perNight': 'nuit',
   'rooms.view': 'Voir',
@@ -972,12 +1010,12 @@ const fr: Record<keyof typeof en, string> = {
     "Réservez en direct pour le meilleur tarif · Annulation flexible sur toutes les chambres · Cocktail de bienvenue à l’arrivée pour vous dire merci d’être venu · Une question ? Nous sommes sur WhatsApp",
 
   'wellnessPage.headline': 'Le bien-être, à la manière de Ko-Sa',
-  'wellnessPage.hero.title': 'Votre parcours bien-être commence ici',
+  'wellnessPage.hero.title': 'Le bien-être, à la manière de Ko-Sa.',
   'wellnessPage.hero.sub': 'La nature restaure trouvez l’équilibre du corps et de l’esprit',
   'wellnessPage.approach.eyebrow': 'Notre approche',
   'wellnessPage.approach.title': 'Le bien-être par la nature',
-  'wellnessPage.approach.body1': 'La philosophie bien-être de KO-SA est simple : la nature restaure Â· Grâce au coaching, aux soins du spa personnalisés, au yoga et à un bar à tisanes, chacun retrouve son équilibre',
-  'wellnessPage.approach.body2': 'Notre équipe vous guide vers le calme, la clarté et un bien-être durable Â· Chaque soin, chaque séance est pensé pour vous reconnecter à votre paix naturelle',
+  'wellnessPage.approach.body1': 'La philosophie bien-être de KO-SA est simple : la nature restaure · Grâce au coaching, aux soins du spa personnalisés, au yoga et à un bar à tisanes, chacun retrouve son équilibre',
+  'wellnessPage.approach.body2': 'Notre équipe vous guide vers le calme, la clarté et un bien-être durable · Chaque soin, chaque séance est pensé pour vous reconnecter à votre paix naturelle',
   'wellnessPage.features.heading': 'Nos services bien-être',
   'wellnessPage.feat.spa.title': 'Soins du spa',
   'wellnessPage.feat.spa.body': 'Soins aux plantes et massages avec des ingrédients locaux naturels',
@@ -993,7 +1031,7 @@ const fr: Record<keyof typeof en, string> = {
   'wellnessPage.feat.nature.body': 'Promenades réparatrices et expériences immersives sur la côte',
   'wellnessPage.holistic.eyebrow': 'Une approche holistique',
   'wellnessPage.holistic.title': 'Corps, esprit et âme',
-  'wellnessPage.holistic.body1': 'Nos programmes prennent soin de la personne entière corps, esprit et âme Â· Que vous cherchiez la détente, l’énergie ou la paix intérieure, notre équipe vous guide sur un parcours personnalisé',
+  'wellnessPage.holistic.body1': 'Nos programmes prennent soin de la personne entière corps, esprit et âme · Que vous cherchiez la détente, l’énergie ou la paix intérieure, notre équipe vous guide sur un parcours personnalisé',
   'wellnessPage.holistic.body2': 'Du yoga au lever du soleil à la méditation au couchant, des tisanes nourrissantes aux massages, tout concourt à restaurer votre équilibre',
   'wellnessPage.benefits.heading': 'Les bienfaits du bien-être à KO-SA',
   'wellnessPage.benefit.stress.title': 'Soulagement du stress',
@@ -1114,11 +1152,11 @@ const fr: Record<keyof typeof en, string> = {
   'planPage.faq.wellness.a':
     "Oui c’est même conseillé. Spa, coaching et séances de groupe se remplissent vite · Dites-nous ce qui vous tente avant votre venue",
 
-  'aboutPage.headline': 'Deux décennies au bord de la mer',
+  'aboutPage.headline': 'Deux décennies au bord de la mer. Et pourtant, chaque hôte se sent comme le premier.',
   'aboutPage.opening':
-    "Le KO-SA Beach Resort fait partie du littoral d’Ampenyi depuis plus de deux décennies, un refuge où la vie ralentit et où l’océan mène la cadence",
+    "Ko-Sa Beach Resort n’est pas né d’un plan d’affaires. Il est né d’une conviction - que la côte ghanéenne est l’un des endroits les plus régénérants au monde, et que chacun qui vient ici doit pouvoir le ressentir. Depuis plus de vingt ans, nous cultivons cette conviction.",
   'aboutPage.continued':
-    "Chaque recoin de KO-SA raconte la terre, les gens et les rythmes d’une vie côtière restée inchangée depuis des générations · Nous honorons cet héritage tout en créant un confort moderne, pour que chaque invité goûte à la fois la paix du passé et la douceur du présent",
+    "Nous faisons partie du Akwaaba Stays Hospitality Group - une famille d’établissements à travers le Ghana et l’Afrique de l’Ouest qui partagent un engagement pour une hospitalité enracinée dans le soin, la communauté et les lieux que nous appelons chez nous. Ko-Sa est là où cet engagement vit le plus près de l’eau.",
   'aboutPage.values': 'Nos valeurs',
   'aboutPage.values.authenticity.title': 'Authenticité',
   'aboutPage.values.authenticity.body':
@@ -1206,7 +1244,7 @@ const fr: Record<keyof typeof en, string> = {
   'wellnessPage.enquiry.point3': 'Couples et petits groupes possibles',
   'wellnessForm.interest': 'Ce qui vous intéresse',
   'wellnessForm.choose': 'Choisir un programme',
-  'wellnessForm.notSure': 'Pas encore sûr — conseillez-moi',
+  'wellnessForm.notSure': 'Pas encore sûr - conseillez-moi',
   'wellnessForm.guestType': 'Séjournez-vous chez nous ?',
   'wellnessForm.day': 'Visiteur à la journée',
   'wellnessForm.staying': 'En séjour au Ko-Sa',
@@ -1324,7 +1362,7 @@ const fr: Record<keyof typeof en, string> = {
   'alt.heroShoreline': 'Vue aérienne du littoral de KO-SA, Elmina, Ghana',
   'alt.feelingHammock': 'Un hamac paisible entre les palmiers de KO-SA',
   'alt.aboutSea': 'KO-SA Beach Resort au bord de la mer',
-  'aboutPage.enrichedSetting': 'À Ampenyi, un village de pêcheurs à quelques minutes à l’ouest d’Elmina et de Cape Coast, Ko-Sa est un ensemble de maisons colorées blotties entre les cocotiers à quelques pas de la mer, à quelques minutes de la pêche du jour',
+  'aboutPage.enrichedSetting': "Cela se reflète dans les pêcheurs avec qui nous travaillons, les agriculteurs qui approvisionnent notre cuisine, les artisans dont les mains ont façonné ce que vous voyez autour de vous.",
   'aboutPage.enrichedEco': 'La cuisine puise dans notre potager bio et dans les filets des pêcheurs avec qui nous travaillons depuis des années · Le respect du littoral guide chaque choix · C’est ainsi que ce lieu a été pensé',
   'aboutPage.seaTurtle.title': 'Le projet Tortues marines',
   'aboutPage.seaTurtle.body': 'Avec Wild Seas Conservation Ghana, nous aidons les pêcheurs locaux à relâcher les tortues prises dans leurs filets en compensant les filets endommagés et en formant des habitants d’Ampenyi au baguage et à la collecte de données · De novembre à mars, vous pouvez nous rejoindre pour des promenades du soir et observer les tortues pondre',
@@ -1351,7 +1389,7 @@ const fr: Record<keyof typeof en, string> = {
 
 // ─── SPANISH ─────────────────────────────────────────────────────────────────
 // Natural hospitality Spanish warm "tú" register, evocative rather than literal.
-const es: Record<keyof typeof en, string> = {
+const es: Partial<Record<keyof typeof en, string>> = {
   'nav.rooms': 'Habitaciones',
   'nav.experiences': 'Experiencias',
   'nav.dining': 'Gastronomía',
@@ -1382,12 +1420,12 @@ const es: Record<keyof typeof en, string> = {
   'rooms.eyebrow': 'Quédate con nosotros',
   'rooms.headline': 'Boutique frente al Atlántico',
   'rooms.statRooms': 'Habitaciones',
-  'rooms.statSuites': 'Suites',
+  'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Playa',
   'rooms.filter.all': 'Todas',
   'rooms.filter.beachView': 'Vista al mar',
   'rooms.filter.palmSide': 'Junto a las palmeras',
-  'rooms.filter.suite': 'Suite',
+  'rooms.filter.suite': 'Garden View',
   'rooms.priceFrom': 'Desde',
   'rooms.perNight': 'noche',
   'rooms.view': 'Ver',
@@ -1609,12 +1647,12 @@ const es: Record<keyof typeof en, string> = {
     'Reserva directo para la mejor tarifa · Cancelación flexible en todas las habitaciones · Una bebida de bienvenida nuestra forma de decirte gracias por venir. ¿Dudas? Estamos en WhatsApp',
 
   'wellnessPage.headline': 'Bienestar, al estilo Ko-Sa',
-  'wellnessPage.hero.title': 'Tu viaje de bienestar empieza aquí',
+  'wellnessPage.hero.title': 'Bienestar, al estilo Ko-Sa.',
   'wellnessPage.hero.sub': 'La naturaleza restaura encuentra el equilibrio de cuerpo y mente',
   'wellnessPage.approach.eyebrow': 'Nuestro enfoque',
   'wellnessPage.approach.title': 'Bienestar a través de la naturaleza',
-  'wellnessPage.approach.body1': 'La filosofía de bienestar de KO-SA es simple: la naturaleza restaura Â· Con coaching, tratamientos de spa personalizados, yoga y un bar de tés, redescubres el equilibrio',
-  'wellnessPage.approach.body2': 'Nuestro equipo te guía hacia la calma, la claridad y un bienestar duradero Â· Cada tratamiento y sesión busca reconectarte con tu paz natural',
+  'wellnessPage.approach.body1': 'La filosofía de bienestar de KO-SA es simple: la naturaleza restaura · Con coaching, tratamientos de spa personalizados, yoga y un bar de tés, redescubres el equilibrio',
+  'wellnessPage.approach.body2': 'Nuestro equipo te guía hacia la calma, la claridad y un bienestar duradero · Cada tratamiento y sesión busca reconectarte con tu paz natural',
   'wellnessPage.features.heading': 'Servicios de bienestar',
   'wellnessPage.feat.spa.title': 'Servicios de spa',
   'wellnessPage.feat.spa.body': 'Tratamientos de hierbas y masajes con ingredientes locales naturales',
@@ -1630,7 +1668,7 @@ const es: Record<keyof typeof en, string> = {
   'wellnessPage.feat.nature.body': 'Paseos reparadores y experiencias inmersivas en la costa',
   'wellnessPage.holistic.eyebrow': 'Un enfoque holístico',
   'wellnessPage.holistic.title': 'Cuerpo, mente y espíritu',
-  'wellnessPage.holistic.body1': 'Nuestros programas cuidan a la persona entera cuerpo, mente y espíritu Â· Busques relajación, energía o paz interior, nuestro equipo te guía en un viaje personalizado',
+  'wellnessPage.holistic.body1': 'Nuestros programas cuidan a la persona entera cuerpo, mente y espíritu · Busques relajación, energía o paz interior, nuestro equipo te guía en un viaje personalizado',
   'wellnessPage.holistic.body2': 'Del yoga al amanecer a la meditación al atardecer, de los tés a los masajes, todo se une para restaurar tu equilibrio',
   'wellnessPage.benefits.heading': 'Los beneficios del bienestar en KO-SA',
   'wellnessPage.benefit.stress.title': 'Alívio del estrés',
@@ -1751,11 +1789,11 @@ const es: Record<keyof typeof en, string> = {
   'planPage.faq.wellness.a':
     'Sí mejor hacerlo · Spa, coaching y sesiones de grupo se llenan rápido · Dinos qué te apetece antes de venir',
 
-  'aboutPage.headline': 'Dos décadas junto al mar',
+  'aboutPage.headline': 'Dos décadas junto al mar. Y aún así, cada huésped se siente como el primero.',
   'aboutPage.opening':
-    'KO-SA Beach Resort forma parte de la costa de Ampenyi desde hace más de dos décadas, un santuario donde la vida se calma y el océano marca el ritmo',
+    'Ko-Sa Beach Resort no nació de un plan de negocio. Nació de una convicción - que la costa ghanesa es uno de los lugares más restauradores del mundo, y que todos los que vienen aquí deberían poder sentirlo. Durante más de veinte años, hemos mantenido esa convicción.',
   'aboutPage.continued':
-    'Cada rincón de KO-SA cuenta la historia de la tierra, su gente y los ritmos de la vida costera que siguen intactos desde hace generaciones · Honramos esta herencia creando comodidad moderna, para que cada huésped viva tanto la paz del pasado como la facilidad del presente',
+    'Somos parte del Akwaaba Stays Hospitality Group - una familia de establecimientos en Ghana y África Occidental que comparten un compromiso con la hospitalidad enraizada en el cuidado, la comunidad y los lugares que llamamos hogar. Ko-Sa es donde ese compromiso vive más cerca del agua.',
   'aboutPage.values': 'Nuestros valores',
   'aboutPage.values.authenticity.title': 'Autenticidad',
   'aboutPage.values.authenticity.body':
@@ -1843,7 +1881,7 @@ const es: Record<keyof typeof en, string> = {
   'wellnessPage.enquiry.point3': 'Parejas y grupos pequeños posibles',
   'wellnessForm.interest': 'Lo que te interesa',
   'wellnessForm.choose': 'Elige un programa',
-  'wellnessForm.notSure': 'Aún no estoy seguro — asesórame',
+  'wellnessForm.notSure': 'Aún no estoy seguro - asesórame',
   'wellnessForm.guestType': '¿Te alojas con nosotros?',
   'wellnessForm.day': 'Visitante de día',
   'wellnessForm.staying': 'Alojado en Ko-Sa',
@@ -1961,7 +1999,7 @@ const es: Record<keyof typeof en, string> = {
   'alt.heroShoreline': 'Vista aérea de la costa de KO-SA, Elmina, Ghana',
   'alt.feelingHammock': 'Una hamaca tranquila entre las palmeras de KO-SA',
   'alt.aboutSea': 'KO-SA Beach Resort junto al mar',
-  'aboutPage.enrichedSetting': 'En Ampenyi, un pueblo pesquero a pocos minutos al oeste de Elmina y Cape Coast, Ko-Sa es un conjunto de casas de colores entre cocoteros a unos pasos del mar y a pocos minutos de la pesca del día',
+  'aboutPage.enrichedSetting': 'Se refleja en los pescadores con quienes trabajamos, los agricultores que abastecen nuestra cocina, los artesanos cuyas manos dieron forma a lo que ves a tu alrededor.',
   'aboutPage.enrichedEco': 'La cocina se nutre de nuestro huerto orgánico y de las redes de los pescadores con los que trabajamos desde hace años · El cuidado de la costa guía cada decisión. Así se construyó este lugar',
   'aboutPage.seaTurtle.title': 'Proyecto Tortugas marinas',
   'aboutPage.seaTurtle.body': 'Junto a Wild Seas Conservation Ghana, ayudamos a los pescadores locales a liberar tortugas atrapadas en sus redes les compensamos los daños y formamos a personas de Ampenyi en marcaje y recogida de datos · De noviembre a marzo puedes unirte a paseos nocturnos para verlas desovar',
@@ -1988,7 +2026,7 @@ const es: Record<keyof typeof en, string> = {
 
 // ─── DUTCH ────────────────────────────────────────────────────────────────────
 // Natural luxury-hospitality Dutch formal "u" register, warm tone, no awkward compounds.
-const nl: Record<keyof typeof en, string> = {
+const nl: Partial<Record<keyof typeof en, string>> = {
   'nav.rooms': 'Kamers',
   'nav.experiences': 'Belevenissen',
   'nav.dining': 'Culinair',
@@ -2019,12 +2057,12 @@ const nl: Record<keyof typeof en, string> = {
   'rooms.eyebrow': 'Logeer bij ons',
   'rooms.headline': 'Boutique aan de Atlantische kust',
   'rooms.statRooms': 'Kamers',
-  'rooms.statSuites': 'Suites',
+  'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Strand',
   'rooms.filter.all': 'Alles',
   'rooms.filter.beachView': 'Zeezicht',
   'rooms.filter.palmSide': 'Palmenzijde',
-  'rooms.filter.suite': 'Suite',
+  'rooms.filter.suite': 'Garden View',
   'rooms.priceFrom': 'Vanaf',
   'rooms.perNight': 'nacht',
   'rooms.view': 'Bekijken',
@@ -2246,12 +2284,12 @@ const nl: Record<keyof typeof en, string> = {
     'Boek direct voor de beste prijs · Flexibele annulering op alle kamers · Een welkomstdrankje bij aankomst onze manier om te zeggen dat we blij zijn dat je er bent · Vragen? We zijn bereikbaar via WhatsApp',
 
   'wellnessPage.headline': 'Welzijn, op zijn Ko-Sa',
-  'wellnessPage.hero.title': 'Jouw wellnessreis begint hier',
+  'wellnessPage.hero.title': 'Welzijn, op zijn Ko-Sa.',
   'wellnessPage.hero.sub': 'De natuur herstelt vind balans in lichaam en geest',
   'wellnessPage.approach.eyebrow': 'Onze aanpak',
   'wellnessPage.approach.title': 'Welzijn door de natuur',
-  'wellnessPage.approach.body1': 'De wellnessfilosofie van KO-SA is eenvoudig: de natuur herstelt Â· Met coaching, persoonlijke spabehandelingen, yoga en een theebar vind je balans terug',
-  'wellnessPage.approach.body2': 'Ons team begeleidt je naar rust, helderheid en blijvend welzijn Â· Elke behandeling en sessie helpt je opnieuw verbinden met je natuurlijke rust',
+  'wellnessPage.approach.body1': 'De wellnessfilosofie van KO-SA is eenvoudig: de natuur herstelt · Met coaching, persoonlijke spabehandelingen, yoga en een theebar vind je balans terug',
+  'wellnessPage.approach.body2': 'Ons team begeleidt je naar rust, helderheid en blijvend welzijn · Elke behandeling en sessie helpt je opnieuw verbinden met je natuurlijke rust',
   'wellnessPage.features.heading': 'Wellnessvoorzieningen',
   'wellnessPage.feat.spa.title': 'Spabehandelingen',
   'wellnessPage.feat.spa.body': 'Kruidenbehandelingen en massages met natuurlijke lokale ingrediënten',
@@ -2267,7 +2305,7 @@ const nl: Record<keyof typeof en, string> = {
   'wellnessPage.feat.nature.body': 'Herstellende wandelingen en meeslepende ervaringen aan de kust',
   'wellnessPage.holistic.eyebrow': 'Een holistische aanpak',
   'wellnessPage.holistic.title': 'Lichaam, geest en ziel',
-  'wellnessPage.holistic.body1': 'Onze programma’s richten zich op de hele mens lichaam, geest en ziel Â· Of je nu ontspanning, energie of innerlijke rust zoekt, ons team begeleidt je persoonlijk',
+  'wellnessPage.holistic.body1': 'Onze programma’s richten zich op de hele mens lichaam, geest en ziel · Of je nu ontspanning, energie of innerlijke rust zoekt, ons team begeleidt je persoonlijk',
   'wellnessPage.holistic.body2': 'Van yoga bij zonsopgang tot meditatie bij zonsondergang, van thee tot massages alles werkt samen om je balans te herstellen',
   'wellnessPage.benefits.heading': 'De voordelen van welzijn bij KO-SA',
   'wellnessPage.benefit.stress.title': 'Stressverlichting',
@@ -2388,11 +2426,11 @@ const nl: Record<keyof typeof en, string> = {
   'planPage.faq.wellness.a':
     'Ja graag zelfs · Spa, coaching en groepslessen zijn snel vol · Laat ons weten wat je wilt voordat je komt',
 
-  'aboutPage.headline': 'Twee decennia aan zee',
+  'aboutPage.headline': 'Twee decennia aan zee. En toch voelt elke gast zich als de eerste.',
   'aboutPage.opening':
-    'KO-SA Beach Resort maakt al meer dan twee decennia deel uit van de kust van Ampenyi, een toevluchtsoord waar het leven vertraagt en de oceaan het ritme bepaalt',
+    'Ko-Sa Beach Resort is niet gebouwd vanuit een businessplan. Het is gebouwd vanuit een overtuiging - dat de Ghanese kust een van de meest herstellende plekken op aarde is, en dat iedereen die hier komt dat moet kunnen voelen. Al meer dan twintig jaar houden we die overtuiging vast.',
   'aboutPage.continued':
-    'Elke hoek van KO-SA vertelt het verhaal van het land, de mensen en de ritmes van het kustleven die al generaties onveranderd zijn · We eren dit erfgoed en creëren modern comfort, zodat elke gast zowel de rust van het verleden als het gemak van het heden ervaart',
+    'We zijn onderdeel van de Akwaaba Stays Hospitality Group - een familie van verblijven in Ghana en West-Afrika die een gezamenlijke toewijding delen aan gastvrijheid geworteld in zorg, gemeenschap en de plekken die we thuis noemen. Ko-Sa is waar die toewijding het dichtst bij het water leeft.',
   'aboutPage.values': 'Onze waarden',
   'aboutPage.values.authenticity.title': 'Authenticiteit',
   'aboutPage.values.authenticity.body':
@@ -2480,7 +2518,7 @@ const nl: Record<keyof typeof en, string> = {
   'wellnessPage.enquiry.point3': 'Koppels en kleine groepen mogelijk',
   'wellnessForm.interest': 'Waar je in geïnteresseerd bent',
   'wellnessForm.choose': 'Kies een programma',
-  'wellnessForm.notSure': 'Nog niet zeker — adviseer me',
+  'wellnessForm.notSure': 'Nog niet zeker - adviseer me',
   'wellnessForm.guestType': 'Verblijf je bij ons?',
   'wellnessForm.day': 'Daggast (verblijft niet)',
   'wellnessForm.staying': 'Verblijft bij Ko-Sa',
@@ -2598,7 +2636,7 @@ const nl: Record<keyof typeof en, string> = {
   'alt.heroShoreline': 'Luchtfoto van de kustlijn van KO-SA, Elmina, Ghana',
   'alt.feelingHammock': 'Een rustige hangmat tussen de palmen bij KO-SA',
   'alt.aboutSea': 'KO-SA Beach Resort aan zee',
-  'aboutPage.enrichedSetting': 'In Ampenyi, een vissersdorp op een paar minuten ten westen van Elmina en Cape Coast, is Ko-Sa een cluster van kleurrijke huisjes tussen kokospalmen een paar stappen van zee, een paar minuten van de dagelijkse vangst',
+  'aboutPage.enrichedSetting': 'Het is te zien in de vissers met wie we samenwerken, de boeren die onze keuken bevoorraden, de ambachtslieden wiens handen hebben gevormd wat u om u heen ziet.',
   'aboutPage.enrichedEco': 'De keuken put uit onze eigen biotuin en uit de netten van de vissers met wie we al jaren werken · Zorg voor de kust bepaalt elke keuze · Zo is deze plek gebouwd',
   'aboutPage.seaTurtle.title': 'Het zeeschildpad-project',
   'aboutPage.seaTurtle.body': 'Samen met Wild Seas Conservation Ghana helpen we lokale vissers zeeschildpadden vrij te laten die in hun netten verstrikt zijn we vergoeden beschadigde netten en leiden inwoners van Ampenyi op in tagging en data-registratie · Tussen november en maart kun je deelnemen aan avondwandelingen om de schildpadden eieren te zien leggen',
@@ -2625,7 +2663,7 @@ const nl: Record<keyof typeof en, string> = {
 
 // ─── GERMAN ───────────────────────────────────────────────────────────────────
 // Natural luxury-hospitality German formal "Sie" register, evocative and warm.
-const de: Record<keyof typeof en, string> = {
+const de: Partial<Record<keyof typeof en, string>> = {
   'nav.rooms': 'Zimmer',
   'nav.experiences': 'Erlebnisse',
   'nav.dining': 'Kulinarik',
@@ -2656,12 +2694,12 @@ const de: Record<keyof typeof en, string> = {
   'rooms.eyebrow': 'Übernachten bei uns',
   'rooms.headline': 'Boutique an der Atlantikküste',
   'rooms.statRooms': 'Zimmer',
-  'rooms.statSuites': 'Suiten',
+  'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Strand',
   'rooms.filter.all': 'Alle',
   'rooms.filter.beachView': 'Meerblick',
   'rooms.filter.palmSide': 'Palmenseite',
-  'rooms.filter.suite': 'Suite',
+  'rooms.filter.suite': 'Garden View',
   'rooms.priceFrom': 'Ab',
   'rooms.perNight': 'Nacht',
   'rooms.view': 'Ansehen',
@@ -2883,12 +2921,12 @@ const de: Record<keyof typeof en, string> = {
     'Buche direkt für den besten Preis · Flexible Stornierung auf allen Zimmern · Ein Begrüßungsdrink bei Ankunft unser Dank dafür, dass du gekommen bist · Fragen? Wir sind per WhatsApp erreichbar',
 
   'wellnessPage.headline': 'Wohlbefinden auf Ko-Sa-Art',
-  'wellnessPage.hero.title': 'Deine Wellnessreise beginnt hier',
+  'wellnessPage.hero.title': 'Wohlbefinden auf Ko-Sa-Art.',
   'wellnessPage.hero.sub': 'Die Natur erneuert finde Balance in Körper und Geist',
   'wellnessPage.approach.eyebrow': 'Unser Ansatz',
   'wellnessPage.approach.title': 'Wohlbefinden durch Natur',
-  'wellnessPage.approach.body1': 'Die Wellness-Philosophie von KO-SA ist einfach: die Natur erneuert Â· Mit Coaching, individuellen Spa-Behandlungen, Yoga und einer Teebar findest du deine Balance',
-  'wellnessPage.approach.body2': 'Unser Team begleitet dich zu Ruhe, Klarheit und nachhaltigem Wohlbefinden Â· Jede Behandlung und Sitzung verbindet dich wieder mit deiner natürlichen Ruhe',
+  'wellnessPage.approach.body1': 'Die Wellness-Philosophie von KO-SA ist einfach: die Natur erneuert · Mit Coaching, individuellen Spa-Behandlungen, Yoga und einer Teebar findest du deine Balance',
+  'wellnessPage.approach.body2': 'Unser Team begleitet dich zu Ruhe, Klarheit und nachhaltigem Wohlbefinden · Jede Behandlung und Sitzung verbindet dich wieder mit deiner natürlichen Ruhe',
   'wellnessPage.features.heading': 'Wellness-Angebote',
   'wellnessPage.feat.spa.title': 'Spa-Behandlungen',
   'wellnessPage.feat.spa.body': 'Kräuterbehandlungen und Massagen mit natürlichen lokalen Zutaten',
@@ -2904,7 +2942,7 @@ const de: Record<keyof typeof en, string> = {
   'wellnessPage.feat.nature.body': 'Erholsame Spaziergänge und immersive Erlebnisse an der Küste',
   'wellnessPage.holistic.eyebrow': 'Ein ganzheitlicher Ansatz',
   'wellnessPage.holistic.title': 'Körper, Geist und Seele',
-  'wellnessPage.holistic.body1': 'Unsere Programme richten sich an den ganzen Menschen Körper, Geist und Seele Â· Ob Entspannung, Energie oder innerer Frieden unser Team begleitet dich persönlich',
+  'wellnessPage.holistic.body1': 'Unsere Programme richten sich an den ganzen Menschen Körper, Geist und Seele · Ob Entspannung, Energie oder innerer Frieden unser Team begleitet dich persönlich',
   'wellnessPage.holistic.body2': 'Vom Sonnenaufgangs-Yoga bis zur Abendmeditation, vom Tee bis zur Massage alles wirkt zusammen, um deine Balance wiederherzustellen',
   'wellnessPage.benefits.heading': 'Die Vorteile von Wellness im KO-SA',
   'wellnessPage.benefit.stress.title': 'Stressabbau',
@@ -3025,11 +3063,11 @@ const de: Record<keyof typeof en, string> = {
   'planPage.faq.wellness.a':
     'Ja bitte tu das · Spa, Coaching und Gruppensessions sind schnell ausgebucht · Sag uns vorher, was du gerne möchtest',
 
-  'aboutPage.headline': 'Zwei Jahrzehnte am Meer',
+  'aboutPage.headline': 'Zwei Jahrzehnte am Meer. Und dennoch fühlt sich jeder Gast wie der Erste an.',
   'aboutPage.opening':
-    'Das KO-SA Beach Resort gehört seit über zwei Jahrzehnten zur Küste von Ampenyi, ein Rückzugsort, an dem das Leben langsamer wird und das Meer den Rhythmus vorgibt',
+    'Ko-Sa Beach Resort entstand nicht aus einem Geschäftsplan. Es entstand aus einer Überzeugung - dass die ghanaische Küste einer der regenerierendsten Orte der Welt ist, und dass jeder, der hierher kommt, das spüren sollte. Seit über zwanzig Jahren halten wir an dieser Überzeugung fest.',
   'aboutPage.continued':
-    'Jeder Winkel von KO-SA erzählt vom Land, den Menschen und den Rhythmen des Küstenlebens, die seit Generationen unverändert sind · Wir ehren dieses Erbe und schaffen modernen Komfort, damit jeder Gast die Ruhe der Vergangenheit und die Leichtigkeit der Gegenwart erlebt',
+    'Wir sind Teil der Akwaaba Stays Hospitality Group - einer Familie von Unterkünften in Ghana und Westafrika, die ein gemeinsames Engagement für Gastfreundschaft teilen, die in Fürsorge, Gemeinschaft und den Orten verwurzelt ist, die wir Zuhause nennen. Ko-Sa ist dort, wo dieses Engagement dem Wasser am nächsten lebt.',
   'aboutPage.values': 'Unsere Werte',
   'aboutPage.values.authenticity.title': 'Authentizität',
   'aboutPage.values.authenticity.body':
@@ -3117,7 +3155,7 @@ const de: Record<keyof typeof en, string> = {
   'wellnessPage.enquiry.point3': 'Paare und kleine Gruppen möglich',
   'wellnessForm.interest': 'Was dich interessiert',
   'wellnessForm.choose': 'Programm wählen',
-  'wellnessForm.notSure': 'Noch unsicher — bitte beraten',
+  'wellnessForm.notSure': 'Noch unsicher - bitte beraten',
   'wellnessForm.guestType': 'Wohnst du bei uns?',
   'wellnessForm.day': 'Tagesgast (kein Aufenthalt)',
   'wellnessForm.staying': 'Gast im Ko-Sa',
@@ -3235,7 +3273,7 @@ const de: Record<keyof typeof en, string> = {
   'alt.heroShoreline': 'Luftaufnahme der Küste von KO-SA, Elmina, Ghana',
   'alt.feelingHammock': 'Eine ruhige Hängematte zwischen den Palmen von KO-SA',
   'alt.aboutSea': 'KO-SA Beach Resort am Meer',
-  'aboutPage.enrichedSetting': 'In Ampenyi, einem Fischerdorf ein paar Minuten westlich von Elmina und Cape Coast, ist Ko-Sa eine Gruppe bunter Häuser zwischen Kokospalmen wenige Schritte zum Meer, wenige Minuten zum täglichen Fang',
+  'aboutPage.enrichedSetting': 'Es zeigt sich in den Fischern, mit denen wir zusammenarbeiten, den Bauern, die unsere Küche versorgen, den Handwerkern, deren Hände das geformt haben, was Sie um sich sehen.',
   'aboutPage.enrichedEco': 'Die Küche schöpft aus unserem eigenen Biogarten und aus den Netzen der Fischer, mit denen wir seit Jahren arbeiten · Achtsamkeit für die Küste prägt jede Entscheidung · So ist dieser Ort gebaut',
   'aboutPage.seaTurtle.title': 'Das Meeresschildkröten-Projekt',
   'aboutPage.seaTurtle.body': 'Mit Wild Seas Conservation Ghana helfen wir den lokalen Fischern, in ihren Netzen gefangene Meeresschildkröten freizulassen wir entschädigen beschädigte Netze und schulen Bewohnerinnen und Bewohner Ampenyis in Markierung und Datenerfassung · Zwischen November und März kannst du an Abendwanderungen am Strand teilnehmen, um Schildkröten bei der Eiablage zu beobachten',

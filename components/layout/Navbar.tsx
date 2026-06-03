@@ -157,15 +157,20 @@ export function Navbar() {
 
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher tone="cream" />
-            <Button
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noreferrer"
-              size="sm"
-              className="bg-coral text-cream hover:bg-coral-600 border-coral hover:border-coral-600"
-            >
-              {t('nav.book')}
-            </Button>
+            <div className="flex flex-col items-center leading-none">
+              <Button
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noreferrer"
+                size="sm"
+                className="bg-coral text-cream hover:bg-coral-600 border-coral hover:border-coral-600"
+              >
+                {t('nav.book')}
+              </Button>
+              <span className="mt-1 text-[9px] font-opensans tracking-tight text-cream/70 whitespace-nowrap">
+                {t('nav.bookMicro')}
+              </span>
+            </div>
           </div>
 
           <button
@@ -238,6 +243,9 @@ export function Navbar() {
                 >
                   {t('common.bookYourStay')}
                 </Button>
+                <p className="-mt-1 text-center text-[10px] font-opensans tracking-tight text-cream/70">
+                  {t('nav.bookMicro')}
+                </p>
                 <Button
                   href={`${site.socials.whatsapp}?text=${encodeURIComponent(site.contact.whatsappMessage)}`}
                   variant="ghost"

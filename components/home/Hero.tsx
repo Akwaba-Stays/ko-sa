@@ -78,6 +78,16 @@ export function Hero() {
             {t('home.hero.ctaSecondary')}
           </Button>
         </motion.div>
+
+        {/* Urgency nudge beneath the CTAs (Change Request §Page 01) */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+          className="mt-6 font-opensans text-xs md:text-sm text-sunshine/90 tracking-tracked-sm"
+        >
+          {t('home.hero.urgency')}
+        </motion.p>
       </motion.div>
 
       <motion.a

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useT } from '@/lib/i18n';
 import type { PublicRoom } from '@/lib/cms/types';
+import { roomFromPerNight } from '@/lib/pricing';
 
 export function RoomsTeaser({ rooms }: { rooms: PublicRoom[] }) {
   const { t } = useT();
@@ -59,6 +60,10 @@ export function RoomsTeaser({ rooms }: { rooms: PublicRoom[] }) {
                     {room.tagline && (
                       <p className="mt-2 font-raleway text-sm text-forest/75 italic">{room.tagline}</p>
                     )}
+                    {/* Starting price (Change Request §Page 01) */}
+                    <p className="mt-3 font-opensans text-sm text-teal font-semibold">
+                      {roomFromPerNight(room.slug, room.price)}
+                    </p>
                     <span className="mt-4 inline-block text-xs font-opensans uppercase tracking-tracked-sm text-coral">
                       {t('roomsPage.cardCta')} →
                     </span>

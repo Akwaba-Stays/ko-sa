@@ -43,7 +43,7 @@ export default async function Page() {
           },
           {
             header: 'Published',
-            cell: (p) => (p.publishedAt ? formatDate(p.publishedAt) : '—'),
+            cell: (p) => (p.publishedAt ? formatDate(p.publishedAt) : '-'),
             className: 'hidden md:table-cell',
           },
           { header: 'Status', cell: (p) => <StatusBadge status={p.status} />, className: 'w-32' },

@@ -7,6 +7,18 @@ import { getT } from '@/lib/i18n/server';
 import { FaqAccordion } from '@/components/marketing/FaqAccordion';
 import { listPublicExperiences } from '@/lib/cms/experiences';
 import { site } from '@/lib/site';
+import { packageLine, waLink, waPrefill, type PackageKey } from '@/lib/pricing';
+
+const ITINERARIES: {
+  key: PackageKey;
+  labelKey: 'home.itineraries.weekend' | 'home.itineraries.short' | 'home.itineraries.full';
+  titleKey: 'home.itineraries.weekend.title' | 'home.itineraries.short.title' | 'home.itineraries.full.title';
+  bodyKey: 'home.itineraries.weekend.body' | 'home.itineraries.short.body' | 'home.itineraries.full.body';
+}[] = [
+  { key: 'weekend', labelKey: 'home.itineraries.weekend', titleKey: 'home.itineraries.weekend.title', bodyKey: 'home.itineraries.weekend.body' },
+  { key: 'short', labelKey: 'home.itineraries.short', titleKey: 'home.itineraries.short.title', bodyKey: 'home.itineraries.short.body' },
+  { key: 'full', labelKey: 'home.itineraries.full', titleKey: 'home.itineraries.full.title', bodyKey: 'home.itineraries.full.body' },
+];
 
 export const metadata: Metadata = {
   title: 'Plan Your Stay',
@@ -122,6 +134,49 @@ export default async function PlanPage() {
               referrerPolicy="no-referrer-when-downgrade"
               src={`https://www.google.com/maps?q=${site.location.lat},${site.location.lng}&z=10&output=embed`}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Your Stay, Your Way — full itineraries above the FAQ (Change Request §Page 07) */}
+      <section className="py-16 md:py-24 bg-cream">
+        <div className="container-page">
+          <div className="max-w-2xl mb-12">
+            <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-2">
+              {t('planPage.itineraries.eyebrow')}
+            </p>
+            <h2 className="font-playfair text-display-sm text-teal">{t('planPage.itineraries.heading')}</h2>
+            <p className="mt-4 font-raleway text-forest/75 leading-relaxed">{t('planPage.itineraries.body')}</p>
+          </div>
+
+          <div className="space-y-6">
+            {ITINERARIES.map((it) => (
+              <article key={it.key} className="bg-sand-light rounded-md p-8 md:p-10 shadow-sm">
+                <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral">{t(it.labelKey)}</p>
+                <h3 className="mt-2 font-playfair text-2xl text-teal">{t(it.titleKey)}</h3>
+                <p className="mt-4 font-raleway text-forest/85 leading-relaxed">{t(it.bodyKey)}</p>
+                <p className="mt-5 font-opensans text-sm text-forest font-medium">{packageLine(it.key)}</p>
+                <p className="mt-4 font-raleway italic text-forest/60">{t('planPage.itineraries.eachClose')}</p>
+                <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                  <a
+                    href={site.bookingUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
+                  >
+                    {t('planPage.itineraries.bookThis')} →
+                  </a>
+                  <a
+                    href={waLink(waPrefill.customiseStay())}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-teal/40 text-teal font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:border-coral hover:text-coral transition-colors"
+                  >
+                    {t('planPage.itineraries.cta2')} →
+                  </a>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

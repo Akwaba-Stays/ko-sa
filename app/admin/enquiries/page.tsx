@@ -35,7 +35,7 @@ export default async function Page() {
               </div>
             ),
           },
-          { header: 'Subject', cell: (e) => e.subject || '—', className: 'hidden md:table-cell' },
+          { header: 'Subject', cell: (e) => e.subject || '-', className: 'hidden md:table-cell' },
           {
             header: 'Message',
             cell: (e) => <p className="text-xs max-w-md line-clamp-2 text-umber/80">{e.message}</p>,

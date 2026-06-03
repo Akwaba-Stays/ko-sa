@@ -43,7 +43,7 @@ function buildTranslations(map: Record<string, string>): Prisma.InputJsonValue |
 }
 
 const ROOM_CATEGORY: Record<string, 'SUITE' | 'PALM_SIDE' | 'BEACH_VIEW'> = {
-  Suite: 'SUITE',
+  'Garden View': 'SUITE',
   'Palm Side': 'PALM_SIDE',
   'Beach View': 'BEACH_VIEW',
 };

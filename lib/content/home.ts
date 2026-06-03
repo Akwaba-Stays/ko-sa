@@ -52,7 +52,7 @@ export interface Room {
   price: number;
   currency: string;
   image: string;
-  category: 'Suite' | 'Palm Side' | 'Beach View';
+  category: 'Garden View' | 'Palm Side' | 'Beach View';
 }
 
 export const rooms: Room[] = [
@@ -62,7 +62,7 @@ export const rooms: Room[] = [
     currency: 'USD',
     image:
       'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1400',
-    category: 'Suite',
+    category: 'Garden View',
   },
   {
     slug: 'palm-garden-villa',
@@ -86,7 +86,7 @@ export const rooms: Room[] = [
     currency: 'USD',
     image:
       'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?auto=format&fit=crop&q=80&w=1400',
-    category: 'Suite',
+    category: 'Garden View',
   },
   {
     slug: 'beach-bungalow',
@@ -108,7 +108,7 @@ export const rooms: Room[] = [
 
 /** Map a category back to its dict key for localized filter labels. */
 export const CATEGORY_DICT_KEY: Record<Room['category'], DictKey> = {
-  Suite: 'rooms.filter.suite',
+  'Garden View': 'rooms.filter.suite',
   'Palm Side': 'rooms.filter.palmSide',
   'Beach View': 'rooms.filter.beachView',
 };

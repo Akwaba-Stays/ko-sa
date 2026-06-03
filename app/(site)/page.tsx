@@ -11,14 +11,55 @@ import { Testimonials } from '@/components/home/Testimonials';
 import { EmailCapture } from '@/components/home/EmailCapture';
 import { listPublicRooms } from '@/lib/cms/rooms';
 import { listPublicTestimonials } from '@/lib/cms/testimonials';
+import type { PublicTestimonial } from '@/lib/cms/types';
 
 export const dynamic = 'force-dynamic';
+
+// Three rotating, evocative quotes (Change Request §Page 01). Used as a fallback
+// when the CMS has no published testimonials so the section always converts.
+// Replace with real Booking.com / TripAdvisor quotes via /admin/testimonials.
+const FALLBACK_TESTIMONIALS: PublicTestimonial[] = [
+  {
+    id: 'fallback-1',
+    guestName: 'Amara',
+    country: 'United Kingdom',
+    rating: 5,
+    quote: "I didn't realise how much I needed this until I arrived.",
+    avatarUrl: null,
+    source: 'Booking.com',
+    sortOrder: 0,
+  },
+  {
+    id: 'fallback-2',
+    guestName: 'Lukas',
+    country: 'Germany',
+    rating: 5,
+    quote:
+      "The spa, the food, the sound of the ocean every morning. I've already booked to come back.",
+    avatarUrl: null,
+    source: 'TripAdvisor',
+    sortOrder: 1,
+  },
+  {
+    id: 'fallback-3',
+    guestName: 'Naa',
+    country: 'Ghana',
+    rating: 5,
+    quote:
+      "Ko-Sa doesn't try to impress you. It just quietly becomes the best place you've stayed.",
+    avatarUrl: null,
+    source: 'Google',
+    sortOrder: 2,
+  },
+];
 
 export default async function HomePage() {
   const [rooms, testimonials] = await Promise.all([
     listPublicRooms(),
     listPublicTestimonials(),
   ]);
+
+  const quotes = testimonials.length ? testimonials : FALLBACK_TESTIMONIALS;
 
   return (
     <>
@@ -27,7 +68,7 @@ export default async function HomePage() {
       <Feeling />
       <Itineraries />
       <RoomsTeaser rooms={rooms} />
-      <Testimonials testimonials={testimonials} />
+      <Testimonials testimonials={quotes} />
       <EmailCapture />
     </>
   );

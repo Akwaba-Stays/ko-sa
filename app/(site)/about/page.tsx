@@ -85,6 +85,15 @@ export default function AboutPage() {
             </p>
             <h2 className="font-playfair text-display-sm text-teal">{t('aboutPage.seaTurtle.title')}</h2>
             <p className="mt-4 font-raleway text-forest/80 leading-relaxed">{t('aboutPage.seaTurtle.body')}</p>
+            {/* Guest participation CTA (Change Request §Page 08) */}
+            <a
+              href={`${site.socials.whatsapp}?text=${encodeURIComponent("Hi Ko-Sa! I’d like to ask about the sea turtle night walks.")}`}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
+            >
+              {t('aboutPage.seaTurtle.cta')} →
+            </a>
           </div>
         </div>
       </section>

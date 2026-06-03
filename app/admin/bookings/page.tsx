@@ -45,12 +45,12 @@ export default async function Page() {
           },
           {
             header: 'Room',
-            cell: (b) => b.roomTypeName ?? '—',
+            cell: (b) => b.roomTypeName ?? '-',
             className: 'hidden md:table-cell',
           },
           {
             header: 'Total',
-            cell: (b) => (b.totalCost ? formatCurrency(Number(b.totalCost), b.currency) : '—'),
+            cell: (b) => (b.totalCost ? formatCurrency(Number(b.totalCost), b.currency) : '-'),
             className: 'hidden lg:table-cell',
           },
           {

@@ -67,7 +67,7 @@ function getFallbackRooms(locale: Locale): PublicRoom[] {
     slug: r.slug,
     name: translate(locale, `rooms.${r.slug}.name` as never),
     tagline: translate(locale, `rooms.${r.slug}.tagline` as never),
-    category: r.category === 'Suite' ? 'SUITE' : r.category === 'Palm Side' ? 'PALM_SIDE' : 'BEACH_VIEW',
+    category: r.category === 'Garden View' ? 'SUITE' : r.category === 'Palm Side' ? 'PALM_SIDE' : 'BEACH_VIEW',
     description: null,
     price: r.price,
     currency: r.currency,

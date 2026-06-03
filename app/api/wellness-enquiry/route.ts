@@ -27,11 +27,11 @@ export async function POST(req: Request) {
 
     const guestType = data.guestType === 'staying' ? 'Resort guest' : 'Day guest';
     const summary = [
-      `Interest: ${data.interest ?? '—'}`,
+      `Interest: ${data.interest ?? '-'}`,
       `Guest type: ${guestType}`,
-      `Preferred date: ${data.preferredDate ?? '—'}`,
-      `Guests: ${data.guests ?? '—'}`,
-      `Phone: ${data.phone ?? '—'}`,
+      `Preferred date: ${data.preferredDate ?? '-'}`,
+      `Guests: ${data.guests ?? '-'}`,
+      `Phone: ${data.phone ?? '-'}`,
       '',
       data.message ?? '',
     ].join('\n');

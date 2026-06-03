@@ -42,7 +42,7 @@ export default async function Page() {
               </Link>
             ),
           },
-          { header: 'Adinkra', cell: (e) => e.adinkra || '—', className: 'hidden md:table-cell' },
+          { header: 'Adinkra', cell: (e) => e.adinkra || '-', className: 'hidden md:table-cell' },
           { header: 'Status', cell: (e) => <StatusBadge status={e.status} />, className: 'w-32' },
           {
             header: '',
