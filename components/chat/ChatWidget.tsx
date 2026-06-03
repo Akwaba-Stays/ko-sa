@@ -1,14 +1,15 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2, UserCheck } from 'lucide-react';
 import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
 import { useT } from '@/lib/i18n';
 import type { DictKey } from '@/lib/i18n/dictionaries';
 
-type Msg = { role: 'user' | 'assistant' | 'admin'; content: string; sources?: string[] };
+type MsgRole = 'user' | 'assistant' | 'admin' | 'system';
+type Msg = { id?: string; role: MsgRole; content: string };
 
 const SUGGESTED_KEYS: DictKey[] = [
   'chat.suggested.rooms',
@@ -16,6 +17,8 @@ const SUGGESTED_KEYS: DictKey[] = [
   'chat.suggested.spa',
   'chat.suggested.included',
 ];
+
+const POLL_INTERVAL = 2500; // ms — how often we check for agent messages when open
 
 function getSessionId() {
   if (typeof window === 'undefined') return '';
@@ -27,53 +30,135 @@ function getSessionId() {
   return id;
 }
 
+function parseSystemMsg(content: string, agentName: string | null): string {
+  if (content.startsWith('__AGENT_JOIN__')) {
+    const name = content.replace('__AGENT_JOIN__', '') || agentName || 'A team member';
+    return `${name} from Ko-Sa has joined the conversation.`;
+  }
+  if (content.startsWith('__AGENT_LEAVE__')) {
+    return 'You are now chatting with Abena, our AI concierge.';
+  }
+  return content;
+}
+
 export function ChatWidget() {
-  const pathname = usePathname();
-  const { t } = useT();
-  const [open, setOpen] = useState(false);
-  const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<Msg[]>([
-    { role: 'assistant', content: '' }, // greeting set on mount via useEffect below
+  const pathname   = usePathname();
+  const { t }      = useT();
+  const [open, setOpen]           = useState(false);
+  const [input, setInput]         = useState('');
+  const [messages, setMessages]   = useState<Msg[]>([
+    { role: 'assistant', content: '' },
   ]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading]     = useState(false);
   const [sessionId, setSessionId] = useState('');
-  const scroller = useRef<HTMLDivElement | null>(null);
+  const [agentMode, setAgentMode] = useState(false);
+  const [agentName, setAgentName] = useState<string | null>(null);
 
-  useEffect(() => {
-    setSessionId(getSessionId());
-  }, []);
+  // Cursor: ISO timestamp of the last agent/system message we've shown
+  const lastAgentMsgAt = useRef<string>(new Date(0).toISOString());
+  const pollRef        = useRef<ReturnType<typeof setInterval> | null>(null);
+  const scroller       = useRef<HTMLDivElement | null>(null);
 
-  // Localize greeting (and re-localize if user switches language before chatting)
+  useEffect(() => { setSessionId(getSessionId()); }, []);
+
+  // Localize greeting
   useEffect(() => {
     setMessages((m) => {
       if (m.length !== 1 || m[0].role !== 'assistant') return m;
       const greeting = t('chat.greeting');
-      if (m[0].content === greeting) return m;
-      return [{ role: 'assistant', content: greeting }];
+      return m[0].content === greeting ? m : [{ role: 'assistant', content: greeting }];
     });
   }, [t]);
 
+  // Auto-scroll
   useEffect(() => {
     if (scroller.current) scroller.current.scrollTop = scroller.current.scrollHeight;
   }, [messages, loading]);
 
+  // ── Agent message polling ─────────────────────────────────────────────
+  const pollAgentMessages = useCallback(async () => {
+    const sid = sessionId || getSessionId();
+    if (!sid) return;
+
+    try {
+      const res = await fetch(
+        `/api/chat/${encodeURIComponent(sid)}/poll?after=${encodeURIComponent(lastAgentMsgAt.current)}`,
+        { cache: 'no-store' },
+      );
+      if (!res.ok) return;
+
+      const data = await res.json() as {
+        agentMode: boolean;
+        agentName: string | null;
+        messages: Array<{ id: string; role: string; content: string; createdAt: string }>;
+      };
+
+      setAgentMode(data.agentMode);
+      setAgentName(data.agentName ?? null);
+
+      if (data.messages.length > 0) {
+        const newMsgs: Msg[] = data.messages.map((m) => ({
+          id: m.id,
+          role: (m.role === 'ADMIN' ? 'admin' : 'system') as MsgRole,
+          content: m.role === 'SYSTEM'
+            ? parseSystemMsg(m.content, data.agentName)
+            : m.content,
+        }));
+
+        setMessages((prev) => {
+          const existingIds = new Set(prev.map((m) => m.id).filter(Boolean));
+          const toAdd = newMsgs.filter((m) => !m.id || !existingIds.has(m.id));
+          return toAdd.length ? [...prev, ...toAdd] : prev;
+        });
+
+        // Advance cursor to the most recent message
+        const latest = data.messages[data.messages.length - 1];
+        lastAgentMsgAt.current = latest.createdAt;
+      }
+    } catch { /* network error — silent */ }
+  }, [sessionId]);
+
+  // Start/stop polling when widget is open
+  useEffect(() => {
+    if (!open || !sessionId) return;
+
+    // Immediate first check
+    pollAgentMessages();
+
+    pollRef.current = setInterval(pollAgentMessages, POLL_INTERVAL);
+    return () => {
+      if (pollRef.current) clearInterval(pollRef.current);
+    };
+  }, [open, sessionId, pollAgentMessages]);
+
+  // ── Send message ──────────────────────────────────────────────────────
   async function send(text: string) {
     if (!text.trim() || loading) return;
-    // Ensure sessionId is valid (≥4 chars) before sending getSessionId() runs
-    // in a useEffect after mount, so it can briefly be '' if the user is fast.
     const sid = sessionId || getSessionId();
-    if (!sid || sid.length < 4) {
-      console.warn('[chat] no sessionId aborting send');
+    if (!sid || sid.length < 4) return;
+
+    const userMsg: Msg = { role: 'user', content: text };
+
+    if (agentMode) {
+      // Agent is active: save locally and ship to server; no AI stream expected
+      setMessages((m) => [...m, userMsg]);
+      setInput('');
+      try {
+        await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, sessionId: sid }),
+        });
+      } catch { /* non-critical */ }
       return;
     }
 
-    const userMsg: Msg = { role: 'user', content: text };
+    // Normal AI path
     setMessages((m) => [...m, userMsg, { role: 'assistant', content: '' }]);
     setInput('');
     setLoading(true);
 
-    // Abort safety net so we never hang forever
-    const ctrl = new AbortController();
+    const ctrl    = new AbortController();
     const timeout = setTimeout(() => ctrl.abort('chat-timeout'), 60_000);
 
     try {
@@ -83,18 +168,28 @@ export function ChatWidget() {
         body: JSON.stringify({ message: text, sessionId: sid }),
         signal: ctrl.signal,
       });
-      if (!res.ok || !res.body) {
-        const errBody = await res.text().catch(() => '');
-        throw new Error(`Chat unavailable (${res.status}) ${errBody.slice(0, 120)}`);
+
+      // 202 = agent took over mid-flight; remove the placeholder assistant bubble
+      if (res.status === 202) {
+        setMessages((m) => m.filter((_, i) => i !== m.length - 1));
+        const json = await res.json() as { agentMode?: boolean };
+        if (json.agentMode) setAgentMode(true);
+        return;
       }
-      const reader = res.body.getReader();
+
+      if (!res.ok || !res.body) {
+        throw new Error(`Chat unavailable (${res.status})`);
+      }
+
+      const reader  = res.body.getReader();
       const decoder = new TextDecoder();
       let assembled = '';
-      let chunks = 0;
+      let chunks    = 0;
+
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
-        chunks += 1;
+        chunks++;
         assembled += decoder.decode(value, { stream: true });
         setMessages((m) => {
           const copy = [...m];
@@ -102,23 +197,20 @@ export function ChatWidget() {
           return copy;
         });
       }
-      // Empty stream = surface a friendly message instead of a blank bubble
+
       if (chunks === 0 || !assembled.trim()) {
         setMessages((m) => {
           const copy = [...m];
-          copy[copy.length - 1] = {
-            role: 'assistant',
-            content: t('chat.errorEmpty'),
-          };
+          copy[copy.length - 1] = { role: 'assistant', content: t('chat.errorEmpty') };
           return copy;
         });
       }
     } catch (e) {
       const reason = (e as Error)?.message || String(e);
-      console.error('[chat] send failed:', reason);
+      const isAbort =
+        reason.includes('chat-timeout') || (e as DOMException)?.name === 'AbortError';
       setMessages((m) => {
         const copy = [...m];
-        const isAbort = reason.includes('chat-timeout') || (e as DOMException)?.name === 'AbortError';
         copy[copy.length - 1] = {
           role: 'assistant',
           content: isAbort ? t('chat.errorTimeout') : t('chat.errorGeneric'),
@@ -133,25 +225,40 @@ export function ChatWidget() {
 
   if (pathname?.startsWith('/admin')) return null;
 
+  const headerSubtitle = agentMode
+    ? `${agentName ?? 'Ko-Sa team'} · Live support`
+    : t('chat.subtitle');
+
   return (
     <>
+      {/* Desktop trigger */}
       <button
         onClick={() => setOpen(true)}
         aria-label={t('chat.cta')}
         className="fixed bottom-6 right-6 z-40 hidden md:flex items-center gap-3 bg-umber text-cream rounded-full pl-3 pr-5 py-3 shadow-2xl hover:bg-primary hover:text-umber transition-all hover:-translate-y-1"
       >
         <span className="grid place-items-center h-8 w-8 rounded-full bg-primary/30">
-          <AdinkraIcon name="knonsonkonson" size={20} className="text-primary" />
+          {agentMode
+            ? <UserCheck size={18} className="text-primary" />
+            : <AdinkraIcon name="knonsonkonson" size={20} className="text-primary" />
+          }
         </span>
         <span className="font-poppins text-xs uppercase tracking-tracked">{t('chat.cta')}</span>
+        {agentMode && (
+          <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-emerald-500 border-2 border-cream" />
+        )}
       </button>
 
+      {/* Mobile trigger */}
       <button
         onClick={() => setOpen(true)}
         aria-label={t('chat.cta')}
         className="md:hidden fixed bottom-5 right-5 z-40 grid place-items-center h-14 w-14 rounded-full bg-umber text-cream shadow-2xl"
       >
         <MessageCircle size={22} />
+        {agentMode && (
+          <span className="absolute -top-1 -right-1 h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-cream" />
+        )}
       </button>
 
       <AnimatePresence>
@@ -165,15 +272,25 @@ export function ChatWidget() {
             role="dialog"
             aria-label={t('a11y.resortChat')}
           >
-            <header className="flex items-center justify-between bg-umber text-cream px-5 py-4">
+            {/* Header */}
+            <header
+              className={`flex items-center justify-between px-5 py-4 ${
+                agentMode ? 'bg-teal-700' : 'bg-umber'
+              } text-cream transition-colors duration-500`}
+            >
               <div className="flex items-center gap-3">
-                <span className="grid place-items-center h-10 w-10 rounded-full bg-primary/25">
-                  <AdinkraIcon name="palm" size={22} className="text-primary" />
+                <span className="grid place-items-center h-10 w-10 rounded-full bg-white/15">
+                  {agentMode
+                    ? <UserCheck size={20} className="text-white" />
+                    : <AdinkraIcon name="palm" size={22} className="text-primary" />
+                  }
                 </span>
                 <div>
-                  <p className="font-belleza text-lg leading-none">{t('chat.title')}</p>
+                  <p className="font-belleza text-lg leading-none">
+                    {agentMode ? (agentName ?? 'Ko-Sa Team') : t('chat.title')}
+                  </p>
                   <p className="font-poppins text-[10px] uppercase tracking-tracked text-cream/70">
-                    {t('chat.subtitle')}
+                    {headerSubtitle}
                   </p>
                 </div>
               </div>
@@ -182,28 +299,55 @@ export function ChatWidget() {
               </button>
             </header>
 
+            {/* Agent-active pill */}
+            {agentMode && (
+              <div className="flex items-center justify-center gap-2 bg-emerald-50 border-b border-emerald-200 py-2 px-4">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <p className="text-[11px] font-opensans text-emerald-800 font-medium">
+                  You are chatting with a Ko-Sa team member
+                </p>
+              </div>
+            )}
+
+            {/* Messages */}
             <div ref={scroller} className="flex-1 overflow-y-auto px-4 py-5 space-y-3 bg-bg-orange">
-              {messages.map((m, i) => (
-                <div
-                  key={i}
-                  className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                  aria-live="polite"
-                >
+              {messages.map((m, i) => {
+                if (m.role === 'system') {
+                  return (
+                    <div key={m.id ?? i} className="flex justify-center my-2">
+                      <span className="text-[11px] text-umber/55 bg-warm-grey/30 px-3 py-1 rounded-full font-opensans italic">
+                        {m.content}
+                      </span>
+                    </div>
+                  );
+                }
+
+                const isUser  = m.role === 'user';
+                const isAdmin = m.role === 'admin';
+
+                return (
                   <div
-                    className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
-                      m.role === 'user'
-                        ? 'bg-primary text-umber rounded-br-sm'
-                        : m.role === 'admin'
-                        ? 'bg-umber text-cream rounded-bl-sm'
-                        : 'bg-cream text-umber border border-umber/10 rounded-bl-sm'
-                    }`}
+                    key={m.id ?? i}
+                    className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}
+                    aria-live="polite"
                   >
-                    {m.content || (loading && i === messages.length - 1 ? <Typing /> : null)}
+                    <div
+                      className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
+                        isUser
+                          ? 'bg-primary text-umber rounded-br-sm'
+                          : isAdmin
+                          ? 'bg-teal-700 text-cream rounded-bl-sm'
+                          : 'bg-cream text-umber border border-umber/10 rounded-bl-sm'
+                      }`}
+                    >
+                      {m.content || (loading && i === messages.length - 1 ? <Typing /> : null)}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
+            {/* Suggested questions (only before first user reply) */}
             {messages.length <= 1 && (
               <div className="px-4 pb-2 flex flex-wrap gap-2 bg-bg-orange">
                 {SUGGESTED_KEYS.map((key) => {
@@ -221,17 +365,15 @@ export function ChatWidget() {
               </div>
             )}
 
+            {/* Input */}
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                send(input);
-              }}
+              onSubmit={(e) => { e.preventDefault(); send(input); }}
               className="flex items-center gap-2 p-3 border-t border-umber/10 bg-cream"
             >
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={t('chat.placeholder')}
+                placeholder={agentMode ? 'Message the team…' : t('chat.placeholder')}
                 className="flex-1 bg-bg-orange rounded-full px-4 py-2.5 text-sm focus:outline-none border border-transparent focus:border-primary"
               />
               <button

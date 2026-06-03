@@ -129,12 +129,17 @@ model ChatSession {
   sentiment     Sentiment     @default(NEUTRAL)
   tags          String[]
   messages      ChatMessage[]
+  // Agent takeover fields
+  agentId       String?       // AdminUser.id of the agent currently in the conversation
+  agentName     String?       // Denormalised name so widget can greet guest by agent's name
+  agentJoinedAt DateTime?     // When the agent took over
   createdAt     DateTime      @default(now())
   lastMessageAt DateTime      @updatedAt
   resolvedAt    DateTime?
 
   @@index([status])
   @@index([guestEmail])
+  @@index([agentId])
 }
 
 model ChatMessage {
@@ -155,6 +160,7 @@ enum SessionStatus {
   ACTIVE
   NEEDS_ADMIN
   ADMIN_REPLIED
+  AGENT_ACTIVE  // Agent has taken over; AI responses are paused
   RESOLVED
 }
 
@@ -167,7 +173,8 @@ enum Sentiment {
 enum MessageRole {
   USER
   ASSISTANT
-  ADMIN
+  ADMIN    // Agent-sent message
+  SYSTEM   // Handoff / system notifications (join, release, etc.)
 }
 
 // ╔════════════════════════════════════════════════════════════════════════╗

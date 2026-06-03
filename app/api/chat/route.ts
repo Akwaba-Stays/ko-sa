@@ -53,17 +53,26 @@ export async function POST(req: Request) {
     : FALLBACK_KB;
 
   // Persist user message + ensure session
+  let agentIsActive = false;
   try {
-    await prisma.chatSession.upsert({
+    const upserted = await prisma.chatSession.upsert({
       where: { sessionId },
       create: { sessionId, guestEmail },
       update: { guestEmail, reservationId },
+      select: { status: true },
     });
+    agentIsActive = upserted.status === 'AGENT_ACTIVE';
     await prisma.chatMessage.create({
       data: { sessionId, role: 'USER', content: message },
     });
   } catch (e) {
     console.warn('[chat] DB skip:', (e as Error).message);
+  }
+
+  // When an agent has taken over, save the user message but do NOT call AI.
+  // The agent will respond directly via the admin dashboard.
+  if (agentIsActive) {
+    return Response.json({ agentMode: true }, { status: 202 });
   }
 
   // Pull recent history for context
