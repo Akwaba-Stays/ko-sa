@@ -231,44 +231,68 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Desktop trigger */}
-      <button
-        onClick={() => setOpen(true)}
-        aria-label={t('chat.cta')}
-        className="fixed bottom-6 right-6 z-40 hidden md:flex items-center gap-3 bg-umber text-cream rounded-full pl-3 pr-5 py-3 shadow-2xl hover:bg-primary hover:text-umber transition-all hover:-translate-y-1"
-      >
-        <span className="grid place-items-center h-8 w-8 rounded-full bg-primary/30">
-          {agentMode
-            ? <UserCheck size={18} className="text-primary" />
-            : <AdinkraIcon name="knonsonkonson" size={20} className="text-primary" />
-          }
-        </span>
-        <span className="font-poppins text-xs uppercase tracking-tracked">{t('chat.cta')}</span>
-        {agentMode && (
-          <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-emerald-500 border-2 border-cream" />
-        )}
-      </button>
+      {/* Trigger buttons — hidden while the panel is open */}
+      {!open && (
+        <>
+          {/* Desktop trigger */}
+          <button
+            onClick={() => setOpen(true)}
+            aria-label={t('chat.cta')}
+            className="fixed bottom-6 right-6 z-40 hidden md:flex items-center gap-3 bg-umber text-cream rounded-full pl-3 pr-5 py-3 shadow-2xl hover:bg-primary hover:text-umber transition-all hover:-translate-y-1"
+          >
+            <span className="grid place-items-center h-8 w-8 rounded-full bg-primary/30">
+              {agentMode
+                ? <UserCheck size={18} className="text-primary" />
+                : <AdinkraIcon name="knonsonkonson" size={20} className="text-primary" />
+              }
+            </span>
+            <span className="font-poppins text-xs uppercase tracking-tracked">{t('chat.cta')}</span>
+            {agentMode && (
+              <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-emerald-500 border-2 border-cream" />
+            )}
+          </button>
 
-      {/* Mobile trigger */}
-      <button
-        onClick={() => setOpen(true)}
-        aria-label={t('chat.cta')}
-        className="md:hidden fixed bottom-5 right-5 z-40 grid place-items-center h-14 w-14 rounded-full bg-umber text-cream shadow-2xl"
-      >
-        <MessageCircle size={22} />
-        {agentMode && (
-          <span className="absolute -top-1 -right-1 h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-cream" />
-        )}
-      </button>
+          {/* Mobile trigger */}
+          <button
+            onClick={() => setOpen(true)}
+            aria-label={t('chat.cta')}
+            className="md:hidden fixed bottom-5 right-5 z-40 grid place-items-center h-14 w-14 rounded-full bg-umber text-cream shadow-2xl"
+          >
+            <MessageCircle size={22} />
+            {agentMode && (
+              <span className="absolute -top-1 -right-1 h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-cream" />
+            )}
+          </button>
+        </>
+      )}
 
       <AnimatePresence>
         {open && (
+          <>
+            {/* Mobile backdrop — tap outside to close */}
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/30 md:hidden"
+              onClick={() => setOpen(false)}
+              aria-hidden
+            />
+
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.96 }}
+            key="panel"
+            initial={{ opacity: 0, y: 20, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.96 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 md:inset-auto md:bottom-6 md:right-6 z-50 md:w-[420px] md:h-[640px] bg-cream md:rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-umber/10"
+            exit={{ opacity: 0, y: 20, scale: 0.97 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            // Mobile: slide up from bottom, leaving room for the navbar.
+            // Desktop: a contained panel anchored to the bottom-right corner.
+            //   - max-h uses 100dvh minus navbar height and bottom offset so the
+            //     header is NEVER clipped no matter the viewport height.
+            className="fixed bottom-0 inset-x-0 z-50 md:inset-auto md:bottom-6 md:right-6 md:w-[400px] md:max-h-[min(620px,calc(100dvh-6rem))] rounded-t-2xl md:rounded-2xl bg-cream shadow-2xl flex flex-col overflow-hidden border border-umber/10"
+            style={{ height: 'min(620px, calc(100dvh - 5rem))' }}
             role="dialog"
             aria-label={t('a11y.resortChat')}
           >
@@ -386,6 +410,7 @@ export function ChatWidget() {
               </button>
             </form>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
