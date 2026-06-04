@@ -80,7 +80,7 @@ export default async function BlogPost({ params }: Props) {
         </div>
       </section>
 
-      {/* Body — calm, narrow measure */}
+      {/* Body - calm, narrow measure */}
       <article className="py-16 md:py-24 bg-sand-light">
         <div className="container-page max-w-[42rem]">
           {p.excerpt && (

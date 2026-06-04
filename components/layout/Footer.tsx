@@ -9,7 +9,7 @@ import { NewsletterForm } from '@/components/shared/NewsletterForm';
 import { useT } from '@/lib/i18n';
 import type { DictKey } from '@/lib/i18n/dictionaries';
 
-// Footer links — primary destinations plus the secondary pages that were
+// Footer links - primary destinations plus the secondary pages that were
 // removed from the streamlined primary nav (Events, Gallery, Journal, Virtual
 // Tour, Contact) so every page stays reachable.
 const QUICK_LINKS: { href: string; dictKey: DictKey }[] = [

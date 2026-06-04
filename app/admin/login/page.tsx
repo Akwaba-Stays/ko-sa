@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
       return;
     }
     // Auth cookie is set by the time signIn resolves. Use a hard navigation so
-    // the middleware sees the new session on the very first request — a
+    // the middleware sees the new session on the very first request - a
     // client-side router.replace() can race the cookie and bounce back to
     // /login (the "click twice" bug). Keep `loading` true through the redirect.
     window.location.assign(callbackUrl);

@@ -1,8 +1,8 @@
-// Brand-guide typography (KOSA Brand Guide §4) — these THREE families are the
+// Brand-guide typography (KOSA Brand Guide §4) - these THREE families are the
 // only fonts used across the site:
-//   Playfair Display — editorial serif for headlines
-//   Raleway          — display sans for sub-heads, labels, large body
-//   Open Sans        — workhorse body font
+//   Playfair Display - editorial serif for headlines
+//   Raleway          - display sans for sub-heads, labels, large body
+//   Open Sans        - workhorse body font
 //
 // No other typefaces are loaded. Legacy class names (`font-belleza`,
 // `font-poppins`, `font-beth`) are aliased to these three in tailwind.config.ts

@@ -24,6 +24,9 @@ import {
   Menu as MenuIcon,
   X,
   ChevronDown,
+  CalendarDays,
+  Package,
+  Gift,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -50,8 +53,11 @@ const groups: Group[] = [
     label: 'Content',
     links: [
       { href: '/admin/rooms', label: 'Rooms', icon: Hotel },
-      { href: '/admin/wellness', label: 'Wellness', icon: Sparkles },
+      { href: '/admin/wellness', label: 'Spa Treatments', icon: Sparkles },
+      { href: '/admin/wellness-packages', label: 'Wellness Packages', icon: Package },
+      { href: '/admin/stay-enhancements', label: 'Stay Enhancements', icon: Gift },
       { href: '/admin/experiences', label: 'Experiences', icon: Compass },
+      { href: '/admin/daily-activities', label: 'Daily Activities', icon: CalendarDays },
       { href: '/admin/dining', label: 'Dining', icon: UtensilsCrossed },
       { href: '/admin/gallery', label: 'Gallery', icon: ImageIcon },
       { href: '/admin/virtual-tour', label: 'Virtual Tour', icon: Eye },

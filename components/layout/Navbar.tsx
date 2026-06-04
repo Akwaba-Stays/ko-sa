@@ -52,7 +52,7 @@ export function Navbar() {
 
   // Visual state:
   //   transparent     only on home, only at top, only when mobile drawer closed.
-  //                     Cream text floats over the hero video. DESKTOP ONLY —
+  //                     Cream text floats over the hero video. DESKTOP ONLY -
   //                     on mobile the bar always carries a solid brand backdrop
   //                     so the hamburger never floats over light page content.
   //   translucent     once scrolled OR on any inner page. Soft teal tint

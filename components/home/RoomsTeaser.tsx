@@ -9,7 +9,7 @@ import { useT } from '@/lib/i18n';
 import type { PublicRoom } from '@/lib/cms/types';
 import { roomFromPerNight } from '@/lib/pricing';
 
-export function RoomsTeaser({ rooms }: { rooms: PublicRoom[] }) {
+export function RoomsTeaser({ rooms, showPrices = true }: { rooms: PublicRoom[]; showPrices?: boolean }) {
   const { t } = useT();
   const featured = rooms.slice(0, 3);
   return (
@@ -60,10 +60,12 @@ export function RoomsTeaser({ rooms }: { rooms: PublicRoom[] }) {
                     {room.tagline && (
                       <p className="mt-2 font-raleway text-sm text-forest/75 italic">{room.tagline}</p>
                     )}
-                    {/* Starting price (Change Request §Page 01) */}
-                    <p className="mt-3 font-opensans text-sm text-teal font-semibold">
-                      {roomFromPerNight(room.slug, room.price)}
-                    </p>
+                    {/* Starting price (Change Request §Page 01) - hidden when admin toggles off */}
+                    {showPrices && (
+                      <p className="mt-3 font-opensans text-sm text-teal font-semibold">
+                        {roomFromPerNight(room.slug, room.price)}
+                      </p>
+                    )}
                     <span className="mt-4 inline-block text-xs font-opensans uppercase tracking-tracked-sm text-coral">
                       {t('roomsPage.cardCta')} →
                     </span>

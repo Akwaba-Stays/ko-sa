@@ -6,6 +6,7 @@ import { getT } from '@/lib/i18n/server';
 import { listPublicExperiences } from '@/lib/cms/experiences';
 import { AdinkraIcon, type AdinkraName } from '@/components/shared/AdinkraIcon';
 import { EXPERIENCE_DETAILS, formatGhs, waLink, waPrefill } from '@/lib/pricing';
+import { listPublicDailyActivities, groupByDay, DAY_ORDER } from '@/lib/cms/daily-activities';
 
 export const metadata: Metadata = {
   title: 'Experiences & Activities',
@@ -15,9 +16,18 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic';
 
+const DAY_LABEL: Record<string, string> = {
+  MONDAY: 'Monday', TUESDAY: 'Tuesday', WEDNESDAY: 'Wednesday',
+  THURSDAY: 'Thursday', FRIDAY: 'Friday', SATURDAY: 'Saturday', SUNDAY: 'Sunday',
+};
+
 export default async function ExperiencesPage() {
   const { t } = getT();
-  const experiences = await listPublicExperiences();
+  const [experiences, allActivities] = await Promise.all([
+    listPublicExperiences(),
+    listPublicDailyActivities().catch(() => []),
+  ]);
+  const activitiesByDay = groupByDay(allActivities);
 
   return (
     <>
@@ -150,6 +160,53 @@ export default async function ExperiencesPage() {
           </div>
         </div>
       </section>
+
+      {/* Free Daily Activities */}
+      {allActivities.length > 0 && (
+        <section className="py-16 md:py-24 bg-sand-light">
+          <div className="container-page">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">{t('experiencesPage.daily.eyebrow')}</p>
+              <h2 className="font-playfair text-display-sm text-teal">{t('experiencesPage.daily.heading')}</h2>
+              <p className="mt-4 font-raleway text-forest/75 leading-relaxed">
+                {t('experiencesPage.daily.intro')}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {DAY_ORDER.map((day) => {
+                const acts = activitiesByDay.get(day) ?? [];
+                if (acts.length === 0) return null;
+                return (
+                  <div key={day} className="bg-cream rounded-xl overflow-hidden shadow-sm border border-sand-300/40">
+                    <div className="bg-teal-700 text-cream px-5 py-3">
+                      <p className="font-playfair text-lg">{DAY_LABEL[day]}</p>
+                      <p className="font-opensans text-[10px] uppercase tracking-tracked text-cream/60">Ko-Sa Beach Resort</p>
+                    </div>
+                    <div className="divide-y divide-sand-300/40">
+                      {acts.map((a) => (
+                        <div key={a.id} className="px-5 py-4">
+                          <p className="font-opensans text-[10px] uppercase tracking-tracked text-coral font-semibold">{a.time}</p>
+                          <h3 className="mt-1 font-playfair text-base text-teal leading-tight">{a.title}</h3>
+                          <p className="mt-1.5 font-raleway text-xs text-forest/75 leading-relaxed">{a.description}</p>
+                          {a.tag && (
+                            <p className="mt-2 font-opensans text-[10px] text-coral italic">{a.tag}</p>
+                          )}
+                          {a.isFree && (
+                            <span className="mt-2 inline-block text-[10px] font-opensans uppercase tracking-tracked bg-teal/10 text-teal px-2 py-0.5 rounded-full">{t('experiencesPage.daily.free')}</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-8 text-center font-opensans text-xs text-forest/50">
+              {t('experiencesPage.daily.footnote')}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Build Your Perfect Day (Change Request §Page 05) */}
       <section className="bg-teal-700 text-cream py-16 text-center">

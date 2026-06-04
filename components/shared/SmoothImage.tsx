@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * SmoothImage — next/image with a calm loading state.
+ * SmoothImage - next/image with a calm loading state.
  *
  * While the image loads, a slow shimmer (warm sand/cream tones) breathes in the
  * background and the image fades in once ready. If a source ever fails (e.g. a
@@ -71,7 +71,7 @@ export function SmoothImage({ className, wrapperClassName, onLoad, onError, fill
     />
   );
 
-  // `fill` images live inside an already-relative, sized parent — render the
+  // `fill` images live inside an already-relative, sized parent - render the
   // shimmer as a sibling so it fills the same box.
   if (fill) {
     return (

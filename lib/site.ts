@@ -36,7 +36,7 @@ export const site = {
     tripadvisor: { score: 4.7, max: 5, url: 'https://www.tripadvisor.com/Hotel_Review-Ko-Sa-Beach-Resort' },
     totalGuests: 5000,
   },
-  // Primary navigation — Website Change Request (June 2026). Experiences is a
+  // Primary navigation - Website Change Request (June 2026). Experiences is a
   // top-level item (not buried in a dropdown) and the order is fixed:
   //   Stay · Wellness · Dine · Experiences · Plan Your Visit · Our Story · [Book Now]
   // Secondary destinations (Events, Gallery, Journal, Virtual Tour, Contact)

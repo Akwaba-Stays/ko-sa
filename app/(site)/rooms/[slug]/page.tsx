@@ -9,6 +9,7 @@ import { AdinkraIcon } from '@/components/shared/AdinkraIcon';
 import { site } from '@/lib/site';
 import { getT } from '@/lib/i18n/server';
 import { roomFromPerNight } from '@/lib/pricing';
+import { getSetting } from '@/lib/cms/settings';
 
 export const dynamic = 'force-dynamic';
 
@@ -50,6 +51,8 @@ export default async function RoomDetailPage({ params }: Props) {
   };
 
   const amenities = room.amenities.length ? room.amenities : DEFAULT_AMENITY_KEYS.map((k) => t(k));
+  const pricing = await getSetting('pricing');
+  const showPrices = !pricing.hideRoomPrices;
   const allRooms = await listPublicRooms();
   const related = allRooms.filter((r) => r.slug !== room.slug).slice(0, 3);
 
@@ -135,10 +138,12 @@ export default async function RoomDetailPage({ params }: Props) {
               {room.tagline && (
                 <p className="font-raleway italic text-sm text-umber/70 mt-2">{room.tagline}</p>
               )}
-              {/* Starting price (Change Request §Page 02) */}
-              <p className="mt-4 font-belleza text-2xl text-primary">
-                {roomFromPerNight(room.slug, room.price)}
-              </p>
+              {/* Starting price (Change Request §Page 02) - hidden when admin toggles off */}
+              {showPrices && (
+                <p className="mt-4 font-belleza text-2xl text-primary">
+                  {roomFromPerNight(room.slug, room.price)}
+                </p>
+              )}
               <div className="mt-6 space-y-3">
                 <Button href={site.bookingUrl} target="_blank" rel="noreferrer" fullWidth size="lg">
                   {t('roomDetail.reserve')} {room.name}

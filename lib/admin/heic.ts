@@ -17,7 +17,7 @@ function isHeic(file: File): boolean {
 
 /**
  * If `file` is HEIC/HEIF, convert it to a JPEG File in the browser. Otherwise
- * return it unchanged. Never throws — on failure it returns the original file
+ * return it unchanged. Never throws - on failure it returns the original file
  * so the server can surface a clear error.
  */
 export async function toUploadableImage(file: File): Promise<File> {

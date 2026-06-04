@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* ── KO-SA palette — extracted from logo.png ── */
+  /* ── KO-SA palette - extracted from logo.png ── */
   --background: #f9f8f4;
   --foreground: #1a1a1a;
   --primary: #2c606e;
@@ -70,18 +70,18 @@ body {
   color: var(--primary-foreground);
 }
 
-/* Brand image grade — vivid, punchy coastal photography.
+/* Brand image grade - vivid, punchy coastal photography.
    Saturation at 1.42 makes the teal sea, amber sand and green palms pop.
    Contrast at 1.13 gives the frames depth and shadow separation.
    Brightness at 1.05 lifts highlights without washing out midtones.
-   Result: images that feel alive and vibrant — never muted or editorial-flat. */
+   Result: images that feel alive and vibrant - never muted or editorial-flat. */
 .branded-img,
 .branded-img img,
 .branded-img video {
   filter: saturate(1.42) contrast(1.13) brightness(1.05);
 }
 
-/* Editorial eyebrow utility — used wherever a section opens with a Holistika-style label */
+/* Editorial eyebrow utility - used wherever a section opens with a Holistika-style label */
 .eyebrow {
   font-family: var(--font-raleway), system-ui, sans-serif;
   font-size: 0.6875rem;
@@ -92,7 +92,7 @@ body {
   display: inline-block;
 }
 
-/* Hairline divider with center dot, gold — DESIGN.md §5 GoldDivider */
+/* Hairline divider with center dot, gold - DESIGN.md §5 GoldDivider */
 .gold-rule {
   display: flex;
   align-items: center;
@@ -359,7 +359,7 @@ body {
 }
 
 /* ───────────────────────────────────────────────────────────────────────────
-   Calm image loading — shimmer + blur-up (used by <SmoothImage>)
+   Calm image loading - shimmer + blur-up (used by <SmoothImage>)
    A slow, low-contrast sweep over warm sand/cream tones. Nothing flashes;
    it breathes. Paired with a fade-in so images settle in gently.
 ─────────────────────────────────────────────────────────────────────────── */
@@ -386,7 +386,7 @@ body {
   animation: kosa-shimmer 2.6s ease-in-out infinite;
 }
 
-/* Soft branded gradient shown if an image ever fails to load — never a broken
+/* Soft branded gradient shown if an image ever fails to load - never a broken
    icon, just a calm wash of cream → teal. */
 .kosa-img-fallback {
   background: linear-gradient(160deg, #f0ede5 0%, #cdc9c1 45%, #2c606e 100%);
@@ -410,7 +410,7 @@ body {
 }
 
 /* ───────────────────────────────────────────────────────────────────────────
-   Journal article typography — a calm, readable measure in brand tones.
+   Journal article typography - a calm, readable measure in brand tones.
    Generous line-height and spacing so the words breathe.
 ─────────────────────────────────────────────────────────────────────────── */
 .kosa-prose {

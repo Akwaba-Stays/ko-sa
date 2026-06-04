@@ -2,12 +2,15 @@ import type { Metadata } from 'next';
 import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import {
   Sparkles, HeartHandshake, Flower2, CupSoda, Waves, Wind,
-  Sunrise, Brain, Battery, Star,
+  Sunrise, Brain, Battery, Star, Check, Gift,
 } from 'lucide-react';
 import { PageHero } from '@/components/shared/PageHero';
 import { WellnessEnquiryForm } from '@/components/marketing/WellnessEnquiryForm';
 import { getT } from '@/lib/i18n/server';
 import { listPublicTreatments } from '@/lib/cms/treatments';
+import { listPublicWellnessPackages } from '@/lib/cms/wellness-packages';
+import { listPublicStayEnhancements, groupByCategory } from '@/lib/cms/stay-enhancements';
+import { getSetting } from '@/lib/cms/settings';
 import {
   TREATMENTS_FALLBACK,
   treatmentPriceGhs,
@@ -15,6 +18,16 @@ import {
   waLink,
   waPrefill,
 } from '@/lib/pricing';
+
+const CATEGORY_COLORS: Record<string, string> = {
+  Leisure:     'bg-blue-50 text-blue-700 border-blue-200',
+  Wellness:    'bg-teal-50 text-teal-700 border-teal-200',
+  Romance:     'bg-rose-50 text-rose-700 border-rose-200',
+  Celebration: 'bg-amber-50 text-amber-700 border-amber-200',
+  Culture:     'bg-purple-50 text-purple-700 border-purple-200',
+  'Day Visit': 'bg-orange-50 text-orange-700 border-orange-200',
+  Eco:         'bg-green-50 text-green-700 border-green-200',
+};
 
 export const metadata: Metadata = {
   title: 'Wellness',
@@ -63,7 +76,15 @@ const STRIP = [
 
 export default async function WellnessPage() {
   const { t } = getT();
-  const cmsTreatments = await listPublicTreatments();
+  const [cmsTreatments, wellnessPackages, allEnhancements, pricing] = await Promise.all([
+    listPublicTreatments(),
+    listPublicWellnessPackages().catch(() => []),
+    listPublicStayEnhancements().catch(() => []),
+    getSetting('pricing'),
+  ]);
+  const enhancementsByCategory = groupByCategory(allEnhancements);
+  const showWellnessPrices = !pricing.hideWellnessPrices;
+  const showEnhancementPrices = !pricing.hideEnhancementPrices;
   // Normalise to a single shape (name · duration · GHS price · slug) and fall
   // back to a curated menu so every treatment is bookable (Change Request §Page 03).
   const treatments = (cmsTreatments.length ? cmsTreatments : TREATMENTS_FALLBACK).map((tr) => ({
@@ -233,7 +254,8 @@ export default async function WellnessPage() {
                   <div>
                     <p className="font-playfair text-lg text-teal">{tr.name}</p>
                     <p className="text-xs font-opensans uppercase tracking-tracked text-forest/50">
-                      {tr.durationMin} min · {formatGhs(tr.priceGhs)}
+                      {tr.durationMin} min
+                      {showWellnessPrices ? ` · ${formatGhs(tr.priceGhs)}` : ''}
                       {tr.category ? ` · ${tr.category}` : ''}
                     </p>
                   </div>
@@ -247,6 +269,114 @@ export default async function WellnessPage() {
                   </a>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Wellness Packages */}
+      {wellnessPackages.length > 0 && (
+        <section className="py-16 md:py-24 bg-cream">
+          <div className="container-page">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">{t('wellnessPage.packages.eyebrow')}</p>
+              <h2 className="font-playfair text-display-sm text-teal">{t('wellnessPage.packages.heading')}</h2>
+              <p className="mt-4 font-raleway text-forest/75 leading-relaxed">
+                {t('wellnessPage.packages.intro')}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+              {wellnessPackages.map((pkg) => (
+                <article key={pkg.id} className="bg-sand-light rounded-xl border border-sand-300/50 flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <div>
+                        <span className={`inline-block text-[10px] font-opensans uppercase tracking-tracked px-2.5 py-1 rounded-full border font-semibold ${CATEGORY_COLORS[pkg.category] ?? 'bg-sand text-umber/70 border-sand-300'}`}>
+                          {pkg.category} · {pkg.durationLabel}
+                        </span>
+                        <h3 className="mt-3 font-playfair text-xl text-teal leading-tight">{pkg.name}</h3>
+                        <p className="mt-1 font-raleway italic text-sm text-forest/65">{pkg.tagline}</p>
+                      </div>
+                    </div>
+                    <ul className="flex-1 space-y-1.5 mb-6">
+                      {pkg.inclusions.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs font-raleway text-forest/80">
+                          <Check size={13} className="text-coral shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="border-t border-sand-300/60 pt-4 mt-auto">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-xs font-opensans text-forest/55">
+                          {t('wellnessPage.packages.enquireRates')}
+                        </p>
+                        <a
+                          href={waLink(`Hi Ko-Sa! I'd like to enquire about the ${pkg.name} package.`)}
+                          target="_blank" rel="noreferrer"
+                          className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-4 py-2.5 hover:bg-coral-600 transition-colors"
+                        >
+                          {t('wellnessPage.packages.enquire')} →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Enhance Your Stay */}
+      {allEnhancements.length > 0 && (
+        <section className="py-16 md:py-24 bg-sand-light">
+          <div className="container-page">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">{t('wellnessPage.enhance.eyebrow')}</p>
+              <h2 className="font-playfair text-display-sm text-teal flex items-center justify-center gap-2">
+                <Gift size={28} className="text-coral" /> {t('wellnessPage.enhance.heading')}
+              </h2>
+              <p className="mt-4 font-raleway text-forest/75 leading-relaxed">
+                {t('wellnessPage.enhance.intro')}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              {Array.from(enhancementsByCategory.entries()).map(([category, items]) => (
+                <div key={category}>
+                  <h3 className="font-playfair text-xl text-teal mb-4 pb-2 border-b border-sand-300/60">{category}</h3>
+                  <div className="space-y-3">
+                    {items.map((item) => (
+                      <div key={item.id} className="flex items-start justify-between gap-4 py-2">
+                        <div className="flex-1">
+                          <p className="font-opensans text-sm font-medium text-forest">{item.name}</p>
+                          {item.description && (
+                            <p className="text-xs text-forest/55 font-raleway mt-0.5">{item.description}</p>
+                          )}
+                          {item.priceNote && (
+                            <p className="text-[10px] font-opensans uppercase tracking-tracked text-forest/40 mt-0.5">{item.priceNote}</p>
+                          )}
+                        </div>
+                        {showEnhancementPrices && (
+                          <p className="shrink-0 font-opensans text-sm font-semibold text-teal">
+                            GHS {item.priceGhs.toLocaleString()}
+                            {item.priceTo ? ` - ${item.priceTo.toLocaleString()}` : ''}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 text-center">
+              <a
+                href={waLink("Hi Ko-Sa! I'd like to add an enhancement to my stay.")}
+                target="_blank" rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
+              >
+                {t('wellnessPage.enhance.cta')} →
+              </a>
             </div>
           </div>
         </section>

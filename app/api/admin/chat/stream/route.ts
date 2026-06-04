@@ -102,7 +102,7 @@ export async function GET(req: NextRequest) {
             lastKeepalive = Date.now();
           }
         } catch {
-          // Transient DB error — keep the connection alive
+          // Transient DB error - keep the connection alive
         }
       }
 

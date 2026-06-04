@@ -61,11 +61,25 @@ export const maintenanceSettingsSchema = z.object({
   message: z.string().trim().max(500).optional(),
 });
 
+// ─── Pricing visibility ──────────────────────────────────────────────────
+// Toggles that hide prices on the public site without deleting the data.
+//   hideRoomPrices         room "From GHS X" lines (rooms list, room detail, home teaser)
+//   hideWellnessPrices     spa treatment prices on /wellness
+//   hideEnhancementPrices  Experiences & Celebrations + Activities & Excursions
+//                          ("Enhance Your Stay") prices on /wellness
+
+export const pricingSettingsSchema = z.object({
+  hideRoomPrices: z.boolean().default(false),
+  hideWellnessPrices: z.boolean().default(false),
+  hideEnhancementPrices: z.boolean().default(false),
+});
+
 export const settingsKeySchemas = {
   hero: heroSettingsSchema,
   contact: contactSettingsSchema,
   seo: seoSettingsSchema,
   integrations: integrationsSettingsSchema,
+  pricing: pricingSettingsSchema,
   maintenance: maintenanceSettingsSchema,
 } as const;
 

@@ -11,6 +11,7 @@ import { Testimonials } from '@/components/home/Testimonials';
 import { EmailCapture } from '@/components/home/EmailCapture';
 import { listPublicRooms } from '@/lib/cms/rooms';
 import { listPublicTestimonials } from '@/lib/cms/testimonials';
+import { getSetting } from '@/lib/cms/settings';
 import type { PublicTestimonial } from '@/lib/cms/types';
 
 export const dynamic = 'force-dynamic';
@@ -54,9 +55,10 @@ const FALLBACK_TESTIMONIALS: PublicTestimonial[] = [
 ];
 
 export default async function HomePage() {
-  const [rooms, testimonials] = await Promise.all([
+  const [rooms, testimonials, pricing] = await Promise.all([
     listPublicRooms(),
     listPublicTestimonials(),
+    getSetting('pricing'),
   ]);
 
   const quotes = testimonials.length ? testimonials : FALLBACK_TESTIMONIALS;
@@ -67,7 +69,7 @@ export default async function HomePage() {
       <SocialProof />
       <Feeling />
       <Itineraries />
-      <RoomsTeaser rooms={rooms} />
+      <RoomsTeaser rooms={rooms} showPrices={!pricing.hideRoomPrices} />
       <Testimonials testimonials={quotes} />
       <EmailCapture />
     </>

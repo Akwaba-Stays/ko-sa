@@ -2,7 +2,7 @@
 
 // Wellness enquiry form for day guests and staying guests alike. Submits to
 // /api/wellness-enquiry (email + DB) and also offers a one-tap WhatsApp option
-// that pre-fills the same details — no stay required.
+// that pre-fills the same details - no stay required.
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';

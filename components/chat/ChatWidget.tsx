@@ -18,7 +18,7 @@ const SUGGESTED_KEYS: DictKey[] = [
   'chat.suggested.included',
 ];
 
-const POLL_INTERVAL = 2500; // ms — how often we check for agent messages when open
+const POLL_INTERVAL = 2500; // ms - how often we check for agent messages when open
 
 function getSessionId() {
   if (typeof window === 'undefined') return '';
@@ -115,7 +115,7 @@ export function ChatWidget() {
         const latest = data.messages[data.messages.length - 1];
         lastAgentMsgAt.current = latest.createdAt;
       }
-    } catch { /* network error — silent */ }
+    } catch { /* network error - silent */ }
   }, [sessionId]);
 
   // Start/stop polling when widget is open
@@ -231,7 +231,7 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Trigger buttons — hidden while the panel is open */}
+      {/* Trigger buttons - hidden while the panel is open */}
       {!open && (
         <>
           {/* Desktop trigger */}
@@ -269,7 +269,7 @@ export function ChatWidget() {
       <AnimatePresence>
         {open && (
           <>
-            {/* Mobile backdrop — tap outside to close */}
+            {/* Mobile backdrop - tap outside to close */}
             <motion.div
               key="backdrop"
               initial={{ opacity: 0 }}

@@ -31,7 +31,7 @@ export default async function BlogIndex() {
         </section>
       ) : (
         <>
-          {/* Featured lead — a quiet, full-width opening */}
+          {/* Featured lead - a quiet, full-width opening */}
           {lead && (
             <section className="py-16 md:py-24 bg-sand-light">
               <div className="container-page">
@@ -74,7 +74,7 @@ export default async function BlogIndex() {
             </section>
           )}
 
-          {/* Divider with adinkra — a calm breath between sections */}
+          {/* Divider with adinkra - a calm breath between sections */}
           {rest.length > 0 && (
             <div className="bg-sand-light pb-4">
               <div className="container-page flex items-center gap-4">
@@ -85,7 +85,7 @@ export default async function BlogIndex() {
             </div>
           )}
 
-          {/* The rest — editorial cards */}
+          {/* The rest - editorial cards */}
           {rest.length > 0 && (
             <section className="pb-24 md:pb-32 bg-sand-light">
               <div className="container-page">

@@ -431,3 +431,78 @@ model MediaAsset {
   @@index([folder])
   @@index([createdAt])
 }
+
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  DAILY ACTIVITIES                                                      ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
+model DailyActivity {
+  id          String        @id @default(cuid())
+  day         DayOfWeek
+  time        String
+  title       String
+  description String        @db.Text
+  tag         String?
+  isFree      Boolean       @default(true)
+  status      PublishStatus @default(PUBLISHED)
+  sortOrder   Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([day, status])
+}
+
+enum DayOfWeek {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  WELLNESS PACKAGES                                                     ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
+model WellnessPackage {
+  id               String        @id @default(cuid())
+  slug             String        @unique
+  name             String
+  tagline          String
+  category         String
+  durationLabel    String
+  priceGhs         Int
+  originalPriceGhs Int?
+  priceNote        String        @default("Solo")
+  couplePriceGhs   Int?
+  couplePriceNote  String?
+  inclusions       String[]
+  status           PublishStatus @default(PUBLISHED)
+  sortOrder        Int           @default(0)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  @@index([status, sortOrder])
+}
+
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  STAY ENHANCEMENTS                                                     ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
+model StayEnhancement {
+  id          String        @id @default(cuid())
+  category    String
+  name        String
+  description String?
+  priceGhs    Int
+  priceTo     Int?
+  priceNote   String?
+  status      PublishStatus @default(PUBLISHED)
+  sortOrder   Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([category, status])
+}

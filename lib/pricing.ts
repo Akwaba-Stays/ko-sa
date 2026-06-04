@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // KO-SA pricing & bookable-content config (Website Change Request, June 2026)
 //
-// ⚠️  PLACEHOLDER RATES — CONFIRM WITH KO-SA BEFORE GO-LIVE.
+// ⚠️  PLACEHOLDER RATES - CONFIRM WITH KO-SA BEFORE GO-LIVE.
 // The Change Request requires a visible "From GHS X" on every room, package,
 // treatment and experience. The resort's live rates were not available in the
 // repo (rooms seed ships price: 0, "price hidden → Cloudbeds"), so the figures
@@ -86,7 +86,7 @@ export const PACKAGES: Record<
   },
 };
 
-/** e.g. "Book 2 nights from GHS 2,400 — welcome drink, daily breakfast, one spa treatment" */
+/** e.g. "Book 2 nights from GHS 2,400 - welcome drink, daily breakfast, one spa treatment" */
 export function packageLine(key: PackageKey): string {
   const p = PACKAGES[key];
   return `Book ${p.nights} nights from ${formatGhs(p.fromGhs)} - ${p.inclusions}`;

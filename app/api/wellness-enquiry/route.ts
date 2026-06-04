@@ -1,4 +1,4 @@
-// Wellness enquiry — day guests can request a treatment/programme without
+// Wellness enquiry - day guests can request a treatment/programme without
 // booking a stay. Persists as a ContactEnquiry (subject prefixed) and emails
 // the resort. The client also offers a "Send via WhatsApp" shortcut.
 

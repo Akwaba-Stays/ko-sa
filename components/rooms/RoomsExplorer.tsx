@@ -29,7 +29,15 @@ type Labels = {
 
 const CATS = ['All', 'Garden View', 'Beach View', 'Palm Side'] as const;
 
-export function RoomsExplorer({ rooms, labels }: { rooms: PublicRoom[]; labels: Labels }) {
+export function RoomsExplorer({
+  rooms,
+  labels,
+  showPrices = true,
+}: {
+  rooms: PublicRoom[];
+  labels: Labels;
+  showPrices?: boolean;
+}) {
   const [query, setQuery] = useState('');
   const [active, setActive] = useState<(typeof CATS)[number]>('All');
 
@@ -136,10 +144,12 @@ export function RoomsExplorer({ rooms, labels }: { rooms: PublicRoom[]; labels: 
                     {r.sizeSqm ? <span>· {r.sizeSqm} m²</span> : null}
                     {r.bedConfig ? <span>· {r.bedConfig}</span> : null}
                   </div>
-                  {/* Starting price (Change Request §Page 02) */}
-                  <p className="mt-4 font-opensans text-sm text-teal font-semibold">
-                    {roomFromPerNight(r.slug, r.price)}
-                  </p>
+                  {/* Starting price (Change Request §Page 02) - hidden when admin toggles off */}
+                  {showPrices && (
+                    <p className="mt-4 font-opensans text-sm text-teal font-semibold">
+                      {roomFromPerNight(r.slug, r.price)}
+                    </p>
+                  )}
                   <div className="mt-auto pt-5 border-t border-sand-300/60 flex gap-2">
                     <Link
                       href={`/rooms/${r.slug}`}

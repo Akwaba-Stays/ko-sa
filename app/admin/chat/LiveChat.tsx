@@ -7,10 +7,10 @@
 //
 // Real-time: subscribes to GET /api/admin/chat/stream (SSE, auto-reconnects).
 // Agent actions:
-//   - "Monitor"  — watches without changing anything (SSE already does this)
-//   - "Take Over" — sets AGENT_ACTIVE, pauses AI, enables reply input
-//   - "Release"   — hands back to AI, clears agent fields
-//   - "Resolve"   — marks session RESOLVED
+//   - "Monitor"  - watches without changing anything (SSE already does this)
+//   - "Take Over" - sets AGENT_ACTIVE, pauses AI, enables reply input
+//   - "Release"   - hands back to AI, clears agent fields
+//   - "Resolve"   - marks session RESOLVED
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
@@ -623,7 +623,7 @@ export function LiveChat({ initialSessions }: { initialSessions: ChatSessionSumm
                 ))}
               </div>
 
-              {/* Reply input — only available when agent is active */}
+              {/* Reply input - only available when agent is active */}
               {isAgentHere ? (
                 <form
                   onSubmit={(e) => { e.preventDefault(); sendMessage(); }}

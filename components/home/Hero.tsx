@@ -24,7 +24,7 @@ export function Hero() {
       aria-label={t('home.hero.headline')}
     >
       <div className="absolute inset-0 branded-img kosa-shimmer">
-        {/* Sea image for now — swap to the resort video when ready: drop a
+        {/* Sea image for now - swap to the resort video when ready: drop a
             <video> here with this image as its poster. */}
         <img
           src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/site/hero/ENV8.webp"

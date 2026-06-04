@@ -5,6 +5,7 @@ import { RoomsExplorer } from '@/components/rooms/RoomsExplorer';
 import { listPublicRooms } from '@/lib/cms/rooms';
 import { getT } from '@/lib/i18n/server';
 import { site } from '@/lib/site';
+import { getSetting } from '@/lib/cms/settings';
 
 export const metadata: Metadata = {
   title: 'Rooms & Accommodation',
@@ -16,7 +17,11 @@ export const dynamic = 'force-dynamic';
 
 export default async function RoomsPage() {
   const { t } = getT();
-  const rooms = await listPublicRooms();
+  const [rooms, pricing] = await Promise.all([
+    listPublicRooms(),
+    getSetting('pricing'),
+  ]);
+  const showPrices = !pricing.hideRoomPrices;
   const wa = `${site.socials.whatsapp}?text=${encodeURIComponent(site.contact.whatsappMessage)}`;
 
   return (
@@ -39,6 +44,7 @@ export default async function RoomsPage() {
         <div className="container-page">
           <RoomsExplorer
             rooms={rooms}
+            showPrices={showPrices}
             labels={{
               searchPlaceholder: t('roomsPage.searchPlaceholder'),
               all: t('rooms.filter.all'),

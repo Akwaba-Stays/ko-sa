@@ -9,13 +9,20 @@ export type Locale = (typeof SUPPORTED_LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 export const LOCALE_COOKIE = 'kosa_locale';
 
-/** Display metadata for each supported language. Used by the LanguageSwitcher. */
-export const LOCALE_META: Record<Locale, { label: string; native: string; flag: string; code: string }> = {
-  en: { label: 'English',  native: 'English',    flag: '🇬🇧', code: 'EN' },
-  fr: { label: 'French',   native: 'Français',   flag: '🇫🇷', code: 'FR' },
-  es: { label: 'Spanish',  native: 'Español',    flag: '🇪🇸', code: 'ES' },
-  nl: { label: 'Dutch',    native: 'Nederlands', flag: '🇳🇱', code: 'NL' },
-  de: { label: 'German',   native: 'Deutsch',    flag: '🇩🇪', code: 'DE' },
+/**
+ * Display metadata for each supported language. Used by the LanguageSwitcher.
+ * `country` is the ISO-3166 alpha-2 code used to render a real flag graphic
+ * (emoji flags do not render on Windows). `flag` is kept as an emoji fallback.
+ */
+export const LOCALE_META: Record<
+  Locale,
+  { label: string; native: string; flag: string; country: string; code: string }
+> = {
+  en: { label: 'English',  native: 'English',    flag: '🇬🇧', country: 'gb', code: 'EN' },
+  fr: { label: 'French',   native: 'Français',   flag: '🇫🇷', country: 'fr', code: 'FR' },
+  es: { label: 'Spanish',  native: 'Español',    flag: '🇪🇸', country: 'es', code: 'ES' },
+  nl: { label: 'Dutch',    native: 'Nederlands', flag: '🇳🇱', country: 'nl', code: 'NL' },
+  de: { label: 'German',   native: 'Deutsch',    flag: '🇩🇪', country: 'de', code: 'DE' },
 };
 
 const en = {
@@ -253,7 +260,7 @@ const en = {
   // Urgency nudge beneath the hero buttons (Change Request §Page 01)
   'home.hero.urgency': 'Rooms filling for July & August - book direct for the best rate',
 
-  // Social proof bar — score + real guest quote (Change Request §Page 01)
+  // Social proof bar - score + real guest quote (Change Request §Page 01)
   'home.social.copy':
     '5,000+ guests · 9.1/10 on Booking.com · “The most peaceful place I’ve been in years.” · Book direct - best rate guaranteed.',
 
@@ -711,35 +718,59 @@ const en = {
   // Sitewide
   'nav.bookMicro': 'Book direct · Best rate guaranteed',
 
-  // Home — itinerary packages + room teaser pricing
+  // Home - itinerary packages + room teaser pricing
   'home.itineraries.bookNow': 'Book Now',
   'common.perNight': 'per night',
 
-  // Rooms — booking confidence strip (Change Request §Page 02)
+  // Rooms - booking confidence strip (Change Request §Page 02)
   'roomsPage.confidence.rate': 'Best rate when you book direct',
   'roomsPage.confidence.cancel': 'Free cancellation up to 72 hours before arrival',
   'roomsPage.confidence.welcome': 'Welcome drink on arrival',
   'roomsPage.confidence.desk': '24-hour front desk',
 
-  // Wellness — bookable treatments (Change Request §Page 03)
+  // Wellness - bookable treatments (Change Request §Page 03)
   'wellnessPage.treatment.book': 'Book This Treatment',
 
-  // Dining — reserve a table + breakfast hours (Change Request §Page 04)
+  // Dining - reserve a table + breakfast hours (Change Request §Page 04)
   'diningPage.reserveCta': 'Reserve a Table',
   'diningPage.breakfast.hours': 'Breakfast served 7–10 am, every day',
 
-  // Experiences — bookable tiles + planning CTA (Change Request §Page 05)
+  // Experiences - bookable tiles + planning CTA (Change Request §Page 05)
   'experiencesPage.tile.book': 'Book This Experience',
   'experiencesPage.perPerson': 'per person',
   'experiencesPage.buildDay.cta': 'Start the conversation',
 
-  // Plan Your Stay — itineraries above the FAQ (Change Request §Page 07)
+  // Plan Your Stay - itineraries above the FAQ (Change Request §Page 07)
   'planPage.itineraries.heading': 'Your Stay, Your Way',
   'planPage.itineraries.eachClose': 'This is one version of your Ko-Sa stay. Yours will be your own.',
   'planPage.itineraries.bookThis': 'Book This Stay',
 
-  // About — sea turtle guest CTA (Change Request §Page 08)
+  // About - sea turtle guest CTA (Change Request §Page 08)
   'aboutPage.seaTurtle.cta': 'Ask About the Turtle Walks',
+
+  // Experiences - free daily activities schedule
+  'experiencesPage.daily.eyebrow': 'Every day, included',
+  'experiencesPage.daily.heading': 'Free Daily Activities',
+  'experiencesPage.daily.intro':
+    'Every day at Ko-Sa comes with a rhythm. All activities are free for resort guests, and there is always something to join, or to happily skip.',
+  'experiencesPage.daily.free': 'Free',
+  'experiencesPage.daily.footnote':
+    'All activities are free for resort guests. Sign up at reception. Schedule may vary.',
+
+  // Wellness - curated packages
+  'wellnessPage.packages.eyebrow': 'Curated Stays',
+  'wellnessPage.packages.heading': 'Wellness Packages',
+  'wellnessPage.packages.intro':
+    'Everything arranged. You just arrive. Each package includes daily breakfast, a complimentary 10-minute welcome massage on arrival, and full beach access.',
+  'wellnessPage.packages.enquireRates': 'Enquire for current rates',
+  'wellnessPage.packages.enquire': 'Enquire',
+
+  // Wellness - enhance your stay (add-ons)
+  'wellnessPage.enhance.eyebrow': 'Add-ons',
+  'wellnessPage.enhance.heading': 'Enhance Your Stay',
+  'wellnessPage.enhance.intro':
+    'Add something special to any package or room booking. Arrange it at reception, by phone, or when you reserve.',
+  'wellnessPage.enhance.cta': 'Enquire About Add-ons',
 } as const;
 
 // ─── FRENCH ──────────────────────────────────────────────────────────────────
@@ -1014,8 +1045,8 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.hero.sub': 'La nature restaure trouvez l’équilibre du corps et de l’esprit',
   'wellnessPage.approach.eyebrow': 'Notre approche',
   'wellnessPage.approach.title': 'Le bien-être par la nature',
-  'wellnessPage.approach.body1': 'La philosophie bien-être de KO-SA est simple : la nature restaure · Grâce au coaching, aux soins du spa personnalisés, au yoga et à un bar à tisanes, chacun retrouve son équilibre',
-  'wellnessPage.approach.body2': 'Notre équipe vous guide vers le calme, la clarté et un bien-être durable · Chaque soin, chaque séance est pensé pour vous reconnecter à votre paix naturelle',
+  'wellnessPage.approach.body1': "Vous n’avez pas besoin d’un programme. Vous avez besoin de la permission de vous arrêter. Ko-Sa vous l’offre : dans l’air marin, dans les matins sans hâte, dans les mains d’un thérapeute qui sait exactement où vous portez vos tensions.",
+  'wellnessPage.approach.body2': "Ici, le bien-être n’est pas quelque chose que l’on fait. C’est quelque chose dont on se souvient.",
   'wellnessPage.features.heading': 'Nos services bien-être',
   'wellnessPage.feat.spa.title': 'Soins du spa',
   'wellnessPage.feat.spa.body': 'Soins aux plantes et massages avec des ingrédients locaux naturels',
@@ -1154,9 +1185,9 @@ const fr: Partial<Record<keyof typeof en, string>> = {
 
   'aboutPage.headline': 'Deux décennies au bord de la mer. Et pourtant, chaque hôte se sent comme le premier.',
   'aboutPage.opening':
-    "Ko-Sa Beach Resort n’est pas né d’un plan d’affaires. Il est né d’une conviction - que la côte ghanéenne est l’un des endroits les plus régénérants au monde, et que chacun qui vient ici doit pouvoir le ressentir. Depuis plus de vingt ans, nous cultivons cette conviction.",
+    "Ko-Sa Beach Resort n’est pas né d’un plan d’affaires. Il est né d’une conviction - que la côte ghanéenne est l’un des endroits les plus ressourçants au monde, et que tous ceux qui viennent ici devraient pouvoir le ressentir. Depuis plus de vingt ans, nous cultivons cette conviction.",
   'aboutPage.continued':
-    "Nous faisons partie du Akwaaba Stays Hospitality Group - une famille d’établissements à travers le Ghana et l’Afrique de l’Ouest qui partagent un engagement pour une hospitalité enracinée dans le soin, la communauté et les lieux que nous appelons chez nous. Ko-Sa est là où cet engagement vit le plus près de l’eau.",
+    "Nous faisons partie d’Akwaaba Stays Hospitality Group - une famille d’adresses à travers le Ghana et l’Afrique de l’Ouest qui partagent un même engagement : une hospitalité enracinée dans le soin, la communauté et les lieux que nous appelons chez nous. C’est à Ko-Sa que cet engagement vit au plus près de l’eau.",
   'aboutPage.values': 'Nos valeurs',
   'aboutPage.values.authenticity.title': 'Authenticité',
   'aboutPage.values.authenticity.body':
@@ -1257,6 +1288,30 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.thankBody': 'Nous avons bien reçu votre demande et reviendrons vers vous très vite',
   'wellnessForm.waIntro': 'Bonjour Ko-Sa ! Je souhaite une demande bien-être :',
   'wellnessPage.treatmentsHeading': 'Soins & séances',
+
+  // Experiences - activités quotidiennes gratuites
+  'experiencesPage.daily.eyebrow': 'Chaque jour, inclus',
+  'experiencesPage.daily.heading': 'Activités quotidiennes gratuites',
+  'experiencesPage.daily.intro':
+    "Chaque journée à Ko-Sa a son rythme. Toutes les activités sont gratuites pour nos hôtes : participez à celles qui vous tentent, ou prenez simplement le temps de vous reposer.",
+  'experiencesPage.daily.free': 'Gratuit',
+  'experiencesPage.daily.footnote':
+    "Toutes les activités sont gratuites pour les hôtes. Inscrivez-vous à la réception. Le programme peut varier.",
+
+  // Wellness - forfaits
+  'wellnessPage.packages.eyebrow': 'Séjours composés',
+  'wellnessPage.packages.heading': 'Forfaits bien-être',
+  'wellnessPage.packages.intro':
+    "Tout est organisé. Vous n'avez qu'à arriver. Chaque forfait comprend le petit-déjeuner quotidien, un massage de bienvenue de 10 minutes offert à l'arrivée et un accès complet à la plage.",
+  'wellnessPage.packages.enquireRates': 'Demandez nos tarifs actuels',
+  'wellnessPage.packages.enquire': 'Demander',
+
+  // Wellness - suppléments
+  'wellnessPage.enhance.eyebrow': 'Suppléments',
+  'wellnessPage.enhance.heading': 'Sublimez votre séjour',
+  'wellnessPage.enhance.intro':
+    "Ajoutez une touche spéciale à tout forfait ou réservation de chambre. Organisez-le à la réception, par téléphone ou au moment de réserver.",
+  'wellnessPage.enhance.cta': 'Renseignez-vous sur les suppléments',
   'wellnessPage.beginHeadline': 'Commencez votre retour à vous',
 
   'experiencesPage.buildDay': 'Demandez-nous de composer votre journée idéale',
@@ -1651,8 +1706,8 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.hero.sub': 'La naturaleza restaura encuentra el equilibrio de cuerpo y mente',
   'wellnessPage.approach.eyebrow': 'Nuestro enfoque',
   'wellnessPage.approach.title': 'Bienestar a través de la naturaleza',
-  'wellnessPage.approach.body1': 'La filosofía de bienestar de KO-SA es simple: la naturaleza restaura · Con coaching, tratamientos de spa personalizados, yoga y un bar de tés, redescubres el equilibrio',
-  'wellnessPage.approach.body2': 'Nuestro equipo te guía hacia la calma, la claridad y un bienestar duradero · Cada tratamiento y sesión busca reconectarte con tu paz natural',
+  'wellnessPage.approach.body1': 'No necesitas un programa. Necesitas permiso para parar. Ko-Sa te lo da: en el aire del mar, en las mañanas sin prisa, en las manos de un terapeuta que sabe exactamente dónde llevas la tensión.',
+  'wellnessPage.approach.body2': 'Aquí el bienestar no es algo que haces. Es algo que recuerdas.',
   'wellnessPage.features.heading': 'Servicios de bienestar',
   'wellnessPage.feat.spa.title': 'Servicios de spa',
   'wellnessPage.feat.spa.body': 'Tratamientos de hierbas y masajes con ingredientes locales naturales',
@@ -1894,6 +1949,30 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.thankBody': 'Hemos recibido tu consulta y te contactaremos pronto',
   'wellnessForm.waIntro': '¡Hola Ko-Sa! Quisiera consultar sobre bienestar:',
   'wellnessPage.treatmentsHeading': 'Tratamientos y sesiones',
+
+  // Experiences - actividades diarias gratuitas
+  'experiencesPage.daily.eyebrow': 'Cada día, incluido',
+  'experiencesPage.daily.heading': 'Actividades diarias gratuitas',
+  'experiencesPage.daily.intro':
+    'Cada día en Ko-Sa tiene su ritmo. Todas las actividades son gratuitas para nuestros huéspedes: únete a las que quieras o simplemente tómate el tiempo de descansar.',
+  'experiencesPage.daily.free': 'Gratis',
+  'experiencesPage.daily.footnote':
+    'Todas las actividades son gratuitas para los huéspedes. Apúntate en recepción. El programa puede variar.',
+
+  // Wellness - paquetes
+  'wellnessPage.packages.eyebrow': 'Estancias diseñadas',
+  'wellnessPage.packages.heading': 'Paquetes de bienestar',
+  'wellnessPage.packages.intro':
+    'Todo organizado. Solo tienes que llegar. Cada paquete incluye desayuno diario, un masaje de bienvenida de 10 minutos a la llegada y acceso completo a la playa.',
+  'wellnessPage.packages.enquireRates': 'Consulta nuestras tarifas actuales',
+  'wellnessPage.packages.enquire': 'Consultar',
+
+  // Wellness - extras
+  'wellnessPage.enhance.eyebrow': 'Extras',
+  'wellnessPage.enhance.heading': 'Realza tu estancia',
+  'wellnessPage.enhance.intro':
+    'Añade algo especial a cualquier paquete o reserva de habitación. Organízalo en recepción, por teléfono o al hacer tu reserva.',
+  'wellnessPage.enhance.cta': 'Pregunta por los extras',
   'wellnessPage.beginHeadline': 'Empieza tu regreso a ti',
 
   'experiencesPage.buildDay': 'Pídenos que diseñemos tu día perfecto',
@@ -2288,8 +2367,8 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.hero.sub': 'De natuur herstelt vind balans in lichaam en geest',
   'wellnessPage.approach.eyebrow': 'Onze aanpak',
   'wellnessPage.approach.title': 'Welzijn door de natuur',
-  'wellnessPage.approach.body1': 'De wellnessfilosofie van KO-SA is eenvoudig: de natuur herstelt · Met coaching, persoonlijke spabehandelingen, yoga en een theebar vind je balans terug',
-  'wellnessPage.approach.body2': 'Ons team begeleidt je naar rust, helderheid en blijvend welzijn · Elke behandeling en sessie helpt je opnieuw verbinden met je natuurlijke rust',
+  'wellnessPage.approach.body1': 'Je hebt geen programma nodig. Je hebt toestemming nodig om te stoppen. Ko-Sa geeft je dat: in de zeelucht, in de trage ochtenden, in de handen van een therapeut die precies weet waar je je spanning draagt.',
+  'wellnessPage.approach.body2': 'Welzijn is hier niet iets wat je doet. Het is iets wat je je herinnert.',
   'wellnessPage.features.heading': 'Wellnessvoorzieningen',
   'wellnessPage.feat.spa.title': 'Spabehandelingen',
   'wellnessPage.feat.spa.body': 'Kruidenbehandelingen en massages met natuurlijke lokale ingrediënten',
@@ -2531,6 +2610,30 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.thankBody': 'We hebben je aanvraag ontvangen en nemen snel contact op',
   'wellnessForm.waIntro': 'Hoi Ko-Sa! Ik heb een wellnessvraag:',
   'wellnessPage.treatmentsHeading': 'Behandelingen & sessies',
+
+  // Experiences - gratis dagelijkse activiteiten
+  'experiencesPage.daily.eyebrow': 'Elke dag, inbegrepen',
+  'experiencesPage.daily.heading': 'Gratis dagelijkse activiteiten',
+  'experiencesPage.daily.intro':
+    'Elke dag bij Ko-Sa heeft zijn eigen ritme. Alle activiteiten zijn gratis voor onze gasten: doe mee met wat je aanspreekt of geniet gewoon van de rust.',
+  'experiencesPage.daily.free': 'Gratis',
+  'experiencesPage.daily.footnote':
+    'Alle activiteiten zijn gratis voor gasten. Schrijf je in bij de receptie. Het programma kan variëren.',
+
+  // Wellness - pakketten
+  'wellnessPage.packages.eyebrow': 'Samengestelde verblijven',
+  'wellnessPage.packages.heading': 'Wellnesspakketten',
+  'wellnessPage.packages.intro':
+    'Alles geregeld. Jij hoeft alleen maar aan te komen. Elk pakket bevat dagelijks ontbijt, een gratis welkomstmassage van 10 minuten bij aankomst en volledige toegang tot het strand.',
+  'wellnessPage.packages.enquireRates': 'Vraag naar onze actuele tarieven',
+  'wellnessPage.packages.enquire': 'Aanvragen',
+
+  // Wellness - extra's
+  'wellnessPage.enhance.eyebrow': "Extra's",
+  'wellnessPage.enhance.heading': 'Verrijk je verblijf',
+  'wellnessPage.enhance.intro':
+    'Voeg iets bijzonders toe aan elk pakket of elke kamerreservering. Regel het bij de receptie, telefonisch of bij het boeken.',
+  'wellnessPage.enhance.cta': "Vraag naar de extra's",
   'wellnessPage.beginHeadline': 'Begin je weg terug',
 
   'experiencesPage.buildDay': 'Vraag ons je perfecte dag samen te stellen',
@@ -2636,7 +2739,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'alt.heroShoreline': 'Luchtfoto van de kustlijn van KO-SA, Elmina, Ghana',
   'alt.feelingHammock': 'Een rustige hangmat tussen de palmen bij KO-SA',
   'alt.aboutSea': 'KO-SA Beach Resort aan zee',
-  'aboutPage.enrichedSetting': 'Het is te zien in de vissers met wie we samenwerken, de boeren die onze keuken bevoorraden, de ambachtslieden wiens handen hebben gevormd wat u om u heen ziet.',
+  'aboutPage.enrichedSetting': 'Het is te zien in de vissers met wie we samenwerken, de boeren die onze keuken bevoorraden, de ambachtslieden die met hun handen vormgaven aan wat je om je heen ziet.',
   'aboutPage.enrichedEco': 'De keuken put uit onze eigen biotuin en uit de netten van de vissers met wie we al jaren werken · Zorg voor de kust bepaalt elke keuze · Zo is deze plek gebouwd',
   'aboutPage.seaTurtle.title': 'Het zeeschildpad-project',
   'aboutPage.seaTurtle.body': 'Samen met Wild Seas Conservation Ghana helpen we lokale vissers zeeschildpadden vrij te laten die in hun netten verstrikt zijn we vergoeden beschadigde netten en leiden inwoners van Ampenyi op in tagging en data-registratie · Tussen november en maart kun je deelnemen aan avondwandelingen om de schildpadden eieren te zien leggen',
@@ -2925,8 +3028,8 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.hero.sub': 'Die Natur erneuert finde Balance in Körper und Geist',
   'wellnessPage.approach.eyebrow': 'Unser Ansatz',
   'wellnessPage.approach.title': 'Wohlbefinden durch Natur',
-  'wellnessPage.approach.body1': 'Die Wellness-Philosophie von KO-SA ist einfach: die Natur erneuert · Mit Coaching, individuellen Spa-Behandlungen, Yoga und einer Teebar findest du deine Balance',
-  'wellnessPage.approach.body2': 'Unser Team begleitet dich zu Ruhe, Klarheit und nachhaltigem Wohlbefinden · Jede Behandlung und Sitzung verbindet dich wieder mit deiner natürlichen Ruhe',
+  'wellnessPage.approach.body1': 'Du brauchst kein Programm. Du brauchst die Erlaubnis, innezuhalten. Ko-Sa schenkt dir genau das: in der Meeresluft, in den langsamen Morgenstunden, in den Händen einer Therapeutin, die genau weiß, wo du deine Anspannung trägst.',
+  'wellnessPage.approach.body2': 'Wohlbefinden ist hier nichts, was du tust. Es ist etwas, woran du dich erinnerst.',
   'wellnessPage.features.heading': 'Wellness-Angebote',
   'wellnessPage.feat.spa.title': 'Spa-Behandlungen',
   'wellnessPage.feat.spa.body': 'Kräuterbehandlungen und Massagen mit natürlichen lokalen Zutaten',
@@ -3168,6 +3271,30 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.thankBody': 'Wir haben deine Anfrage erhalten und melden uns in Kürze',
   'wellnessForm.waIntro': 'Hallo Ko-Sa! Ich möchte eine Wellness-Anfrage stellen:',
   'wellnessPage.treatmentsHeading': 'Behandlungen & Sessions',
+
+  // Experiences - kostenlose tägliche Aktivitäten
+  'experiencesPage.daily.eyebrow': 'Jeden Tag, inklusive',
+  'experiencesPage.daily.heading': 'Kostenlose tägliche Aktivitäten',
+  'experiencesPage.daily.intro':
+    'Jeder Tag im Ko-Sa hat seinen Rhythmus. Alle Aktivitäten sind für unsere Gäste kostenlos: Mach mit, wobei du möchtest, oder genieße einfach die Ruhe.',
+  'experiencesPage.daily.free': 'Kostenlos',
+  'experiencesPage.daily.footnote':
+    'Alle Aktivitäten sind für Gäste kostenlos. Anmeldung an der Rezeption. Das Programm kann variieren.',
+
+  // Wellness - Pakete
+  'wellnessPage.packages.eyebrow': 'Kuratierte Aufenthalte',
+  'wellnessPage.packages.heading': 'Wellness-Pakete',
+  'wellnessPage.packages.intro':
+    'Alles arrangiert. Du musst nur ankommen. Jedes Paket umfasst tägliches Frühstück, eine kostenlose 10-minütige Willkommensmassage bei der Ankunft und vollen Strandzugang.',
+  'wellnessPage.packages.enquireRates': 'Frag nach unseren aktuellen Preisen',
+  'wellnessPage.packages.enquire': 'Anfragen',
+
+  // Wellness - Extras
+  'wellnessPage.enhance.eyebrow': 'Extras',
+  'wellnessPage.enhance.heading': 'Verfeinere deinen Aufenthalt',
+  'wellnessPage.enhance.intro':
+    'Füge jedem Paket oder jeder Zimmerbuchung etwas Besonderes hinzu. Arrangiere es an der Rezeption, telefonisch oder bei der Buchung.',
+  'wellnessPage.enhance.cta': 'Nach Extras fragen',
   'wellnessPage.beginHeadline': 'Beginne deinen Weg zurück',
 
   'experiencesPage.buildDay': 'Lass uns deinen perfekten Tag gestalten',
@@ -3273,7 +3400,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'alt.heroShoreline': 'Luftaufnahme der Küste von KO-SA, Elmina, Ghana',
   'alt.feelingHammock': 'Eine ruhige Hängematte zwischen den Palmen von KO-SA',
   'alt.aboutSea': 'KO-SA Beach Resort am Meer',
-  'aboutPage.enrichedSetting': 'Es zeigt sich in den Fischern, mit denen wir zusammenarbeiten, den Bauern, die unsere Küche versorgen, den Handwerkern, deren Hände das geformt haben, was Sie um sich sehen.',
+  'aboutPage.enrichedSetting': 'Es zeigt sich in den Fischern, mit denen wir zusammenarbeiten, den Bauern, die unsere Küche versorgen, den Handwerkern, deren Hände all das geformt haben, was dich hier umgibt.',
   'aboutPage.enrichedEco': 'Die Küche schöpft aus unserem eigenen Biogarten und aus den Netzen der Fischer, mit denen wir seit Jahren arbeiten · Achtsamkeit für die Küste prägt jede Entscheidung · So ist dieser Ort gebaut',
   'aboutPage.seaTurtle.title': 'Das Meeresschildkröten-Projekt',
   'aboutPage.seaTurtle.body': 'Mit Wild Seas Conservation Ghana helfen wir den lokalen Fischern, in ihren Netzen gefangene Meeresschildkröten freizulassen wir entschädigen beschädigte Netze und schulen Bewohnerinnen und Bewohner Ampenyis in Markierung und Datenerfassung · Zwischen November und März kannst du an Abendwanderungen am Strand teilnehmen, um Schildkröten bei der Eiablage zu beobachten',

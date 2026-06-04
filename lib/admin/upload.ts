@@ -95,7 +95,7 @@ export async function handleUpload(input: UploadInput): Promise<UploadResult> {
       // HEIC is normally converted to JPEG in the browser before upload (see
       // lib/admin/heic.ts), so it rarely reaches here. If a raw HEIC still
       // arrives (e.g. JS disabled), the serverless runtime has no libheif
-      // decoder — ask for JPEG/PNG rather than failing silently.
+      // decoder - ask for JPEG/PNG rather than failing silently.
       if (input.contentType === 'image/heic' || input.contentType === 'image/heif') {
         throw Object.assign(
           new Error('This HEIC image could not be converted - please try again or upload a JPEG/PNG'),

@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
 import { DEFAULT_LOCALE, LOCALE_COOKIE, SUPPORTED_LOCALES, type Locale, type DictKey, translate } from './dictionaries';
 
 // ─── Cookie helpers ──────────────────────────────────────────────────────────
@@ -47,19 +48,27 @@ const LocaleContext = createContext<LocaleContextValue>({
  * a single reactive locale. Changing language updates all consumers instantly.
  */
 export function LocaleProvider({ children }: { children: ReactNode }) {
+  const router = useRouter();
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {
     setLocaleState(getInitialLocale());
   }, []);
 
-  const setLocale = useCallback((next: Locale) => {
-    writeCookie(LOCALE_COOKIE, next);
-    setLocaleState(next);
-    if (typeof document !== 'undefined') {
-      document.documentElement.lang = next;
-    }
-  }, []);
+  const setLocale = useCallback(
+    (next: Locale) => {
+      writeCookie(LOCALE_COOKIE, next);
+      setLocaleState(next);
+      if (typeof document !== 'undefined') {
+        document.documentElement.lang = next;
+      }
+      // Server components read the locale from the cookie at request time.
+      // A soft refresh re-renders them with the new cookie so the whole page
+      // (not just client components) updates instantly, no full reload.
+      router.refresh();
+    },
+    [router],
+  );
 
   const value = useMemo(() => ({ locale, setLocale }), [locale, setLocale]);
 

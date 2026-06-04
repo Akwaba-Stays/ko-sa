@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ChevronDown, Globe } from 'lucide-react';
 import { useT } from '@/lib/i18n';
 import { LOCALE_META, SUPPORTED_LOCALES, type Locale } from '@/lib/i18n/dictionaries';
+import { Flag } from '@/components/shared/Flag';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -120,7 +121,7 @@ export function LanguageSwitcher({ tone = 'cream', variant = 'pill', className }
         className={triggerClasses}
       >
         <Globe size={14} className="opacity-80" />
-        <span aria-hidden className="text-base leading-none">{meta.flag}</span>
+        <Flag country={meta.country} size={20} className="shadow-sm ring-1 ring-black/10" />
         <span className="font-medium">{meta.code}</span>
         <motion.span
           aria-hidden
@@ -170,7 +171,7 @@ export function LanguageSwitcher({ tone = 'cream', variant = 'pill', className }
                       active ? 'text-umber' : 'text-umber/85 hover:text-umber',
                     )}
                   >
-                    <span aria-hidden className="text-lg leading-none">{m.flag}</span>
+                    <Flag country={m.country} size={26} className="shadow-sm ring-1 ring-black/10 shrink-0" />
                     <span className="flex-1 flex flex-col">
                       <span className="font-belleza text-base leading-tight">{m.native}</span>
                       <span className="font-poppins text-[10px] uppercase tracking-tracked text-umber/55">

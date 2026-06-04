@@ -58,7 +58,7 @@ export default async function PlanPage() {
         </div>
       </section>
 
-      {/* What to do here — real experiences from the CMS */}
+      {/* What to do here - real experiences from the CMS */}
       {experiences.length > 0 && (
         <section className="pb-8 bg-sand-light">
           <div className="container-page">
@@ -138,7 +138,7 @@ export default async function PlanPage() {
         </div>
       </section>
 
-      {/* Your Stay, Your Way — full itineraries above the FAQ (Change Request §Page 07) */}
+      {/* Your Stay, Your Way - full itineraries above the FAQ (Change Request §Page 07) */}
       <section className="py-16 md:py-24 bg-cream">
         <div className="container-page">
           <div className="max-w-2xl mb-12">

@@ -9,7 +9,7 @@ import { MediaPickerSingle } from '@/components/admin/MediaPicker';
 import { useToast } from '@/components/admin/Toast';
 import { cn } from '@/lib/utils';
 
-type SectionKey = 'hero' | 'contact' | 'seo' | 'integrations' | 'maintenance';
+type SectionKey = 'hero' | 'contact' | 'seo' | 'integrations' | 'pricing' | 'maintenance';
 
 interface Props {
   initial: Record<SectionKey, Record<string, unknown>>;
@@ -20,6 +20,7 @@ const SECTIONS: { key: SectionKey; label: string; description: string }[] = [
   { key: 'contact', label: 'Contact & social', description: 'Email, phone, address, social profiles.' },
   { key: 'seo', label: 'SEO & branding', description: 'Default meta titles, OG image, social handles.' },
   { key: 'integrations', label: 'Integrations', description: 'Property IDs, analytics IDs, feature toggles.' },
+  { key: 'pricing', label: 'Pricing visibility', description: 'Show or hide prices on the public website.' },
   { key: 'maintenance', label: 'Maintenance', description: 'Temporarily display a maintenance banner.' },
 ];
 
@@ -81,6 +82,9 @@ export function SettingsForm({ initial }: Props) {
         {active === 'seo' && <SeoSection values={values.seo} onChange={(f, v) => update('seo', f, v)} />}
         {active === 'integrations' && (
           <IntegrationsSection values={values.integrations} onChange={(f, v) => update('integrations', f, v)} />
+        )}
+        {active === 'pricing' && (
+          <PricingSection values={values.pricing} onChange={(f, v) => update('pricing', f, v)} />
         )}
         {active === 'maintenance' && (
           <MaintenanceSection values={values.maintenance} onChange={(f, v) => update('maintenance', f, v)} />
@@ -195,6 +199,55 @@ function IntegrationsSection({
         Note: API keys and other secrets are read from environment variables they're never stored in
         the database.
       </p>
+    </div>
+  );
+}
+
+function PricingSection({
+  values,
+  onChange,
+}: {
+  values: Record<string, unknown>;
+  onChange: (f: string, v: unknown) => void;
+}) {
+  const toggleRow = (label: string, hint: string, key: string) => (
+    <label className="flex items-center justify-between gap-4 p-3 bg-bg-orange rounded-md">
+      <span>
+        <span className="block text-sm text-umber">{label}</span>
+        <span className="block text-[11px] text-umber/55">{hint}</span>
+      </span>
+      <input
+        type="checkbox"
+        checked={asBool(values[key], false)}
+        onChange={(e) => onChange(key, e.target.checked)}
+        className="h-5 w-5 shrink-0"
+      />
+    </label>
+  );
+  return (
+    <div className="space-y-4">
+      <h2 className="font-belleza text-xl text-umber">Pricing visibility</h2>
+      <p className="text-sm text-umber/70">
+        Hide prices on the public website without deleting any data. Prices stay saved and reappear
+        the moment you switch a toggle back off.
+      </p>
+      <div className="space-y-2">
+        {toggleRow(
+          'Hide room prices',
+          'Hides the "From GHS X per night" line on the rooms list, room pages and the home page.',
+          'hideRoomPrices',
+        )}
+        {toggleRow(
+          'Hide wellness prices',
+          'Hides spa treatment prices (Ko-Sa Health Spa & O2 Wellness) on the Wellness page.',
+          'hideWellnessPrices',
+        )}
+        {toggleRow(
+          'Hide experiences & activities prices',
+          'Hides Experiences & Celebrations and Activities & Excursions prices in the "Enhance Your Stay" section.',
+          'hideEnhancementPrices',
+        )}
+      </div>
     </div>
   );
 }
