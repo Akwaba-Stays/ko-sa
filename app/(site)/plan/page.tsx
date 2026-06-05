@@ -1,13 +1,25 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SmoothImage as Image } from '@/components/shared/SmoothImage';
-import { MapPin, Plane } from 'lucide-react';
+import { MapPin, Plane, Check, CalendarRange } from 'lucide-react';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { FaqAccordion } from '@/components/marketing/FaqAccordion';
 import { listPublicExperiences } from '@/lib/cms/experiences';
+import { listPublicWellnessPackages } from '@/lib/cms/wellness-packages';
 import { site } from '@/lib/site';
 import { packageLine, waLink, waPrefill, type PackageKey } from '@/lib/pricing';
+
+// Tailwind chips per package category (graceful default for unknown values).
+const CATEGORY_COLORS: Record<string, string> = {
+  Leisure:     'bg-blue-50 text-blue-700 border-blue-200',
+  Wellness:    'bg-teal-50 text-teal-700 border-teal-200',
+  Romance:     'bg-rose-50 text-rose-700 border-rose-200',
+  Celebration: 'bg-amber-50 text-amber-700 border-amber-200',
+  Culture:     'bg-purple-50 text-purple-700 border-purple-200',
+  'Day Visit': 'bg-orange-50 text-orange-700 border-orange-200',
+  Eco:         'bg-green-50 text-green-700 border-green-200',
+};
 
 const ITINERARIES: {
   key: PackageKey;
@@ -42,7 +54,10 @@ const FAQS = [
 export default async function PlanPage() {
   const { t } = getT();
   const wa = `${site.socials.whatsapp}?text=${encodeURIComponent(site.contact.whatsappMessage)}`;
-  const experiences = await listPublicExperiences();
+  const [experiences, stayPackages] = await Promise.all([
+    listPublicExperiences(),
+    listPublicWellnessPackages().catch(() => []),
+  ]);
 
   return (
     <>
@@ -102,6 +117,73 @@ export default async function PlanPage() {
               <a href={wa} target="_blank" rel="noreferrer" className="text-xs font-opensans uppercase tracking-tracked-sm text-teal border border-teal/40 rounded-full px-5 py-2.5 hover:border-coral hover:text-coral transition-colors">
                 {t('planPage.itineraries.cta2')}
               </a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Stay Packages - curated, image-rich (relabelled from Wellness Packages) */}
+      {stayPackages.length > 0 && (
+        <section className="py-16 md:py-24 bg-cream">
+          <div className="container-page">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">{t('planPage.packages.eyebrow')}</p>
+              <h2 className="font-playfair text-display-sm text-teal flex items-center justify-center gap-2">
+                <CalendarRange size={28} className="text-coral" /> {t('planPage.packages.heading')}
+              </h2>
+              <p className="mt-4 font-raleway text-forest/75 leading-relaxed">
+                {t('planPage.packages.intro')}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+              {stayPackages.map((pkg) => (
+                <article key={pkg.id} className="group bg-sand-light rounded-2xl border border-sand-300/50 overflow-hidden flex flex-col shadow-sm hover:shadow-lg transition-shadow">
+                  {/* Cover image (graceful gradient fallback before admin uploads one) */}
+                  <div className="relative aspect-[16/10] branded-img overflow-hidden bg-gradient-to-br from-teal-100 via-sand to-coral/15">
+                    {pkg.image ? (
+                      <Image src={pkg.image} alt={pkg.name} fill sizes="(min-width:1280px) 33vw, (min-width:768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    ) : (
+                      <div className="absolute inset-0 grid place-items-center text-teal/30">
+                        <CalendarRange size={44} />
+                      </div>
+                    )}
+                    <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-umber/60 to-transparent" />
+                    <span className={`absolute top-3 left-3 inline-block text-[10px] font-opensans uppercase tracking-tracked px-2.5 py-1 rounded-full border font-semibold ${CATEGORY_COLORS[pkg.category] ?? 'bg-cream/90 text-umber/70 border-sand-300'}`}>
+                      {pkg.category} · {pkg.durationLabel}
+                    </span>
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-playfair text-xl text-teal leading-tight">{pkg.name}</h3>
+                    <p className="mt-1 font-raleway italic text-sm text-forest/65">{pkg.tagline}</p>
+                    <ul className="mt-4 flex-1 space-y-1.5">
+                      {pkg.inclusions.slice(0, 6).map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs font-raleway text-forest/80">
+                          <Check size={13} className="text-coral shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                      {pkg.inclusions.length > 6 && (
+                        <li className="text-xs font-opensans text-forest/45 pl-5">
+                          + {pkg.inclusions.length - 6} more
+                        </li>
+                      )}
+                    </ul>
+                    <div className="mt-5 pt-4 border-t border-sand-300/60 flex items-center justify-between gap-2">
+                      <p className="text-xs font-opensans text-forest/55">
+                        {t('planPage.packages.enquireRates')}
+                      </p>
+                      <a
+                        href={waLink(`Hi Ko-Sa! I'd like to enquire about the ${pkg.name} package.`)}
+                        target="_blank" rel="noreferrer"
+                        className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-4 py-2.5 hover:bg-coral-600 transition-colors"
+                      >
+                        {t('planPage.packages.enquire')} →
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>

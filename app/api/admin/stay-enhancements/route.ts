@@ -14,6 +14,7 @@ const schema = z.object({
   priceGhs: z.number().int().min(0),
   priceTo: z.number().int().min(0).optional().nullable(),
   priceNote: z.string().max(100).optional().nullable(),
+  image: z.string().max(600).optional().nullable(),
   status: z.enum(['DRAFT','PUBLISHED']).default('PUBLISHED'),
   sortOrder: z.number().int().default(0),
 });

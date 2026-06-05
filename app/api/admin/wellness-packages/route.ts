@@ -19,6 +19,8 @@ const schema = z.object({
   couplePriceGhs: z.number().int().min(0).optional().nullable(),
   couplePriceNote: z.string().max(100).optional().nullable(),
   inclusions: z.array(z.string().max(300)).default([]),
+  image: z.string().max(600).optional().nullable(),
+  gallery: z.array(z.string().max(600)).default([]),
   status: z.enum(['DRAFT','PUBLISHED']).default('PUBLISHED'),
   sortOrder: z.number().int().default(0),
 });

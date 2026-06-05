@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Save, Trash2, Plus, X } from 'lucide-react';
 import { Button } from '@/components/admin/Button';
 import { TextField, TextareaField, SelectField } from '@/components/admin/FormField';
+import { MediaPickerSingle, MediaPickerMulti } from '@/components/admin/MediaPicker';
 import { StatusToggle } from '@/components/admin/StatusToggle';
 import { useToast } from '@/components/admin/Toast';
 
@@ -25,6 +26,8 @@ export interface PackageFormValues {
   couplePriceGhs: number | null;
   couplePriceNote: string;
   inclusions: string[];
+  image: string;
+  gallery: string[];
   status: 'DRAFT' | 'PUBLISHED';
   sortOrder: number;
 }
@@ -33,6 +36,7 @@ const EMPTY: PackageFormValues = {
   slug: '', name: '', tagline: '', category: 'Wellness', durationLabel: '',
   priceGhs: 0, originalPriceGhs: null, priceNote: 'Solo',
   couplePriceGhs: null, couplePriceNote: '', inclusions: [],
+  image: '', gallery: [],
   status: 'PUBLISHED', sortOrder: 0,
 };
 
@@ -114,6 +118,12 @@ export function WellnessPackageForm({ initial }: { initial?: Partial<PackageForm
       <TextField label="Tagline" name="tagline" value={values.tagline}
         onChange={(e) => set('tagline', e.target.value)}
         placeholder="Five days of ocean air, healing rituals and stillness" required />
+      <MediaPickerSingle label="Cover image" name="image" value={values.image}
+        onChange={(v) => set('image', v)} folder="packages"
+        hint="Shown on the package card. Use a high-quality landscape photo." />
+      <MediaPickerMulti label="Gallery (optional)" name="gallery" values={values.gallery}
+        onChange={(v) => set('gallery', v)} folder="packages"
+        hint="Extra photos to showcase this package." />
       <div className="grid grid-cols-2 gap-4">
         <SelectField label="Category" name="category" value={values.category}
           onChange={(e) => set('category', e.target.value)}

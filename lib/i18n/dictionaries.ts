@@ -758,12 +758,12 @@ const en = {
     'All activities are free for resort guests. Sign up at reception. Schedule may vary.',
 
   // Wellness - curated packages
-  'wellnessPage.packages.eyebrow': 'Curated Stays',
-  'wellnessPage.packages.heading': 'Wellness Packages',
-  'wellnessPage.packages.intro':
+  'planPage.packages.eyebrow': 'Curated Stays',
+  'planPage.packages.heading': 'Stay Packages',
+  'planPage.packages.intro':
     'Everything arranged. You just arrive. Each package includes daily breakfast, a complimentary 10-minute welcome massage on arrival, and full beach access.',
-  'wellnessPage.packages.enquireRates': 'Enquire for current rates',
-  'wellnessPage.packages.enquire': 'Enquire',
+  'planPage.packages.enquireRates': 'Enquire for current rates',
+  'planPage.packages.enquire': 'Enquire',
 
   // Wellness - enhance your stay (add-ons)
   'wellnessPage.enhance.eyebrow': 'Add-ons',
@@ -771,6 +771,7 @@ const en = {
   'wellnessPage.enhance.intro':
     'Add something special to any package or room booking. Arrange it at reception, by phone, or when you reserve.',
   'wellnessPage.enhance.cta': 'Enquire About Add-ons',
+  'wellnessPage.enhance.enquire': 'Enquire',
 } as const;
 
 // ─── FRENCH ──────────────────────────────────────────────────────────────────
@@ -1299,12 +1300,12 @@ const fr: Partial<Record<keyof typeof en, string>> = {
     "Toutes les activités sont gratuites pour les hôtes. Inscrivez-vous à la réception. Le programme peut varier.",
 
   // Wellness - forfaits
-  'wellnessPage.packages.eyebrow': 'Séjours composés',
-  'wellnessPage.packages.heading': 'Forfaits bien-être',
-  'wellnessPage.packages.intro':
+  'planPage.packages.eyebrow': 'Séjours composés',
+  'planPage.packages.heading': 'Forfaits séjour',
+  'planPage.packages.intro':
     "Tout est organisé. Vous n'avez qu'à arriver. Chaque forfait comprend le petit-déjeuner quotidien, un massage de bienvenue de 10 minutes offert à l'arrivée et un accès complet à la plage.",
-  'wellnessPage.packages.enquireRates': 'Demandez nos tarifs actuels',
-  'wellnessPage.packages.enquire': 'Demander',
+  'planPage.packages.enquireRates': 'Demandez nos tarifs actuels',
+  'planPage.packages.enquire': 'Demander',
 
   // Wellness - suppléments
   'wellnessPage.enhance.eyebrow': 'Suppléments',
@@ -1312,6 +1313,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.enhance.intro':
     "Ajoutez une touche spéciale à tout forfait ou réservation de chambre. Organisez-le à la réception, par téléphone ou au moment de réserver.",
   'wellnessPage.enhance.cta': 'Renseignez-vous sur les suppléments',
+  'wellnessPage.enhance.enquire': 'Demander',
   'wellnessPage.beginHeadline': 'Commencez votre retour à vous',
 
   'experiencesPage.buildDay': 'Demandez-nous de composer votre journée idéale',
@@ -1960,12 +1962,12 @@ const es: Partial<Record<keyof typeof en, string>> = {
     'Todas las actividades son gratuitas para los huéspedes. Apúntate en recepción. El programa puede variar.',
 
   // Wellness - paquetes
-  'wellnessPage.packages.eyebrow': 'Estancias diseñadas',
-  'wellnessPage.packages.heading': 'Paquetes de bienestar',
-  'wellnessPage.packages.intro':
+  'planPage.packages.eyebrow': 'Estancias diseñadas',
+  'planPage.packages.heading': 'Paquetes de estancia',
+  'planPage.packages.intro':
     'Todo organizado. Solo tienes que llegar. Cada paquete incluye desayuno diario, un masaje de bienvenida de 10 minutos a la llegada y acceso completo a la playa.',
-  'wellnessPage.packages.enquireRates': 'Consulta nuestras tarifas actuales',
-  'wellnessPage.packages.enquire': 'Consultar',
+  'planPage.packages.enquireRates': 'Consulta nuestras tarifas actuales',
+  'planPage.packages.enquire': 'Consultar',
 
   // Wellness - extras
   'wellnessPage.enhance.eyebrow': 'Extras',
@@ -1973,6 +1975,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.enhance.intro':
     'Añade algo especial a cualquier paquete o reserva de habitación. Organízalo en recepción, por teléfono o al hacer tu reserva.',
   'wellnessPage.enhance.cta': 'Pregunta por los extras',
+  'wellnessPage.enhance.enquire': 'Consultar',
   'wellnessPage.beginHeadline': 'Empieza tu regreso a ti',
 
   'experiencesPage.buildDay': 'Pídenos que diseñemos tu día perfecto',
@@ -2621,12 +2624,12 @@ const nl: Partial<Record<keyof typeof en, string>> = {
     'Alle activiteiten zijn gratis voor gasten. Schrijf je in bij de receptie. Het programma kan variëren.',
 
   // Wellness - pakketten
-  'wellnessPage.packages.eyebrow': 'Samengestelde verblijven',
-  'wellnessPage.packages.heading': 'Wellnesspakketten',
-  'wellnessPage.packages.intro':
+  'planPage.packages.eyebrow': 'Samengestelde verblijven',
+  'planPage.packages.heading': 'Verblijfspakketten',
+  'planPage.packages.intro':
     'Alles geregeld. Jij hoeft alleen maar aan te komen. Elk pakket bevat dagelijks ontbijt, een gratis welkomstmassage van 10 minuten bij aankomst en volledige toegang tot het strand.',
-  'wellnessPage.packages.enquireRates': 'Vraag naar onze actuele tarieven',
-  'wellnessPage.packages.enquire': 'Aanvragen',
+  'planPage.packages.enquireRates': 'Vraag naar onze actuele tarieven',
+  'planPage.packages.enquire': 'Aanvragen',
 
   // Wellness - extra's
   'wellnessPage.enhance.eyebrow': "Extra's",
@@ -2634,6 +2637,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.enhance.intro':
     'Voeg iets bijzonders toe aan elk pakket of elke kamerreservering. Regel het bij de receptie, telefonisch of bij het boeken.',
   'wellnessPage.enhance.cta': "Vraag naar de extra's",
+  'wellnessPage.enhance.enquire': 'Aanvragen',
   'wellnessPage.beginHeadline': 'Begin je weg terug',
 
   'experiencesPage.buildDay': 'Vraag ons je perfecte dag samen te stellen',
@@ -3282,12 +3286,12 @@ const de: Partial<Record<keyof typeof en, string>> = {
     'Alle Aktivitäten sind für Gäste kostenlos. Anmeldung an der Rezeption. Das Programm kann variieren.',
 
   // Wellness - Pakete
-  'wellnessPage.packages.eyebrow': 'Kuratierte Aufenthalte',
-  'wellnessPage.packages.heading': 'Wellness-Pakete',
-  'wellnessPage.packages.intro':
+  'planPage.packages.eyebrow': 'Kuratierte Aufenthalte',
+  'planPage.packages.heading': 'Aufenthaltspakete',
+  'planPage.packages.intro':
     'Alles arrangiert. Du musst nur ankommen. Jedes Paket umfasst tägliches Frühstück, eine kostenlose 10-minütige Willkommensmassage bei der Ankunft und vollen Strandzugang.',
-  'wellnessPage.packages.enquireRates': 'Frag nach unseren aktuellen Preisen',
-  'wellnessPage.packages.enquire': 'Anfragen',
+  'planPage.packages.enquireRates': 'Frag nach unseren aktuellen Preisen',
+  'planPage.packages.enquire': 'Anfragen',
 
   // Wellness - Extras
   'wellnessPage.enhance.eyebrow': 'Extras',
@@ -3295,6 +3299,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.enhance.intro':
     'Füge jedem Paket oder jeder Zimmerbuchung etwas Besonderes hinzu. Arrangiere es an der Rezeption, telefonisch oder bei der Buchung.',
   'wellnessPage.enhance.cta': 'Nach Extras fragen',
+  'wellnessPage.enhance.enquire': 'Anfragen',
   'wellnessPage.beginHeadline': 'Beginne deinen Weg zurück',
 
   'experiencesPage.buildDay': 'Lass uns deinen perfekten Tag gestalten',

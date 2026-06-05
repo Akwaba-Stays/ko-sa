@@ -20,6 +20,7 @@ export default async function EditStayEnhancementPage({ params }: Props) {
         description: enhancement.description ?? '',
         priceTo: enhancement.priceTo ?? null,
         priceNote: enhancement.priceNote ?? '',
+        image: enhancement.image ?? '',
       }} />
     </section>
   );

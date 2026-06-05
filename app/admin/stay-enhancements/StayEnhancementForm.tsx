@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Save, Trash2 } from 'lucide-react';
 import { Button } from '@/components/admin/Button';
 import { TextField, TextareaField, SelectField } from '@/components/admin/FormField';
+import { MediaPickerSingle } from '@/components/admin/MediaPicker';
 import { StatusToggle } from '@/components/admin/StatusToggle';
 import { useToast } from '@/components/admin/Toast';
 import { ENHANCEMENT_CATEGORIES } from '@/lib/cms/stay-enhancements';
@@ -17,13 +18,14 @@ export interface EnhancementFormValues {
   priceGhs: number;
   priceTo: number | null;
   priceNote: string;
+  image: string;
   status: 'DRAFT' | 'PUBLISHED';
   sortOrder: number;
 }
 
 const EMPTY: EnhancementFormValues = {
   category: ENHANCEMENT_CATEGORIES[0], name: '', description: '',
-  priceGhs: 0, priceTo: null, priceNote: '', status: 'PUBLISHED', sortOrder: 0,
+  priceGhs: 0, priceTo: null, priceNote: '', image: '', status: 'PUBLISHED', sortOrder: 0,
 };
 
 export function StayEnhancementForm({ initial }: { initial?: Partial<EnhancementFormValues> }) {
@@ -86,6 +88,9 @@ export function StayEnhancementForm({ initial }: { initial?: Partial<Enhancement
       <TextareaField label="Description (optional)" name="description" value={values.description}
         onChange={(e) => set('description', e.target.value)} rows={2}
         placeholder="1 hour on the beach, professional photographer included" />
+      <MediaPickerSingle label="Image" name="image" value={values.image}
+        onChange={(v) => set('image', v)} folder="enhancements"
+        hint="A photo that showcases this add-on. Shown on the public card." />
       <div className="grid grid-cols-3 gap-4">
         <TextField label="Price (GHC)" name="priceGhs" value={String(values.priceGhs)}
           onChange={(e) => set('priceGhs', Number(e.target.value))} type="number" required />

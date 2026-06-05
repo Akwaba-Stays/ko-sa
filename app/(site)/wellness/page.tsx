@@ -2,13 +2,12 @@ import type { Metadata } from 'next';
 import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import {
   Sparkles, HeartHandshake, Flower2, CupSoda, Waves, Wind,
-  Sunrise, Brain, Battery, Star, Check, Gift,
+  Sunrise, Brain, Battery, Star, Gift,
 } from 'lucide-react';
 import { PageHero } from '@/components/shared/PageHero';
 import { WellnessEnquiryForm } from '@/components/marketing/WellnessEnquiryForm';
 import { getT } from '@/lib/i18n/server';
 import { listPublicTreatments } from '@/lib/cms/treatments';
-import { listPublicWellnessPackages } from '@/lib/cms/wellness-packages';
 import { listPublicStayEnhancements, groupByCategory } from '@/lib/cms/stay-enhancements';
 import { getSetting } from '@/lib/cms/settings';
 import {
@@ -18,16 +17,6 @@ import {
   waLink,
   waPrefill,
 } from '@/lib/pricing';
-
-const CATEGORY_COLORS: Record<string, string> = {
-  Leisure:     'bg-blue-50 text-blue-700 border-blue-200',
-  Wellness:    'bg-teal-50 text-teal-700 border-teal-200',
-  Romance:     'bg-rose-50 text-rose-700 border-rose-200',
-  Celebration: 'bg-amber-50 text-amber-700 border-amber-200',
-  Culture:     'bg-purple-50 text-purple-700 border-purple-200',
-  'Day Visit': 'bg-orange-50 text-orange-700 border-orange-200',
-  Eco:         'bg-green-50 text-green-700 border-green-200',
-};
 
 export const metadata: Metadata = {
   title: 'Wellness',
@@ -76,9 +65,8 @@ const STRIP = [
 
 export default async function WellnessPage() {
   const { t } = getT();
-  const [cmsTreatments, wellnessPackages, allEnhancements, pricing] = await Promise.all([
+  const [cmsTreatments, allEnhancements, pricing] = await Promise.all([
     listPublicTreatments(),
-    listPublicWellnessPackages().catch(() => []),
     listPublicStayEnhancements().catch(() => []),
     getSetting('pricing'),
   ]);
@@ -93,6 +81,7 @@ export default async function WellnessPage() {
     name: tr.name,
     durationMin: tr.durationMin,
     category: tr.category ?? null,
+    image: 'image' in tr ? tr.image : null,
     priceGhs: treatmentPriceGhs(tr.slug, 'price' in tr ? tr.price : undefined),
   }));
   const programmes = [...FEATURES.map((f) => t(f.titleKey)), ...treatments.map((tr) => tr.name)];
@@ -238,88 +227,47 @@ export default async function WellnessPage() {
         </div>
       </section>
 
-      {/* Treatments menu - every treatment bookable (Change Request §Page 03) */}
+      {/* Treatments - image cards, every treatment bookable (Change Request §Page 03) */}
       {treatments.length > 0 && (
         <section className="py-16 md:py-24 bg-cream">
           <div className="container-page">
-            <h2 className="font-playfair text-display-sm text-teal mb-8 text-center">
+            <h2 className="font-playfair text-display-sm text-teal mb-10 text-center">
               {t('wellnessPage.treatmentsHeading')}
             </h2>
-            <div className="max-w-3xl mx-auto divide-y divide-sand-300/60 bg-sand-light rounded-md shadow-sm">
-              {treatments.map((tr) => (
-                <div
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {treatments.map((tr, i) => (
+                <article
                   key={tr.id}
-                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-6 py-5"
+                  className="group bg-sand-light rounded-xl overflow-hidden border border-sand-300/40 shadow-sm hover:shadow-md transition-shadow flex flex-col"
                 >
-                  <div>
-                    <p className="font-playfair text-lg text-teal">{tr.name}</p>
-                    <p className="text-xs font-opensans uppercase tracking-tracked text-forest/50">
-                      {tr.durationMin} min
-                      {showWellnessPrices ? ` · ${formatGhs(tr.priceGhs)}` : ''}
-                      {tr.category ? ` · ${tr.category}` : ''}
-                    </p>
+                  <div className="relative aspect-[4/3] branded-img overflow-hidden bg-gradient-to-br from-teal-100 to-sand">
+                    {tr.image ? (
+                      <Image src={tr.image} alt={tr.name} fill sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    ) : (
+                      <div className="absolute inset-0 grid place-items-center text-teal/40">
+                        <Flower2 size={40} />
+                      </div>
+                    )}
+                    {tr.category && (
+                      <span className="absolute top-3 left-3 text-[10px] font-opensans uppercase tracking-tracked bg-cream/90 text-teal px-2.5 py-1 rounded-full">
+                        {tr.category}
+                      </span>
+                    )}
                   </div>
-                  <a
-                    href={waLink(waPrefill.treatment(tr.name))}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-5 py-2.5 hover:bg-coral-600 transition-colors"
-                  >
-                    {t('wellnessPage.treatment.book')} →
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Wellness Packages */}
-      {wellnessPackages.length > 0 && (
-        <section className="py-16 md:py-24 bg-cream">
-          <div className="container-page">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">{t('wellnessPage.packages.eyebrow')}</p>
-              <h2 className="font-playfair text-display-sm text-teal">{t('wellnessPage.packages.heading')}</h2>
-              <p className="mt-4 font-raleway text-forest/75 leading-relaxed">
-                {t('wellnessPage.packages.intro')}
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-              {wellnessPackages.map((pkg) => (
-                <article key={pkg.id} className="bg-sand-light rounded-xl border border-sand-300/50 flex flex-col shadow-sm hover:shadow-md transition-shadow">
-                  <div className="p-6 flex flex-col flex-1">
-                    <div className="flex items-start justify-between gap-3 mb-4">
-                      <div>
-                        <span className={`inline-block text-[10px] font-opensans uppercase tracking-tracked px-2.5 py-1 rounded-full border font-semibold ${CATEGORY_COLORS[pkg.category] ?? 'bg-sand text-umber/70 border-sand-300'}`}>
-                          {pkg.category} · {pkg.durationLabel}
-                        </span>
-                        <h3 className="mt-3 font-playfair text-xl text-teal leading-tight">{pkg.name}</h3>
-                        <p className="mt-1 font-raleway italic text-sm text-forest/65">{pkg.tagline}</p>
-                      </div>
-                    </div>
-                    <ul className="flex-1 space-y-1.5 mb-6">
-                      {pkg.inclusions.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs font-raleway text-forest/80">
-                          <Check size={13} className="text-coral shrink-0 mt-0.5" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="border-t border-sand-300/60 pt-4 mt-auto">
-                      <div className="flex items-center justify-between gap-2">
-                        <p className="text-xs font-opensans text-forest/55">
-                          {t('wellnessPage.packages.enquireRates')}
-                        </p>
-                        <a
-                          href={waLink(`Hi Ko-Sa! I'd like to enquire about the ${pkg.name} package.`)}
-                          target="_blank" rel="noreferrer"
-                          className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-4 py-2.5 hover:bg-coral-600 transition-colors"
-                        >
-                          {t('wellnessPage.packages.enquire')} →
-                        </a>
-                      </div>
-                    </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="font-playfair text-lg text-teal">{tr.name}</h3>
+                    <p className="mt-1 text-xs font-opensans uppercase tracking-tracked text-forest/50">
+                      {tr.durationMin} min{showWellnessPrices ? ` · ${formatGhs(tr.priceGhs)}` : ''}
+                    </p>
+                    <a
+                      href={waLink(waPrefill.treatment(tr.name))}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-4 self-start inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-5 py-2.5 hover:bg-coral-600 transition-colors"
+                    >
+                      {t('wellnessPage.treatment.book')} →
+                    </a>
                   </div>
                 </article>
               ))}
@@ -328,7 +276,7 @@ export default async function WellnessPage() {
         </section>
       )}
 
-      {/* Enhance Your Stay */}
+      {/* Enhance Your Stay - image cards grouped by category */}
       {allEnhancements.length > 0 && (
         <section className="py-16 md:py-24 bg-sand-light">
           <div className="container-page">
@@ -341,29 +289,46 @@ export default async function WellnessPage() {
                 {t('wellnessPage.enhance.intro')}
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="space-y-12">
               {Array.from(enhancementsByCategory.entries()).map(([category, items]) => (
                 <div key={category}>
-                  <h3 className="font-playfair text-xl text-teal mb-4 pb-2 border-b border-sand-300/60">{category}</h3>
-                  <div className="space-y-3">
+                  <h3 className="font-playfair text-xl text-teal mb-5 pb-2 border-b border-sand-300/60">{category}</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {items.map((item) => (
-                      <div key={item.id} className="flex items-start justify-between gap-4 py-2">
-                        <div className="flex-1">
-                          <p className="font-opensans text-sm font-medium text-forest">{item.name}</p>
-                          {item.description && (
-                            <p className="text-xs text-forest/55 font-raleway mt-0.5">{item.description}</p>
-                          )}
-                          {item.priceNote && (
-                            <p className="text-[10px] font-opensans uppercase tracking-tracked text-forest/40 mt-0.5">{item.priceNote}</p>
+                      <article key={item.id} className="group bg-cream rounded-xl overflow-hidden border border-sand-300/40 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                        <div className="relative aspect-[4/3] branded-img overflow-hidden bg-gradient-to-br from-coral/15 to-sand">
+                          {item.image ? (
+                            <Image src={item.image} alt={item.name} fill sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                              className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                          ) : (
+                            <div className="absolute inset-0 grid place-items-center text-coral/40">
+                              <Gift size={36} />
+                            </div>
                           )}
                         </div>
-                        {showEnhancementPrices && (
-                          <p className="shrink-0 font-opensans text-sm font-semibold text-teal">
-                            GHS {item.priceGhs.toLocaleString()}
-                            {item.priceTo ? ` - ${item.priceTo.toLocaleString()}` : ''}
-                          </p>
-                        )}
-                      </div>
+                        <div className="p-5 flex flex-col flex-1">
+                          <p className="font-playfair text-base text-teal">{item.name}</p>
+                          {item.description && (
+                            <p className="mt-1 text-xs text-forest/60 font-raleway leading-relaxed">{item.description}</p>
+                          )}
+                          <div className="mt-3 pt-3 border-t border-sand-300/50 flex items-center justify-between gap-2">
+                            {showEnhancementPrices ? (
+                              <p className="font-opensans text-sm font-semibold text-teal">
+                                GHS {item.priceGhs.toLocaleString()}
+                                {item.priceTo ? ` - ${item.priceTo.toLocaleString()}` : ''}
+                                {item.priceNote ? <span className="block text-[10px] font-normal text-forest/45 uppercase tracking-tracked">{item.priceNote}</span> : null}
+                              </p>
+                            ) : <span />}
+                            <a
+                              href={waLink(`Hi Ko-Sa! I'd like to add ${item.name} to my stay.`)}
+                              target="_blank" rel="noreferrer"
+                              className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-coral text-coral font-opensans uppercase tracking-tracked-sm text-[10px] px-3 py-2 hover:bg-coral hover:text-cream transition-colors"
+                            >
+                              {t('wellnessPage.enhance.enquire')} →
+                            </a>
+                          </div>
+                        </div>
+                      </article>
                     ))}
                   </div>
                 </div>

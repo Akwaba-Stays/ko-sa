@@ -70,15 +70,15 @@ body {
   color: var(--primary-foreground);
 }
 
-/* Brand image grade - vivid, punchy coastal photography.
-   Saturation at 1.42 makes the teal sea, amber sand and green palms pop.
-   Contrast at 1.13 gives the frames depth and shadow separation.
-   Brightness at 1.05 lifts highlights without washing out midtones.
-   Result: images that feel alive and vibrant - never muted or editorial-flat. */
+/* Brand image grade - rich but controlled coastal photography.
+   A gentle saturation lift keeps the teal sea, amber sand and green palms warm
+   and alive, while contrast stays close to neutral so shadows never crush and
+   highlights never blow out. A touch of brightness keeps frames clean and airy.
+   Aligned with the KOSA Brand Guide: "rich but controlled... not vivid". */
 .branded-img,
 .branded-img img,
 .branded-img video {
-  filter: saturate(1.42) contrast(1.13) brightness(1.05);
+  filter: saturate(1.12) contrast(1.01) brightness(1.02);
 }
 
 /* Editorial eyebrow utility - used wherever a section opens with a Holistika-style label */

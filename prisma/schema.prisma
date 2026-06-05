@@ -479,6 +479,8 @@ model WellnessPackage {
   couplePriceGhs   Int?
   couplePriceNote  String?
   inclusions       String[]
+  image            String?
+  gallery          String[]
   status           PublishStatus @default(PUBLISHED)
   sortOrder        Int           @default(0)
   createdAt        DateTime      @default(now())
@@ -499,6 +501,7 @@ model StayEnhancement {
   priceGhs    Int
   priceTo     Int?
   priceNote   String?
+  image       String?
   status      PublishStatus @default(PUBLISHED)
   sortOrder   Int           @default(0)
   createdAt   DateTime      @default(now())

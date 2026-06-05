@@ -36,16 +36,28 @@ export const site = {
     tripadvisor: { score: 4.7, max: 5, url: 'https://www.tripadvisor.com/Hotel_Review-Ko-Sa-Beach-Resort' },
     totalGuests: 5000,
   },
-  // Primary navigation - Website Change Request (June 2026). Experiences is a
-  // top-level item (not buried in a dropdown) and the order is fixed:
-  //   Stay · Wellness · Dine · Experiences · Plan Your Visit · Our Story · [Book Now]
-  // Secondary destinations (Events, Gallery, Journal, Virtual Tour, Contact)
-  // remain reachable from the footer's Quick Links so nothing is orphaned.
+  // Primary navigation. Experiences stays a top-level item; the secondary
+  // destinations (Events, Gallery, Journal, Virtual Tour, Contact) live in an
+  // "Explore" dropdown so every page is reachable from the navbar, not just the
+  // footer. Order: Stay · Wellness · Dine · Experiences · Explore ▾ ·
+  //   Plan Your Visit · Our Story · [Book Now]
   nav: [
     { label: 'Stay', href: '/rooms', dictKey: 'nav.stay' },
     { label: 'Wellness', href: '/wellness', dictKey: 'nav.wellness' },
     { label: 'Dine', href: '/dining', dictKey: 'nav.dine' },
     { label: 'Experiences', href: '/experiences', dictKey: 'nav.experiences' },
+    {
+      label: 'Explore',
+      href: '/gallery',
+      dictKey: 'nav.explore',
+      children: [
+        { href: '/events', dictKey: 'nav.events' },
+        { href: '/gallery', dictKey: 'nav.gallery' },
+        { href: '/blog', dictKey: 'nav.blog' },
+        { href: '/virtual-tour', dictKey: 'nav.virtualTour' },
+        { href: '/contact', dictKey: 'nav.contact' },
+      ],
+    },
     { label: 'Plan Your Visit', href: '/plan', dictKey: 'nav.plan' },
     { label: 'Our Story', href: '/about', dictKey: 'nav.about' },
   ] as const,

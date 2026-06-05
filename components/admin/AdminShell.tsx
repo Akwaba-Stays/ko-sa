@@ -54,7 +54,7 @@ const groups: Group[] = [
     links: [
       { href: '/admin/rooms', label: 'Rooms', icon: Hotel },
       { href: '/admin/wellness', label: 'Spa Treatments', icon: Sparkles },
-      { href: '/admin/wellness-packages', label: 'Wellness Packages', icon: Package },
+      { href: '/admin/wellness-packages', label: 'Stay Packages', icon: Package },
       { href: '/admin/stay-enhancements', label: 'Stay Enhancements', icon: Gift },
       { href: '/admin/experiences', label: 'Experiences', icon: Compass },
       { href: '/admin/daily-activities', label: 'Daily Activities', icon: CalendarDays },

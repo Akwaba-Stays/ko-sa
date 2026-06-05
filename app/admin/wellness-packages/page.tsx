@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { PageHeader } from '@/components/admin/PageHeader';
 import { DataTable } from '@/components/admin/DataTable';
 
-export const metadata: Metadata = { title: 'Wellness Packages - Admin' };
+export const metadata: Metadata = { title: 'Stay Packages - Admin' };
 export const dynamic = 'force-dynamic';
 
 export default async function WellnessPackagesPage() {
@@ -15,8 +15,8 @@ export default async function WellnessPackagesPage() {
     <section className="px-4 md:px-10 py-10">
       <PageHeader
         eyebrow="Content"
-        title="Wellness Packages"
-        description="Curated stay packages shown on the Wellness page."
+        title="Stay Packages"
+        description="Curated stay packages shown on the Plan Your Visit page."
         actions={
           <Link href="/admin/wellness-packages/new"
             className="inline-flex items-center gap-2 bg-primary text-cream px-4 py-2 rounded-lg text-sm font-opensans hover:bg-primary-dark transition-colors">
