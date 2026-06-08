@@ -27,7 +27,7 @@ type Labels = {
   bookingUrl: string;
 };
 
-const CATS = ['All', 'Garden View', 'Beach View', 'Palm Side'] as const;
+const CATS = ['All', 'Sea View', 'Garden View', 'Palm Side'] as const;
 
 export function RoomsExplorer({
   rooms,

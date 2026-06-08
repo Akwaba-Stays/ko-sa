@@ -509,3 +509,25 @@ model StayEnhancement {
 
   @@index([category, status])
 }
+
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  EVENTS & ACTIVITIES  (public /events page, pulled from ko-sa.com)     ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+
+model Event {
+  id                 String        @id @default(cuid())
+  slug               String        @unique
+  title              String
+  category           String        // Cultural, Culinary, Arts, Adventure, Nature, Celebrations
+  description        String        @db.Text
+  image              String?
+  transportIncluded  Boolean       @default(false)
+  priceNote          String?       // e.g. "From GHS 600 per person" or "On request"
+  status             PublishStatus @default(PUBLISHED)
+  sortOrder          Int           @default(0)
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  @@index([category, status])
+  @@index([status, sortOrder])
+}

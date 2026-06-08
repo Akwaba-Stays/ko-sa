@@ -52,7 +52,7 @@ export interface Room {
   price: number;
   currency: string;
   image: string;
-  category: 'Garden View' | 'Palm Side' | 'Beach View';
+  category: 'Sea View' | 'Garden View' | 'Palm Side';
 }
 
 export const rooms: Room[] = [
@@ -78,7 +78,7 @@ export const rooms: Room[] = [
     currency: 'GHS',
     image:
       'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1400',
-    category: 'Beach View',
+    category: 'Sea View',
   },
   {
     slug: 'signature-villa',
@@ -94,7 +94,7 @@ export const rooms: Room[] = [
     currency: 'GHS',
     image:
       'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=1400',
-    category: 'Beach View',
+    category: 'Sea View',
   },
   {
     slug: 'garden-room',
@@ -110,7 +110,7 @@ export const rooms: Room[] = [
 export const CATEGORY_DICT_KEY: Record<Room['category'], DictKey> = {
   'Garden View': 'rooms.filter.suite',
   'Palm Side': 'rooms.filter.palmSide',
-  'Beach View': 'rooms.filter.beachView',
+  'Sea View': 'rooms.filter.beachView',
 };
 
 // ───────────────────────────────────────────────────────────────────────────────

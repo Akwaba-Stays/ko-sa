@@ -3,7 +3,7 @@ import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { listPublicDiningVenues } from '@/lib/cms/dining';
-import { formatCurrency } from '@/lib/utils';
+import { DiningMenu } from '@/components/dining/DiningMenu';
 import { waLink, waPrefill } from '@/lib/pricing';
 
 export const metadata: Metadata = {
@@ -120,46 +120,29 @@ export default async function DiningPage() {
         </div>
       </section>
 
-      {/* Live menus from the CMS, when present */}
-      {venues.some((v) => v.sections.length) && (
+      {/* Interactive, filterable menu from the Dining CMS */}
+      {venues.some((v) => v.sections.some((s) => s.items.length)) && (
         <section className="py-16 md:py-24 bg-cream">
-          <div className="container-page max-w-4xl space-y-16">
-            {venues.map((v) =>
-              v.sections.length ? (
-                <div key={v.id}>
-                  <h2 className="font-playfair text-display-sm text-teal text-center">{v.name}</h2>
-                  {v.tagline && <p className="text-center font-raleway italic text-forest/60 mt-1">{v.tagline}</p>}
-                  <div className="mt-8 space-y-10">
-                    {v.sections.map((sec) => (
-                      <div key={sec.id}>
-                        <h3 className="font-playfair text-xl text-coral">{sec.name}</h3>
-                        {sec.description && <p className="text-sm text-forest/60 mt-1">{sec.description}</p>}
-                        <ul className="mt-3 divide-y divide-sand-300/60">
-                          {sec.items.map((it) => (
-                            <li key={it.id} className="py-3 flex justify-between gap-4">
-                              <div>
-                                <p className="font-opensans font-medium text-forest">{it.name}</p>
-                                {it.description && <p className="text-xs text-forest/60">{it.description}</p>}
-                                {it.dietary.length > 0 && (
-                                  <p className="text-[10px] uppercase tracking-tracked text-forest/40 mt-1">
-                                    {it.dietary.join(' · ')}
-                                  </p>
-                                )}
-                              </div>
-                              {it.price !== null && (
-                                <span className="font-opensans text-teal shrink-0">
-                                  {formatCurrency(it.price, it.currency)}
-                                </span>
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+          <div className="container-page">
+            {venues
+              .filter((v) => v.sections.some((s) => s.items.length))
+              .map((v) => (
+                <div key={v.id} className="mb-16 last:mb-0">
+                  <div className="text-center max-w-2xl mx-auto mb-10">
+                    <h2 className="font-playfair text-display-sm text-teal">{v.name}</h2>
+                    {v.tagline && <p className="mt-1 font-raleway italic text-forest/60">{v.tagline}</p>}
+                    {v.hours && (
+                      <p className="mt-3 font-opensans uppercase tracking-tracked text-[10px] text-forest/55">
+                        {v.hours}
+                      </p>
+                    )}
                   </div>
+                  <DiningMenu
+                    sections={v.sections}
+                    labels={{ all: t('rooms.filter.all'), popular: t('diningPage.popular') }}
+                  />
                 </div>
-              ) : null,
-            )}
+              ))}
           </div>
         </section>
       )}

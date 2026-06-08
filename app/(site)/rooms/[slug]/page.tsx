@@ -47,7 +47,7 @@ export default async function RoomDetailPage({ params }: Props) {
   const categoryDictKey: Record<string, 'rooms.filter.suite' | 'rooms.filter.palmSide' | 'rooms.filter.beachView'> = {
     'Garden View': 'rooms.filter.suite',
     'Palm Side': 'rooms.filter.palmSide',
-    'Beach View': 'rooms.filter.beachView',
+    'Sea View': 'rooms.filter.beachView',
   };
 
   const amenities = room.amenities.length ? room.amenities : DEFAULT_AMENITY_KEYS.map((k) => t(k));

@@ -165,12 +165,13 @@ export function RoomForm({ initial }: { initial?: Partial<RoomFormValues> }) {
               name="category"
               value={values.category}
               onChange={(e) => set('category', e.target.value as RoomFormValues['category'])}
+              // Labels show the public category each option maps to.
               options={[
-                { value: 'SUITE', label: 'Garden View' },
-                { value: 'VILLA', label: 'Villa' },
+                { value: 'BEACH_VIEW', label: 'Sea View' },
+                { value: 'SUITE', label: 'Sea View (Suite)' },
+                { value: 'BUNGALOW', label: 'Garden View' },
+                { value: 'VILLA', label: 'Garden View (Villa)' },
                 { value: 'PALM_SIDE', label: 'Palm Side' },
-                { value: 'BEACH_VIEW', label: 'Beach View' },
-                { value: 'BUNGALOW', label: 'Bungalow' },
               ]}
             />
             <TextareaField

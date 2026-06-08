@@ -63,7 +63,7 @@ const en = {
   'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Beach',
   'rooms.filter.all': 'All',
-  'rooms.filter.beachView': 'Beach View',
+  'rooms.filter.beachView': 'Sea View',
   'rooms.filter.palmSide': 'Palm Side',
   'rooms.filter.suite': 'Garden View',
   'rooms.priceFrom': 'From',
@@ -365,6 +365,7 @@ const en = {
 
   // Dining page (brief §02 page 04)
   'diningPage.headline': 'Food the way the coast intended',
+  'diningPage.popular': 'Popular',
   'diningPage.intro':
     'At Ko-Sa, the kitchen is part of the wellness · We work with local fishermen and farmers people who know this land and these waters and we let the freshness do the talking · Ghanaian flavours, lovingly prepared · Nourishment that tastes like it was made for you',
   'diningPage.restaurant.title': 'The Restaurant',
@@ -396,9 +397,13 @@ const en = {
   'experiencesPage.cta': 'Plan Your Experiences',
 
   // Events page (brief §02 page 06)
-  'eventsPage.headline': "Make it unforgettable · We’ll make sure of it",
+  'eventsPage.headline': 'Always something to do',
+  'eventsPage.enquire': 'Book This',
+  'eventsPage.transport': 'Transport included',
+  'eventsPage.empty': 'Nothing in this category yet - check back soon.',
+
   'eventsPage.intro':
-    "Some moments deserve a setting that does them justice · Ko-Sa sits between the ocean and the garden a natural backdrop for celebrations that feel real, retreats that actually restore, and gatherings where people arrive as colleagues and leave as something closer",
+    'From cooking classes and drumming circles to castle tours, bead making and beach-side naming ceremonies, there is always something to do at Ko-Sa. Pick what calls to you, or let us build the perfect day around you.',
   'eventsPage.weddings.title': 'Weddings & Celebrations',
   'eventsPage.weddings.body':
     'A wedding at Ko-Sa is the beach ceremony you always pictured the sound of waves, the warmth of the coast, the people you love most gathered in one beautiful place · We handle every detail with care · You just show up and celebrate',
@@ -818,7 +823,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Plage',
   'rooms.filter.all': 'Tout',
-  'rooms.filter.beachView': 'Vue mer',
+  'rooms.filter.beachView': 'Vue sur mer',
   'rooms.filter.palmSide': 'Côté palmeraie',
   'rooms.filter.suite': 'Garden View',
   'rooms.priceFrom': 'À partir de',
@@ -1092,6 +1097,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.cta.ask': 'Dites-nous ce qu’il vous faut',
 
   'diningPage.headline': 'Manger comme la côte l’a prévu',
+  'diningPage.popular': 'Populaire',
   'diningPage.intro':
     "À Ko-Sa, la cuisine fait partie du bien-être · Nous travaillons avec les pêcheurs et les agriculteurs locaux ceux qui connaissent cette terre et ces eaux et nous laissons la fraîcheur parler · Saveurs ghanéennes, préparées avec soin · Une nourriture qui semble faite pour vous",
   'diningPage.restaurant.title': 'Le restaurant',
@@ -1120,7 +1126,11 @@ const fr: Partial<Record<keyof typeof en, string>> = {
     "Quand vous serez prêt à explorer, nous serons prêts à vous y conduire · Cape Coast Castle · Elmina · Kakum · Les villages de pêcheurs · Les marchés. Les histoires qui méritent d’être connues · Nous vous mettons en lien avec des guides qui connaissent ces lieux en profondeur non en touristes, mais en habitants",
   'experiencesPage.cta': 'Composer vos expériences',
 
-  'eventsPage.headline': 'Faites-en un moment inoubliable · Nous nous en assurons',
+  'eventsPage.headline': 'Toujours quelque chose à faire',
+  'eventsPage.enquire': 'Réserver',
+  'eventsPage.transport': 'Transport inclus',
+  'eventsPage.empty': "Rien dans cette catégorie pour l'instant.",
+
   'eventsPage.intro':
     "Certains instants méritent un décor à leur hauteur · Ko-Sa s’étend entre l’océan et le jardin un écrin naturel pour des célébrations sincères, des retraites qui restaurent vraiment, et des rassemblements où l’on arrive collègues et l’on repart un peu plus proches",
   'eventsPage.weddings.title': 'Mariages & célébrations',
@@ -1754,6 +1764,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.cta.ask': 'Cuéntanos qué necesitas',
 
   'diningPage.headline': 'Comer como la costa lo pensó',
+  'diningPage.popular': 'Popular',
   'diningPage.intro':
     'En Ko-Sa, la cocina forma parte del bienestar · Trabajamos con pescadores y agricultores locales gente que conoce esta tierra y estas aguas y dejamos que la frescura hable · Sabores ghaneses, preparados con cariño. Una comida que parece hecha para ti',
   'diningPage.restaurant.title': 'El restaurante',
@@ -1782,7 +1793,11 @@ const es: Partial<Record<keyof typeof en, string>> = {
     'Cuando estés listo para explorar, nosotros también. Cape Coast Castle · Elmina · Kakum · Los pueblos pesqueros · Los mercados · Las historias que merecen conocerse · Te conectamos con guías que conocen estos lugares profundamente no como turistas, sino como gente que vive aquí',
   'experiencesPage.cta': 'Planificar tus experiencias',
 
-  'eventsPage.headline': 'Hazlo inolvidable · Nosotros nos aseguramos',
+  'eventsPage.headline': 'Siempre hay algo que hacer',
+  'eventsPage.enquire': 'Reservar',
+  'eventsPage.transport': 'Transporte incluido',
+  'eventsPage.empty': 'Aún no hay nada en esta categoría.',
+
   'eventsPage.intro':
     'Algunos momentos merecen un escenario a su altura · Ko-Sa se extiende entre el océano y el jardín un telón natural para celebraciones que se sienten reales, retiros que de verdad restauran y encuentros donde uno llega como colega y se marcha como algo más cercano',
   'eventsPage.weddings.title': 'Bodas y celebraciones',
@@ -2416,6 +2431,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.cta.ask': 'Vertel ons wat je nodig hebt',
 
   'diningPage.headline': 'Eten zoals de kust het bedoelde',
+  'diningPage.popular': 'Populair',
   'diningPage.intro':
     'Bij Ko-Sa is de keuken onderdeel van het welzijn · We werken met lokale vissers en boeren mensen die dit land en deze wateren kennen en laten de versheid spreken · Ghanese smaken, met zorg bereid · Voeding die smaakt alsof ze voor jou gemaakt is',
   'diningPage.restaurant.title': 'Het restaurant',
@@ -2444,7 +2460,11 @@ const nl: Partial<Record<keyof typeof en, string>> = {
     'Wanneer je klaar bent om te ontdekken, zijn wij klaar om je mee te nemen · Cape Coast Castle · Elmina · Kakum · De visdorpen · De markten · De geschiedenissen die het verdienen gekend te worden · We verbinden je met gidsen die deze plekken diep kennen niet als toeristen, maar als mensen die hier horen',
   'experiencesPage.cta': 'Plan je ervaringen',
 
-  'eventsPage.headline': 'Maak het onvergetelijk · Wij zorgen daarvoor',
+  'eventsPage.headline': 'Er is altijd iets te doen',
+  'eventsPage.enquire': 'Boeken',
+  'eventsPage.transport': 'Vervoer inbegrepen',
+  'eventsPage.empty': 'Nog niets in deze categorie.',
+
   'eventsPage.intro':
     'Sommige momenten verdienen een decor dat ze recht doet · Ko-Sa ligt tussen oceaan en tuin een natuurlijk decor voor vieringen die echt voelen, retraites die werkelijk herstellen en bijeenkomsten waar je als collega aankomt en als iets dichter vertrekt',
   'eventsPage.weddings.title': 'Bruiloften & vieringen',
@@ -3078,6 +3098,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.cta.ask': 'Sag uns, was du brauchst',
 
   'diningPage.headline': 'Essen, wie die Küste es vorgesehen hat',
+  'diningPage.popular': 'Beliebt',
   'diningPage.intro':
     'In Ko-Sa ist die Küche Teil des Wohlbefindens · Wir arbeiten mit lokalen Fischern und Bauern Menschen, die dieses Land und diese Gewässer kennen und lassen die Frische sprechen · Ghanaische Aromen, mit Liebe zubereitet · Eine Mahlzeit, die schmeckt, als sei sie für dich gemacht',
   'diningPage.restaurant.title': 'Das Restaurant',
@@ -3106,7 +3127,11 @@ const de: Partial<Record<keyof typeof en, string>> = {
     'Wenn du erkunden möchtest, sind wir bereit · Cape Coast Castle · Elmina · Kakum · Die Fischerdörfer · Die Märkte · Die Geschichten, die es wert sind, gekannt zu werden · Wir verbinden dich mit Guides, die diese Orte tief kennen nicht als Touristen, sondern als Menschen, die hierhergehören',
   'experiencesPage.cta': 'Deine Erlebnisse planen',
 
-  'eventsPage.headline': 'Macht es unvergesslich · Wir sorgen dafür',
+  'eventsPage.headline': 'Es gibt immer etwas zu tun',
+  'eventsPage.enquire': 'Buchen',
+  'eventsPage.transport': 'Transport inklusive',
+  'eventsPage.empty': 'In dieser Kategorie ist noch nichts.',
+
   'eventsPage.intro':
     'Manche Momente verdienen eine Kulisse, die ihnen gerecht wird · Ko-Sa liegt zwischen Meer und Garten ein natürlicher Rahmen für Feiern, die echt wirken, Retreats, die wirklich erholen, und Treffen, bei denen man als Kollegen ankommt und als etwas Näheres geht',
   'eventsPage.weddings.title': 'Hochzeiten & Feiern',

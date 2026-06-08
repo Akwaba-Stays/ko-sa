@@ -27,6 +27,7 @@ import {
   CalendarDays,
   Package,
   Gift,
+  PartyPopper,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -57,6 +58,7 @@ const groups: Group[] = [
       { href: '/admin/wellness-packages', label: 'Stay Packages', icon: Package },
       { href: '/admin/stay-enhancements', label: 'Stay Enhancements', icon: Gift },
       { href: '/admin/experiences', label: 'Experiences', icon: Compass },
+      { href: '/admin/events', label: 'Events & Activities', icon: PartyPopper },
       { href: '/admin/daily-activities', label: 'Daily Activities', icon: CalendarDays },
       { href: '/admin/dining', label: 'Dining', icon: UtensilsCrossed },
       { href: '/admin/gallery', label: 'Gallery', icon: ImageIcon },
