@@ -24,10 +24,10 @@ export function Hero() {
       aria-label={t('home.hero.headline')}
     >
       <div className="absolute inset-0 branded-img kosa-shimmer">
-        {/* Sea view (Unsplash) - swap to the resort video when ready: drop a
-            <video> here with this image as its poster. */}
+        {/* KO-SA banner photography - swap to the resort video when ready: drop
+            a <video> here with this image as its poster. */}
         <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2400"
+          src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/banner/banner1.webp"
           alt={t('alt.heroShoreline')}
           className="h-full w-full object-cover"
           loading="eager"
