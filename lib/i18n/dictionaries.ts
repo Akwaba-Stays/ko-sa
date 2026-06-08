@@ -59,7 +59,7 @@ const en = {
   // Rooms section
   'rooms.eyebrow': 'Stay with us',
   'rooms.headline': 'Boutique by the Atlantic',
-  'rooms.statRooms': 'Rooms',
+  'rooms.statRooms': 'Room Types',
   'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Beach',
   'rooms.filter.all': 'All',
@@ -530,8 +530,8 @@ const en = {
 
   // Rooms page
   'roomsPage.searchPlaceholder': 'Search rooms, beds, sea view…',
-  'roomsPage.resultsOne': '1 room',
-  'roomsPage.resultsMany': '{n} rooms',
+  'roomsPage.resultsOne': '1 room type',
+  'roomsPage.resultsMany': '{n} room types',
   'roomsPage.searchEmpty': 'No rooms match your search yet - try another word or filter',
   'roomsPage.upTo': 'Up to',
   'roomsPage.guestsUnit': 'guests',
@@ -814,7 +814,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
 
   'rooms.eyebrow': 'Séjournez avec nous',
   'rooms.headline': 'Boutique face à l\u2019Atlantique',
-  'rooms.statRooms': 'Chambres',
+  'rooms.statRooms': 'Types de chambres',
   'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Plage',
   'rooms.filter.all': 'Tout',
@@ -1243,8 +1243,8 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'home.itineraries.heading': 'Quelques façons de passer votre temps',
 
   'roomsPage.searchPlaceholder': 'Rechercher : chambres, lits, vue mer…',
-  'roomsPage.resultsOne': '1 chambre',
-  'roomsPage.resultsMany': '{n} chambres',
+  'roomsPage.resultsOne': '1 type de chambre',
+  'roomsPage.resultsMany': '{n} types de chambres',
   'roomsPage.searchEmpty': 'Aucune chambre ne correspond essayez un autre mot ou filtre',
   'roomsPage.upTo': "Jusqu’à",
   'roomsPage.guestsUnit': 'voyageurs',
@@ -1476,7 +1476,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
 
   'rooms.eyebrow': 'Quédate con nosotros',
   'rooms.headline': 'Boutique frente al Atlántico',
-  'rooms.statRooms': 'Habitaciones',
+  'rooms.statRooms': 'Tipos de habitación',
   'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Playa',
   'rooms.filter.all': 'Todas',
@@ -1905,8 +1905,8 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'home.itineraries.heading': 'Algunas formas de pasar tu tiempo',
 
   'roomsPage.searchPlaceholder': 'Buscar habitaciones, camas, vista al mar…',
-  'roomsPage.resultsOne': '1 habitación',
-  'roomsPage.resultsMany': '{n} habitaciones',
+  'roomsPage.resultsOne': '1 tipo de habitación',
+  'roomsPage.resultsMany': '{n} tipos de habitación',
   'roomsPage.searchEmpty': 'Ninguna habitación coincide prueba otra palabra o filtro',
   'roomsPage.upTo': 'Hasta',
   'roomsPage.guestsUnit': 'huéspedes',
@@ -2138,7 +2138,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
 
   'rooms.eyebrow': 'Logeer bij ons',
   'rooms.headline': 'Boutique aan de Atlantische kust',
-  'rooms.statRooms': 'Kamers',
+  'rooms.statRooms': 'Kamertypes',
   'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Strand',
   'rooms.filter.all': 'Alles',
@@ -2567,8 +2567,8 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'home.itineraries.heading': 'Een paar manieren om je tijd door te brengen',
 
   'roomsPage.searchPlaceholder': 'Zoek kamers, bedden, zeezicht…',
-  'roomsPage.resultsOne': '1 kamer',
-  'roomsPage.resultsMany': '{n} kamers',
+  'roomsPage.resultsOne': '1 kamertype',
+  'roomsPage.resultsMany': '{n} kamertypes',
   'roomsPage.searchEmpty': 'Geen kamers gevonden probeer een ander woord of filter',
   'roomsPage.upTo': 'Tot',
   'roomsPage.guestsUnit': 'gasten',
@@ -2800,7 +2800,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
 
   'rooms.eyebrow': 'Übernachten bei uns',
   'rooms.headline': 'Boutique an der Atlantikküste',
-  'rooms.statRooms': 'Zimmer',
+  'rooms.statRooms': 'Zimmertypen',
   'rooms.statSuites': 'Garden View',
   'rooms.statBeach': 'Strand',
   'rooms.filter.all': 'Alle',
@@ -3229,8 +3229,8 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'home.itineraries.heading': 'Ein paar Arten, deine Zeit zu verbringen',
 
   'roomsPage.searchPlaceholder': 'Zimmer, Betten, Meerblick suchen…',
-  'roomsPage.resultsOne': '1 Zimmer',
-  'roomsPage.resultsMany': '{n} Zimmer',
+  'roomsPage.resultsOne': '1 Zimmertyp',
+  'roomsPage.resultsMany': '{n} Zimmertypen',
   'roomsPage.searchEmpty': 'Keine Zimmer gefunden versuche ein anderes Wort oder Filter',
   'roomsPage.upTo': 'Bis zu',
   'roomsPage.guestsUnit': 'Gäste',

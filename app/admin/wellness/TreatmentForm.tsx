@@ -32,7 +32,7 @@ const EMPTY: TreatmentFormValues = {
   description: '',
   durationMin: 60,
   price: 0,
-  currency: 'USD',
+  currency: 'GHS',
   image: '',
   category: '',
   status: 'PUBLISHED',

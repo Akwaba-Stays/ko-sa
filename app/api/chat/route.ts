@@ -16,8 +16,8 @@ const schema = z.object({
 const FALLBACK_KB = `KO-SA Beach Resort Elmina, Ghana.
 - Check-in 14:00, Check-out 11:00.
 - Free WiFi, beachfront, pool, spa, restaurant.
-- Rooms from $140/night (Garden Room) up to $480/night (Signature Villa).
-- 12 Rooms, 4 Suites, beachfront access.
+- Rooms from GHS 980/night up to GHS 2,200/night.
+- 9 room types, beachfront access.
 - Distance from Accra airport (ACC): ~150km, 2.5hr drive. Resort shuttle available on request.
 - Accepts GHS, USD, EUR, card, and Mobile Money (MTN MoMo, Vodafone Cash, AirtelTigo).
 - Cancellation: free up to 48 hours before arrival.

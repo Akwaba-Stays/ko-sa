@@ -16,6 +16,10 @@ export const playfair = Playfair_Display({
   style: ['normal', 'italic'],
   variable: '--font-playfair',
   display: 'swap',
+  // Local serif fallbacks so headings still look right if Google Fonts is
+  // blocked. `adjustFontFallback` (default true) keeps metrics close to avoid
+  // layout shift when the web font swaps in.
+  fallback: ['Georgia', 'Times New Roman', 'serif'],
 });
 
 export const raleway = Raleway({
@@ -23,6 +27,7 @@ export const raleway = Raleway({
   weight: ['200', '300', '400', '500', '600', '700', '800'],
   variable: '--font-raleway',
   display: 'swap',
+  fallback: ['Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
 });
 
 export const openSans = Open_Sans({
@@ -30,4 +35,5 @@ export const openSans = Open_Sans({
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-open-sans',
   display: 'swap',
+  fallback: ['Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
 });

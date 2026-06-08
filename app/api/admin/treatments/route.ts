@@ -31,7 +31,7 @@ const { GET, POST } = makeCollectionRoute({
       description: data.description,
       durationMin: data.durationMin,
       price: data.price,
-      currency: (data.currency || 'USD').toUpperCase(),
+      currency: (data.currency || 'GHS').toUpperCase(),
       image: data.image || null,
       category: data.category,
       status: data.status,

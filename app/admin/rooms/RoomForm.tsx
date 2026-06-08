@@ -40,7 +40,7 @@ const EMPTY: RoomFormValues = {
   category: 'BEACH_VIEW',
   description: '',
   price: 0,
-  currency: 'USD',
+  currency: 'GHS',
   maxGuests: 2,
   bedConfig: '',
   sizeSqm: '',

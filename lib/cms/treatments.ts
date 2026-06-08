@@ -50,7 +50,7 @@ export async function listPublicTreatments(): Promise<PublicTreatment[]> {
     description: null,
     durationMin: parseInt(t.duration, 10) || 60,
     price: t.price,
-    currency: 'USD',
+    currency: 'GHS',
     image: null,
     category: null,
     sortOrder: i,

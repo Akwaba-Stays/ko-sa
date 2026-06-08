@@ -58,48 +58,48 @@ export interface Room {
 export const rooms: Room[] = [
   {
     slug: 'beachfront-suite',
-    price: 320,
-    currency: 'USD',
+    price: 1850,
+    currency: 'GHS',
     image:
       'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1400',
     category: 'Garden View',
   },
   {
     slug: 'palm-garden-villa',
-    price: 245,
-    currency: 'USD',
+    price: 1450,
+    currency: 'GHS',
     image:
       'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&q=80&w=1400',
     category: 'Palm Side',
   },
   {
     slug: 'ocean-view-room',
-    price: 180,
-    currency: 'USD',
+    price: 1250,
+    currency: 'GHS',
     image:
       'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1400',
     category: 'Beach View',
   },
   {
     slug: 'signature-villa',
-    price: 480,
-    currency: 'USD',
+    price: 2200,
+    currency: 'GHS',
     image:
       'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?auto=format&fit=crop&q=80&w=1400',
     category: 'Garden View',
   },
   {
     slug: 'beach-bungalow',
-    price: 210,
-    currency: 'USD',
+    price: 1100,
+    currency: 'GHS',
     image:
       'https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=1400',
     category: 'Beach View',
   },
   {
     slug: 'garden-room',
-    price: 140,
-    currency: 'USD',
+    price: 980,
+    currency: 'GHS',
     image:
       'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=1400',
     category: 'Palm Side',
@@ -155,13 +155,14 @@ export interface Treatment {
   price: number;
 }
 
+// Real Ko-Sa spa menu (prices in GHS). Kept in sync with TREATMENTS_FALLBACK.
 export const treatments: Treatment[] = [
-  { slug: 'atlantic-salt-scrub', duration: '60 min', price: 75 },
-  { slug: 'palm-oil-deep-tissue', duration: '90 min', price: 110 },
-  { slug: 'shea-honey-wrap', duration: '75 min', price: 95 },
-  { slug: 'sound-bath', duration: '45 min', price: 55 },
-  { slug: 'kente-crystal', duration: '60 min', price: 85 },
-  { slug: 'coastal-yoga', duration: '60 min', price: 25 },
+  { slug: 'deepcore-massage', duration: '45 min', price: 350 },
+  { slug: 'swedish-massage', duration: '45 min', price: 300 },
+  { slug: 'holistic-massage', duration: '45 min', price: 330 },
+  { slug: 'couples-massage', duration: '45 min', price: 550 },
+  { slug: 'reflexology', duration: '30 min', price: 200 },
+  { slug: 'pedicure', duration: '45 min', price: 150 },
 ];
 
 // ───────────────────────────────────────────────────────────────────────────────

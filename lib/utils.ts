@@ -37,12 +37,14 @@ export function cn(...inputs: ClassValue[]) {
   return customTwMerge(clsx(inputs));
 }
 
-export function formatCurrency(amount: number, currency = 'USD') {
-  return new Intl.NumberFormat('en-US', {
+export function formatCurrency(amount: number, currency = 'GHS') {
+  const formatted = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency,
     maximumFractionDigits: 0,
   }).format(amount);
+  // Normalise the Ghana cedi symbol to the ISO code the brand uses ("GHS 1,850").
+  return formatted.replace(/^GH₵\s?/, 'GHS ');
 }
 
 export function formatDate(d: Date | string) {

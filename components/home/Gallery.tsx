@@ -25,12 +25,19 @@ function label(cat: string): string {
   return LABELS[cat] ?? cat.replace(/(^|\s)\S/g, (c) => c.toUpperCase());
 }
 
-export function Gallery({ items = [] }: { items?: PublicGalleryItem[] }) {
+export function Gallery({ items: rawItems = [] }: { items?: PublicGalleryItem[] }) {
   const { t } = useT();
   const [open, setOpen] = useState<number | null>(null);
   const [zoom, setZoom] = useState(false);
   const [count, setCount] = useState(PAGE);
   const [active, setActive] = useState<string>('all');
+
+  // Rooms have their own dedicated page, so they are intentionally excluded
+  // from the gallery (and from its category filter).
+  const items = useMemo(
+    () => rawItems.filter((i) => (i.category ?? 'other') !== 'rooms'),
+    [rawItems],
+  );
 
   // Categories present in the data, in first-seen order.
   const categories = useMemo(() => {
@@ -90,7 +97,11 @@ export function Gallery({ items = [] }: { items?: PublicGalleryItem[] }) {
             </span>
             <h2 className="mt-4 font-belleza text-display-md text-umber">{t('gallery.headline')}</h2>
           </div>
-          <p className="max-w-md font-raleway text-umber/75">{t('gallery.description')}</p>
+          {/* One line on desktop; wraps naturally on tablet and phone so it
+              never overflows or forces horizontal scroll. */}
+          <p className="font-raleway text-umber/75 lg:whitespace-nowrap lg:shrink-0">
+            {t('gallery.description')}
+          </p>
         </div>
 
         {/* Category filter chips */}

@@ -27,7 +27,7 @@ export const menuItemInputSchema = z.object({
   name: z.string().trim().min(1).max(160),
   description: z.string().trim().max(2000).optional().nullable(),
   price: z.coerce.number().min(0).max(1_000_000).optional().nullable(),
-  currency: z.string().trim().min(3).max(3).default('USD'),
+  currency: z.string().trim().min(3).max(3).default('GHS'),
   dietary: stringArray.default([]),
   isFeatured: z.boolean().default(false),
   sortOrder: z.coerce.number().int().default(0),

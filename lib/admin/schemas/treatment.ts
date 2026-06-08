@@ -7,7 +7,7 @@ export const treatmentInputSchema = z.object({
   description: z.string().trim().max(8000).optional().nullable(),
   durationMin: z.coerce.number().int().min(1).max(720).default(60),
   price: z.coerce.number().min(0).max(1_000_000),
-  currency: z.string().trim().min(3).max(3).default('USD'),
+  currency: z.string().trim().min(3).max(3).default('GHS'),
   image: urlOrEmpty,
   category: z.string().trim().max(60).optional().nullable(),
   status: publishStatusEnum.default('PUBLISHED'),

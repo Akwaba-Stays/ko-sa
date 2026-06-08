@@ -46,7 +46,7 @@ const STATIC: KnowledgeDoc[] = [
     category: 'policy',
     title: 'Children policy',
     content:
-      'Children of all ages are welcome at KO-SA. Under 6 stay free in their parents\' room with existing bedding. Extra beds are available for $25/night. Children\'s breakfast and snack menus are available, and the pool has a shallow section.',
+      'Children of all ages are welcome at KO-SA. Under 6 stay free in their parents\' room with existing bedding. Extra beds are available for GHS 150/night. Children\'s breakfast and snack menus are available, and the pool has a shallow section.',
   },
   {
     id: 'policy-pets',
@@ -61,7 +61,7 @@ const STATIC: KnowledgeDoc[] = [
     category: 'location',
     title: 'Getting to KO-SA from Accra (ACC) airport',
     content:
-      'KO-SA is approximately 150km west of Accra (Kotoka International Airport, ACC) about 2.5 hours by car along the coastal road via Cape Coast. Resort transfer is available: $80 one-way for up to 4 guests, $120 for a luxury sedan or up to 6 guests. Hire car and tro-tro (shared minibus) are also possible.',
+      'KO-SA is approximately 150km west of Accra (Kotoka International Airport, ACC) about 2.5 hours by car along the coastal road via Cape Coast. Resort transfer is available: GHS 600 one-way for up to 4 guests, GHS 900 for a luxury sedan or up to 6 guests. Hire car and tro-tro (shared minibus) are also possible.',
   },
   {
     id: 'location-nearby',
@@ -98,7 +98,7 @@ const STATIC: KnowledgeDoc[] = [
     category: 'amenity',
     title: 'Spa and wellness',
     content:
-      'KO-SA Spa offers Atlantic salt scrubs, palm-oil massages, sound baths, and morning yoga by the sea. Open 9am–7pm. Treatments from $60. Yoga classes are complimentary for all guests.',
+      'The Ko-Sa Health Spa offers Deepcore, Swedish, Holistic and Couples massages, plus reflexology and pedicures. O2 Wellness adds a Herbal Detox Steam Ritual, Glow Polish Facial and Full Body Glow Polish. Treatments from GHS 150. Daily morning yoga and meditation by the sea are complimentary for resort guests.',
   },
   {
     id: 'amenity-restaurant',
@@ -112,7 +112,7 @@ const STATIC: KnowledgeDoc[] = [
     category: 'amenity',
     title: 'Airport transfer',
     content:
-      'Resort airport transfer from Accra (ACC): $80 one-way for up to 4 guests in a sedan, $120 for a luxury sedan or up to 6. Bookable when reserving or via the concierge with at least 24 hours notice.',
+      'Resort airport transfer from Accra (ACC): GHS 600 one-way for up to 4 guests in a sedan, GHS 900 for a luxury sedan or up to 6. Bookable when reserving or via the concierge with at least 24 hours notice.',
   },
   {
     id: 'amenity-events',

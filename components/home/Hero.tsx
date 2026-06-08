@@ -79,13 +79,16 @@ export function Hero() {
           </Button>
         </motion.div>
 
-        {/* Urgency nudge beneath the CTAs (Change Request §Page 01) */}
+        {/* Urgency nudge beneath the CTAs (Change Request §Page 01).
+            Wrapped in a translucent pill so it stays legible over any hero
+            image, and constrained so it wraps cleanly on small screens. */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="mt-6 font-opensans text-xs md:text-sm text-sunshine/90 tracking-tracked-sm"
+          className="mt-6 max-w-[22rem] sm:max-w-none inline-flex items-center gap-2 rounded-full bg-teal-900/45 backdrop-blur-sm px-4 py-2 font-opensans text-[0.8125rem] leading-snug md:text-sm text-cream tracking-tracked-sm text-center"
         >
+          <span aria-hidden className="hidden sm:inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-sunshine animate-pulse" />
           {t('home.hero.urgency')}
         </motion.p>
       </motion.div>

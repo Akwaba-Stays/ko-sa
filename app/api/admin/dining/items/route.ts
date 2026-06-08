@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
         name: data.name,
         description: data.description,
         price: data.price,
-        currency: (data.currency || 'USD').toUpperCase(),
+        currency: (data.currency || 'GHS').toUpperCase(),
         dietary: data.dietary,
         isFeatured: data.isFeatured,
         sortOrder: data.sortOrder,

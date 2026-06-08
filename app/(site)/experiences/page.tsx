@@ -128,11 +128,9 @@ export default async function ExperiencesPage() {
             {(
               [
                 { key: 'ampenyi', t: 'experiencesPage.signature.ampenyi.title', b: 'experiencesPage.signature.ampenyi.body' },
-                { key: 'turtle', t: 'experiencesPage.signature.turtle.title', b: 'experiencesPage.signature.turtle.body' },
                 { key: 'capeCoast', t: 'experiencesPage.signature.capeCoast.title', b: 'experiencesPage.signature.capeCoast.body' },
                 { key: 'elmina', t: 'experiencesPage.signature.elmina.title', b: 'experiencesPage.signature.elmina.body' },
                 { key: 'kakum', t: 'experiencesPage.signature.kakum.title', b: 'experiencesPage.signature.kakum.body' },
-                { key: 'massage', t: 'experiencesPage.signature.massage.title', b: 'experiencesPage.signature.massage.body' },
                 { key: 'horse', t: 'experiencesPage.signature.horse.title', b: 'experiencesPage.signature.horse.body' },
               ] as const
             ).map((item) => {

@@ -20,7 +20,7 @@ const schema = z.object({
   }),
   paymentMethod: z.enum(['cash', 'card', 'paystack', 'transfer']).default('card'),
   totalCost: z.number().nonnegative().optional(),
-  currency: z.string().default('USD'),
+  currency: z.string().default('GHS'),
 });
 
 export async function POST(req: Request) {

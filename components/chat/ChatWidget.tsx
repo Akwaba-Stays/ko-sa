@@ -333,8 +333,14 @@ export function ChatWidget() {
               </div>
             )}
 
-            {/* Messages */}
-            <div ref={scroller} className="flex-1 overflow-y-auto px-4 py-5 space-y-3 bg-bg-orange">
+            {/* Messages. `data-lenis-prevent` stops the global smooth-scroll
+                engine from hijacking touch/wheel scrolling inside the panel,
+                and overscroll-contain keeps the page behind from scrolling. */}
+            <div
+              ref={scroller}
+              data-lenis-prevent
+              className="flex-1 overflow-y-auto overscroll-contain px-4 py-5 space-y-3 bg-bg-orange"
+            >
               {messages.map((m, i) => {
                 if (m.role === 'system') {
                   return (

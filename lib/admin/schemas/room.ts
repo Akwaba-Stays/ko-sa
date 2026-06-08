@@ -10,7 +10,7 @@ export const roomInputSchema = z.object({
   category: roomCategoryEnum,
   description: z.string().trim().max(8000).optional().nullable(),
   price: z.coerce.number().min(0).max(1_000_000),
-  currency: z.string().trim().min(3).max(3).default('USD'),
+  currency: z.string().trim().min(3).max(3).default('GHS'),
   maxGuests: z.coerce.number().int().min(1).max(20).default(2),
   bedConfig: z.string().trim().max(120).optional().nullable(),
   sizeSqm: z.coerce.number().int().min(0).max(10_000).optional().nullable(),

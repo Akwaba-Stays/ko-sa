@@ -84,7 +84,42 @@ export default async function WellnessPage() {
     image: 'image' in tr ? tr.image : null,
     priceGhs: treatmentPriceGhs(tr.slug, 'price' in tr ? tr.price : undefined),
   }));
-  const programmes = [...FEATURES.map((f) => t(f.titleKey)), ...treatments.map((tr) => tr.name)];
+
+  // Collapse duplicate-duration entries (e.g. "Swedish Massage" + "Swedish
+  // Massage (60 min)") into a single card with multiple duration/price
+  // variants. Grouped by the base name (the "(NN min)" suffix is stripped).
+  const baseName = (name: string) => name.replace(/\s*\(\s*\d+\s*min\s*\)\s*$/i, '').trim();
+  const treatmentGroups = (() => {
+    const map = new Map<string, {
+      key: string;
+      name: string;
+      category: string | null;
+      image: string | null;
+      variants: { durationMin: number; priceGhs: number }[];
+    }>();
+    for (const tr of treatments) {
+      const name = baseName(tr.name);
+      const key = `${tr.category ?? ''}::${name.toLowerCase()}`;
+      const existing = map.get(key);
+      if (existing) {
+        existing.variants.push({ durationMin: tr.durationMin, priceGhs: tr.priceGhs });
+        if (!existing.image && tr.image) existing.image = tr.image;
+      } else {
+        map.set(key, {
+          key,
+          name,
+          category: tr.category,
+          image: tr.image,
+          variants: [{ durationMin: tr.durationMin, priceGhs: tr.priceGhs }],
+        });
+      }
+    }
+    // Sort each group's variants by duration ascending for a tidy display.
+    for (const g of map.values()) g.variants.sort((a, b) => a.durationMin - b.durationMin);
+    return Array.from(map.values());
+  })();
+
+  const programmes = [...FEATURES.map((f) => t(f.titleKey)), ...treatmentGroups.map((tr) => tr.name)];
 
   return (
     <>
@@ -227,17 +262,18 @@ export default async function WellnessPage() {
         </div>
       </section>
 
-      {/* Treatments - image cards, every treatment bookable (Change Request §Page 03) */}
-      {treatments.length > 0 && (
+      {/* Treatments - image cards with collapsed duration/price variants and a
+          single Book CTA (Change Request §Page 03, items 4 & 6) */}
+      {treatmentGroups.length > 0 && (
         <section className="py-16 md:py-24 bg-cream">
           <div className="container-page">
             <h2 className="font-playfair text-display-sm text-teal mb-10 text-center">
               {t('wellnessPage.treatmentsHeading')}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {treatments.map((tr, i) => (
+              {treatmentGroups.map((tr) => (
                 <article
-                  key={tr.id}
+                  key={tr.key}
                   className="group bg-sand-light rounded-xl overflow-hidden border border-sand-300/40 shadow-sm hover:shadow-md transition-shadow flex flex-col"
                 >
                   <div className="relative aspect-[4/3] branded-img overflow-hidden bg-gradient-to-br from-teal-100 to-sand">
@@ -257,9 +293,20 @@ export default async function WellnessPage() {
                   </div>
                   <div className="p-5 flex flex-col flex-1">
                     <h3 className="font-playfair text-lg text-teal">{tr.name}</h3>
-                    <p className="mt-1 text-xs font-opensans uppercase tracking-tracked text-forest/50">
-                      {tr.durationMin} min{showWellnessPrices ? ` · ${formatGhs(tr.priceGhs)}` : ''}
-                    </p>
+                    {/* Duration / price variants */}
+                    <ul className="mt-2 space-y-1">
+                      {tr.variants.map((v) => (
+                        <li
+                          key={v.durationMin}
+                          className="flex items-baseline justify-between gap-3 text-xs font-opensans text-forest/70"
+                        >
+                          <span className="uppercase tracking-tracked-sm">{v.durationMin} min</span>
+                          {showWellnessPrices && (
+                            <span className="font-semibold text-teal">{formatGhs(v.priceGhs)}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
                     <a
                       href={waLink(waPrefill.treatment(tr.name))}
                       target="_blank"

@@ -41,6 +41,24 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Stop iOS/Windows mobile browsers from auto-inflating text after rotation,
+     which is the most common "font too big on mobile" bug. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Anchor rem units to a predictable 16px base on every device/browser. */
+  font-size: 100%;
+}
+
+/* Consistent base body sizing and line-height across devices. Uses a gentle
+   clamp so copy stays readable on small phones without ballooning on desktop. */
+body {
+  font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  line-height: 1.6;
+}
+
+/* Guard against long words/URLs forcing horizontal scroll on small screens. */
+h1, h2, h3, h4, p, a, span, li {
+  overflow-wrap: break-word;
 }
 
 html.lenis,

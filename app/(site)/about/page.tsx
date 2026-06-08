@@ -67,37 +67,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Sea Turtle Project real conservation work at Ko-Sa */}
-      <section className="py-16 md:py-20 bg-sand-light">
-        <div className="container-page grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-5 relative aspect-[4/5] rounded-md overflow-hidden branded-img">
-            <Image
-              src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/13-772A2010.webp"
-              alt={t('aboutPage.seaTurtle.title')}
-              fill
-              sizes="(min-width:1024px) 40vw, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="lg:col-span-7 max-w-prose">
-            <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">
-              Conservation
-            </p>
-            <h2 className="font-playfair text-display-sm text-teal">{t('aboutPage.seaTurtle.title')}</h2>
-            <p className="mt-4 font-raleway text-forest/80 leading-relaxed">{t('aboutPage.seaTurtle.body')}</p>
-            {/* Guest participation CTA (Change Request §Page 08) */}
-            <a
-              href={`${site.socials.whatsapp}?text=${encodeURIComponent("Hi Ko-Sa! I’d like to ask about the sea turtle night walks.")}`}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
-            >
-              {t('aboutPage.seaTurtle.cta')} →
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section className="bg-teal-700 text-cream py-20">
         <div className="container-page max-w-2xl text-center">
           <h2 className="font-playfair text-display-md">{t('aboutPage.closing.headline')}</h2>

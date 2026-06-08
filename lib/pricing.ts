@@ -102,13 +102,23 @@ export type TreatmentSeed = {
   category?: string;
 };
 
+// Real Ko-Sa spa menu (used only if the CMS has no treatments). Mirrors the
+// live data so the page never shows services the resort does not offer.
 export const TREATMENTS_FALLBACK: TreatmentSeed[] = [
-  { slug: 'atlantic-salt-scrub', name: 'Atlantic Salt Scrub', durationMin: 60, priceGhs: 380, category: 'Body' },
-  { slug: 'palm-oil-deep-tissue', name: 'Palm Oil Deep Tissue', durationMin: 90, priceGhs: 520, category: 'Massage' },
-  { slug: 'shea-honey-wrap', name: 'Shea & Honey Wrap', durationMin: 75, priceGhs: 460, category: 'Body' },
-  { slug: 'sound-bath', name: 'Sound Bath by the Sea', durationMin: 60, priceGhs: 350, category: 'Mind' },
-  { slug: 'kente-crystal', name: 'Kente Crystal Healing', durationMin: 75, priceGhs: 420, category: 'Energy' },
-  { slug: 'coastal-yoga', name: 'Coastal Yoga (Group)', durationMin: 60, priceGhs: 180, category: 'Movement' },
+  { slug: 'deepcore-massage', name: 'Deepcore Massage', durationMin: 45, priceGhs: 350, category: 'Ko-Sa Health Spa' },
+  { slug: 'deepcore-massage-60', name: 'Deepcore Massage (60 min)', durationMin: 60, priceGhs: 400, category: 'Ko-Sa Health Spa' },
+  { slug: 'couples-massage', name: 'Couples Massage', durationMin: 45, priceGhs: 550, category: 'Ko-Sa Health Spa' },
+  { slug: 'couples-massage-60', name: 'Couples Massage (60 min)', durationMin: 60, priceGhs: 700, category: 'Ko-Sa Health Spa' },
+  { slug: 'swedish-massage', name: 'Swedish Massage', durationMin: 45, priceGhs: 300, category: 'Ko-Sa Health Spa' },
+  { slug: 'swedish-massage-60', name: 'Swedish Massage (60 min)', durationMin: 60, priceGhs: 350, category: 'Ko-Sa Health Spa' },
+  { slug: 'holistic-massage', name: 'Holistic Massage', durationMin: 45, priceGhs: 330, category: 'Ko-Sa Health Spa' },
+  { slug: 'holistic-massage-60', name: 'Holistic Massage (60 min)', durationMin: 60, priceGhs: 380, category: 'Ko-Sa Health Spa' },
+  { slug: 'reflexology', name: 'Reflexology', durationMin: 30, priceGhs: 200, category: 'Ko-Sa Health Spa' },
+  { slug: 'reflexology-45', name: 'Reflexology (45 min)', durationMin: 45, priceGhs: 250, category: 'Ko-Sa Health Spa' },
+  { slug: 'pedicure', name: 'Pedicure', durationMin: 45, priceGhs: 150, category: 'Ko-Sa Health Spa' },
+  { slug: 'herbal-detox-steam', name: 'Herbal Detox Steam Ritual', durationMin: 60, priceGhs: 264, category: 'O2 Wellness' },
+  { slug: 'glow-polish-facial', name: 'Glow Polish Facial Ritual', durationMin: 60, priceGhs: 302, category: 'O2 Wellness' },
+  { slug: 'full-body-glow-polish', name: 'Full Body Glow Polish', durationMin: 75, priceGhs: 672, category: 'O2 Wellness' },
 ];
 
 /** PLACEHOLDER treatment price by slug; falls back to a sensible default. */
@@ -121,11 +131,9 @@ export function treatmentPriceGhs(slug: string, dbPrice?: number): number {
 // Keyed to the dictionary "experiencesPage.signature.*" tiles.
 export const EXPERIENCE_DETAILS: Record<string, { duration: string; fromGhs: number }> = {
   ampenyi: { duration: 'Half day · 3 hours', fromGhs: 180 },
-  turtle: { duration: 'Evening · 2 hours', fromGhs: 150 },
   capeCoast: { duration: 'Full day · 8 hours', fromGhs: 550 },
   elmina: { duration: 'Half day · 4 hours', fromGhs: 420 },
   kakum: { duration: 'Full day · 8 hours', fromGhs: 600 },
-  massage: { duration: '60 min', fromGhs: 380 },
   horse: { duration: '2 hours', fromGhs: 320 },
 };
 
