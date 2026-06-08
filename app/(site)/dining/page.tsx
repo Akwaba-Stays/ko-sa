@@ -4,7 +4,8 @@ import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { listPublicDiningVenues } from '@/lib/cms/dining';
 import { DiningMenu } from '@/components/dining/DiningMenu';
-import { waLink, waPrefill } from '@/lib/pricing';
+import { BookButton } from '@/components/shared/BookButton';
+import { waPrefill } from '@/lib/pricing';
 
 export const metadata: Metadata = {
   title: 'Dining',
@@ -21,7 +22,12 @@ const SECTIONS = [
     bodyKey: 'diningPage.restaurant.body',
     hoursKey: 'diningPage.restaurant.hours' as const,
     image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/0-772A1897.webp',
-    cta: { labelKey: 'diningPage.restaurant.cta', href: waLink(waPrefill.reserveTable()) },
+    cta: {
+      labelKey: 'diningPage.restaurant.cta' as const,
+      category: 'DINING' as const,
+      itemName: 'Table reservation',
+      message: waPrefill.reserveTable(),
+    },
   },
   {
     key: 'bar',
@@ -45,7 +51,12 @@ const SECTIONS = [
     leadKey: 'diningPage.private.lead' as const,
     bodyKey: 'diningPage.private.body',
     image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/11-772A2399.webp',
-    cta: { labelKey: 'diningPage.private.cta', href: waLink(waPrefill.privateDining()) },
+    cta: {
+      labelKey: 'diningPage.private.cta' as const,
+      category: 'DINING' as const,
+      itemName: 'Private & beach dining',
+      message: waPrefill.privateDining(),
+    },
   },
 ] as const;
 
@@ -67,14 +78,15 @@ export default async function DiningPage() {
             {t('diningPage.intro')}
           </p>
           {/* Reserve a Table immediately after the intro (Change Request §Page 04) */}
-          <a
-            href={waLink(waPrefill.reserveTable())}
-            target="_blank"
-            rel="noreferrer"
+          <BookButton
+            category="DINING"
+            itemName="Table reservation"
+            message={waPrefill.reserveTable()}
+            source="dining/intro"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
           >
             {t('diningPage.reserveCta')} →
-          </a>
+          </BookButton>
         </div>
       </section>
 
@@ -105,14 +117,15 @@ export default async function DiningPage() {
                   </p>
                 )}
                 {'cta' in s && s.cta && (
-                  <a
-                    href={s.cta.href}
-                    target="_blank"
-                    rel="noreferrer"
+                  <BookButton
+                    category={s.cta.category}
+                    itemName={s.cta.itemName}
+                    message={s.cta.message}
+                    source={`dining/${s.key}`}
                     className="mt-6 inline-flex items-center gap-2 font-opensans uppercase tracking-tracked text-xs text-coral hover:text-coral-700"
                   >
                     {t(s.cta.labelKey)} →
-                  </a>
+                  </BookButton>
                 )}
               </div>
             </article>

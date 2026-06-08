@@ -20,29 +20,34 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[640px] w-full overflow-hidden text-cream"
+      className="relative h-[100svh] min-h-[520px] w-full overflow-hidden text-cream"
       aria-label={t('home.hero.headline')}
     >
       <div className="absolute inset-0 branded-img kosa-shimmer">
-        {/* Sea image for now - swap to the resort video when ready: drop a
+        {/* Sea view (Unsplash) - swap to the resort video when ready: drop a
             <video> here with this image as its poster. */}
         <img
-          src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/site/hero/ENV8.webp"
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=2400"
           alt={t('alt.heroShoreline')}
           className="h-full w-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-forest/40 via-teal-900/20 to-teal-900/70" />
       </div>
 
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
+        // py clears the fixed navbar at top and the floating CTAs at bottom, and
+        // justify-center keeps the block centred. Compact spacing + a clamped
+        // headline guarantee every element fits inside the viewport.
+        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5 sm:px-6 py-24"
       >
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="font-opensans uppercase tracking-tracked text-xs md:text-sm text-sunshine mb-6"
+          className="font-opensans uppercase tracking-tracked text-[10px] md:text-xs text-sunshine mb-3 md:mb-4"
         >
           {t('home.hero.location')}
         </motion.p>
@@ -51,7 +56,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="font-playfair text-display-xl text-cream drop-shadow-[0_2px_30px_rgba(0,0,0,0.4)] max-w-5xl"
+          className="font-playfair text-[clamp(2.25rem,5.2vw,4.5rem)] leading-[1.06] text-cream drop-shadow-[0_2px_30px_rgba(0,0,0,0.4)] max-w-4xl"
         >
           {t('home.hero.headline')}
         </motion.h1>
@@ -60,7 +65,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="mt-6 font-raleway text-cream/85 text-sm md:text-base"
+          className="mt-4 md:mt-5 font-raleway text-cream/85 text-sm md:text-base max-w-xl"
         >
           {t('home.hero.subhead')}
         </motion.p>
@@ -69,7 +74,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+          className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-4"
         >
           <Button href={site.bookingUrl} target="_blank" rel="noreferrer" size="lg" className="bg-coral text-cream hover:bg-coral-600 border-coral">
             {t('home.hero.ctaPrimary')}
@@ -80,28 +85,30 @@ export function Hero() {
         </motion.div>
 
         {/* Urgency nudge beneath the CTAs (Change Request §Page 01).
-            Wrapped in a translucent pill so it stays legible over any hero
-            image, and constrained so it wraps cleanly on small screens. */}
+            Translucent pill keeps it legible over any hero image; constrained
+            width so it wraps cleanly on small screens. */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="mt-6 max-w-[22rem] sm:max-w-none inline-flex items-center gap-2 rounded-full bg-teal-900/45 backdrop-blur-sm px-4 py-2 font-opensans text-[0.8125rem] leading-snug md:text-sm text-cream tracking-tracked-sm text-center"
+          className="mt-4 md:mt-5 max-w-[22rem] sm:max-w-none inline-flex items-center gap-2 rounded-full bg-teal-900/45 backdrop-blur-sm px-4 py-2 font-opensans text-[0.75rem] leading-snug md:text-sm text-cream tracking-tracked-sm text-center"
         >
           <span aria-hidden className="hidden sm:inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-sunshine animate-pulse" />
           {t('home.hero.urgency')}
         </motion.p>
       </motion.div>
 
+      {/* Scroll cue. Hidden when vertical space is tight so it never collides
+          with the hero content on short/landscape screens. */}
       <motion.a
         href="#feeling"
         aria-label={t('a11y.scrollNext')}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-cream/80 hover:text-sunshine"
+        className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 hidden [@media(min-height:760px)]:flex flex-col items-center gap-2 text-cream/80 hover:text-sunshine"
       >
-        <span className="h-10 w-px bg-sunshine/60" />
+        <span className="h-8 w-px bg-sunshine/60" />
         <ChevronDown size={20} className="animate-scroll-indicator text-sunshine" />
       </motion.a>
     </section>

@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { PageHero } from '@/components/shared/PageHero';
 import { WellnessEnquiryForm } from '@/components/marketing/WellnessEnquiryForm';
+import { BookButton } from '@/components/shared/BookButton';
 import { getT } from '@/lib/i18n/server';
 import { listPublicTreatments } from '@/lib/cms/treatments';
 import { listPublicStayEnhancements, groupByCategory } from '@/lib/cms/stay-enhancements';
@@ -14,7 +15,6 @@ import {
   TREATMENTS_FALLBACK,
   treatmentPriceGhs,
   formatGhs,
-  waLink,
   waPrefill,
 } from '@/lib/pricing';
 
@@ -307,14 +307,15 @@ export default async function WellnessPage() {
                         </li>
                       ))}
                     </ul>
-                    <a
-                      href={waLink(waPrefill.treatment(tr.name))}
-                      target="_blank"
-                      rel="noreferrer"
+                    <BookButton
+                      category="TREATMENT"
+                      itemName={tr.name}
+                      message={waPrefill.treatment(tr.name)}
+                      source="wellness/treatments"
                       className="mt-4 self-start inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-5 py-2.5 hover:bg-coral-600 transition-colors"
                     >
                       {t('wellnessPage.treatment.book')} →
-                    </a>
+                    </BookButton>
                   </div>
                 </article>
               ))}
@@ -366,13 +367,15 @@ export default async function WellnessPage() {
                                 {item.priceNote ? <span className="block text-[10px] font-normal text-forest/45 uppercase tracking-tracked">{item.priceNote}</span> : null}
                               </p>
                             ) : <span />}
-                            <a
-                              href={waLink(`Hi Ko-Sa! I'd like to add ${item.name} to my stay.`)}
-                              target="_blank" rel="noreferrer"
+                            <BookButton
+                              category="ENHANCEMENT"
+                              itemName={item.name}
+                              message={`Hi Ko-Sa! I'd like to add ${item.name} to my stay.`}
+                              source="wellness/enhance"
                               className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-coral text-coral font-opensans uppercase tracking-tracked-sm text-[10px] px-3 py-2 hover:bg-coral hover:text-cream transition-colors"
                             >
                               {t('wellnessPage.enhance.enquire')} →
-                            </a>
+                            </BookButton>
                           </div>
                         </div>
                       </article>
@@ -382,13 +385,15 @@ export default async function WellnessPage() {
               ))}
             </div>
             <div className="mt-10 text-center">
-              <a
-                href={waLink("Hi Ko-Sa! I'd like to add an enhancement to my stay.")}
-                target="_blank" rel="noreferrer"
+              <BookButton
+                category="ENHANCEMENT"
+                itemName="Enhance Your Stay (general)"
+                message="Hi Ko-Sa! I'd like to add an enhancement to my stay."
+                source="wellness/enhance"
                 className="inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
               >
                 {t('wellnessPage.enhance.cta')} →
-              </a>
+              </BookButton>
             </div>
           </div>
         </section>

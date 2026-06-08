@@ -531,3 +531,42 @@ model Event {
   @@index([category, status])
   @@index([status, sortOrder])
 }
+
+// ╔════════════════════════════════════════════════════════════════════════╗
+// ║  SERVICE ENQUIRIES  (click-to-book / enquire on services -> WhatsApp)  ║
+// ╚════════════════════════════════════════════════════════════════════════╝
+// Every Book/Enquire button on a service (treatment, enhancement, package,
+// event, dining, experience, transfer) records one of these before opening
+// WhatsApp, so the team sees demand in the admin dashboard. Room booking and
+// the navbar Book CTA are intentionally excluded (they go to Cloudbeds).
+
+model ServiceEnquiry {
+  id        String              @id @default(cuid())
+  category  ServiceEnquiryType
+  itemName  String              // the specific service, e.g. "Swedish Massage"
+  message   String              @db.Text  // the WhatsApp message text sent
+  source    String?             // page/context the click came from
+  status    ServiceEnquiryStatus @default(NEW)
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+
+  @@index([status, createdAt])
+  @@index([category])
+}
+
+enum ServiceEnquiryType {
+  TREATMENT
+  ENHANCEMENT
+  PACKAGE
+  EVENT
+  DINING
+  EXPERIENCE
+  TRANSFER
+  OTHER
+}
+
+enum ServiceEnquiryStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}

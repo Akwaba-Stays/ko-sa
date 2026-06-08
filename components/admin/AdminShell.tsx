@@ -28,6 +28,7 @@ import {
   Package,
   Gift,
   PartyPopper,
+  ClipboardList,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -45,6 +46,7 @@ const groups: Group[] = [
     label: 'Operations',
     links: [
       { href: '/admin/bookings', label: 'Bookings', icon: CalendarCheck },
+      { href: '/admin/service-enquiries', label: 'Booking Enquiries', icon: ClipboardList },
       { href: '/admin/enquiries', label: 'Enquiries', icon: Mail },
       { href: '/admin/newsletter', label: 'Newsletter', icon: Send },
       { href: '/admin/chat', label: 'Chat', icon: MessageSquare },

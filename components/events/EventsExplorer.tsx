@@ -7,7 +7,7 @@
 import { useMemo, useState } from 'react';
 import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { Bus, CalendarHeart } from 'lucide-react';
-import { waLink } from '@/lib/pricing';
+import { BookButton } from '@/components/shared/BookButton';
 
 export interface PublicEvent {
   id: string;
@@ -104,14 +104,15 @@ export function EventsExplorer({ events, labels }: { events: PublicEvent[]; labe
                   )}
                   {e.priceNote && <span>{e.priceNote}</span>}
                 </div>
-                <a
-                  href={waLink(`Hi Ko-Sa! I'd like to book the ${e.title}.`)}
-                  target="_blank"
-                  rel="noreferrer"
+                <BookButton
+                  category="EVENT"
+                  itemName={e.title}
+                  message={`Hi Ko-Sa! I'd like to book the ${e.title}.`}
+                  source="events"
                   className="mt-4 self-start inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-5 py-2.5 hover:bg-coral-600 transition-colors"
                 >
                   {labels.enquire} →
-                </a>
+                </BookButton>
               </div>
             </article>
           ))}

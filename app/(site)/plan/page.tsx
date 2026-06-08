@@ -8,7 +8,8 @@ import { FaqAccordion } from '@/components/marketing/FaqAccordion';
 import { listPublicExperiences } from '@/lib/cms/experiences';
 import { listPublicWellnessPackages } from '@/lib/cms/wellness-packages';
 import { site } from '@/lib/site';
-import { packageLine, waLink, waPrefill, type PackageKey } from '@/lib/pricing';
+import { packageLine, waPrefill, type PackageKey } from '@/lib/pricing';
+import { BookButton } from '@/components/shared/BookButton';
 
 // Tailwind chips per package category (graceful default for unknown values).
 const CATEGORY_COLORS: Record<string, string> = {
@@ -53,7 +54,6 @@ const FAQS = [
 
 export default async function PlanPage() {
   const { t } = getT();
-  const wa = `${site.socials.whatsapp}?text=${encodeURIComponent(site.contact.whatsappMessage)}`;
   const [experiences, stayPackages] = await Promise.all([
     listPublicExperiences(),
     listPublicWellnessPackages().catch(() => []),
@@ -114,9 +114,15 @@ export default async function PlanPage() {
               <Link href="/experiences" className="text-xs font-opensans uppercase tracking-tracked-sm text-cream bg-coral rounded-full px-5 py-2.5 hover:bg-coral-600 transition-colors">
                 {t('planPage.experiences.cta')}
               </Link>
-              <a href={wa} target="_blank" rel="noreferrer" className="text-xs font-opensans uppercase tracking-tracked-sm text-teal border border-teal/40 rounded-full px-5 py-2.5 hover:border-coral hover:text-coral transition-colors">
+              <BookButton
+                category="PACKAGE"
+                itemName="Customise my stay"
+                message={waPrefill.customiseStay()}
+                source="plan/experiences"
+                className="text-xs font-opensans uppercase tracking-tracked-sm text-teal border border-teal/40 rounded-full px-5 py-2.5 hover:border-coral hover:text-coral transition-colors"
+              >
                 {t('planPage.itineraries.cta2')}
-              </a>
+              </BookButton>
             </div>
           </div>
         </section>
@@ -173,13 +179,15 @@ export default async function PlanPage() {
                       <p className="text-xs font-opensans text-forest/55">
                         {t('planPage.packages.enquireRates')}
                       </p>
-                      <a
-                        href={waLink(`Hi Ko-Sa! I'd like to enquire about the ${pkg.name} package.`)}
-                        target="_blank" rel="noreferrer"
+                      <BookButton
+                        category="PACKAGE"
+                        itemName={pkg.name}
+                        message={`Hi Ko-Sa! I'd like to enquire about the ${pkg.name} package.`}
+                        source="plan/packages"
                         className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-4 py-2.5 hover:bg-coral-600 transition-colors"
                       >
                         {t('planPage.packages.enquire')} →
-                      </a>
+                      </BookButton>
                     </div>
                   </div>
                 </article>
@@ -199,14 +207,15 @@ export default async function PlanPage() {
             </div>
             <h2 className="mt-3 font-playfair text-display-sm text-teal">{t('planPage.getting.title')}</h2>
             <p className="mt-4 font-raleway text-forest/80 leading-relaxed">{t('planPage.getting.body')}</p>
-            <a
-              href={wa}
-              target="_blank"
-              rel="noreferrer"
+            <BookButton
+              category="TRANSFER"
+              itemName="Airport transfer"
+              message="Hi Ko-Sa! I'd like to book an airport transfer. My arrival details are:"
+              source="plan/getting-here"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
             >
               <Plane size={14} /> {t('planPage.getting.cta')}
-            </a>
+            </BookButton>
           </div>
           <div className="rounded-md overflow-hidden shadow-sm aspect-[4/3] bg-sand">
             <iframe
@@ -248,14 +257,15 @@ export default async function PlanPage() {
                   >
                     {t('planPage.itineraries.bookThis')} →
                   </a>
-                  <a
-                    href={waLink(waPrefill.customiseStay())}
-                    target="_blank"
-                    rel="noreferrer"
+                  <BookButton
+                    category="PACKAGE"
+                    itemName={`Customise: ${t(it.titleKey)}`}
+                    message={waPrefill.customiseStay()}
+                    source="plan/itineraries"
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-teal/40 text-teal font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:border-coral hover:text-coral transition-colors"
                   >
                     {t('planPage.itineraries.cta2')} →
-                  </a>
+                  </BookButton>
                 </div>
               </article>
             ))}

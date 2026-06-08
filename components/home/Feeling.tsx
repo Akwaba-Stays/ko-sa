@@ -21,7 +21,7 @@ export function Feeling() {
           className="lg:col-span-7 relative aspect-[4/3] rounded-md overflow-hidden branded-img"
         >
           <Image
-            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/10-772A1994.webp"
+            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/highlights/highlight-772a2245.webp"
             alt={t('alt.feelingHammock')}
             fill
             sizes="(min-width:1024px) 58vw, 100vw"

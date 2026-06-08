@@ -5,7 +5,8 @@ import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { listPublicExperiences } from '@/lib/cms/experiences';
 import { AdinkraIcon, type AdinkraName } from '@/components/shared/AdinkraIcon';
-import { EXPERIENCE_DETAILS, formatGhs, waLink, waPrefill } from '@/lib/pricing';
+import { EXPERIENCE_DETAILS, formatGhs, waPrefill } from '@/lib/pricing';
+import { BookButton } from '@/components/shared/BookButton';
 import { listPublicDailyActivities, groupByDay, DAY_ORDER } from '@/lib/cms/daily-activities';
 
 export const metadata: Metadata = {
@@ -144,14 +145,15 @@ export default async function ExperiencesPage() {
                     {detail.duration} · From {formatGhs(detail.fromGhs)} {t('experiencesPage.perPerson')}
                   </p>
                   <p className="mt-3 font-raleway text-sm text-forest/80 leading-relaxed">{t(item.b)}</p>
-                  <a
-                    href={waLink(waPrefill.experience(name))}
-                    target="_blank"
-                    rel="noreferrer"
+                  <BookButton
+                    category="EXPERIENCE"
+                    itemName={name}
+                    message={waPrefill.experience(name)}
+                    source="experiences"
                     className="mt-5 inline-flex items-center gap-2 font-opensans uppercase tracking-tracked text-xs text-coral hover:text-coral-700"
                   >
                     {t('experiencesPage.tile.book')} →
-                  </a>
+                  </BookButton>
                 </article>
               );
             })}
@@ -212,14 +214,15 @@ export default async function ExperiencesPage() {
           <p className="font-raleway text-lg text-cream/90 leading-relaxed">
             {t('experiencesPage.buildDay')}
           </p>
-          <a
-            href={waLink(waPrefill.planMyStay())}
-            target="_blank"
-            rel="noreferrer"
+          <BookButton
+            category="EXPERIENCE"
+            itemName="Build Your Perfect Day"
+            message={waPrefill.planMyStay()}
+            source="experiences/build-day"
             className="mt-6 inline-block rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
           >
             {t('experiencesPage.buildDay.cta')} →
-          </a>
+          </BookButton>
         </div>
       </section>
     </>
