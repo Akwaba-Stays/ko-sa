@@ -15,13 +15,16 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic';
 
+// New edited dining photography (media/dining/, June 2026).
+const DINE = 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/dining';
+
 const SECTIONS = [
   {
     key: 'restaurant',
     titleKey: 'diningPage.restaurant.title',
     bodyKey: 'diningPage.restaurant.body',
     hoursKey: 'diningPage.restaurant.hours' as const,
-    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/0-772A1897.webp',
+    image: `${DINE}/the-restaurant.webp`,
     cta: {
       labelKey: 'diningPage.restaurant.cta' as const,
       category: 'DINING' as const,
@@ -36,21 +39,21 @@ const SECTIONS = [
     nameKey: 'diningPage.bar.name' as const,
     bodyKey: 'diningPage.bar.body',
     hoursKey: 'diningPage.bar.hours' as const,
-    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/9-772A2299.webp',
+    image: `${DINE}/the-bar.webp`,
   },
   {
     key: 'breakfast',
     titleKey: 'diningPage.breakfast.title',
     bodyKey: 'diningPage.breakfast.body',
     hoursKey: 'diningPage.breakfast.hours' as const,
-    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/2-772A1911.webp',
+    image: `${DINE}/breakfast.webp`,
   },
   {
     key: 'private',
     titleKey: 'diningPage.private.title',
     leadKey: 'diningPage.private.lead' as const,
     bodyKey: 'diningPage.private.body',
-    image: 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/11-772A2399.webp',
+    image: `${DINE}/private-and-beach-dining.webp`,
     cta: {
       labelKey: 'diningPage.private.cta' as const,
       category: 'DINING' as const,
@@ -69,7 +72,7 @@ export default async function DiningPage() {
       <PageHero
         eyebrow={t('nav.dine')}
         title={t('diningPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/dining/12-772A2400.webp"
+        image={`${DINE}/banner-1.webp`}
       />
 
       <section className="py-16 md:py-24 bg-sand-light">

@@ -9,6 +9,8 @@ import { Itineraries } from '@/components/home/Itineraries';
 import { RoomsTeaser } from '@/components/home/RoomsTeaser';
 import { Testimonials } from '@/components/home/Testimonials';
 import { EmailCapture } from '@/components/home/EmailCapture';
+import { PullQuote } from '@/components/shared/PullQuote';
+import { getT } from '@/lib/i18n/server';
 import { listPublicRooms } from '@/lib/cms/rooms';
 import { listPublicTestimonials } from '@/lib/cms/testimonials';
 import { getSetting } from '@/lib/cms/settings';
@@ -55,21 +57,25 @@ const FALLBACK_TESTIMONIALS: PublicTestimonial[] = [
 ];
 
 export default async function HomePage() {
-  const [rooms, testimonials, pricing] = await Promise.all([
+  const { t } = getT();
+  const [rooms, testimonials, pricing, hero] = await Promise.all([
     listPublicRooms(),
     listPublicTestimonials(),
     getSetting('pricing'),
+    getSetting('hero'),
   ]);
 
   const quotes = testimonials.length ? testimonials : FALLBACK_TESTIMONIALS;
 
   return (
     <>
-      <Hero />
+      <Hero videoUrl={hero.videoUrl} posterUrl={hero.posterUrl} />
       <SocialProof />
       <Feeling />
+      <PullQuote tone="cream">{t('quote.ocean')}</PullQuote>
       <Itineraries />
       <RoomsTeaser rooms={rooms} showPrices={!pricing.hideRoomPrices} />
+      <PullQuote tone="teal">{t('quote.stop')}</PullQuote>
       <Testimonials testimonials={quotes} />
       <EmailCapture />
     </>

@@ -35,15 +35,33 @@ export function Feeling() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="lg:col-span-5"
         >
-          <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3"
+          >
             {t('intro.eyebrow')}
-          </p>
-          <h2 className="font-playfair text-display-md text-teal leading-tight">
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-playfair text-display-md text-teal leading-tight"
+          >
             {t('home.feeling.headline')}
-          </h2>
-          <p className="mt-6 font-raleway text-forest/85 leading-relaxed max-w-md">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, delay: 0.22 }}
+            className="mt-6 font-raleway text-forest/85 leading-relaxed max-w-md"
+          >
             {t('home.feeling.body')}
-          </p>
+          </motion.p>
         </motion.div>
       </div>
     </section>

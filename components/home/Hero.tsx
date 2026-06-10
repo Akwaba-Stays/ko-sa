@@ -10,7 +10,10 @@ import { Button } from '@/components/shared/Button';
 import { useT } from '@/lib/i18n';
 import { site } from '@/lib/site';
 
-export function Hero() {
+const BANNER =
+  'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/banner/banner1.webp';
+
+export function Hero({ videoUrl, posterUrl }: { videoUrl?: string; posterUrl?: string } = {}) {
   const { t } = useT();
   const ref = useRef<HTMLDivElement | null>(null);
   const { scrollY } = useScroll();
@@ -24,15 +27,29 @@ export function Hero() {
       aria-label={t('home.hero.headline')}
     >
       <div className="absolute inset-0 branded-img kosa-shimmer">
-        {/* KO-SA banner photography - swap to the resort video when ready: drop
-            a <video> here with this image as its poster. */}
-        <img
-          src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/banner/banner1.webp"
-          alt={t('alt.heroShoreline')}
-          className="h-full w-full object-cover"
-          loading="eager"
-          fetchPriority="high"
-        />
+        {/* A 30s slow-motion clip transforms the first impression. When an admin
+            sets a hero video URL (Site Settings → Hero), it autoplays muted/looped
+            with the banner as its poster; otherwise the banner image shows. */}
+        {videoUrl ? (
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={posterUrl || BANNER}
+          >
+            <source src={videoUrl} />
+          </video>
+        ) : (
+          <img
+            src={posterUrl || BANNER}
+            alt={t('alt.heroShoreline')}
+            className="h-full w-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-forest/40 via-teal-900/20 to-teal-900/70" />
       </div>
 
