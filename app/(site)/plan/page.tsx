@@ -73,62 +73,8 @@ export default async function PlanPage() {
         </div>
       </section>
 
-      {/* What to do here - real experiences from the CMS */}
-      {experiences.length > 0 && (
-        <section className="pb-8 bg-sand-light">
-          <div className="container-page">
-            <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-2">
-              {t('planPage.experiences.eyebrow')}
-            </p>
-            <p className="font-raleway text-forest/75 max-w-2xl leading-relaxed mb-10">
-              {t('planPage.experiences.body')}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {experiences.map((e) => (
-                <Link
-                  key={e.id}
-                  href={`/experiences/${e.slug}`}
-                  className="group relative aspect-[3/4] rounded-md overflow-hidden branded-img flex items-end shadow-sm"
-                >
-                  {e.image && (
-                    <Image
-                      src={e.image}
-                      alt={e.title}
-                      fill
-                      sizes="(min-width:1024px) 25vw, (min-width:768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-umber/85 via-umber/20 to-transparent" />
-                  <div className="relative p-5 text-cream">
-                    <p className="font-opensans uppercase tracking-tracked text-[10px] text-sunshine">{e.label}</p>
-                    <h3 className="mt-1 font-playfair text-xl leading-tight">{e.title}</h3>
-                    <span className="mt-2 inline-block font-opensans uppercase tracking-tracked-sm text-[10px] text-cream/80 group-hover:text-sunshine transition-colors">
-                      {t('experiences.discover')} →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/experiences" className="text-xs font-opensans uppercase tracking-tracked-sm text-cream bg-coral rounded-full px-5 py-2.5 hover:bg-coral-600 transition-colors">
-                {t('planPage.experiences.cta')}
-              </Link>
-              <BookButton
-                category="PACKAGE"
-                itemName="Customise my stay"
-                message={waPrefill.customiseStay()}
-                source="plan/experiences"
-                className="text-xs font-opensans uppercase tracking-tracked-sm text-teal border border-teal/40 rounded-full px-5 py-2.5 hover:border-coral hover:text-coral transition-colors"
-              >
-                {t('planPage.itineraries.cta2')}
-              </BookButton>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Stay Packages - curated, image-rich (relabelled from Wellness Packages) */}
+      {/* Stay Packages - moved above the experience tiles (Change Request §Plan).
+          Curated, image-rich (relabelled from Wellness Packages). */}
       {stayPackages.length > 0 && (
         <section className="py-16 md:py-24 bg-cream">
           <div className="container-page">
@@ -192,6 +138,61 @@ export default async function PlanPage() {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* What to do here - real experiences from the CMS */}
+      {experiences.length > 0 && (
+        <section className="py-16 md:py-24 bg-sand-light">
+          <div className="container-page">
+            <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-2">
+              {t('planPage.experiences.eyebrow')}
+            </p>
+            <p className="font-raleway text-forest/75 max-w-2xl leading-relaxed mb-10">
+              {t('planPage.experiences.body')}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {experiences.map((e) => (
+                <Link
+                  key={e.id}
+                  href={`/experiences/${e.slug}`}
+                  className="group relative aspect-[3/4] rounded-md overflow-hidden branded-img flex items-end shadow-sm"
+                >
+                  {e.image && (
+                    <Image
+                      src={e.image}
+                      alt={e.title}
+                      fill
+                      sizes="(min-width:1024px) 25vw, (min-width:768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-umber/85 via-umber/20 to-transparent" />
+                  <div className="relative p-5 text-cream">
+                    <p className="font-opensans uppercase tracking-tracked text-[10px] text-sunshine">{e.label}</p>
+                    <h3 className="mt-1 font-playfair text-xl leading-tight">{e.title}</h3>
+                    <span className="mt-2 inline-block font-opensans uppercase tracking-tracked-sm text-[10px] text-cream/80 group-hover:text-sunshine transition-colors">
+                      {t('experiences.discover')} →
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/experiences" className="text-xs font-opensans uppercase tracking-tracked-sm text-cream bg-coral rounded-full px-5 py-2.5 hover:bg-coral-600 transition-colors">
+                {t('planPage.experiences.cta')}
+              </Link>
+              <BookButton
+                category="PACKAGE"
+                itemName="Customise my stay"
+                message={waPrefill.customiseStay()}
+                source="plan/experiences"
+                className="text-xs font-opensans uppercase tracking-tracked-sm text-teal border border-teal/40 rounded-full px-5 py-2.5 hover:border-coral hover:text-coral transition-colors"
+              >
+                {t('planPage.itineraries.cta2')}
+              </BookButton>
             </div>
           </div>
         </section>

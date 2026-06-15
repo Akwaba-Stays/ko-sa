@@ -1,16 +1,10 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // KO-SA pricing & bookable-content config (Website Change Request, June 2026)
 //
-// ⚠️  PLACEHOLDER RATES - CONFIRM WITH KO-SA BEFORE GO-LIVE.
-// The Change Request requires a visible "From GHS X" on every room, package,
-// treatment and experience. The resort's live rates were not available in the
-// repo (rooms seed ships price: 0, "price hidden → Cloudbeds"), so the figures
-// below are realistic, clearly-marked PLACEHOLDERS. They are intentionally
-// centralised here so the real numbers can be dropped in one place.
-//
-// To go live with real pricing:
-//   1. Replace the GHS amounts below with Ko-Sa's confirmed starting rates.
-//   2. (Optional) wire ROOM_RATES_GHS to Cloudbeds live rates instead.
+// ROOM_RATES_GHS below are Ko-Sa's CONFIRMED starting nightly rates, taken from
+// the resort's official "Rooms & Rates" sheet (files/Rooms-&-Rates.jpeg, June
+// 2026). Centralised here so a future rate change is a one-place edit. A live DB
+// price (> 0) on a room always overrides the value here.
 //
 // Safe to import from both server and client components (no server-only deps).
 // ─────────────────────────────────────────────────────────────────────────────
@@ -32,21 +26,22 @@ export function formatGhs(amount: number): string {
 }
 
 // ── Room starting rates (GHS / night) ───────────────────────────────────────
-// Keyed by room slug (see scripts/seed-kosa-rooms.ts). PLACEHOLDER values.
+// Keyed by room slug (see scripts/seed-kosa-rooms.ts). Confirmed rates from
+// the official Rooms & Rates sheet (June 2026).
 export const ROOM_RATES_GHS: Record<string, number> = {
-  'luxury-double-sea-view': 1850,
-  'deluxe-double-sea-view': 1450,
-  'deluxe-twin-sea-view': 1450,
-  'family-room-private-bathroom': 1650,
-  'triple-room-private-bathroom': 1250,
-  'double-room-garden-view': 980,
-  'twin-room-garden-view': 980,
-  'traveling-palm-double-garden': 680,
-  'traveling-palm-twin-garden': 680,
+  'luxury-double-sea-view': 1275,
+  'deluxe-double-sea-view': 1425,
+  'deluxe-twin-sea-view': 1275,
+  'family-room-private-bathroom': 1575,
+  'triple-room-private-bathroom': 1425,
+  'double-room-garden-view': 825,
+  'twin-room-garden-view': 825,
+  'traveling-palm-double-garden': 450,
+  'traveling-palm-twin-garden': 450,
 };
 
 /** Lowest fallback so a room without an explicit rate still shows a price. */
-const ROOM_RATE_FALLBACK_GHS = 680;
+const ROOM_RATE_FALLBACK_GHS = 450;
 
 /**
  * Starting nightly rate in GHS for a room. Prefers a live DB price when one is
@@ -147,7 +142,7 @@ export const waPrefill = {
   treatment: (name: string) => `Hi Ko-Sa! I'd like to book a ${name}.`,
   experience: (name: string) => `Hi Ko-Sa! I'd like to book the ${name} experience.`,
   reserveTable: () =>
-    "Hi Ko-Sa! I'd like to reserve a table for [date] at [time] for [number] people.",
+    "Hi Ko-Sa! I'd like to reserve a table for [date] at [time] for [X] people.",
   privateDining: () =>
     "Hi Ko-Sa! I'd like to enquire about private beach dining for a special occasion.",
   planMyStay: () => "Hi Ko-Sa! I'd like help planning my stay.",

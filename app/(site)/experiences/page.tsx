@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import Link from 'next/link';
+import { Gift } from 'lucide-react';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { listPublicExperiences } from '@/lib/cms/experiences';
@@ -8,6 +9,9 @@ import { AdinkraIcon, type AdinkraName } from '@/components/shared/AdinkraIcon';
 import { EXPERIENCE_DETAILS, formatGhs, waPrefill } from '@/lib/pricing';
 import { BookButton } from '@/components/shared/BookButton';
 import { listPublicDailyActivities, groupByDay, DAY_ORDER } from '@/lib/cms/daily-activities';
+import { listPublicStayEnhancements, groupByCategory } from '@/lib/cms/stay-enhancements';
+import { getSetting } from '@/lib/cms/settings';
+import { DailyActivitiesRail, type RailDay } from '@/components/experiences/DailyActivitiesRail';
 
 export const metadata: Metadata = {
   title: 'Experiences & Activities',
@@ -17,6 +21,8 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic';
 
+const BASE = 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public';
+
 const DAY_LABEL: Record<string, string> = {
   MONDAY: 'Monday', TUESDAY: 'Tuesday', WEDNESDAY: 'Wednesday',
   THURSDAY: 'Thursday', FRIDAY: 'Friday', SATURDAY: 'Saturday', SUNDAY: 'Sunday',
@@ -24,11 +30,27 @@ const DAY_LABEL: Record<string, string> = {
 
 export default async function ExperiencesPage() {
   const { t } = getT();
-  const [experiences, allActivities] = await Promise.all([
+  const [experiences, allActivities, allEnhancements, pricing] = await Promise.all([
     listPublicExperiences(),
     listPublicDailyActivities().catch(() => []),
+    listPublicStayEnhancements().catch(() => []),
+    getSetting('pricing'),
   ]);
   const activitiesByDay = groupByDay(allActivities);
+  const enhancementsByCategory = groupByCategory(allEnhancements);
+  const showEnhancementPrices = !pricing.hideEnhancementPrices;
+  const railDays: RailDay[] = DAY_ORDER.map((day) => ({
+    day,
+    label: DAY_LABEL[day],
+    activities: (activitiesByDay.get(day) ?? []).map((a) => ({
+      id: a.id,
+      time: a.time,
+      title: a.title,
+      description: a.description ?? null,
+      tag: a.tag ?? null,
+      isFree: a.isFree,
+    })),
+  })).filter((d) => d.activities.length > 0);
 
   return (
     <>
@@ -161,8 +183,8 @@ export default async function ExperiencesPage() {
         </div>
       </section>
 
-      {/* Free Daily Activities */}
-      {allActivities.length > 0 && (
+      {/* Free Daily Activities - dynamic swipeable rail, one day per card */}
+      {railDays.length > 0 && (
         <section className="py-16 md:py-24 bg-sand-light">
           <div className="container-page">
             <div className="text-center max-w-2xl mx-auto mb-12">
@@ -172,38 +194,75 @@ export default async function ExperiencesPage() {
                 {t('experiencesPage.daily.intro')}
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {DAY_ORDER.map((day) => {
-                const acts = activitiesByDay.get(day) ?? [];
-                if (acts.length === 0) return null;
-                return (
-                  <div key={day} className="bg-cream rounded-xl overflow-hidden shadow-sm border border-sand-300/40">
-                    <div className="bg-teal-700 text-cream px-5 py-3">
-                      <p className="font-playfair text-lg">{DAY_LABEL[day]}</p>
-                      <p className="font-opensans text-[10px] uppercase tracking-tracked text-cream/60">Ko-Sa Beach Resort</p>
-                    </div>
-                    <div className="divide-y divide-sand-300/40">
-                      {acts.map((a) => (
-                        <div key={a.id} className="px-5 py-4">
-                          <p className="font-opensans text-[10px] uppercase tracking-tracked text-coral font-semibold">{a.time}</p>
-                          <h3 className="mt-1 font-playfair text-base text-teal leading-tight">{a.title}</h3>
-                          <p className="mt-1.5 font-raleway text-xs text-forest/75 leading-relaxed">{a.description}</p>
-                          {a.tag && (
-                            <p className="mt-2 font-opensans text-[10px] text-coral italic">{a.tag}</p>
-                          )}
-                          {a.isFree && (
-                            <span className="mt-2 inline-block text-[10px] font-opensans uppercase tracking-tracked bg-teal/10 text-teal px-2 py-0.5 rounded-full">{t('experiencesPage.daily.free')}</span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <DailyActivitiesRail days={railDays} freeLabel={t('experiencesPage.daily.free')} />
             <p className="mt-8 text-center font-opensans text-xs text-forest/50">
               {t('experiencesPage.daily.footnote')}
             </p>
+          </div>
+        </section>
+      )}
+
+      {/* Enhance Your Stay - paid add-ons & celebrations (moved here from
+          Wellness per Change Request). Drum-circle accent (Highlights PIC 2). */}
+      {allEnhancements.length > 0 && (
+        <section className="relative overflow-hidden bg-cream py-16 md:py-24">
+          <div className="container-page">
+            <div className="relative rounded-2xl overflow-hidden mb-12 min-h-[220px] flex items-end branded-img">
+              <Image
+                src={`${BASE}/media/highlights/drum-circle-sunset.webp`}
+                alt={t('wellnessPage.enhance.heading')}
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-teal-900/85 via-teal-900/40 to-transparent" />
+              <div className="relative p-8 md:p-10 text-cream max-w-2xl">
+                <p className="font-opensans uppercase tracking-tracked text-[10px] text-sunshine mb-3">
+                  {t('wellnessPage.enhance.eyebrow')}
+                </p>
+                <h2 className="font-playfair text-display-sm flex items-center gap-2">
+                  <Gift size={26} className="text-coral" /> {t('wellnessPage.enhance.heading')}
+                </h2>
+                <p className="mt-3 font-raleway text-cream/85 leading-relaxed">
+                  {t('wellnessPage.enhance.intro')}
+                </p>
+              </div>
+            </div>
+            <div className="space-y-12">
+              {Array.from(enhancementsByCategory.entries()).map(([category, items]) => (
+                <div key={category}>
+                  <h3 className="font-playfair text-xl text-teal mb-5 pb-2 border-b border-sand-300/60">{category}</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {items.map((item) => (
+                      <article key={item.id} className="bg-sand-light rounded-xl p-6 border border-sand-300/40 shadow-sm flex flex-col">
+                        <p className="font-playfair text-lg text-teal">{item.name}</p>
+                        {item.description && (
+                          <p className="mt-1.5 text-sm text-forest/70 font-raleway leading-relaxed">{item.description}</p>
+                        )}
+                        <div className="mt-4 pt-4 border-t border-sand-300/50 flex items-center justify-between gap-2">
+                          {showEnhancementPrices ? (
+                            <p className="font-opensans text-sm font-semibold text-teal">
+                              GHS {item.priceGhs.toLocaleString()}
+                              {item.priceTo ? ` - ${item.priceTo.toLocaleString()}` : ''}
+                              {item.priceNote ? <span className="block text-[10px] font-normal text-forest/45 uppercase tracking-tracked">{item.priceNote}</span> : null}
+                            </p>
+                          ) : <span />}
+                          <BookButton
+                            category="ENHANCEMENT"
+                            itemName={item.name}
+                            message={`Hi Ko-Sa! I'd like to add ${item.name} to my stay.`}
+                            source="experiences/enhance"
+                            className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-coral text-coral font-opensans uppercase tracking-tracked-sm text-[10px] px-3 py-2 hover:bg-coral hover:text-cream transition-colors"
+                          >
+                            {t('wellnessPage.enhance.enquire')} →
+                          </BookButton>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}

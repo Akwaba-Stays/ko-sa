@@ -38,8 +38,25 @@ export function Itineraries() {
   const tab = TABS[active];
 
   return (
-    <section className="relative bg-cream py-24 md:py-32">
-      <div className="container-page">
+    <section className="relative overflow-hidden bg-cream py-24 md:py-32">
+      {/* Texture + coastal decoration so the section reads as a place, not a
+          blank panel (Change Request §Page 01). */}
+      <div aria-hidden className="absolute inset-0 bg-topo-sand opacity-[0.5]" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-coral/40 to-transparent" />
+      <svg
+        aria-hidden
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-12 w-full text-teal/10"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          d="M0 40 C 120 10, 240 10, 360 40 S 600 70, 720 40 S 960 10, 1080 40 S 1320 70, 1440 40"
+        />
+      </svg>
+      <div className="relative container-page">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">
             {t('home.itineraries.eyebrow')}

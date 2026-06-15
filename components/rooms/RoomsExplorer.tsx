@@ -133,10 +133,7 @@ export function RoomsExplorer({
                   <h2 className="mt-2 font-playfair text-2xl text-teal group-hover:text-coral transition-colors line-clamp-1 min-h-[2rem]">
                     <Link href={`/rooms/${r.slug}`}>{r.name}</Link>
                   </h2>
-                  <p className="font-raleway italic text-forest/70 mt-1 line-clamp-1 min-h-[1.5rem]">{r.tagline || ' '}</p>
-                  <p className="mt-3 text-sm text-forest/70 leading-relaxed line-clamp-2 min-h-[2.75rem]">
-                    {r.description || ' '}
-                  </p>
+                  <p className="font-raleway italic text-forest/70 mt-1 line-clamp-2 min-h-[3rem]">{r.tagline || ' '}</p>
                   <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs font-opensans text-forest/60 min-h-[1.25rem]">
                     <span>
                       {labels.upTo} {r.maxGuests} {labels.guestsUnit}

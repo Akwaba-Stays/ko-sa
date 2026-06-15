@@ -32,15 +32,21 @@ export default async function RoomsPage() {
         image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/luxury-double-sea-view/0-LDRWSV.webp"
       />
 
-      <section className="py-16 md:py-24 bg-sand-light">
-        <div className="container-page max-w-3xl">
-          <p className="font-raleway text-lg md:text-xl text-forest/85 leading-relaxed">
+      {/* Intro: distinct tonal + textured band so it reads as a statement,
+          not body copy (Change Request §Page 02). */}
+      <section className="relative overflow-hidden bg-teal-700 text-cream py-20 md:py-28">
+        <div aria-hidden className="absolute inset-0 bg-waves opacity-[0.07]" />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-teal-800/40 via-transparent to-teal-800/40" />
+        <div className="relative container-page max-w-3xl text-center">
+          <span aria-hidden className="mx-auto mb-6 block h-px w-16 bg-coral" />
+          <p className="font-playfair text-2xl md:text-3xl lg:text-[2.1rem] leading-snug text-cream">
             {t('roomsPage.intro')}
           </p>
+          <span aria-hidden className="mx-auto mt-6 block h-px w-16 bg-coral" />
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28 bg-sand-light">
+      <section className="pt-16 md:pt-24 pb-20 md:pb-28 bg-sand-light">
         <div className="container-page">
           <RoomsExplorer
             rooms={rooms}
