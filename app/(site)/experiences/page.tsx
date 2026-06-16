@@ -57,7 +57,7 @@ export default async function ExperiencesPage() {
       <PageHero
         eyebrow={t('nav.experiences')}
         title={t('experiencesPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/0-772A4907.webp"
+        image={`${BASE}/media/experiences/banner.webp`}
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
@@ -72,7 +72,7 @@ export default async function ExperiencesPage() {
         <div className="container-page grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           <article className="relative rounded-md overflow-hidden min-h-[320px] flex items-end branded-img">
             <Image
-              src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/11-772A4926.webp"
+              src={`${BASE}/media/experiences/on-the-property.webp`}
               alt={t('experiencesPage.property.title')}
               fill
               sizes="(min-width:1024px) 50vw, 100vw"
@@ -86,7 +86,7 @@ export default async function ExperiencesPage() {
           </article>
           <article className="relative rounded-md overflow-hidden min-h-[320px] flex items-end branded-img">
             <Image
-              src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/12-772A4928.webp"
+              src={`${BASE}/media/experiences/into-ghana.webp`}
               alt={t('experiencesPage.ghana.title')}
               fill
               sizes="(min-width:1024px) 50vw, 100vw"

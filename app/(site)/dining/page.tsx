@@ -72,7 +72,7 @@ export default async function DiningPage() {
       <PageHero
         eyebrow={t('nav.dine')}
         title={t('diningPage.headline')}
-        image={`${DINE}/banner-1.webp`}
+        image={`${DINE}/banner-main.webp`}
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
