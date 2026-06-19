@@ -3,9 +3,9 @@ import { getToken } from 'next-auth/jwt';
 import { getAppTarget, isAdminPath } from '@/lib/runtime';
 
 // Single middleware that does two jobs:
-//   1. Deployment-target gating — lets the public site and the admin dashboard
+//   1. Deployment-target gating - lets the public site and the admin dashboard
 //      be hosted as separate services from one codebase (see DEPLOYMENT.md).
-//   2. Admin auth — protects /admin/* (except /admin/login).
+//   2. Admin auth - protects /admin/* (except /admin/login).
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;

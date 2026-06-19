@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-// KO-SA Beach Resort palette — per KOSA Brand Guide §4 colour palette.
+// KO-SA Beach Resort palette - per KOSA Brand Guide §4 colour palette.
 //   Teal       primary brand colour (logo, headlines on cream, buttons)
 //   Forest     supporting deep green for body text & footer
 //   Coral      energetic accent for callouts & section eyebrows
@@ -93,7 +93,7 @@ const config: Config = {
         border: { DEFAULT: '#EAD9B0' },
         ring: { DEFAULT: '#0F7B8F' },
 
-        // ── Legacy aliases — keep older components compiling ────────────
+        // ── Legacy aliases - keep older components compiling ────────────
         // Map every name once used in the codebase to the closest new colour.
         umber: {
           DEFAULT: '#2D4F2C',

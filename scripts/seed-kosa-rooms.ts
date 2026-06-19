@@ -63,7 +63,7 @@ const ROOMS: SeedRoom[] = [
     bedConfig: 'Double bed',
     tagline: 'Our finest, with the ocean at the foot of the bed',
     description:
-      "This is the room you'll struggle to leave. The ocean fills the window from the moment you wake. The bed faces the sea. The air carries salt and quiet. Everything else — the cool bathroom, the private balcony, the soft light at golden hour — is the room working around that view.",
+      "This is the room you'll struggle to leave. The ocean fills the window from the moment you wake. The bed faces the sea. The air carries salt and quiet. Everything else - the cool bathroom, the private balcony, the soft light at golden hour - is the room working around that view.",
     amenities: ['Sea view', 'Double bed', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Sea view', 'Premium'],
     img: 'LDRWSV',
@@ -101,7 +101,7 @@ const ROOMS: SeedRoom[] = [
     bedConfig: 'Twin beds',
     tagline: 'Two beds, one endless horizon',
     description:
-      'Two beds, one wide horizon. Made for friends or family who want the ocean in view and the day at their own pace — sea breeze through the window, soft light at dusk.',
+      'Two beds, one wide horizon. Made for friends or family who want the ocean in view and the day at their own pace - sea breeze through the window, soft light at dusk.',
     amenities: ['Sea view', 'Twin beds', 'Private bathroom', 'Air conditioning', 'Balcony', 'WiFi'],
     features: ['Sea view', 'Twin'],
     img: 'DTRWSV',
@@ -120,7 +120,7 @@ const ROOMS: SeedRoom[] = [
     bedConfig: 'Multiple beds',
     tagline: 'Room to breathe, together',
     description:
-      'Room to spread out and still be together. Space for the whole family, a private bathroom, and the kind of easy comfort that lets everyone — the little ones included — settle into the slow rhythm of the coast.',
+      'Room to spread out and still be together. Space for the whole family, a private bathroom, and the kind of easy comfort that lets everyone - the little ones included - settle into the slow rhythm of the coast.',
     amenities: ['Private bathroom', 'Multiple beds', 'Family friendly', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Family-friendly', 'Spacious'],
     img: 'FRWPB',
@@ -139,7 +139,7 @@ const ROOMS: SeedRoom[] = [
     bedConfig: 'Three beds',
     tagline: 'Made for small groups and good company',
     description:
-      'For small groups and good company. Three beds, a private bathroom, and plenty of room to come and go — close to the beach, easy on everyone.',
+      'For small groups and good company. Three beds, a private bathroom, and plenty of room to come and go - close to the beach, easy on everyone.',
     amenities: ['Private bathroom', 'Three beds', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Groups'],
     img: 'TBWPB',
@@ -177,7 +177,7 @@ const ROOMS: SeedRoom[] = [
     bedConfig: 'Twin beds',
     tagline: 'Quiet mornings among the palms',
     description:
-      'Quiet mornings among the palms. Two beds, garden views, and the unhurried hush of the gardens — a gentle base for a couple of friends or a restful solo stay.',
+      'Quiet mornings among the palms. Two beds, garden views, and the unhurried hush of the gardens - a gentle base for a couple of friends or a restful solo stay.',
     amenities: ['Garden view', 'Twin beds', 'Private bathroom', 'Air conditioning', 'WiFi', 'Balcony'],
     features: ['Garden view', 'Twin'],
     img: 'TRWGV',
@@ -196,7 +196,7 @@ const ROOMS: SeedRoom[] = [
     bedConfig: 'Double bed · shared bathroom',
     tagline: 'Light on the wallet, easy on the soul',
     description:
-      'Light on the wallet, easy on the soul. A simple, comfortable double among the palms with shared facilities — all the coast, none of the fuss.',
+      'Light on the wallet, easy on the soul. A simple, comfortable double among the palms with shared facilities - all the coast, none of the fuss.',
     amenities: ['Double bed', 'Shared bathroom', 'Fan', 'WiFi', 'Balcony'],
     features: ['Value', 'Shared bathroom'],
     img: 'SDRWSB',
@@ -215,7 +215,7 @@ const ROOMS: SeedRoom[] = [
     bedConfig: 'Twin beds · shared bathroom',
     tagline: 'Good company, by the sea',
     description:
-      'Good company, by the sea. Two beds, garden surrounds and shared facilities — an easy, affordable way to wake up on the coast with the people you travel best with.',
+      'Good company, by the sea. Two beds, garden surrounds and shared facilities - an easy, affordable way to wake up on the coast with the people you travel best with.',
     amenities: ['Twin beds', 'Shared bathroom', 'Fan', 'WiFi', 'Balcony'],
     features: ['Value', 'Shared bathroom', 'Twin'],
     img: 'STRWSB',
@@ -255,7 +255,7 @@ async function main() {
       const asset = await ingestImage(sources[i], {
         folder: `rooms/${room.slug}`,
         name: `${i}-${room.img}${i === 0 ? '' : i + 1}`,
-        alt: `${room.name} — KO-SA Beach Resort`,
+        alt: `${room.name} - KO-SA Beach Resort`,
         maxEdge: 2200,
         quality: 84,
       });

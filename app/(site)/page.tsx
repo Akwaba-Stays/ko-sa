@@ -5,6 +5,7 @@
 import { Hero } from '@/components/home/Hero';
 import { SocialProof } from '@/components/home/SocialProof';
 import { Feeling } from '@/components/home/Feeling';
+import { WelcomeVideo } from '@/components/home/WelcomeVideo';
 import { Itineraries } from '@/components/home/Itineraries';
 import { RoomsTeaser } from '@/components/home/RoomsTeaser';
 import { Testimonials } from '@/components/home/Testimonials';
@@ -72,6 +73,7 @@ export default async function HomePage() {
       <Hero videoUrl={hero.videoUrl} posterUrl={hero.posterUrl} />
       <SocialProof />
       <Feeling />
+      <WelcomeVideo />
       <PullQuote tone="cream">{t('quote.ocean')}</PullQuote>
       <Itineraries />
       <RoomsTeaser rooms={rooms} showPrices={!pricing.hideRoomPrices} />

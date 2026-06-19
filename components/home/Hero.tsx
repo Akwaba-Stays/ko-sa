@@ -7,6 +7,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/shared/Button';
+import { SmoothImage } from '@/components/shared/SmoothImage';
+import { SmoothVideo } from '@/components/shared/SmoothVideo';
 import { useT } from '@/lib/i18n';
 import { site } from '@/lib/site';
 
@@ -26,28 +28,31 @@ export function Hero({ videoUrl, posterUrl }: { videoUrl?: string; posterUrl?: s
       className="relative h-[100svh] min-h-[520px] w-full overflow-hidden text-cream"
       aria-label={t('home.hero.headline')}
     >
-      <div className="absolute inset-0 branded-img kosa-shimmer">
+      <div className="absolute inset-0 branded-img">
         {/* A 30s slow-motion clip transforms the first impression. When an admin
             sets a hero video URL (Site Settings → Hero), it autoplays muted/looped
             with the banner as its poster; otherwise the banner image shows. */}
         {videoUrl ? (
-          <video
+          <SmoothVideo
+            wrapperClassName="absolute inset-0 h-full w-full"
             className="h-full w-full object-cover"
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
             poster={posterUrl || BANNER}
           >
             <source src={videoUrl} />
-          </video>
+          </SmoothVideo>
         ) : (
-          <img
+          <SmoothImage
             src={posterUrl || BANNER}
             alt={t('alt.heroShoreline')}
-            className="h-full w-full object-cover"
-            loading="eager"
-            fetchPriority="high"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-forest/40 via-teal-900/20 to-teal-900/70" />

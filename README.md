@@ -1,6 +1,6 @@
 # KO-SA Beach Resort · ko-sa.com
 
-Eco-luxury beach resort website — Next.js 14, TypeScript, Tailwind, Framer Motion, Prisma + Supabase Postgres, Supabase Storage, Cloudbeds PMS, OpenRouter (Gemma + multi-model fallback) AI concierge.
+Eco-luxury beach resort website - Next.js 14, TypeScript, Tailwind, Framer Motion, Prisma + Supabase Postgres, Supabase Storage, Cloudbeds PMS, OpenRouter (Gemma + multi-model fallback) AI concierge.
 
 **Brand:** Kosa Palms · *Simply, Belong.*
 
@@ -10,8 +10,8 @@ Eco-luxury beach resort website — Next.js 14, TypeScript, Tailwind, Framer Mot
 
 - **Frontend:** Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS · Framer Motion · Lenis (smooth scroll) · @photo-sphere-viewer/core (virtual tour)
 - **Backend:** Next.js API routes · Prisma + Supabase Postgres · Supabase Storage · Resend (email)
-- **Booking:** Cloudbeds OAuth 2.0 PMS — availability, room types, reservations, guest creation, cancellation
-- **AI Concierge ("Abena"):** OpenRouter (Gemma → Qwen → GPT-OSS fallback chain) with in-memory keyword-scored knowledge retrieval — zero infra, deterministic, ~50 docs covering rooms, experiences, policies, FAQs, location
+- **Booking:** Cloudbeds OAuth 2.0 PMS - availability, room types, reservations, guest creation, cancellation
+- **AI Concierge ("Abena"):** OpenRouter (Gemma → Qwen → GPT-OSS fallback chain) with in-memory keyword-scored knowledge retrieval - zero infra, deterministic, ~50 docs covering rooms, experiences, policies, FAQs, location
 - **Virtual tour:** Google Drive service-account-backed scene fetch with fallback Unsplash scenes for dev
 - **SEO:** Metadata API, sitemap.ts, schema.org JSON-LD (LodgingBusiness, HotelRoom, Article), OG images
 - **Auth:** NextAuth (admin only; routes scaffolded)
@@ -20,7 +20,7 @@ Eco-luxury beach resort website — Next.js 14, TypeScript, Tailwind, Framer Mot
 ## Quick start
 
 ```bash
-cp .env.example .env.local        # fill what you have — site runs with all integrations stubbed
+cp .env.example .env.local        # fill what you have - site runs with all integrations stubbed
 npm install
 npm run db:push                   # if DATABASE_URL set
 npm run dev                       # http://localhost:3000
@@ -52,7 +52,7 @@ See `.env.example` for the full list. The site is built to **degrade gracefully*
 | `CLOUDBEDS_*` | Availability/reservation endpoints return `{ configured: false }` and the booking flow records the request locally |
 | `GOOGLE_DRIVE_SERVICE_ACCOUNT` | Virtual tour uses 6 high-res fallback scenes |
 
-This means the dev experience is **zero-config** — just `npm install && npm run dev`.
+This means the dev experience is **zero-config** - just `npm install && npm run dev`.
 
 ## Page map
 
@@ -94,23 +94,23 @@ DELETE /api/cloudbeds/reservation/[id]
 ## Brand tokens (Tailwind)
 
 ```
-umber       #64554A  — primary dark, text, strong UI
+umber       #64554A - primary dark, text, strong UI
 brown       #8B6D53
-gold        #B4A26D  — accents, CTAs
-sand-light  #E1D9CA  — section backgrounds
+gold        #B4A26D - accents, CTAs
+sand-light  #E1D9CA - section backgrounds
 cream       #FAF9F6
-bg-orange   #F3F0EB  — page base
+bg-orange   #F3F0EB - page base
 ```
 
 Fonts (via `next/font`): **Belleza** (headings) · **Raleway** (body, UI) · **Beth Ellen** (script taglines) · **Poppins** (digital UI).
 
 ## Deployment
 
-- **Primary:** Vercel — `vercel deploy`. All API routes are Node runtime.
+- **Primary:** Vercel - `vercel deploy`. All API routes are Node runtime.
 - **Database:** Supabase Postgres (set `DATABASE_URL` + `DIRECT_URL`).
-- **Domain:** `ko-sa.com` — set `NEXT_PUBLIC_SITE_URL` and `NEXTAUTH_URL` accordingly.
+- **Domain:** `ko-sa.com` - set `NEXT_PUBLIC_SITE_URL` and `NEXTAUTH_URL` accordingly.
 - **Cloudbeds:** Add `https://ko-sa.com/api/cloudbeds/callback` to your OAuth redirect URIs.
-- **Elasticsearch:** Elastic Cloud (recommended) — set `ELASTICSEARCH_URL` + `ELASTICSEARCH_API_KEY`, then `npm run seed:kb`.
+- **Elasticsearch:** Elastic Cloud (recommended) - set `ELASTICSEARCH_URL` + `ELASTICSEARCH_API_KEY`, then `npm run seed:kb`.
 
 ## Production checklist (Quality Gates)
 

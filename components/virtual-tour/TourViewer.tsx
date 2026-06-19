@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { Loader2, Maximize2 } from 'lucide-react';
 import { BrandLoader } from '@/components/shared/BrandLoader';
 import { useT } from '@/lib/i18n';

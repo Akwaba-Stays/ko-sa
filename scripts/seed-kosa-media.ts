@@ -28,7 +28,7 @@ const GALLERY: { category: string; caption: string; from: string[]; cap: number 
   { category: 'events', caption: 'Events', from: ['events'], cap: 12 },
 ];
 
-// Owner asked to remove these (their own photo, etc.) — match by URL substring.
+// Owner asked to remove these (their own photo, etc.) - match by URL substring.
 const EXCLUDE = [
   '6-772A1875', // owner's photo on the old beach gallery
 ];
@@ -75,7 +75,7 @@ async function main() {
     console.log(`${g.category.padEnd(10)} ${picked.length} image(s)`);
   }
 
-  // Rooms category — from already-ingested room media, lead image per room.
+  // Rooms category - from already-ingested room media, lead image per room.
   const roomAssets = await prisma.mediaAsset.findMany({
     where: { folder: { startsWith: 'rooms/' } },
     orderBy: [{ folder: 'asc' }, { path: 'asc' }],
