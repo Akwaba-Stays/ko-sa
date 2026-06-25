@@ -91,9 +91,9 @@ export default function PhilosophyPage() {
           </h1>
           <p className="mt-6 max-w-xl font-raleway text-cream/85 md:text-lg leading-relaxed">
             A quiet Akan-rooted framework woven into every part of the stay body, breath, mind,
-            knowing, joy.
+            knowing, joy
           </p>
-          <p className="mt-10 font-beth text-3xl md:text-4xl text-primary/95">Simply, Belong.</p>
+          <p className="mt-10 font-beth text-3xl md:text-4xl text-primary/95">Simply, Belong</p>
         </div>
       </section>
 
@@ -102,7 +102,7 @@ export default function PhilosophyPage() {
         <div className="max-w-3xl">
           <Eyebrow>Where we begin</Eyebrow>
           <Heading className="mt-5">
-            A resort, but really a frame for paying attention.
+            A resort, but really a frame for paying attention
           </Heading>
           <GoldDivider />
           <Lede>
@@ -187,16 +187,16 @@ export default function PhilosophyPage() {
             And then you arrive
           </p>
           <h2 className="mt-6 font-belleza text-display-md">
-            The five layers don&apos;t need to be learned.
+            The five layers don&apos;t need to be learned
             <br />
-            They need to be remembered.
+            They need to be remembered
           </h2>
           <p className="mt-8 max-w-xl mx-auto font-raleway text-cream/80 leading-relaxed">
             We don&apos;t teach the philosophy. We design the days so that by the third morning,
             you&apos;ve found it on your own in the shape of the cup, the slowness of breakfast,
             the way the linen smells of the line it dried on.
           </p>
-          <p className="mt-10 font-beth text-3xl md:text-4xl text-primary/95">Simply, Belong.</p>
+          <p className="mt-10 font-beth text-3xl md:text-4xl text-primary/95">Simply, Belong</p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button href={site.bookingUrl} target="_blank" rel="noreferrer" size="lg">
               Plan your stay

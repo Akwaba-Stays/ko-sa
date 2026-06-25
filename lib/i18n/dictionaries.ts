@@ -253,7 +253,7 @@ const en = {
   'nav.story': 'Our Story',
 
   // Hero (Change Request §Page 01)
-  'home.hero.headline': 'Rest. Reconnect. Come back to yourself.',
+  'home.hero.headline': 'Rest. Reconnect. Come back to yourself',
   'home.hero.subhead': "Ghana's coastal retreat for the soul - Ampenyi, Elmina",
   'home.hero.ctaPrimary': 'Book Your Stay',
   'home.hero.ctaSecondary': 'Explore Ko-Sa',
@@ -262,7 +262,7 @@ const en = {
 
   // Social proof bar - score + real guest quote (Change Request §Page 01)
   'home.social.copy':
-    '5,000+ guests · 9.1/10 on Booking.com · “The most peaceful place I’ve been in years.” · Book direct - best rate guaranteed.',
+    '5,000+ guests · 9.1/10 on Booking.com · “The most peaceful place I’ve been in years.” · Book direct - best rate guaranteed',
 
   // Feeling section (brief §01)
   'home.feeling.headline': 'This is what slowing down looks like',
@@ -314,7 +314,7 @@ const en = {
 
   // Wellness page (brief §02 page 03)
   'wellnessPage.headline': 'Well-being, the Ko-Sa way',
-  'wellnessPage.hero.title': 'Well-being, the Ko-Sa way.',
+  'wellnessPage.hero.title': 'Well-being, the Ko-Sa way',
   'wellnessPage.hero.sub': 'Nature restores discover balance in body and mind',
   'wellnessPage.approach.eyebrow': 'Our approach',
   'wellnessPage.approach.title': 'Wellness through nature',
@@ -379,7 +379,7 @@ const en = {
   'diningPage.breakfast.body':
     'The first meal of your day should feel like a gift · Colourful, fresh, and unhurried Ghanaian, continental, and full options available · Dietary needs accommodated just let us know',
   'diningPage.private.title': 'Private & Beach Dining',
-  'diningPage.private.lead': 'A table just for you.',
+  'diningPage.private.lead': 'A table just for you',
   'diningPage.private.body':
     'Celebrating something? Let us set a table on the beach - under the stars, with the ocean as your backdrop. Tell us the occasion and we’ll take care of everything else.',
   'diningPage.private.cta': 'Enquire About Private Dining',
@@ -467,7 +467,7 @@ const en = {
     'Yes - and we recommend it. WhatsApp us before you arrive and we’ll reserve your treatments so you’re not waiting on the day.',
 
   // Our Story (brief §02 page 08)
-  'aboutPage.headline': 'Two decades by the sea. And still, every guest feels like the first.',
+  'aboutPage.headline': 'Two decades by the sea. And still, every guest feels like the first',
   'aboutPage.opening':
     'Ko-Sa Beach Resort was not built from a business plan. It was built from a belief - that the Ghanaian coast is one of the most restorative places on earth, and that everyone who comes here should be able to feel that. For over twenty years, we have held that belief.',
   'aboutPage.enrichedSetting':
@@ -584,14 +584,14 @@ const en = {
   'wellnessForm.waIntro': 'Hi Ko-Sa! I’d like to enquire about wellness:',
   'wellnessPage.treatmentsHeading': 'Treatments & sessions',
   'wellnessPage.treatmentsIntro': 'Browse by what you need - massage and bodywork at the Ko-Sa Health Spa, or the deeper rituals and retreats of O2 Wellness.',
-  "quote.ocean": "The ocean doesn't rush. Neither should you.",
-  "quote.stop": "This is what it feels like to finally stop.",
+  "quote.ocean": "The ocean doesn't rush. Neither should you",
+  "quote.stop": "This is what it feels like to finally stop",
   'home.welcome.eyebrow': 'Akwaba · Welcome home',
-  'home.welcome.heading': 'Some places you visit. Ko-Sa, you come home to.',
+  'home.welcome.heading': 'Some places you visit. Ko-Sa, you come home to',
   'home.welcome.body': 'Watch a Ko-Sa welcome unfold: drums on the sand, white cloth in the breeze, a naming ceremony by the ocean. This is what arriving feels like.',
   'home.welcome.cta': 'Play the film',
   'home.welcome.play': 'Play the Welcome Home film',
-  "wellnessPage.hero.line": "You don't need a programme. You need permission to stop.",
+  "wellnessPage.hero.line": "You don't need a programme. You need permission to stop",
   "wellnessPage.offerings.eyebrow": "Ko-Sa Wellness",
   "wellnessPage.yoga.title": "Yoga by the Sea",
   "wellnessPage.yoga.body": "Gentle movement on the sand, breath and ocean keeping time together. Come as you are; every level is welcome.",
@@ -618,7 +618,7 @@ const en = {
   "wellnessPage.day.s7.time": "Evening",
   "wellnessPage.day.s7.text": "Dinner around the bonfire as the stars come out over the water.",
   "wellnessPage.closing.eyebrow": "Wellness, your way",
-  "wellnessPage.closing.headline": "Tell us what you need. We'll take care of the rest.",
+  "wellnessPage.closing.headline": "Tell us what you need. We'll take care of the rest",
   "wellnessPage.closing.body": "No fixed programmes, no pressure. Tell us how you want to feel and we will shape your time here around it.",
   "wellnessPage.closing.cta": "Chat with us on WhatsApp",
   'wellnessPage.beginHeadline': 'Begin your way back',
@@ -1085,7 +1085,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
     "Réservez en direct pour le meilleur tarif · Annulation flexible sur toutes les chambres · Cocktail de bienvenue à l’arrivée pour vous dire merci d’être venu · Une question ? Nous sommes sur WhatsApp",
 
   'wellnessPage.headline': 'Le bien-être, à la manière de Ko-Sa',
-  'wellnessPage.hero.title': 'Le bien-être, à la manière de Ko-Sa.',
+  'wellnessPage.hero.title': 'Le bien-être, à la manière de Ko-Sa',
   'wellnessPage.hero.sub': 'La nature restaure trouvez l’équilibre du corps et de l’esprit',
   'wellnessPage.approach.eyebrow': 'Notre approche',
   'wellnessPage.approach.title': 'Le bien-être par la nature',
@@ -1232,7 +1232,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'planPage.faq.wellness.a':
     "Oui c’est même conseillé. Spa, coaching et séances de groupe se remplissent vite · Dites-nous ce qui vous tente avant votre venue",
 
-  'aboutPage.headline': 'Deux décennies au bord de la mer. Et pourtant, chaque hôte se sent comme le premier.',
+  'aboutPage.headline': 'Deux décennies au bord de la mer. Et pourtant, chaque hôte se sent comme le premier',
   'aboutPage.opening':
     "Ko-Sa Beach Resort n’est pas né d’un plan d’affaires. Il est né d’une conviction - que la côte ghanéenne est l’un des endroits les plus ressourçants au monde, et que tous ceux qui viennent ici devraient pouvoir le ressentir. Depuis plus de vingt ans, nous cultivons cette conviction.",
   'aboutPage.continued':
@@ -1338,14 +1338,14 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.waIntro': 'Bonjour Ko-Sa ! Je souhaite une demande bien-être :',
   'wellnessPage.treatmentsHeading': 'Soins & séances',
   'wellnessPage.treatmentsIntro': 'Choisissez selon vos envies - massages et soins du corps au Ko-Sa Health Spa, ou les rituels et retraites plus profonds d’O2 Wellness.',
-  "quote.ocean": "L'océan ne se presse pas. Vous non plus.",
-  "quote.stop": "Voici ce que l'on ressent quand on s'arrête enfin.",
+  "quote.ocean": "L'océan ne se presse pas. Vous non plus",
+  "quote.stop": "Voici ce que l'on ressent quand on s'arrête enfin",
   'home.welcome.eyebrow': 'Akwaba · Bienvenue à la maison',
-  'home.welcome.heading': 'Certains lieux, on les visite. Ko-Sa, on y revient comme chez soi.',
+  'home.welcome.heading': 'Certains lieux, on les visite. Ko-Sa, on y revient comme chez soi',
   'home.welcome.body': 'Regardez un accueil Ko-Sa se dérouler : les tambours sur le sable, le linge blanc dans la brise, une cérémonie de baptême au bord de l’océan. Voilà ce que l’on ressent en arrivant.',
   'home.welcome.cta': 'Lancer le film',
   'home.welcome.play': 'Lancer le film Welcome Home',
-  "wellnessPage.hero.line": "Vous n'avez pas besoin d'un programme. Vous avez besoin de la permission de vous arrêter.",
+  "wellnessPage.hero.line": "Vous n'avez pas besoin d'un programme. Vous avez besoin de la permission de vous arrêter",
   "wellnessPage.offerings.eyebrow": "Bien-être Ko-Sa",
   "wellnessPage.yoga.title": "Yoga au bord de la mer",
   "wellnessPage.yoga.body": "Des mouvements doux sur le sable, le souffle et l'océan au même rythme. Venez comme vous êtes ; tous les niveaux sont les bienvenus.",
@@ -1372,7 +1372,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   "wellnessPage.day.s7.time": "Le soir",
   "wellnessPage.day.s7.text": "Dîner autour du feu de camp tandis que les étoiles apparaissent sur l'eau.",
   "wellnessPage.closing.eyebrow": "Le bien-être, à votre façon",
-  "wellnessPage.closing.headline": "Dites-nous ce qu'il vous faut. Nous nous occupons du reste.",
+  "wellnessPage.closing.headline": "Dites-nous ce qu'il vous faut. Nous nous occupons du reste",
   "wellnessPage.closing.body": "Pas de programme figé, aucune pression. Dites-nous comment vous voulez vous sentir et nous façonnerons votre séjour autour de cela.",
   "wellnessPage.closing.cta": "Discuter sur WhatsApp",
 
@@ -1790,7 +1790,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
     'Reserva directo para la mejor tarifa · Cancelación flexible en todas las habitaciones · Una bebida de bienvenida nuestra forma de decirte gracias por venir. ¿Dudas? Estamos en WhatsApp',
 
   'wellnessPage.headline': 'Bienestar, al estilo Ko-Sa',
-  'wellnessPage.hero.title': 'Bienestar, al estilo Ko-Sa.',
+  'wellnessPage.hero.title': 'Bienestar, al estilo Ko-Sa',
   'wellnessPage.hero.sub': 'La naturaleza restaura encuentra el equilibrio de cuerpo y mente',
   'wellnessPage.approach.eyebrow': 'Nuestro enfoque',
   'wellnessPage.approach.title': 'Bienestar a través de la naturaleza',
@@ -1937,7 +1937,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'planPage.faq.wellness.a':
     'Sí mejor hacerlo · Spa, coaching y sesiones de grupo se llenan rápido · Dinos qué te apetece antes de venir',
 
-  'aboutPage.headline': 'Dos décadas junto al mar. Y aún así, cada huésped se siente como el primero.',
+  'aboutPage.headline': 'Dos décadas junto al mar. Y aún así, cada huésped se siente como el primero',
   'aboutPage.opening':
     'Ko-Sa Beach Resort no nació de un plan de negocio. Nació de una convicción - que la costa ghanesa es uno de los lugares más restauradores del mundo, y que todos los que vienen aquí deberían poder sentirlo. Durante más de veinte años, hemos mantenido esa convicción.',
   'aboutPage.continued':
@@ -2043,14 +2043,14 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.waIntro': '¡Hola Ko-Sa! Quisiera consultar sobre bienestar:',
   'wellnessPage.treatmentsHeading': 'Tratamientos y sesiones',
   'wellnessPage.treatmentsIntro': 'Explora según lo que necesitas - masajes y trabajo corporal en el Ko-Sa Health Spa, o los rituales y retiros más profundos de O2 Wellness.',
-  "quote.ocean": "El océano no se apura. Tú tampoco deberías.",
-  "quote.stop": "Así se siente parar por fin.",
+  "quote.ocean": "El océano no se apura. Tú tampoco deberías",
+  "quote.stop": "Así se siente parar por fin",
   'home.welcome.eyebrow': 'Akwaba · Bienvenido a casa',
-  'home.welcome.heading': 'Hay lugares que se visitan. A Ko-Sa se vuelve a casa.',
+  'home.welcome.heading': 'Hay lugares que se visitan. A Ko-Sa se vuelve a casa',
   'home.welcome.body': 'Mira cómo se despliega una bienvenida en Ko-Sa: los tambores en la arena, la tela blanca en la brisa, una ceremonia de nombramiento junto al océano. Así se siente llegar.',
   'home.welcome.cta': 'Reproducir el vídeo',
   'home.welcome.play': 'Reproducir el vídeo Welcome Home',
-  "wellnessPage.hero.line": "No necesitas un programa. Necesitas permiso para parar.",
+  "wellnessPage.hero.line": "No necesitas un programa. Necesitas permiso para parar",
   "wellnessPage.offerings.eyebrow": "Bienestar Ko-Sa",
   "wellnessPage.yoga.title": "Yoga junto al mar",
   "wellnessPage.yoga.body": "Movimiento suave sobre la arena, la respiración y el océano al mismo compás. Ven como estás; todos los niveles son bienvenidos.",
@@ -2077,7 +2077,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   "wellnessPage.day.s7.time": "Al anochecer",
   "wellnessPage.day.s7.text": "Cena junto a la hoguera mientras las estrellas aparecen sobre el agua.",
   "wellnessPage.closing.eyebrow": "Bienestar a tu manera",
-  "wellnessPage.closing.headline": "Dinos qué necesitas. Nosotros nos encargamos del resto.",
+  "wellnessPage.closing.headline": "Dinos qué necesitas. Nosotros nos encargamos del resto",
   "wellnessPage.closing.body": "Sin programas fijos, sin presión. Dinos cómo quieres sentirte y daremos forma a tu estancia en torno a ello.",
   "wellnessPage.closing.cta": "Escríbenos por WhatsApp",
 
@@ -2495,7 +2495,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
     'Boek direct voor de beste prijs · Flexibele annulering op alle kamers · Een welkomstdrankje bij aankomst onze manier om te zeggen dat we blij zijn dat je er bent · Vragen? We zijn bereikbaar via WhatsApp',
 
   'wellnessPage.headline': 'Welzijn, op zijn Ko-Sa',
-  'wellnessPage.hero.title': 'Welzijn, op zijn Ko-Sa.',
+  'wellnessPage.hero.title': 'Welzijn, op zijn Ko-Sa',
   'wellnessPage.hero.sub': 'De natuur herstelt vind balans in lichaam en geest',
   'wellnessPage.approach.eyebrow': 'Onze aanpak',
   'wellnessPage.approach.title': 'Welzijn door de natuur',
@@ -2642,7 +2642,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'planPage.faq.wellness.a':
     'Ja graag zelfs · Spa, coaching en groepslessen zijn snel vol · Laat ons weten wat je wilt voordat je komt',
 
-  'aboutPage.headline': 'Twee decennia aan zee. En toch voelt elke gast zich als de eerste.',
+  'aboutPage.headline': 'Twee decennia aan zee. En toch voelt elke gast zich als de eerste',
   'aboutPage.opening':
     'Ko-Sa Beach Resort is niet gebouwd vanuit een businessplan. Het is gebouwd vanuit een overtuiging - dat de Ghanese kust een van de meest herstellende plekken op aarde is, en dat iedereen die hier komt dat moet kunnen voelen. Al meer dan twintig jaar houden we die overtuiging vast.',
   'aboutPage.continued':
@@ -2748,14 +2748,14 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.waIntro': 'Hoi Ko-Sa! Ik heb een wellnessvraag:',
   'wellnessPage.treatmentsHeading': 'Behandelingen & sessies',
   'wellnessPage.treatmentsIntro': 'Blader op wat je nodig hebt - massage en bodywork in de Ko-Sa Health Spa, of de diepere rituelen en retraites van O2 Wellness.',
-  "quote.ocean": "De oceaan haast zich niet. Jij zou dat ook niet moeten doen.",
-  "quote.stop": "Dit is hoe het voelt om eindelijk te stoppen.",
+  "quote.ocean": "De oceaan haast zich niet. Jij zou dat ook niet moeten doen",
+  "quote.stop": "Dit is hoe het voelt om eindelijk te stoppen",
   'home.welcome.eyebrow': 'Akwaba · Welkom thuis',
-  'home.welcome.heading': 'Sommige plekken bezoek je. Bij Ko-Sa kom je thuis.',
+  'home.welcome.heading': 'Sommige plekken bezoek je. Bij Ko-Sa kom je thuis',
   'home.welcome.body': 'Zie een Ko-Sa-welkom zich ontvouwen: trommels op het zand, wit linnen in de bries, een naamceremonie aan de oceaan. Zo voelt aankomen.',
   'home.welcome.cta': 'Speel de film af',
   'home.welcome.play': 'Speel de Welcome Home-film af',
-  "wellnessPage.hero.line": "Je hebt geen programma nodig. Je hebt toestemming nodig om te stoppen.",
+  "wellnessPage.hero.line": "Je hebt geen programma nodig. Je hebt toestemming nodig om te stoppen",
   "wellnessPage.offerings.eyebrow": "Ko-Sa Welzijn",
   "wellnessPage.yoga.title": "Yoga aan zee",
   "wellnessPage.yoga.body": "Zachte beweging op het zand, adem en oceaan in hetzelfde ritme. Kom zoals je bent; elk niveau is welkom.",
@@ -2782,7 +2782,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   "wellnessPage.day.s7.time": "In de avond",
   "wellnessPage.day.s7.text": "Diner rond het kampvuur terwijl de sterren boven het water verschijnen.",
   "wellnessPage.closing.eyebrow": "Welzijn, op jouw manier",
-  "wellnessPage.closing.headline": "Vertel ons wat je nodig hebt. Wij regelen de rest.",
+  "wellnessPage.closing.headline": "Vertel ons wat je nodig hebt. Wij regelen de rest",
   "wellnessPage.closing.body": "Geen vast programma, geen druk. Vertel ons hoe je je wilt voelen en wij vormen je verblijf daaromheen.",
   "wellnessPage.closing.cta": "Chat met ons op WhatsApp",
 
@@ -3200,7 +3200,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
     'Buche direkt für den besten Preis · Flexible Stornierung auf allen Zimmern · Ein Begrüßungsdrink bei Ankunft unser Dank dafür, dass du gekommen bist · Fragen? Wir sind per WhatsApp erreichbar',
 
   'wellnessPage.headline': 'Wohlbefinden auf Ko-Sa-Art',
-  'wellnessPage.hero.title': 'Wohlbefinden auf Ko-Sa-Art.',
+  'wellnessPage.hero.title': 'Wohlbefinden auf Ko-Sa-Art',
   'wellnessPage.hero.sub': 'Die Natur erneuert finde Balance in Körper und Geist',
   'wellnessPage.approach.eyebrow': 'Unser Ansatz',
   'wellnessPage.approach.title': 'Wohlbefinden durch Natur',
@@ -3347,7 +3347,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'planPage.faq.wellness.a':
     'Ja bitte tu das · Spa, Coaching und Gruppensessions sind schnell ausgebucht · Sag uns vorher, was du gerne möchtest',
 
-  'aboutPage.headline': 'Zwei Jahrzehnte am Meer. Und dennoch fühlt sich jeder Gast wie der Erste an.',
+  'aboutPage.headline': 'Zwei Jahrzehnte am Meer. Und dennoch fühlt sich jeder Gast wie der Erste an',
   'aboutPage.opening':
     'Ko-Sa Beach Resort entstand nicht aus einem Geschäftsplan. Es entstand aus einer Überzeugung - dass die ghanaische Küste einer der regenerierendsten Orte der Welt ist, und dass jeder, der hierher kommt, das spüren sollte. Seit über zwanzig Jahren halten wir an dieser Überzeugung fest.',
   'aboutPage.continued':
@@ -3453,14 +3453,14 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.waIntro': 'Hallo Ko-Sa! Ich möchte eine Wellness-Anfrage stellen:',
   'wellnessPage.treatmentsHeading': 'Behandlungen & Sessions',
   'wellnessPage.treatmentsIntro': 'Stöbere nach dem, was du brauchst - Massagen und Körperarbeit im Ko-Sa Health Spa oder die tieferen Rituale und Retreats von O2 Wellness.',
-  "quote.ocean": "Das Meer hat es nicht eilig. Du solltest es auch nicht haben.",
-  "quote.stop": "So fühlt es sich an, endlich anzuhalten.",
+  "quote.ocean": "Das Meer hat es nicht eilig. Du solltest es auch nicht haben",
+  "quote.stop": "So fühlt es sich an, endlich anzuhalten",
   'home.welcome.eyebrow': 'Akwaba · Willkommen zu Hause',
-  'home.welcome.heading': 'Manche Orte besucht man. Nach Ko-Sa kommt man heim.',
+  'home.welcome.heading': 'Manche Orte besucht man. Nach Ko-Sa kommt man heim',
   'home.welcome.body': 'Erlebe, wie ein Ko-Sa-Willkommen entsteht: Trommeln im Sand, weißes Tuch in der Brise, eine Namensfeier am Meer. So fühlt sich Ankommen an.',
   'home.welcome.cta': 'Film abspielen',
   'home.welcome.play': 'Den Welcome-Home-Film abspielen',
-  "wellnessPage.hero.line": "Du brauchst kein Programm. Du brauchst die Erlaubnis, innezuhalten.",
+  "wellnessPage.hero.line": "Du brauchst kein Programm. Du brauchst die Erlaubnis, innezuhalten",
   "wellnessPage.offerings.eyebrow": "Ko-Sa Wohlbefinden",
   "wellnessPage.yoga.title": "Yoga am Meer",
   "wellnessPage.yoga.body": "Sanfte Bewegung im Sand, Atem und Meer im selben Takt. Komm, wie du bist; jedes Niveau ist willkommen.",
@@ -3487,7 +3487,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   "wellnessPage.day.s7.time": "Am Abend",
   "wellnessPage.day.s7.text": "Abendessen am Lagerfeuer, während die Sterne über dem Wasser erscheinen.",
   "wellnessPage.closing.eyebrow": "Wohlbefinden, auf deine Art",
-  "wellnessPage.closing.headline": "Sag uns, was du brauchst. Um den Rest kümmern wir uns.",
+  "wellnessPage.closing.headline": "Sag uns, was du brauchst. Um den Rest kümmern wir uns",
   "wellnessPage.closing.body": "Keine festen Programme, kein Druck. Sag uns, wie du dich fühlen möchtest, und wir gestalten deinen Aufenthalt darum herum.",
   "wellnessPage.closing.cta": "Schreib uns auf WhatsApp",
 

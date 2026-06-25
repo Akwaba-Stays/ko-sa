@@ -64,7 +64,7 @@ export default async function PlanPage() {
       <PageHero
         eyebrow={t('nav.plan')}
         title={t('planPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/feeling/slowing-down-guests.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
