@@ -39,29 +39,29 @@ const STATIC: KnowledgeDoc[] = [
     category: 'policy',
     title: 'Accepted payment methods',
     content:
-      'KO-SA accepts Ghana Cedi (GHS), US Dollar (USD), and Euro (EUR) in cash, all major credit and debit cards (Visa, Mastercard, Amex), and Mobile Money: MTN MoMo, Vodafone Cash, AirtelTigo. Bank transfers are accepted for stays of 7 nights or longer.',
+      'Ko Sa accepts Ghana Cedi (GHS), US Dollar (USD), and Euro (EUR) in cash, all major credit and debit cards (Visa, Mastercard, Amex), and Mobile Money: MTN MoMo, Vodafone Cash, AirtelTigo. Bank transfers are accepted for stays of 7 nights or longer.',
   },
   {
     id: 'policy-children',
     category: 'policy',
     title: 'Children policy',
     content:
-      'Children of all ages are welcome at KO-SA. Under 6 stay free in their parents\' room with existing bedding. Extra beds are available for GHS 150/night. Children\'s breakfast and snack menus are available, and the pool has a shallow section.',
+      'Children of all ages are welcome at Ko Sa. Under 6 stay free in their parents\' room with existing bedding. Extra beds are available for GHS 150/night. Children\'s breakfast and snack menus are available, and the pool has a shallow section.',
   },
   {
     id: 'policy-pets',
     category: 'policy',
     title: 'Pet policy',
-    content: 'KO-SA does not currently accept pets, with the exception of registered service animals.',
+    content: 'Ko Sa does not currently accept pets, with the exception of registered service animals.',
   },
 
   // ---- Location & getting there
   {
     id: 'location-airport',
     category: 'location',
-    title: 'Getting to KO-SA from Accra (ACC) airport',
+    title: 'Getting to Ko Sa from Accra (ACC) airport',
     content:
-      'KO-SA is approximately 150km west of Accra (Kotoka International Airport, ACC) about 2.5 hours by car along the coastal road via Cape Coast. Resort transfer is available: GHS 600 one-way for up to 4 guests, GHS 900 for a luxury sedan or up to 6 guests. Hire car and tro-tro (shared minibus) are also possible.',
+      'Ko Sa is approximately 150km west of Accra (Kotoka International Airport, ACC) about 2.5 hours by car along the coastal road via Cape Coast. Resort transfer is available: GHS 600 one-way for up to 4 guests, GHS 900 for a luxury sedan or up to 6 guests. Hire car and tro-tro (shared minibus) are also possible.',
   },
   {
     id: 'location-nearby',
@@ -91,14 +91,14 @@ const STATIC: KnowledgeDoc[] = [
     category: 'amenity',
     title: 'Beach and pool',
     content:
-      'KO-SA fronts directly onto a quiet stretch of Atlantic coast. The beach is open to resort guests with sun loungers, parasols, and beach service. An infinity pool overlooks the shore. A lifeguard is on duty 8am–6pm. Strong currents are signposted.',
+      'Ko Sa fronts directly onto a quiet stretch of Atlantic coast. The beach is open to resort guests with sun loungers, parasols, and beach service. An infinity pool overlooks the shore. A lifeguard is on duty 8am–6pm. Strong currents are signposted.',
   },
   {
     id: 'amenity-spa',
     category: 'amenity',
     title: 'Spa and wellness',
     content:
-      'The Ko-Sa Health Spa offers Deepcore, Swedish, Holistic and Couples massages, plus reflexology and pedicures. O2 Wellness adds a Herbal Detox Steam Ritual, Glow Polish Facial and Full Body Glow Polish. Treatments from GHS 150. Daily morning yoga and meditation by the sea are complimentary for resort guests.',
+      'The Ko Sa Health Spa offers Deepcore, Swedish, Holistic and Couples massages, plus reflexology and pedicures. O2 Wellness adds a Herbal Detox Steam Ritual, Glow Polish Facial and Full Body Glow Polish. Treatments from GHS 150. Daily morning yoga and meditation by the sea are complimentary for resort guests.',
   },
   {
     id: 'amenity-restaurant',
@@ -119,7 +119,7 @@ const STATIC: KnowledgeDoc[] = [
     category: 'amenity',
     title: 'Weddings and private events',
     content:
-      'KO-SA hosts intimate weddings, vow renewals, and private dinners on the beach. Capacity up to 80 guests. Custom packages with our wedding planner. Email events@ko-sa.com.',
+      'Ko Sa hosts intimate weddings, vow renewals, and private dinners on the beach. Capacity up to 80 guests. Custom packages with our wedding planner. Email events@ko-sa.com.',
   },
 
   // ---- FAQ
@@ -135,14 +135,14 @@ const STATIC: KnowledgeDoc[] = [
     category: 'faq',
     title: 'What languages are spoken?',
     content:
-      'English is Ghana\'s official language and is widely spoken. Local languages include Akan (Twi/Fante), Ewe, and Ga. The KO-SA team speaks English and French; some staff also speak Twi.',
+      'English is Ghana\'s official language and is widely spoken. Local languages include Akan (Twi/Fante), Ewe, and Ga. The Ko Sa team speaks English and French; some staff also speak Twi.',
   },
   {
     id: 'faq-currency',
     category: 'faq',
     title: 'Currency in Ghana',
     content:
-      'The Ghana Cedi (GHS) is the local currency. KO-SA accepts GHS, USD, and EUR. ATMs and currency exchange are available in Elmina town (10 minutes away).',
+      'The Ghana Cedi (GHS) is the local currency. Ko Sa accepts GHS, USD, and EUR. ATMs and currency exchange are available in Elmina town (10 minutes away).',
   },
   {
     id: 'faq-safety',
@@ -185,7 +185,7 @@ const CULTURE_DOCS: KnowledgeDoc[] = adinkraGuide.map((a) => {
     id: `culture-${a.twi.toLowerCase()}`,
     category: 'culture',
     title: `${a.twi} ${meaning}`,
-    content: `${a.twi} is the Akan symbol for ${meaning.toLowerCase()}. At KO-SA: ${line}`,
+    content: `${a.twi} is the Akan symbol for ${meaning.toLowerCase()}. At Ko Sa: ${line}`,
   };
 });
 

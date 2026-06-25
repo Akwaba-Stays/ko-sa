@@ -3,7 +3,7 @@
 // AdminShell's "View site" link.
 
 export const site = {
-  name: 'KO-SA Beach Resort',
+  name: 'Ko Sa Beach Resort',
   brand: 'Akwaaba Stays',
   group: 'Akwaaba Stays Hospitality Group',
   domain: 'ko-sa.com',
@@ -21,7 +21,7 @@ export const site = {
     email: 'info@ko-sa.com',
     phone: '+233 24 437 5432',
     whatsapp: '233244375432',
-    whatsappMessage: "Hi Ko-Sa! I'd like to find out more about booking a stay",
+    whatsappMessage: "Hi Ko Sa! I'd like to find out more about booking a stay",
     address: 'Beach Road No.1, Ampenyi, Elmina, Ghana',
   },
   socials: {

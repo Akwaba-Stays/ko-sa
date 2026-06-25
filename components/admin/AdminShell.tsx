@@ -99,7 +99,7 @@ export function AdminShell({
       <header className="md:hidden sticky top-0 z-40 bg-cream border-b border-warm-grey/40">
         <div className="flex items-center justify-between px-4 h-14">
           <Link href="/admin" className="font-belleza text-lg text-umber">
-            KO-SA · Admin
+            Ko Sa · Admin
           </Link>
           <button
             type="button"
@@ -134,7 +134,7 @@ export function AdminShell({
           />
           <aside className={cn('relative flex flex-col bg-cream border-r border-warm-grey/40', SIDEBAR_W, 'max-w-[80%]')}>
             <div className="flex items-center justify-between h-14 px-4 border-b border-warm-grey/30">
-              <span className="font-belleza text-lg text-umber">KO-SA · Admin</span>
+              <span className="font-belleza text-lg text-umber">Ko Sa · Admin</span>
               <button type="button" onClick={() => setOpen(false)} aria-label="Close navigation" className="text-umber">
                 <X size={22} />
               </button>
@@ -163,7 +163,7 @@ function SidebarContent({
       {/* Brand row (desktop only mobile drawer has its own header) */}
       <div className="hidden md:flex h-16 items-center px-6 border-b border-warm-grey/30 shrink-0">
         <Link href="/admin" className="font-belleza text-xl text-umber hover:text-primary">
-          KO-SA · Admin
+          Ko Sa · Admin
         </Link>
       </div>
 

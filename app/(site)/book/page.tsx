@@ -6,7 +6,7 @@ import { getT } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Book Your Stay',
-  description: 'Reserve your stay at KO-SA Beach Resort secure booking, best-rate guarantee, instant confirmation',
+  description: 'Reserve your stay at Ko Sa Beach Resort secure booking, best-rate guarantee, instant confirmation',
 };
 
 export const dynamic = 'force-dynamic';

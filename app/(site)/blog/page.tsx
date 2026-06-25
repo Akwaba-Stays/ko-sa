@@ -9,7 +9,7 @@ import { getT } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Journal',
-  description: 'Letters from the shore guides to Elmina and Ghana, wellness rituals, and slow travel notes from KO-SA Beach Resort',
+  description: 'Letters from the shore guides to Elmina and Ghana, wellness rituals, and slow travel notes from Ko Sa Beach Resort',
 };
 
 export const dynamic = 'force-dynamic';

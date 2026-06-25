@@ -57,7 +57,7 @@ export function Intro() {
           <div className="branded-img relative aspect-[4/5] w-full overflow-hidden rounded-lg">
             <Image
               src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/11-772A2002.webp"
-              alt="A linen-curtained Kosa room opening onto palm canopy at golden hour"
+              alt="A linen-curtained Ko Sa room opening onto palm canopy at golden hour"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
               className="object-cover"

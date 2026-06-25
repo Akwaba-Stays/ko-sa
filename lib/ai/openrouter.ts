@@ -58,7 +58,7 @@ export async function* streamOpenRouter(opts: OpenRouterStreamOptions): AsyncGen
           'Content-Type': 'application/json',
           // OpenRouter attribution headers (recommended)
           'HTTP-Referer': siteUrl,
-          'X-Title': 'KO-SA Beach Resort',
+          'X-Title': 'Ko Sa Beach Resort',
         },
         body: JSON.stringify({
           model,

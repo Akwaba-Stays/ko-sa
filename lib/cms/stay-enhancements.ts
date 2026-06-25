@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma';
 
-// Stay-enhancement categories managed here. Spa categories (Ko-Sa Health Spa,
+// Stay-enhancement categories managed here. Spa categories (Ko Sa Health Spa,
 // O2 Wellness) are managed separately as Treatments in /admin/wellness.
 export const ENHANCEMENT_CATEGORIES = [
   'Experiences & Celebrations',

@@ -155,7 +155,7 @@ export interface Treatment {
   price: number;
 }
 
-// Real Ko-Sa spa menu (prices in GHS). Kept in sync with TREATMENTS_FALLBACK.
+// Real Ko Sa spa menu (prices in GHS). Kept in sync with TREATMENTS_FALLBACK.
 export const treatments: Treatment[] = [
   { slug: 'deepcore-massage', duration: '45 min', price: 350 },
   { slug: 'swedish-massage', duration: '45 min', price: 300 },

@@ -88,8 +88,8 @@ export async function POST(req: Request) {
 
     await sendMail({
       to: data.guest.email,
-      subject: `Your KO-SA reservation is confirmed ${reservation.confirmationNumber ?? cached.id}`,
-      text: `Akwaaba ${data.guest.firstName},\n\nYour stay at KO-SA Beach Resort is confirmed for ${data.startDate} → ${data.endDate}.\n\nConfirmation: ${reservation.confirmationNumber ?? cached.id}\n\nWe can't wait to welcome you.\n\nSimply, Belong.\nKO-SA Beach Resort`,
+      subject: `Your Ko Sa reservation is confirmed ${reservation.confirmationNumber ?? cached.id}`,
+      text: `Akwaaba ${data.guest.firstName},\n\nYour stay at Ko Sa Beach Resort is confirmed for ${data.startDate} → ${data.endDate}.\n\nConfirmation: ${reservation.confirmationNumber ?? cached.id}\n\nWe can't wait to welcome you.\n\nSimply, Belong.\nKo Sa Beach Resort`,
     });
 
     return NextResponse.json({

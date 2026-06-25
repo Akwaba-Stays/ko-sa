@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!room) return {};
   return {
     title: `${room.name} · Rooms`,
-    description: `${room.tagline ?? room.description ?? ''} ${room.name} at KO-SA Beach Resort, Elmina, Ghana.`.trim(),
+    description: `${room.tagline ?? room.description ?? ''} ${room.name} at Ko Sa Beach Resort, Elmina, Ghana.`.trim(),
     openGraph: { images: room.image ? [{ url: room.image, width: 1400, height: 900 }] : undefined },
   };
 }

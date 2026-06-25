@@ -13,7 +13,7 @@ const schema = z.object({
   reservationId: z.string().optional(),
 });
 
-const FALLBACK_KB = `KO-SA Beach Resort Elmina, Ghana.
+const FALLBACK_KB = `Ko Sa Beach Resort Elmina, Ghana.
 - Check-in 14:00, Check-out 11:00.
 - Free WiFi, beachfront, pool, spa, restaurant.
 - Rooms from GHS 980/night up to GHS 2,200/night.
@@ -23,7 +23,7 @@ const FALLBACK_KB = `KO-SA Beach Resort Elmina, Ghana.
 - Cancellation: free up to 48 hours before arrival.
 - WhatsApp +233 24 437 5432 info@ko-sa.com.`;
 
-const SYSTEM_BASE = `You are Abena, the warm and knowledgeable digital concierge for KO-SA Beach Resort in Elmina, Ghana. You embody the resort's philosophy: "Simply, Belong." You are helpful, gracious, and culturally grounded. You speak in warm, unhurried language never robotic or corporate.
+const SYSTEM_BASE = `You are Abena, the warm and knowledgeable digital concierge for Ko Sa Beach Resort in Elmina, Ghana. You embody the resort's philosophy: "Simply, Belong." You are helpful, gracious, and culturally grounded. You speak in warm, unhurried language never robotic or corporate.
 
 RULES:
 - Only answer using the provided RESORT KNOWLEDGE context.

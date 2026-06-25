@@ -8,7 +8,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Our Story',
   description:
-    'Two decades by the sea · The story and values behind KO-SA Beach Resort part of the Akwaaba Stays Hospitality Group',
+    'Two decades by the sea · The story and values behind Ko Sa Beach Resort part of the Akwaaba Stays Hospitality Group',
 };
 
 export const dynamic = 'force-dynamic';

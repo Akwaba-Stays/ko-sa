@@ -10,7 +10,7 @@ import { getSetting } from '@/lib/cms/settings';
 export const metadata: Metadata = {
   title: 'Rooms & Accommodation',
   description:
-    'Your place by the sea · Garden retreats to ocean-facing suites at KO-SA Beach Resort, Elmina, Ghana designed for true rest',
+    'Your place by the sea · Garden retreats to ocean-facing suites at Ko Sa Beach Resort, Elmina, Ghana designed for true rest',
 };
 
 export const dynamic = 'force-dynamic';

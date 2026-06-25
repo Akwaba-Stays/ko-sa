@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
           <Link href="/" aria-label="Home" className="inline-block">
             <Image
               src="/logo.png"
-              alt="KO-SA Beach Resort"
+              alt="Ko Sa Beach Resort"
               width={120}
               height={80}
               priority
@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
             />
           </Link>
           <p className="mt-6 font-poppins text-xs uppercase tracking-tracked text-brown">
-            KO-SA · Staff
+            Ko Sa · Staff
           </p>
           <h1 className="mt-3 font-belleza text-4xl text-umber">Sign in</h1>
           <p className="mt-3 font-raleway text-sm text-umber/70">

@@ -33,7 +33,7 @@ function getSessionId() {
 function parseSystemMsg(content: string, agentName: string | null): string {
   if (content.startsWith('__AGENT_JOIN__')) {
     const name = content.replace('__AGENT_JOIN__', '') || agentName || 'A team member';
-    return `${name} from Ko-Sa has joined the conversation.`;
+    return `${name} from Ko Sa has joined the conversation.`;
   }
   if (content.startsWith('__AGENT_LEAVE__')) {
     return 'You are now chatting with Abena, our AI concierge.';
@@ -226,7 +226,7 @@ export function ChatWidget() {
   if (pathname?.startsWith('/admin')) return null;
 
   const headerSubtitle = agentMode
-    ? `${agentName ?? 'Ko-Sa team'} · Live support`
+    ? `${agentName ?? 'Ko Sa team'} · Live support`
     : t('chat.subtitle');
 
   return (
@@ -311,7 +311,7 @@ export function ChatWidget() {
                 </span>
                 <div>
                   <p className="font-belleza text-lg leading-none">
-                    {agentMode ? (agentName ?? 'Ko-Sa Team') : t('chat.title')}
+                    {agentMode ? (agentName ?? 'Ko Sa Team') : t('chat.title')}
                   </p>
                   <p className="font-poppins text-[10px] uppercase tracking-tracked text-cream/70">
                     {headerSubtitle}
@@ -328,7 +328,7 @@ export function ChatWidget() {
               <div className="flex items-center justify-center gap-2 bg-emerald-50 border-b border-emerald-200 py-2 px-4">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <p className="text-[11px] font-opensans text-emerald-800 font-medium">
-                  You are chatting with a Ko-Sa team member
+                  You are chatting with a Ko Sa team member
                 </p>
               </div>
             )}

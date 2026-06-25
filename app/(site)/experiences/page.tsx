@@ -16,7 +16,7 @@ import { DailyActivitiesRail, type RailDay } from '@/components/experiences/Dail
 export const metadata: Metadata = {
   title: 'Experiences & Activities',
   description:
-    'Ghana begins here · On-property calm and guided journeys into Cape Coast, Elmina, Kakum and the fishing villages from KO-SA Beach Resort',
+    'Ghana begins here · On-property calm and guided journeys into Cape Coast, Elmina, Kakum and the fishing villages from Ko Sa Beach Resort',
 };
 
 export const dynamic = 'force-dynamic';
@@ -136,7 +136,7 @@ export default async function ExperiencesPage() {
         </section>
       )}
 
-      {/* Signature experiences real activities at Ko-Sa */}
+      {/* Signature experiences real activities at Ko Sa */}
       <section className="py-16 md:py-24 bg-cream">
         <div className="container-page">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -250,7 +250,7 @@ export default async function ExperiencesPage() {
                           <BookButton
                             category="ENHANCEMENT"
                             itemName={item.name}
-                            message={`Hi Ko-Sa! I'd like to add ${item.name} to my stay.`}
+                            message={`Hi Ko Sa! I'd like to add ${item.name} to my stay.`}
                             source="experiences/enhance"
                             className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-coral text-coral font-opensans uppercase tracking-tracked-sm text-[10px] px-3 py-2 hover:bg-coral hover:text-cream transition-colors"
                           >

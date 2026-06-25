@@ -125,7 +125,7 @@ export function ExitIntentPopup() {
             ) : (
               <>
                 <p className="font-opensans text-[10px] uppercase tracking-tracked text-coral mb-3">
-                  KO-SA · Newsletter
+                  Ko Sa · Newsletter
                 </p>
                 <h2 id="exit-popup-headline" className="font-playfair text-2xl md:text-3xl text-teal leading-tight">
                   {t('exit.headline')}

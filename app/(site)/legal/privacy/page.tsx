@@ -3,7 +3,7 @@ import { Section, Eyebrow, Heading, GoldDivider } from '@/components/shared/Sect
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How KO-SA Beach Resort collects, uses, and protects your personal information',
+  description: 'How Ko Sa Beach Resort collects, uses, and protects your personal information',
   alternates: { canonical: '/legal/privacy' },
 };
 
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
 
           <article className="prose prose-umber max-w-none font-raleway text-umber/85 space-y-6 leading-relaxed">
             <p>
-              KO-SA Beach Resort (&ldquo;KO-SA&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) respects
+              Ko Sa Beach Resort (&ldquo;Ko Sa&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) respects
               your privacy. This policy explains what personal information we collect when you visit{' '}
               <strong>ko-sa.com</strong>, make a reservation, contact us, or subscribe to our
               newsletter, how we use it, and the rights you have over it.
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
 
             <h2 className="font-belleza text-2xl text-umber mt-10">7. Contact</h2>
             <p>
-              KO-SA Beach Resort · Beach Road No.1, Ampenyi, Elmina, Ghana ·{' '}
+              Ko Sa Beach Resort · Beach Road No.1, Ampenyi, Elmina, Ghana ·{' '}
               <a className="text-primary underline" href="mailto:info@ko-sa.com">
                 info@ko-sa.com
               </a>

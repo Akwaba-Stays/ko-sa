@@ -33,7 +33,7 @@ export function VirtualTourTeaser() {
         >
           <Image
             src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/luxury-double-sea-view/0-LDRWSV.webp"
-            alt="360° preview of the Kosa beachfront suite"
+            alt="360° preview of the Ko Sa beachfront suite"
             fill
             sizes="100vw"
             className="object-cover transition-transform duration-1000 group-hover:scale-[1.02]"

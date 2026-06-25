@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// KO-SA pricing & bookable-content config (Website Change Request, June 2026)
+// Ko Sa pricing & bookable-content config (Website Change Request, June 2026)
 //
-// ROOM_RATES_GHS below are Ko-Sa's CONFIRMED starting nightly rates, taken from
+// ROOM_RATES_GHS below are Ko Sa's CONFIRMED starting nightly rates, taken from
 // the resort's official "Rooms & Rates" sheet (files/Rooms-&-Rates.jpeg, June
 // 2026). Centralised here so a future rate change is a one-place edit. A live DB
 // price (> 0) on a room always overrides the value here.
@@ -97,20 +97,20 @@ export type TreatmentSeed = {
   category?: string;
 };
 
-// Real Ko-Sa spa menu (used only if the CMS has no treatments). Mirrors the
+// Real Ko Sa spa menu (used only if the CMS has no treatments). Mirrors the
 // live data so the page never shows services the resort does not offer.
 export const TREATMENTS_FALLBACK: TreatmentSeed[] = [
-  { slug: 'deepcore-massage', name: 'Deepcore Massage', durationMin: 45, priceGhs: 350, category: 'Ko-Sa Health Spa' },
-  { slug: 'deepcore-massage-60', name: 'Deepcore Massage (60 min)', durationMin: 60, priceGhs: 400, category: 'Ko-Sa Health Spa' },
-  { slug: 'couples-massage', name: 'Couples Massage', durationMin: 45, priceGhs: 550, category: 'Ko-Sa Health Spa' },
-  { slug: 'couples-massage-60', name: 'Couples Massage (60 min)', durationMin: 60, priceGhs: 700, category: 'Ko-Sa Health Spa' },
-  { slug: 'swedish-massage', name: 'Swedish Massage', durationMin: 45, priceGhs: 300, category: 'Ko-Sa Health Spa' },
-  { slug: 'swedish-massage-60', name: 'Swedish Massage (60 min)', durationMin: 60, priceGhs: 350, category: 'Ko-Sa Health Spa' },
-  { slug: 'holistic-massage', name: 'Holistic Massage', durationMin: 45, priceGhs: 330, category: 'Ko-Sa Health Spa' },
-  { slug: 'holistic-massage-60', name: 'Holistic Massage (60 min)', durationMin: 60, priceGhs: 380, category: 'Ko-Sa Health Spa' },
-  { slug: 'reflexology', name: 'Reflexology', durationMin: 30, priceGhs: 200, category: 'Ko-Sa Health Spa' },
-  { slug: 'reflexology-45', name: 'Reflexology (45 min)', durationMin: 45, priceGhs: 250, category: 'Ko-Sa Health Spa' },
-  { slug: 'pedicure', name: 'Pedicure', durationMin: 45, priceGhs: 150, category: 'Ko-Sa Health Spa' },
+  { slug: 'deepcore-massage', name: 'Deepcore Massage', durationMin: 45, priceGhs: 350, category: 'Ko Sa Health Spa' },
+  { slug: 'deepcore-massage-60', name: 'Deepcore Massage (60 min)', durationMin: 60, priceGhs: 400, category: 'Ko Sa Health Spa' },
+  { slug: 'couples-massage', name: 'Couples Massage', durationMin: 45, priceGhs: 550, category: 'Ko Sa Health Spa' },
+  { slug: 'couples-massage-60', name: 'Couples Massage (60 min)', durationMin: 60, priceGhs: 700, category: 'Ko Sa Health Spa' },
+  { slug: 'swedish-massage', name: 'Swedish Massage', durationMin: 45, priceGhs: 300, category: 'Ko Sa Health Spa' },
+  { slug: 'swedish-massage-60', name: 'Swedish Massage (60 min)', durationMin: 60, priceGhs: 350, category: 'Ko Sa Health Spa' },
+  { slug: 'holistic-massage', name: 'Holistic Massage', durationMin: 45, priceGhs: 330, category: 'Ko Sa Health Spa' },
+  { slug: 'holistic-massage-60', name: 'Holistic Massage (60 min)', durationMin: 60, priceGhs: 380, category: 'Ko Sa Health Spa' },
+  { slug: 'reflexology', name: 'Reflexology', durationMin: 30, priceGhs: 200, category: 'Ko Sa Health Spa' },
+  { slug: 'reflexology-45', name: 'Reflexology (45 min)', durationMin: 45, priceGhs: 250, category: 'Ko Sa Health Spa' },
+  { slug: 'pedicure', name: 'Pedicure', durationMin: 45, priceGhs: 150, category: 'Ko Sa Health Spa' },
   { slug: 'herbal-detox-steam', name: 'Herbal Detox Steam Ritual', durationMin: 60, priceGhs: 264, category: 'O2 Wellness' },
   { slug: 'glow-polish-facial', name: 'Glow Polish Facial Ritual', durationMin: 60, priceGhs: 302, category: 'O2 Wellness' },
   { slug: 'full-body-glow-polish', name: 'Full Body Glow Polish', durationMin: 75, priceGhs: 672, category: 'O2 Wellness' },
@@ -139,13 +139,13 @@ export function waLink(message: string): string {
 }
 
 export const waPrefill = {
-  treatment: (name: string) => `Hi Ko-Sa! I'd like to book a ${name}.`,
-  experience: (name: string) => `Hi Ko-Sa! I'd like to book the ${name} experience.`,
+  treatment: (name: string) => `Hi Ko Sa! I'd like to book a ${name}.`,
+  experience: (name: string) => `Hi Ko Sa! I'd like to book the ${name} experience.`,
   reserveTable: () =>
-    "Hi Ko-Sa! I'd like to reserve a table for [date] at [time] for [X] people.",
+    "Hi Ko Sa! I'd like to reserve a table for [date] at [time] for [X] people.",
   privateDining: () =>
-    "Hi Ko-Sa! I'd like to enquire about private beach dining for a special occasion.",
-  planMyStay: () => "Hi Ko-Sa! I'd like help planning my stay.",
-  turtleWalk: () => 'Hi Ko-Sa! I’d like to ask about the sea turtle night walks.',
-  customiseStay: () => "Hi Ko-Sa! I'd like to customise my stay.",
+    "Hi Ko Sa! I'd like to enquire about private beach dining for a special occasion.",
+  planMyStay: () => "Hi Ko Sa! I'd like help planning my stay.",
+  turtleWalk: () => 'Hi Ko Sa! I’d like to ask about the sea turtle night walks.',
+  customiseStay: () => "Hi Ko Sa! I'd like to customise my stay.",
 };

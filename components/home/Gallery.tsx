@@ -146,7 +146,7 @@ export function Gallery({ items: rawItems = [] }: { items?: PublicGalleryItem[] 
                 >
                   <Image
                     src={item.imageUrl}
-                    alt={item.alt ?? item.caption ?? `KO-SA gallery image ${i + 1}`}
+                    alt={item.alt ?? item.caption ?? `Ko Sa gallery image ${i + 1}`}
                     width={item.width ?? 900}
                     height={item.height ?? 1200}
                     sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw"
