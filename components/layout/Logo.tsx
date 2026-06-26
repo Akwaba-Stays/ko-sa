@@ -15,7 +15,7 @@ interface LogoProps {
 export function Logo({ variant = 'horizontal', className, tone = 'color', height }: LogoProps) {
   if (variant === 'icon') {
     return (
-      <Link href="/" aria-label="Ko Sa Beach Resort" className={cn('inline-block', className)}>
+      <Link href="/" aria-label="KoSa Beach Resort" className={cn('inline-block', className)}>
         <AdinkraIcon name="palm" size={height ?? 32} className="text-primary" />
       </Link>
     );
@@ -36,12 +36,12 @@ export function Logo({ variant = 'horizontal', className, tone = 'color', height
   return (
     <Link
       href="/"
-      aria-label="Ko Sa Beach Resort"
+      aria-label="KoSa Beach Resort"
       className={cn('inline-flex items-center group', className)}
     >
       <Image
         src="/logo.png"
-        alt="Ko Sa Beach Resort"
+        alt="KoSa Beach Resort"
         width={w}
         height={h}
         priority

@@ -50,7 +50,7 @@ const FALLBACK_TESTIMONIALS: PublicTestimonial[] = [
     country: 'Ghana',
     rating: 5,
     quote:
-      "Ko Sa doesn't try to impress you. It just quietly becomes the best place you've stayed.",
+      "KoSa doesn't try to impress you. It just quietly becomes the best place you've stayed.",
     avatarUrl: null,
     source: 'Google',
     sortOrder: 2,

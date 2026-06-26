@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: 'Wellness',
   description:
-    'You don\'t need a programme. You need permission to stop. Spa, coaching, yoga by the sea, a herbal tea bar and slow days at Ko Sa Beach Resort, Elmina, Ghana.',
+    'You don\'t need a programme. You need permission to stop. Spa, coaching, yoga by the sea, a herbal tea bar and slow days at KoSa Beach Resort, Elmina, Ghana.',
 };
 
 export const dynamic = 'force-dynamic';
@@ -53,7 +53,7 @@ const DAY = [
 // Representative image per treatment category (treatments carry no own photo
 // in the CMS yet). Keeps each card visual and on-brand.
 const CATEGORY_IMG: Record<string, string> = {
-  'Ko Sa Health Spa': `${WELLNESS}/spa-services.webp`,
+  'KoSa Health Spa': `${WELLNESS}/spa-services.webp`,
   'O2 Wellness': `${WELLNESS}/wellness-journeys.webp`,
 };
 const DEFAULT_TREATMENT_IMG = `${WELLNESS}/spa-services.webp`;
@@ -175,7 +175,7 @@ export default async function WellnessPage() {
       {/* Pull quote between the offerings and the day timeline */}
       <PullQuote tone="sand">{t('quote.ocean')}</PullQuote>
 
-      {/* What a wellness day at Ko Sa looks like - a flowing sequence, not a table */}
+      {/* What a wellness day at KoSa looks like - a flowing sequence, not a table */}
       <section className="py-20 md:py-28 bg-cream">
         <div className="container-page">
           <Reveal className="text-center mb-14 max-w-3xl mx-auto">
@@ -256,7 +256,7 @@ export default async function WellnessPage() {
               <BookButton
                 category="OTHER"
                 itemName="Wellness during my stay"
-                message="Hi Ko Sa! I'd like to find out about wellness during my stay."
+                message="Hi KoSa! I'd like to find out about wellness during my stay."
                 source="wellness/closing"
                 className="inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-sm px-8 py-4 hover:bg-coral-600 transition-colors"
               >

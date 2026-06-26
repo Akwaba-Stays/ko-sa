@@ -47,7 +47,7 @@ export function DailyActivitiesRail({
             <div className="bg-teal-700 text-cream px-7 py-5 flex items-baseline justify-between">
               <p className="font-playfair text-2xl">{d.label}</p>
               <p className="font-opensans text-[10px] uppercase tracking-tracked text-cream/60">
-                Ko Sa Beach Resort
+                KoSa Beach Resort
               </p>
             </div>
             <div className="divide-y divide-sand-300/40">

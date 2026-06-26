@@ -3,7 +3,7 @@ import { Section, Eyebrow, Heading, GoldDivider } from '@/components/shared/Sect
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'The terms governing your use of the Ko Sa Beach Resort website and services',
+  description: 'The terms governing your use of the KoSa Beach Resort website and services',
   alternates: { canonical: '/legal/terms' },
 };
 
@@ -53,7 +53,7 @@ export default function TermsPage() {
 
             <h2 className="font-belleza text-2xl text-umber mt-10">4. Conduct</h2>
             <p>
-              Ko Sa is a sanctuary. We ask all guests to keep noise minimal after 22:00, respect
+              KoSa is a sanctuary. We ask all guests to keep noise minimal after 22:00, respect
               staff and other guests, and treat the property and its surrounds with care. We
               reserve the right to decline service to any guest whose behaviour disrupts the
               wellbeing of others.
@@ -67,7 +67,7 @@ export default function TermsPage() {
 
             <h2 className="font-belleza text-2xl text-umber mt-10">6. Liability</h2>
             <p>
-              To the extent permitted by law, Ko Sa is not liable for indirect or consequential
+              To the extent permitted by law, KoSa is not liable for indirect or consequential
               loss, loss of personal property, or interruption of services caused by force
               majeure (severe weather, public unrest, utility outage, etc.). Our maximum liability
               is the total amount paid for your reservation.
@@ -75,10 +75,10 @@ export default function TermsPage() {
 
             <h2 className="font-belleza text-2xl text-umber mt-10">7. Website use</h2>
             <p>
-              Content on ko-sa.com is owned by Ko Sa Beach Resort or licensed for our use.
+              Content on ko-sa.com is owned by KoSa Beach Resort or licensed for our use.
               Personal viewing is welcome; reproduction or commercial use requires written
-              permission. Trademarks &ldquo;Ko Sa&rdquo;, &ldquo;Ko Sa Palms&rdquo;, and{' '}
-              <em>&ldquo;Simply, Belong&rdquo;</em> are property of Ko Sa Beach Resort.
+              permission. Trademarks &ldquo;KoSa&rdquo;, &ldquo;KoSa Palms&rdquo;, and{' '}
+              <em>&ldquo;Simply, Belong&rdquo;</em> are property of KoSa Beach Resort.
             </p>
 
             <h2 className="font-belleza text-2xl text-umber mt-10">8. Governing law</h2>
@@ -89,7 +89,7 @@ export default function TermsPage() {
 
             <h2 className="font-belleza text-2xl text-umber mt-10">9. Contact</h2>
             <p>
-              Ko Sa Beach Resort · Beach Road No.1, Ampenyi, Elmina, Ghana ·{' '}
+              KoSa Beach Resort · Beach Road No.1, Ampenyi, Elmina, Ghana ·{' '}
               <a className="text-primary underline" href="mailto:info@ko-sa.com">
                 info@ko-sa.com
               </a>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* ── Ko Sa palette - extracted from logo.png ── */
+  /* ── KoSa palette - extracted from logo.png ── */
   --background: #f9f8f4;
   --foreground: #1a1a1a;
   --primary: #2c606e;
@@ -173,7 +173,7 @@ body {
 }
 
 /* ────────────────────────────────────────────────────────────────────────────
- * Ko Sa button utilities (ported from ko-sa.com)
+ * KoSa button utilities (ported from ko-sa.com)
  * ──────────────────────────────────────────────────────────────────────────── */
 
 .btn {

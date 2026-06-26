@@ -5,7 +5,7 @@ import { AdminShell } from '@/components/admin/AdminShell';
 import { ToastProvider } from '@/components/admin/Toast';
 
 export const metadata: Metadata = {
-  title: 'Admin · Ko Sa',
+  title: 'Admin · KoSa',
   robots: { index: false, follow: false },
 };
 

@@ -20,7 +20,7 @@ export const authOptions: NextAuthOptions = {
   pages: { signIn: '/admin/login' },
   providers: [
     CredentialsProvider({
-      name: 'Ko Sa Admin',
+      name: 'KoSa Admin',
       credentials: {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
@@ -39,7 +39,7 @@ export const authOptions: NextAuthOptions = {
               data: {
                 email: bootEmail,
                 password: await bcrypt.hash(bootPass, 12),
-                name: 'Ko Sa Owner',
+                name: 'KoSa Owner',
                 role: 'OWNER',
               },
             });

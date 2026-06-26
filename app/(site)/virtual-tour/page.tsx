@@ -7,7 +7,7 @@ import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: '360° Virtual Tour',
-  description: 'Step inside Ko Sa Beach Resort virtual tour of suites, spa, pool and shoreline in Elmina, Ghana',
+  description: 'Step inside KoSa Beach Resort virtual tour of suites, spa, pool and shoreline in Elmina, Ghana',
 };
 
 export const dynamic = 'force-dynamic';

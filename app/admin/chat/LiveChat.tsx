@@ -243,7 +243,7 @@ export function LiveChat({ initialSessions }: { initialSessions: ChatSessionSumm
     setToast(msg);
     if (soundOn) audioRef.current?.play().catch(() => {});
     if ('Notification' in window && Notification.permission === 'granted') {
-      new Notification('Ko Sa Chat', { body: msg, icon: '/logo.png' });
+      new Notification('KoSa Chat', { body: msg, icon: '/logo.png' });
     }
   }, [soundOn]);
 

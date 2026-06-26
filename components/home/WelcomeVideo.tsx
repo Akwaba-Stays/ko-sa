@@ -1,6 +1,6 @@
 'use client';
 
-// "Welcome Home" film a cinematic, click-to-play feature of the Ko Sa naming
+// "Welcome Home" film a cinematic, click-to-play feature of the KoSa naming
 // ceremony on the beach. The clip is a narrative promo with its own audio and a
 // branded outro, so it is presented as a poster + play (not a silent hero loop)
 // and only downloads when the visitor presses play (preload="none").

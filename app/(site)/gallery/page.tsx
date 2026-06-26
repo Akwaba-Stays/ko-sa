@@ -6,7 +6,7 @@ import { getT } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Gallery',
-  description: 'A visual journey through Ko Sa Beach Resort suites, spa, dining, shoreline and palms',
+  description: 'A visual journey through KoSa Beach Resort suites, spa, dining, shoreline and palms',
 };
 
 export const dynamic = 'force-dynamic';

@@ -36,7 +36,7 @@ const ITINERARIES: {
 export const metadata: Metadata = {
   title: 'Plan Your Stay',
   description:
-    'Everything you need to arrive ready what to do, getting here, airport transfers and FAQs for Ko Sa Beach Resort, Ghana',
+    'Everything you need to arrive ready what to do, getting here, airport transfers and FAQs for KoSa Beach Resort, Ghana',
 };
 
 export const dynamic = 'force-dynamic';
@@ -64,7 +64,7 @@ export default async function PlanPage() {
       <PageHero
         eyebrow={t('nav.plan')}
         title={t('planPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/feeling/slowing-down-guests.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/gallery/randoms/v2-relaxing.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
@@ -128,7 +128,7 @@ export default async function PlanPage() {
                       <BookButton
                         category="PACKAGE"
                         itemName={pkg.name}
-                        message={`Hi Ko Sa! I'd like to enquire about the ${pkg.name} package.`}
+                        message={`Hi KoSa! I'd like to enquire about the ${pkg.name} package.`}
                         source="plan/packages"
                         className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-4 py-2.5 hover:bg-coral-600 transition-colors"
                       >
@@ -211,7 +211,7 @@ export default async function PlanPage() {
             <BookButton
               category="TRANSFER"
               itemName="Airport transfer"
-              message="Hi Ko Sa! I'd like to book an airport transfer. My arrival details are:"
+              message="Hi KoSa! I'd like to book an airport transfer. My arrival details are:"
               source="plan/getting-here"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-xs px-6 py-3 hover:bg-coral-600 transition-colors"
             >

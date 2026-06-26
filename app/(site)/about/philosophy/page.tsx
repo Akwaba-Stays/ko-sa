@@ -7,12 +7,12 @@ import { Button } from '@/components/shared/Button';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'The Five Layers of Self Ko Sa Philosophy',
+  title: 'The Five Layers of Self KoSa Philosophy',
   description:
-    'Ko Sa Beach Resort is built on a quiet framework: the five layers of self · Body, breath, mind, knowing, joy the Akan-rooted lens we use to design every stay',
+    'KoSa Beach Resort is built on a quiet framework: the five layers of self · Body, breath, mind, knowing, joy the Akan-rooted lens we use to design every stay',
   alternates: { canonical: '/about/philosophy' },
   openGraph: {
-    title: 'The Five Layers of Self Ko Sa',
+    title: 'The Five Layers of Self KoSa',
     description: 'A quiet framework rooted in Akan thought, woven into every part of the resort',
     type: 'article',
   },
@@ -74,7 +74,7 @@ export default function PhilosophyPage() {
         <div className="absolute inset-0 branded-img">
           <Image
             src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/1-772A1842.webp"
-            alt="A guest pausing on a sun-warmed verandah at Ko Sa, palm shadows on the cane chair"
+            alt="A guest pausing on a sun-warmed verandah at KoSa, palm shadows on the cane chair"
             fill
             priority
             className="object-cover"
@@ -106,8 +106,8 @@ export default function PhilosophyPage() {
           </Heading>
           <GoldDivider />
           <Lede>
-            The brand guide that grew into Ko Sa carries a single line we kept returning to:{' '}
-            <em>every piece of content should speak to the surrounds of Ko Sa and the five layers
+            The brand guide that grew into KoSa carries a single line we kept returning to:{' '}
+            <em>every piece of content should speak to the surrounds of KoSa and the five layers
             of self</em>. We took it as instruction. The five layers drawn from Akan thought,
             and gently held are the lens we use to plan a morning, to lay a table, to choose
             the linen. They are not amenities. They are the questions the property asks the guest:{' '}
@@ -145,7 +145,7 @@ export default function PhilosophyPage() {
                           'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/resort/12-772A4928.webp', // joy
                         ][i]
                       }
-                      alt={`A scene from Ko Sa evoking ${layer.en.toLowerCase()}`}
+                      alt={`A scene from KoSa evoking ${layer.en.toLowerCase()}`}
                       fill
                       sizes="(min-width: 1024px) 40vw, 100vw"
                       className="object-cover"
@@ -205,7 +205,7 @@ export default function PhilosophyPage() {
               href="/about"
               className="font-poppins text-xs uppercase tracking-tracked text-cream/80 hover:text-primary transition-colors"
             >
-              More about Ko Sa →
+              More about KoSa →
             </Link>
           </div>
         </div>

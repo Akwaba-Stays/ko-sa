@@ -6,10 +6,13 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
+// Display brand is "KoSa" (no space/hyphen). Identifiers (kosa-public bucket,
+// ko-sa.com, kosa-breeze slug, kosa-shimmer CSS) stay lowercase and are guarded.
 const HY = /(?<![/\w-])(?:Ko-Sa|KO-SA|Ko-sa|Ko-SA)(?![\w])/g;
 const NH = /(?<![/\w-])(?:Kosa|KOSA)(?![-\w])(?! Brand)/g;
+const SP = /Ko Sa/g;
 const isUrlish = (s) => /https?:\/\/|:\/\//i.test(s) || s.startsWith('/') || /\.(com|webp|jpg|jpeg|png|mp4|svg)\b/i.test(s);
-const fixStr = (s) => (typeof s === 'string' && !isUrlish(s) ? s.replace(HY, 'Ko Sa').replace(NH, 'Ko Sa') : s);
+const fixStr = (s) => (typeof s === 'string' && !isUrlish(s) ? s.replace(HY, 'KoSa').replace(NH, 'KoSa').replace(SP, 'KoSa') : s);
 const deep = (v) => {
   if (typeof v === 'string') return fixStr(v);
   if (Array.isArray(v)) return v.map(deep);

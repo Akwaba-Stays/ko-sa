@@ -1,5 +1,5 @@
 /**
- * Ko Sa i18n dictionary lightweight, cookie-driven, no route restructure.
+ * KoSa i18n dictionary lightweight, cookie-driven, no route restructure.
  * Add keys with EN as source of truth; FR, ES, NL & DE translations follow.
  * Used via `useT()` (client) and `getT()` (server).
  */
@@ -49,7 +49,7 @@ const en = {
 
   // Intro
   'intro.eyebrow': 'Welcome · Akwaaba',
-  'intro.headline.l1': 'Ko Sa is not a hotel',
+  'intro.headline.l1': 'KoSa is not a hotel',
   'intro.headline.l2': 'It is a place you return to',
   'intro.body':
     'On a stretch of soft Atlantic coast in Elmina, where palms lean toward the wind and the ocean keeps a slower clock, we built a place to be still · Eco-luxe in its bones, grounded in Ghanaian craft, and elevated by the rituals of the people who tend it',
@@ -74,7 +74,7 @@ const en = {
   'experiences.eyebrow': 'Live fully',
   'experiences.headline': 'Four ways to feel rooted',
   'experiences.blurb':
-    'From sunrise yoga on the bluff to fire-lit drum circles, every day at Ko Sa is composed of small returns to yourself',
+    'From sunrise yoga on the bluff to fire-lit drum circles, every day at KoSa is composed of small returns to yourself',
   'experiences.discover': 'Discover',
 
   // Wellness section
@@ -130,12 +130,12 @@ const en = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Digital concierge · usually replies instantly',
   'chat.greeting':
-    "Akwaaba I'm Abena, your Ko Sa concierge · Ask me anything about the resort, our rooms, or planning your stay",
+    "Akwaaba I'm Abena, your KoSa concierge · Ask me anything about the resort, our rooms, or planning your stay",
   'chat.placeholder': 'Ask anything…',
   'chat.send': 'Send',
   'chat.close': 'Close chat',
   'chat.suggested.rooms': 'What rooms are available?',
-  'chat.suggested.directions': 'How do I get to Ko Sa from Accra?',
+  'chat.suggested.directions': 'How do I get to KoSa from Accra?',
   'chat.suggested.spa': 'Tell me about the spa',
   'chat.suggested.included': "What's included in my stay?",
 
@@ -222,7 +222,7 @@ const en = {
   'testimonials.2.country': 'Paris, France',
   'testimonials.2.quote': 'A sanctuary in the truest sense · The staff make you feel like a returning friend, not a guest',
   'testimonials.3.country': 'Lagos, Nigeria',
-  'testimonials.3.quote': 'Ko Sa is what every African coastline could be rooted, beautiful, dignified',
+  'testimonials.3.quote': 'KoSa is what every African coastline could be rooted, beautiful, dignified',
 
   // Spa treatments
   'treatments.atlantic-salt-scrub.name': 'Atlantic Salt Scrub',
@@ -256,7 +256,7 @@ const en = {
   'home.hero.headline': 'Rest. Reconnect. Come back to yourself',
   'home.hero.subhead': "Ghana's coastal retreat for the soul - Ampenyi, Elmina",
   'home.hero.ctaPrimary': 'Book Your Stay',
-  'home.hero.ctaSecondary': 'Explore Ko Sa',
+  'home.hero.ctaSecondary': 'Explore KoSa',
   // Urgency nudge beneath the hero buttons (Change Request §Page 01)
   'home.hero.urgency': 'Rooms filling for July & August - book direct for the best rate',
 
@@ -267,7 +267,7 @@ const en = {
   // Feeling section (brief §01)
   'home.feeling.headline': 'This is what slowing down looks like',
   'home.feeling.body':
-    'Ko Sa is a coastal retreat designed for connection with nature, with others, and with yourself · It’s a space where every sunrise and sea breeze invites you to be still · Where the food is fresh and the pace is gentle · Where the ocean is not just a view it’s the whole point',
+    'KoSa is a coastal retreat designed for connection with nature, with others, and with yourself · It’s a space where every sunrise and sea breeze invites you to be still · Where the food is fresh and the pace is gentle · Where the ocean is not just a view it’s the whole point',
 
   // Sample itineraries (brief §01)
   'home.itineraries.eyebrow': 'Sample Itineraries',
@@ -295,7 +295,7 @@ const en = {
 
   // Testimonials block (brief §01)
   'home.testimonials.example':
-    'I arrived exhausted and left feeling like myself again · Ko Sa has a way of doing that',
+    'I arrived exhausted and left feeling like myself again · KoSa has a way of doing that',
 
   // Email capture (brief §01)
   'home.email.headline': 'Be the first to know',
@@ -307,18 +307,18 @@ const en = {
   // Rooms page (brief §02 page 02)
   'roomsPage.headline': 'Your place by the sea',
   'roomsPage.intro':
-    'Every room at Ko Sa was designed with one question in mind: what does it feel like to truly rest? Light that comes from the ocean · Air that carries the garden · Comfort that doesn’t announce itself it just surrounds you',
+    'Every room at KoSa was designed with one question in mind: what does it feel like to truly rest? Light that comes from the ocean · Air that carries the garden · Comfort that doesn’t announce itself it just surrounds you',
   'roomsPage.cardCta': 'Book Now',
   'roomsPage.trust':
     'Book direct for the best available rate · Flexible cancellation on all rooms · A welcome drink on arrival our way of saying we’re glad you came · Questions? We’re on WhatsApp',
 
   // Wellness page (brief §02 page 03)
-  'wellnessPage.headline': 'Well-being, the Ko Sa way',
-  'wellnessPage.hero.title': 'Well-being, the Ko Sa way',
+  'wellnessPage.headline': 'Well-being, the KoSa way',
+  'wellnessPage.hero.title': 'Well-being, the KoSa way',
   'wellnessPage.hero.sub': 'Nature restores discover balance in body and mind',
   'wellnessPage.approach.eyebrow': 'Our approach',
   'wellnessPage.approach.title': 'Wellness through nature',
-  'wellnessPage.approach.body1': 'We built Ko Sa on a simple belief: well-being should be beautiful, natural, and within reach. Here, wellness isn’t a programme - it’s the rhythm of the place. It’s in the herbal tea waiting for you at arrival. The sea air that greets you at dawn. The quiet you didn’t realise you needed.',
+  'wellnessPage.approach.body1': 'We built KoSa on a simple belief: well-being should be beautiful, natural, and within reach. Here, wellness isn’t a programme - it’s the rhythm of the place. It’s in the herbal tea waiting for you at arrival. The sea air that greets you at dawn. The quiet you didn’t realise you needed.',
   'wellnessPage.approach.body2': 'Wellness here isn’t something you do. It’s something you remember.',
   'wellnessPage.features.heading': 'Wellness features',
   'wellnessPage.feat.spa.title': 'Spa Services',
@@ -337,7 +337,7 @@ const en = {
   'wellnessPage.holistic.title': 'Body, mind and spirit',
   'wellnessPage.holistic.body1': 'Our wellness programmes address the whole person body, mind, and spirit · Whether you seek deep relaxation, renewed energy, or inner peace, our experienced team will guide you on a personalised journey',
   'wellnessPage.holistic.body2': 'From sunrise yoga on the beach to sunset meditation, from nourishing herbal teas to therapeutic massages, every element works together to restore your natural balance',
-  'wellnessPage.benefits.heading': 'The benefits of wellness at Ko Sa',
+  'wellnessPage.benefits.heading': 'The benefits of wellness at KoSa',
   'wellnessPage.benefit.stress.title': 'Stress Relief',
   'wellnessPage.benefit.stress.body': 'Release tension and anxiety through natural therapies and peaceful surroundings',
   'wellnessPage.benefit.renewal.title': 'Physical Renewal',
@@ -347,7 +347,7 @@ const en = {
   'wellnessPage.benefit.lasting.title': 'Lasting Change',
   'wellnessPage.benefit.lasting.body': 'Develop sustainable wellness habits that extend beyond your stay',
   'wellnessPage.intro':
-    "We built Ko Sa on a simple belief: well-being should be beautiful, natural, and within reach · Here, wellness isn’t a programme it’s the rhythm of the place · It’s in the herbal tea waiting for you at arrival · The sea air that greets you at dawn · The quiet you didn’t realise you needed",
+    "We built KoSa on a simple belief: well-being should be beautiful, natural, and within reach · Here, wellness isn’t a programme it’s the rhythm of the place · It’s in the herbal tea waiting for you at arrival · The sea air that greets you at dawn · The quiet you didn’t realise you needed",
   'wellnessPage.journeys.title': 'Wellness Journeys',
   'wellnessPage.journeys.body':
     'Guided experiences in rest, reflection, and renewal · Whether you come alone or with someone you love, we shape your time here around what your mind and body actually need',
@@ -357,7 +357,7 @@ const en = {
   'wellnessPage.spa.title': 'Spa Services',
   'wellnessPage.spa.body':
     'Massage, aromatherapy, and herbal treatments each one chosen for what it gives back to the body · Hands that know how to listen · Treatments rooted in the land',
-  'wellnessPage.tea.title': 'Ko Sa Tea Bar',
+  'wellnessPage.tea.title': 'KoSa Tea Bar',
   'wellnessPage.tea.body':
     'Herbal teas and fresh juices that nourish quietly · No rush · No noise · Just warmth in a cup and the sound of the ocean not too far away',
   'wellnessPage.cta.book': 'Book a Wellness Experience',
@@ -367,7 +367,7 @@ const en = {
   'diningPage.headline': 'Food the way the coast intended',
   'diningPage.popular': 'Popular',
   'diningPage.intro':
-    'At Ko Sa, the kitchen is part of the wellness · We work with local fishermen and farmers people who know this land and these waters and we let the freshness do the talking · Ghanaian flavours, lovingly prepared · Nourishment that tastes like it was made for you',
+    'At KoSa, the kitchen is part of the wellness · We work with local fishermen and farmers people who know this land and these waters and we let the freshness do the talking · Ghanaian flavours, lovingly prepared · Nourishment that tastes like it was made for you',
   'diningPage.restaurant.title': 'The Restaurant',
   'diningPage.restaurant.body':
     'Where the day begins and the evening slows · Our restaurant serves fresh, seasonal food rooted in Ghanaian tradition with care for every guest at the table including halal options, vegetarian dishes, and meals that feel as good as they taste',
@@ -387,10 +387,10 @@ const en = {
   // Experiences page (brief §02 page 05)
   'experiencesPage.headline': 'Ghana begins here',
   'experiencesPage.intro':
-    'Ko Sa sits at the edge of one of the most beautiful and historically rich coastlines in West Africa · We are your base, your guide, and your welcome home after every adventure · Whether you stay on the property or venture beyond it, we make sure every experience is one worth carrying home',
+    'KoSa sits at the edge of one of the most beautiful and historically rich coastlines in West Africa · We are your base, your guide, and your welcome home after every adventure · Whether you stay on the property or venture beyond it, we make sure every experience is one worth carrying home',
   'experiencesPage.property.title': 'On the Property',
   'experiencesPage.property.body':
-    'The ocean is just there · So is the pool, the garden, the yoga mat, and the hammock with your name on it · On the days when you simply want to be, Ko Sa is more than enough',
+    'The ocean is just there · So is the pool, the garden, the yoga mat, and the hammock with your name on it · On the days when you simply want to be, KoSa is more than enough',
   'experiencesPage.ghana.title': 'Into Ghana',
   'experiencesPage.ghana.body':
     "When you’re ready to explore, we’re ready to take you · Cape Coast Castle · Elmina · Kakum · The fishing villages · The markets · The histories that deserve to be known · We connect you with guides who know these places deeply not as tourists, but as people who belong here",
@@ -403,17 +403,17 @@ const en = {
   'eventsPage.empty': 'Nothing in this category yet - check back soon.',
 
   'eventsPage.intro':
-    'From cooking classes and drumming circles to castle tours, bead making and beach-side naming ceremonies, there is always something to do at Ko Sa. Pick what calls to you, or let us build the perfect day around you.',
+    'From cooking classes and drumming circles to castle tours, bead making and beach-side naming ceremonies, there is always something to do at KoSa. Pick what calls to you, or let us build the perfect day around you.',
   'eventsPage.weddings.title': 'Weddings & Celebrations',
   'eventsPage.weddings.body':
-    'A wedding at Ko Sa is the beach ceremony you always pictured the sound of waves, the warmth of the coast, the people you love most gathered in one beautiful place · We handle every detail with care · You just show up and celebrate',
+    'A wedding at KoSa is the beach ceremony you always pictured the sound of waves, the warmth of the coast, the people you love most gathered in one beautiful place · We handle every detail with care · You just show up and celebrate',
   'eventsPage.weddings.cta': 'Start Planning Your Wedding',
   'eventsPage.retreats.title': 'Wellness Retreats',
   'eventsPage.retreats.body':
-    'Ko Sa was built for restoration · Group wellness retreats yoga intensives, mindfulness weekends, or custom healing programmes find a natural home here · We bring the space, the stillness, and the support · You bring the intention',
+    'KoSa was built for restoration · Group wellness retreats yoga intensives, mindfulness weekends, or custom healing programmes find a natural home here · We bring the space, the stillness, and the support · You bring the intention',
   'eventsPage.corporate.title': 'Corporate Retreats & Offsite Meetings',
   'eventsPage.corporate.body':
-    "The best ideas don’t come from conference rooms · Bring your team to the coast, step away from the ordinary, and watch what happens when people can finally think · Ko Sa offers meeting space, group accommodation, and team experiences designed to reconnect the people behind the work",
+    "The best ideas don’t come from conference rooms · Bring your team to the coast, step away from the ordinary, and watch what happens when people can finally think · KoSa offers meeting space, group accommodation, and team experiences designed to reconnect the people behind the work",
   'eventsPage.corporate.cta': 'Enquire About Group Bookings',
   'eventsPage.form.name': 'Name',
   'eventsPage.form.company': 'Company',
@@ -426,19 +426,19 @@ const en = {
   // Plan Your Stay (brief §02 page 07)
   'planPage.headline': 'Everything you need to arrive ready',
   'planPage.intro':
-    'We want your Ko Sa experience to begin before you get here · Below you’ll find everything to help you plan sample itineraries, directions, FAQs, and the practical information that actually makes a difference',
+    'We want your KoSa experience to begin before you get here · Below you’ll find everything to help you plan sample itineraries, directions, FAQs, and the practical information that actually makes a difference',
   'planPage.experiences.eyebrow': 'What to do here',
   'planPage.experiences.body':
-    'Real experiences at Ko Sa, from the shore to the surrounding coast pick what calls to you',
+    'Real experiences at KoSa, from the shore to the surrounding coast pick what calls to you',
   'planPage.experiences.cta': 'See all experiences',
   'planPage.itineraries.eyebrow': 'Sample Itineraries',
   'planPage.itineraries.body':
-    'Three pre-built stays in a day-by-day format not schedules, but stories · Each one ends with: this is one version of your Ko Sa stay · Yours will be your own shape it with us on arrival, or tell us what you need before you come',
+    'Three pre-built stays in a day-by-day format not schedules, but stories · Each one ends with: this is one version of your KoSa stay · Yours will be your own shape it with us on arrival, or tell us what you need before you come',
   'planPage.itineraries.cta1': 'Book This Stay',
   'planPage.itineraries.cta2': 'Customise Your Plan',
   'planPage.getting.title': 'Getting Here',
   'planPage.getting.body':
-    "Ko Sa Beach Resort is located on Ghana’s Central Region coast, about 25 km from Elmina and 30 km from Cape Coast Castle · From Accra’s Kotoka International Airport, the drive takes approximately 3 hours and we can arrange your transfer so that your rest begins the moment you land",
+    "KoSa Beach Resort is located on Ghana’s Central Region coast, about 25 km from Elmina and 30 km from Cape Coast Castle · From Accra’s Kotoka International Airport, the drive takes approximately 3 hours and we can arrange your transfer so that your rest begins the moment you land",
   'planPage.getting.cta': 'Book an Airport Transfer',
   'planPage.faqs.title': 'Frequently Asked Questions',
   'planPage.faq.checkin.q': 'What time is check-in and check-out?',
@@ -455,7 +455,7 @@ const en = {
     'Yes. Our kitchen accommodates halal, vegetarian, and other dietary requirements. Just let us know at the time of booking.',
   'planPage.faq.children.q': 'Can I bring children?',
   'planPage.faq.children.a':
-    'Children are warmly welcome at Ko Sa. We have family rooms and can arrange cots and child-friendly meals on request.',
+    'Children are warmly welcome at KoSa. We have family rooms and can arrange cots and child-friendly meals on request.',
   'planPage.faq.payment.q': 'What payment methods do you accept?',
   'planPage.faq.payment.a':
     'We accept Visa, Mastercard, and mobile money (MTN MoMo, Vodafone Cash). All transactions are processed in GHS.',
@@ -469,20 +469,20 @@ const en = {
   // Our Story (brief §02 page 08)
   'aboutPage.headline': 'Two decades by the sea. And still, every guest feels like the first',
   'aboutPage.opening':
-    'Ko Sa Beach Resort was not built from a business plan. It was built from a belief - that the Ghanaian coast is one of the most restorative places on earth, and that everyone who comes here should be able to feel that. For over twenty years, we have held that belief.',
+    'KoSa Beach Resort was not built from a business plan. It was built from a belief - that the Ghanaian coast is one of the most restorative places on earth, and that everyone who comes here should be able to feel that. For over twenty years, we have held that belief.',
   'aboutPage.enrichedSetting':
     'It shows in the fishermen we partner with, the farmers who supply our kitchen, the artisans whose hands shaped what you see around you.',
   'aboutPage.enrichedEco':
     "We never set out to build a luxury resort. We set out to build a place where people could feel the coast the way it actually is - unhurried, generous, alive.",
   'aboutPage.continued':
-    'We are part of the Akwaaba Stays Hospitality Group - a family of properties across Ghana and West Africa that share a commitment to hospitality rooted in care, community, and the places we call home. Ko Sa is where that commitment lives closest to the water.',
+    'We are part of the Akwaaba Stays Hospitality Group - a family of properties across Ghana and West Africa that share a commitment to hospitality rooted in care, community, and the places we call home. KoSa is where that commitment lives closest to the water.',
   'aboutPage.values': 'Our Values',
   'aboutPage.values.authenticity.title': 'Authenticity',
   'aboutPage.values.authenticity.body':
-    'Honest hospitality that reflects the real rhythm of this coast · No performance · No pretence · Just Ko Sa as it is and as it always has been',
+    'Honest hospitality that reflects the real rhythm of this coast · No performance · No pretence · Just KoSa as it is and as it always has been',
   'aboutPage.values.community.title': 'Community',
   'aboutPage.values.community.body':
-    'We are in partnership with the people around us local fishermen, farmers, and artisans whose work and knowledge make Ko Sa what it is · When you stay here, their livelihoods grow too',
+    'We are in partnership with the people around us local fishermen, farmers, and artisans whose work and knowledge make KoSa what it is · When you stay here, their livelihoods grow too',
   'aboutPage.values.wellness.title': 'Wellness',
   'aboutPage.values.wellness.body':
     'Nourishing body and mind through healthy food, coaching, and calm · We believe well-being should be beautiful, natural, and within reach not a luxury reserved for a few',
@@ -494,12 +494,12 @@ const en = {
     'Two decades of genuine connection and continuous care by the sea · The ocean keeps us humble · The guests who return keep us going',
   'aboutPage.closing.headline': 'Come and see for yourself',
   'aboutPage.closing.body':
-    'We could tell you more but Ko Sa is best experienced in person · The sea air, the food, the people, the quiet · There is something here that does not translate into words · But it is waiting for you',
+    'We could tell you more but KoSa is best experienced in person · The sea air, the food, the people, the quiet · There is something here that does not translate into words · But it is waiting for you',
   'aboutPage.closing.ctaBook': 'Book Your Stay',
   'aboutPage.closing.ctaGet': 'Get in Touch',
 
   // Exit-intent popup
-  'exit.headline': 'Get Ko Sa rates before they fill up',
+  'exit.headline': 'Get KoSa rates before they fill up',
   'exit.body': "Early access to seasonal rates, quiet weeks, and new experiences · Once a month, no more",
   'exit.cta': 'Send Me Updates',
   'exit.placeholder': 'your@email.com',
@@ -508,7 +508,7 @@ const en = {
 
   // Common CTAs
   'common.bookYourStay': 'Book Your Stay',
-  'common.exploreKosa': 'Explore Ko Sa',
+  'common.exploreKosa': 'Explore KoSa',
   'common.whatsapp': 'WhatsApp',
   'common.getInTouch': 'Get in Touch',
   'common.startPlanning': 'Start Planning',
@@ -573,7 +573,7 @@ const en = {
   'wellnessForm.notSure': 'Not sure yet - please advise',
   'wellnessForm.guestType': 'Are you staying with us?',
   'wellnessForm.day': 'Day guest (not staying)',
-  'wellnessForm.staying': 'Staying at Ko Sa',
+  'wellnessForm.staying': 'Staying at KoSa',
   'wellnessForm.date': 'Preferred date',
   'wellnessForm.guests': 'Number of guests',
   'wellnessForm.message': 'Anything else?',
@@ -581,18 +581,18 @@ const en = {
   'wellnessForm.whatsapp': 'Send via WhatsApp',
   'wellnessForm.thankTitle': 'Thank you',
   'wellnessForm.thankBody': 'We’ve received your enquiry and will be in touch shortly',
-  'wellnessForm.waIntro': 'Hi Ko Sa! I’d like to enquire about wellness:',
+  'wellnessForm.waIntro': 'Hi KoSa! I’d like to enquire about wellness:',
   'wellnessPage.treatmentsHeading': 'Treatments & sessions',
-  'wellnessPage.treatmentsIntro': 'Browse by what you need - massage and bodywork at the Ko Sa Health Spa, or the deeper rituals and retreats of O2 Wellness.',
+  'wellnessPage.treatmentsIntro': 'Browse by what you need - massage and bodywork at the KoSa Health Spa, or the deeper rituals and retreats of O2 Wellness.',
   "quote.ocean": "The ocean doesn't rush. Neither should you",
   "quote.stop": "This is what it feels like to finally stop",
   'home.welcome.eyebrow': 'Akwaba · Welcome home',
-  'home.welcome.heading': 'Some places you visit. Ko Sa, you come home to',
-  'home.welcome.body': 'Watch a Ko Sa welcome unfold: drums on the sand, white cloth in the breeze, a naming ceremony by the ocean. This is what arriving feels like.',
+  'home.welcome.heading': 'Some places you visit. KoSa, you come home to',
+  'home.welcome.body': 'Watch a KoSa welcome unfold: drums on the sand, white cloth in the breeze, a naming ceremony by the ocean. This is what arriving feels like.',
   'home.welcome.cta': 'Play the film',
   'home.welcome.play': 'Play the Welcome Home film',
   "wellnessPage.hero.line": "You don't need a programme. You need permission to stop",
-  "wellnessPage.offerings.eyebrow": "Ko Sa Wellness",
+  "wellnessPage.offerings.eyebrow": "KoSa Wellness",
   "wellnessPage.yoga.title": "Yoga by the Sea",
   "wellnessPage.yoga.body": "Gentle movement on the sand, breath and ocean keeping time together. Come as you are; every level is welcome.",
   "wellnessPage.journeys.sense": "Nothing is scheduled that you didn't choose. The day bends to you, not the other way around.",
@@ -601,7 +601,7 @@ const en = {
   "wellnessPage.tea.sense": "We brew with herbs from the property. Some guests ask for the recipe.",
   "wellnessPage.yoga.sense": "Sessions run at 7 am when the light is still soft and the beach is quiet.",
   "wellnessPage.day.eyebrow": "A day here",
-  "wellnessPage.day.heading": "What a wellness day at Ko Sa looks like",
+  "wellnessPage.day.heading": "What a wellness day at KoSa looks like",
   "wellnessPage.day.intro": "No schedule to keep. Just a gentle rhythm you can follow as much or as little as you like.",
   "wellnessPage.day.s1.time": "At sunrise",
   "wellnessPage.day.s1.text": "Morning tea on the deck as the light comes up. No rush, nothing to be yet.",
@@ -632,7 +632,7 @@ const en = {
   'contactPage.title': 'Speak with us, simply',
   'contactPage.whereToFind': 'Where to find us',
   'contactPage.whatsappUs': 'WhatsApp us',
-  'contactPage.mapTitle': 'Ko Sa location map',
+  'contactPage.mapTitle': 'KoSa location map',
 
   // Book page
   'bookPage.eyebrow': 'Reserve Your Return',
@@ -732,9 +732,9 @@ const en = {
   'chat.errorEmpty': "Akwaaba I'm here, but my concierge brain went quiet for a moment · Try again, or WhatsApp +233 24 437 5432",
   'chat.errorTimeout': 'That took longer than expected please try again, or WhatsApp +233 24 437 5432',
   'chat.errorGeneric': "I'm having trouble reaching the resort knowledge right now · Please WhatsApp us at +233 24 437 5432 and we'll respond shortly",
-  'alt.heroShoreline': 'Aerial view of the Ko Sa shoreline, Elmina, Ghana',
-  'alt.feelingHammock': 'A quiet hammock between palms at Ko Sa',
-  'alt.aboutSea': 'Ko Sa Beach Resort by the sea',
+  'alt.heroShoreline': 'Aerial view of the KoSa shoreline, Elmina, Ghana',
+  'alt.feelingHammock': 'A quiet hammock between palms at KoSa',
+  'alt.aboutSea': 'KoSa Beach Resort by the sea',
   'aboutPage.seaTurtle.title': 'The Sea Turtle Project',
   'aboutPage.seaTurtle.body': 'With Wild Seas Conservation Ghana, we help local fishermen release sea turtles caught in their nets compensating them for damaged gear and training Ampenyi residents in tagging and data collection · Between November and March, guests can join evening beach walks to see turtles laying their eggs',
   'diningPage.bar.name': 'Kooki Beach Bar',
@@ -749,7 +749,7 @@ const en = {
   'experiencesPage.signature.capeCoast.title': 'Cape Coast Castle',
   'experiencesPage.signature.capeCoast.body': 'A short drive east · A weight worth carrying bring water, leave time to be quiet afterwards',
   'experiencesPage.signature.elmina.title': 'Elmina Castle',
-  'experiencesPage.signature.elmina.body': 'Twenty minutes from Ko Sa. One of West Africa\'s oldest European-built structures, walked slowly',
+  'experiencesPage.signature.elmina.body': 'Twenty minutes from KoSa. One of West Africa\'s oldest European-built structures, walked slowly',
   'experiencesPage.signature.kakum.title': 'Kakum National Park',
   'experiencesPage.signature.kakum.body': 'Rainforest, canopy walkways, butterflies you will only meet here · An early start, back in time for dinner',
   'experiencesPage.signature.massage.title': 'Thai massage by the sea',
@@ -785,7 +785,7 @@ const en = {
 
   // Plan Your Stay - itineraries above the FAQ (Change Request §Page 07)
   'planPage.itineraries.heading': 'Your Stay, Your Way',
-  'planPage.itineraries.eachClose': 'This is one version of your Ko Sa stay. Yours will be your own.',
+  'planPage.itineraries.eachClose': 'This is one version of your KoSa stay. Yours will be your own.',
   'planPage.itineraries.bookThis': 'Book This Stay',
 
   // About - sea turtle guest CTA (Change Request §Page 08)
@@ -795,7 +795,7 @@ const en = {
   'experiencesPage.daily.eyebrow': 'Every day, included',
   'experiencesPage.daily.heading': 'Free Daily Activities',
   'experiencesPage.daily.intro':
-    'Every day at Ko Sa comes with a rhythm. All activities are free for resort guests, and there is always something to join, or to happily skip.',
+    'Every day at KoSa comes with a rhythm. All activities are free for resort guests, and there is always something to join, or to happily skip.',
   'experiencesPage.daily.free': 'Free',
   'experiencesPage.daily.footnote':
     'All activities are free for resort guests. Sign up at reception. Schedule may vary.',
@@ -848,7 +848,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'hero.scrollAria': 'Passer à la section suivante',
 
   'intro.eyebrow': 'Bienvenue · Akwaaba',
-  'intro.headline.l1': 'Ko Sa n\u2019est pas un hôtel',
+  'intro.headline.l1': 'KoSa n\u2019est pas un hôtel',
   'intro.headline.l2': 'C\u2019est un endroit où l\u2019on revient toujours',
   'intro.body':
     'Sur un ruban de côte atlantique à Elmina, où les palmiers fléchissent sous le vent et l\u2019océan impose son propre rythme, nous avons façonné un lieu pour se poser. Éco-luxe dans l\u2019âme, ancré dans l\u2019artisanat ghanéen, nourri par les gestes de ceux qui en prennent soin',
@@ -871,7 +871,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'experiences.eyebrow': 'Vivre pleinement',
   'experiences.headline': 'Quatre façons de s\u2019enraciner',
   'experiences.blurb':
-    'Du yoga à l\u2019aube sur la falaise aux cercles de tambours autour du feu, chaque journée à Ko Sa est tissée de petits retours à soi',
+    'Du yoga à l\u2019aube sur la falaise aux cercles de tambours autour du feu, chaque journée à KoSa est tissée de petits retours à soi',
   'experiences.discover': 'Découvrir',
 
   'wellness.bgWord': 'Simplement, Respirez',
@@ -923,12 +923,12 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Concierge numérique · répond en quelques instants',
   'chat.greeting':
-    'Akwaaba je suis Abena, votre concierge Ko Sa. Posez-moi toutes vos questions sur le domaine, nos chambres ou l\u2019organisation de votre séjour',
+    'Akwaaba je suis Abena, votre concierge KoSa. Posez-moi toutes vos questions sur le domaine, nos chambres ou l\u2019organisation de votre séjour',
   'chat.placeholder': 'Une question ? Je vous écoute…',
   'chat.send': 'Envoyer',
   'chat.close': 'Fermer',
   'chat.suggested.rooms': 'Quelles chambres sont disponibles ?',
-  'chat.suggested.directions': 'Comment rejoindre Ko Sa depuis Accra ?',
+  'chat.suggested.directions': 'Comment rejoindre KoSa depuis Accra ?',
   'chat.suggested.spa': 'Parlez-moi du spa',
   'chat.suggested.included': 'Que comprend mon séjour ?',
 
@@ -1007,7 +1007,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'testimonials.2.country': 'Paris, France',
   'testimonials.2.quote': 'Un sanctuaire au sens le plus juste · L’équipe vous fait sentir comme un ami qui revient, pas comme un client',
   'testimonials.3.country': 'Lagos, Nigeria',
-  'testimonials.3.quote': 'Ko Sa, c’est ce que pourrait être chaque littoral africain enraciné, beau, digne',
+  'testimonials.3.quote': 'KoSa, c’est ce que pourrait être chaque littoral africain enraciné, beau, digne',
 
   'treatments.atlantic-salt-scrub.name': 'Gommage au sel atlantique',
   'treatments.palm-oil-deep-tissue.name': 'Massage profond à l’huile de palme',
@@ -1037,14 +1037,14 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'home.hero.headline': 'Reconnexion · Ressourcement · Renouveau',
   'home.hero.subhead': 'La vie est plus belle à la plage',
   'home.hero.ctaPrimary': 'Réservez votre séjour',
-  'home.hero.ctaSecondary': 'Découvrir Ko Sa',
+  'home.hero.ctaSecondary': 'Découvrir KoSa',
 
   'home.social.copy':
     'Apprécié par 5 000+ voyageurs. Noté 9,1/10 sur Booking.com · 4,8/5 sur Google · 4,7/5 sur TripAdvisor',
 
   'home.feeling.headline': 'Voici à quoi ressemble le ralentissement',
   'home.feeling.body':
-    "Ko Sa est une retraite côtière pensée pour la connexion à la nature, aux autres, à soi · Un lieu où chaque lever de soleil et chaque brise marine invitent à la quiétude · Où la cuisine est fraîche et le rythme apaisé. Où l’océan n’est pas qu’un paysage il est tout l’essentiel",
+    "KoSa est une retraite côtière pensée pour la connexion à la nature, aux autres, à soi · Un lieu où chaque lever de soleil et chaque brise marine invitent à la quiétude · Où la cuisine est fraîche et le rythme apaisé. Où l’océan n’est pas qu’un paysage il est tout l’essentiel",
 
   'home.itineraries.eyebrow': 'Itinéraires types',
   'home.itineraries.weekend': 'Évasion d’un week-end · 2 nuits',
@@ -1069,7 +1069,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'home.roomsTeaser.cta': 'Voir nos chambres →',
 
   'home.testimonials.example':
-    "Je suis arrivée épuisée et repartie en me sentant à nouveau moi-même · Ko Sa a ce don-là",
+    "Je suis arrivée épuisée et repartie en me sentant à nouveau moi-même · KoSa a ce don-là",
 
   'home.email.headline': 'Soyez les premiers informés',
   'home.email.body':
@@ -1079,17 +1079,17 @@ const fr: Partial<Record<keyof typeof en, string>> = {
 
   'roomsPage.headline': 'Votre place au bord de la mer',
   'roomsPage.intro':
-    "Chaque chambre de Ko Sa a été pensée autour d’une seule question : à quoi ressemble le vrai repos ? Une lumière qui vient de l’océan · Un air qui porte le jardin · Un confort qui ne s’affiche pas il vous enveloppe",
+    "Chaque chambre de KoSa a été pensée autour d’une seule question : à quoi ressemble le vrai repos ? Une lumière qui vient de l’océan · Un air qui porte le jardin · Un confort qui ne s’affiche pas il vous enveloppe",
   'roomsPage.cardCta': 'Réserver',
   'roomsPage.trust':
     "Réservez en direct pour le meilleur tarif · Annulation flexible sur toutes les chambres · Cocktail de bienvenue à l’arrivée pour vous dire merci d’être venu · Une question ? Nous sommes sur WhatsApp",
 
-  'wellnessPage.headline': 'Le bien-être, à la manière de Ko Sa',
-  'wellnessPage.hero.title': 'Le bien-être, à la manière de Ko Sa',
+  'wellnessPage.headline': 'Le bien-être, à la manière de KoSa',
+  'wellnessPage.hero.title': 'Le bien-être, à la manière de KoSa',
   'wellnessPage.hero.sub': 'La nature restaure trouvez l’équilibre du corps et de l’esprit',
   'wellnessPage.approach.eyebrow': 'Notre approche',
   'wellnessPage.approach.title': 'Le bien-être par la nature',
-  'wellnessPage.approach.body1': "Nous avons bâti Ko Sa sur une conviction simple : le bien-être doit être beau, naturel et accessible. Ici, le bien-être n’est pas un programme - c’est le rythme du lieu. Il est dans la tisane qui vous attend à l’arrivée. Dans l’air marin qui vous accueille à l’aube. Dans le calme dont vous ne soupçonniez pas le besoin.",
+  'wellnessPage.approach.body1': "Nous avons bâti KoSa sur une conviction simple : le bien-être doit être beau, naturel et accessible. Ici, le bien-être n’est pas un programme - c’est le rythme du lieu. Il est dans la tisane qui vous attend à l’arrivée. Dans l’air marin qui vous accueille à l’aube. Dans le calme dont vous ne soupçonniez pas le besoin.",
   'wellnessPage.approach.body2': "Ici, le bien-être n’est pas quelque chose que l’on fait. C’est quelque chose dont on se souvient.",
   'wellnessPage.features.heading': 'Nos services bien-être',
   'wellnessPage.feat.spa.title': 'Soins du spa',
@@ -1108,7 +1108,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.holistic.title': 'Corps, esprit et âme',
   'wellnessPage.holistic.body1': 'Nos programmes prennent soin de la personne entière corps, esprit et âme · Que vous cherchiez la détente, l’énergie ou la paix intérieure, notre équipe vous guide sur un parcours personnalisé',
   'wellnessPage.holistic.body2': 'Du yoga au lever du soleil à la méditation au couchant, des tisanes nourrissantes aux massages, tout concourt à restaurer votre équilibre',
-  'wellnessPage.benefits.heading': 'Les bienfaits du bien-être à Ko Sa',
+  'wellnessPage.benefits.heading': 'Les bienfaits du bien-être à KoSa',
   'wellnessPage.benefit.stress.title': 'Soulagement du stress',
   'wellnessPage.benefit.stress.body': 'Relâchez les tensions grâce aux thérapies naturelles et au calme des lieux',
   'wellnessPage.benefit.renewal.title': 'Renouveau physique',
@@ -1118,7 +1118,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.benefit.lasting.title': 'Changement durable',
   'wellnessPage.benefit.lasting.body': 'Développez des habitudes de bien-être qui vous suivent au-delà du séjour',
   'wellnessPage.intro':
-    "Nous avons bâti Ko Sa sur une conviction simple : le bien-être doit être beau, naturel et accessible · Ici, le bien-être n’est pas un programme c’est le rythme du lieu · Il est dans la tisane qui vous attend à l’arrivée. Dans l’air marin du petit jour · Dans le silence dont vous ignoriez avoir besoin",
+    "Nous avons bâti KoSa sur une conviction simple : le bien-être doit être beau, naturel et accessible · Ici, le bien-être n’est pas un programme c’est le rythme du lieu · Il est dans la tisane qui vous attend à l’arrivée. Dans l’air marin du petit jour · Dans le silence dont vous ignoriez avoir besoin",
   'wellnessPage.journeys.title': 'Parcours de bien-être',
   'wellnessPage.journeys.body':
     "Des expériences guidées de repos, de réflexion et de renouveau · Seul ou à deux, nous façonnons votre temps ici autour de ce dont votre corps et votre esprit ont réellement besoin",
@@ -1128,7 +1128,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.spa.title': 'Soins du spa',
   'wellnessPage.spa.body':
     "Massages, aromathérapie et soins à base de plantes chacun choisi pour ce qu’il restitue au corps · Des mains qui savent écouter · Des soins enracinés dans cette terre",
-  'wellnessPage.tea.title': 'Ko Sa Tea Bar',
+  'wellnessPage.tea.title': 'KoSa Tea Bar',
   'wellnessPage.tea.body':
     "Tisanes et jus pressés qui nourrissent en douceur · Pas de hâte · Pas de bruit · Juste la chaleur d’une tasse et le murmure de l’océan tout proche",
   'wellnessPage.cta.book': 'Réserver une expérience bien-être',
@@ -1137,7 +1137,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'diningPage.headline': 'Manger comme la côte l’a prévu',
   'diningPage.popular': 'Populaire',
   'diningPage.intro':
-    "À Ko Sa, la cuisine fait partie du bien-être · Nous travaillons avec les pêcheurs et les agriculteurs locaux ceux qui connaissent cette terre et ces eaux et nous laissons la fraîcheur parler · Saveurs ghanéennes, préparées avec soin · Une nourriture qui semble faite pour vous",
+    "À KoSa, la cuisine fait partie du bien-être · Nous travaillons avec les pêcheurs et les agriculteurs locaux ceux qui connaissent cette terre et ces eaux et nous laissons la fraîcheur parler · Saveurs ghanéennes, préparées avec soin · Une nourriture qui semble faite pour vous",
   'diningPage.restaurant.title': 'Le restaurant',
   'diningPage.restaurant.body':
     "Là où la journée commence et où le soir s’apaise · Notre restaurant sert une cuisine fraîche, de saison, enracinée dans la tradition ghanéenne, avec une attention particulière pour chaque convive options halal, plats végétariens et repas qui font autant de bien qu’ils sont bons",
@@ -1155,10 +1155,10 @@ const fr: Partial<Record<keyof typeof en, string>> = {
 
   'experiencesPage.headline': 'Le Ghana commence ici',
   'experiencesPage.intro':
-    "Ko Sa se trouve à la lisière de l’un des littoraux les plus beaux et les plus chargés d’histoire d’Afrique de l’Ouest · Nous sommes votre point d’ancrage, votre guide, et le foyer où vous revenez après chaque aventure · Que vous restiez sur le domaine ou partiez plus loin, chaque expérience mérite d’être rapportée chez vous",
+    "KoSa se trouve à la lisière de l’un des littoraux les plus beaux et les plus chargés d’histoire d’Afrique de l’Ouest · Nous sommes votre point d’ancrage, votre guide, et le foyer où vous revenez après chaque aventure · Que vous restiez sur le domaine ou partiez plus loin, chaque expérience mérite d’être rapportée chez vous",
   'experiencesPage.property.title': 'Sur le domaine',
   'experiencesPage.property.body':
-    "L’océan est juste là. Tout comme la piscine, le jardin, le tapis de yoga et le hamac qui porte votre prénom · Les jours où l’on veut simplement être, Ko Sa suffit largement",
+    "L’océan est juste là. Tout comme la piscine, le jardin, le tapis de yoga et le hamac qui porte votre prénom · Les jours où l’on veut simplement être, KoSa suffit largement",
   'experiencesPage.ghana.title': 'Vers le Ghana',
   'experiencesPage.ghana.body':
     "Quand vous serez prêt à explorer, nous serons prêts à vous y conduire · Cape Coast Castle · Elmina · Kakum · Les villages de pêcheurs · Les marchés. Les histoires qui méritent d’être connues · Nous vous mettons en lien avec des guides qui connaissent ces lieux en profondeur non en touristes, mais en habitants",
@@ -1170,17 +1170,17 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'eventsPage.empty': "Rien dans cette catégorie pour l'instant.",
 
   'eventsPage.intro':
-    "Certains instants méritent un décor à leur hauteur · Ko Sa s’étend entre l’océan et le jardin un écrin naturel pour des célébrations sincères, des retraites qui restaurent vraiment, et des rassemblements où l’on arrive collègues et l’on repart un peu plus proches",
+    "Certains instants méritent un décor à leur hauteur · KoSa s’étend entre l’océan et le jardin un écrin naturel pour des célébrations sincères, des retraites qui restaurent vraiment, et des rassemblements où l’on arrive collègues et l’on repart un peu plus proches",
   'eventsPage.weddings.title': 'Mariages & célébrations',
   'eventsPage.weddings.body':
-    "Un mariage à Ko Sa, c’est la cérémonie au bord de la mer dont vous rêviez le murmure des vagues, la chaleur du littoral, vos proches réunis en un lieu magnifique · Nous prenons soin de chaque détail · Vous n’avez qu’à venir célébrer",
+    "Un mariage à KoSa, c’est la cérémonie au bord de la mer dont vous rêviez le murmure des vagues, la chaleur du littoral, vos proches réunis en un lieu magnifique · Nous prenons soin de chaque détail · Vous n’avez qu’à venir célébrer",
   'eventsPage.weddings.cta': 'Commencer à organiser votre mariage',
   'eventsPage.retreats.title': 'Retraites de bien-être',
   'eventsPage.retreats.body':
-    "Ko Sa a été conçu pour la restauration · Les retraites de groupe intensifs yoga, week-ends pleine conscience ou programmes sur-mesure trouvent ici un foyer naturel · Nous apportons l’espace, le calme et le soutien · Vous apportez l’intention",
+    "KoSa a été conçu pour la restauration · Les retraites de groupe intensifs yoga, week-ends pleine conscience ou programmes sur-mesure trouvent ici un foyer naturel · Nous apportons l’espace, le calme et le soutien · Vous apportez l’intention",
   'eventsPage.corporate.title': 'Séminaires & retraites d’équipe',
   'eventsPage.corporate.body':
-    "Les meilleures idées ne naissent pas en salle de réunion · Emmenez votre équipe à la côte, prenez de la distance, et regardez ce qui se passe quand chacun peut enfin penser · Ko Sa propose des salles, des hébergements pour groupes et des expériences d’équipe conçues pour reconnecter celles et ceux qui font le travail",
+    "Les meilleures idées ne naissent pas en salle de réunion · Emmenez votre équipe à la côte, prenez de la distance, et regardez ce qui se passe quand chacun peut enfin penser · KoSa propose des salles, des hébergements pour groupes et des expériences d’équipe conçues pour reconnecter celles et ceux qui font le travail",
   'eventsPage.corporate.cta': 'Demander un devis pour un groupe',
   'eventsPage.form.name': 'Nom',
   'eventsPage.form.company': 'Société',
@@ -1192,19 +1192,19 @@ const fr: Partial<Record<keyof typeof en, string>> = {
 
   'planPage.headline': 'Tout ce qu’il vous faut pour arriver léger',
   'planPage.intro':
-    "Nous voulons que votre expérience Ko Sa commence avant même votre arrivée. Vous trouverez ci-dessous tout ce qui aide à préparer votre séjour itinéraires types, accès, FAQ et l’information pratique qui change vraiment les choses",
+    "Nous voulons que votre expérience KoSa commence avant même votre arrivée. Vous trouverez ci-dessous tout ce qui aide à préparer votre séjour itinéraires types, accès, FAQ et l’information pratique qui change vraiment les choses",
   'planPage.experiences.eyebrow': 'Que faire ici',
   'planPage.experiences.body':
-    'De vraies expériences à Ko Sa, du rivage à la côte choisissez ce qui vous appelle',
+    'De vraies expériences à KoSa, du rivage à la côte choisissez ce qui vous appelle',
   'planPage.experiences.cta': 'Voir toutes les expériences',
   'planPage.itineraries.eyebrow': 'Itinéraires types',
   'planPage.itineraries.body':
-    "Trois séjours pré-composés, au jour le jour pas un planning, mais une histoire · Chacun se conclut ainsi : voici une version de votre séjour à Ko Sa. La vôtre vous appartient façonnons-la ensemble à votre arrivée, ou dites-nous ce qu’il vous faut avant de venir",
+    "Trois séjours pré-composés, au jour le jour pas un planning, mais une histoire · Chacun se conclut ainsi : voici une version de votre séjour à KoSa. La vôtre vous appartient façonnons-la ensemble à votre arrivée, ou dites-nous ce qu’il vous faut avant de venir",
   'planPage.itineraries.cta1': 'Réserver ce séjour',
   'planPage.itineraries.cta2': 'Composer mon séjour',
   'planPage.getting.title': 'Comment venir',
   'planPage.getting.body':
-    "Ko Sa Beach Resort est situé sur la côte centrale du Ghana, à environ 25 km d’Elmina et 30 km du château de Cape Coast · Depuis l’aéroport international Kotoka d’Accra, la route prend environ 3 heures et nous pouvons organiser votre transfert pour que le repos commence dès l’atterrissage",
+    "KoSa Beach Resort est situé sur la côte centrale du Ghana, à environ 25 km d’Elmina et 30 km du château de Cape Coast · Depuis l’aéroport international Kotoka d’Accra, la route prend environ 3 heures et nous pouvons organiser votre transfert pour que le repos commence dès l’atterrissage",
   'planPage.getting.cta': 'Réserver un transfert',
   'planPage.faqs.title': 'Questions fréquentes',
   'planPage.faq.checkin.q': 'Quels sont les horaires d’arrivée et de départ ?',
@@ -1221,7 +1221,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
     "Oui · Options halal disponibles sur l’ensemble des menus · Régimes végétariens, végétaliens et autres pris en compte chaleureusement",
   'planPage.faq.children.q': 'Puis-je venir avec mes enfants ?',
   'planPage.faq.children.a':
-    "Bien sûr. Ko Sa est calme mais accueille les familles · Indiquez-nous l’âge des enfants pour préparer votre séjour au mieux",
+    "Bien sûr. KoSa est calme mais accueille les familles · Indiquez-nous l’âge des enfants pour préparer votre séjour au mieux",
   'planPage.faq.payment.q': 'Quels modes de paiement acceptez-vous ?',
   'planPage.faq.payment.a':
     "Toutes les cartes principales, mobile money et virement · Un acompte confirme la réservation, le solde se règle à l’arrivée",
@@ -1234,16 +1234,16 @@ const fr: Partial<Record<keyof typeof en, string>> = {
 
   'aboutPage.headline': 'Deux décennies au bord de la mer. Et pourtant, chaque hôte se sent comme le premier',
   'aboutPage.opening':
-    "Ko Sa Beach Resort n’est pas né d’un plan d’affaires. Il est né d’une conviction - que la côte ghanéenne est l’un des endroits les plus ressourçants au monde, et que tous ceux qui viennent ici devraient pouvoir le ressentir. Depuis plus de vingt ans, nous cultivons cette conviction.",
+    "KoSa Beach Resort n’est pas né d’un plan d’affaires. Il est né d’une conviction - que la côte ghanéenne est l’un des endroits les plus ressourçants au monde, et que tous ceux qui viennent ici devraient pouvoir le ressentir. Depuis plus de vingt ans, nous cultivons cette conviction.",
   'aboutPage.continued':
-    "Nous faisons partie d’Akwaaba Stays Hospitality Group - une famille d’adresses à travers le Ghana et l’Afrique de l’Ouest qui partagent un même engagement : une hospitalité enracinée dans le soin, la communauté et les lieux que nous appelons chez nous. C’est à Ko Sa que cet engagement vit au plus près de l’eau.",
+    "Nous faisons partie d’Akwaaba Stays Hospitality Group - une famille d’adresses à travers le Ghana et l’Afrique de l’Ouest qui partagent un même engagement : une hospitalité enracinée dans le soin, la communauté et les lieux que nous appelons chez nous. C’est à KoSa que cet engagement vit au plus près de l’eau.",
   'aboutPage.values': 'Nos valeurs',
   'aboutPage.values.authenticity.title': 'Authenticité',
   'aboutPage.values.authenticity.body':
-    'Une hospitalité honnête, au rythme réel de cette côte · Sans mise en scène · Sans prétention · Ko Sa tel qu’il est et tel qu’il a toujours été',
+    'Une hospitalité honnête, au rythme réel de cette côte · Sans mise en scène · Sans prétention · KoSa tel qu’il est et tel qu’il a toujours été',
   'aboutPage.values.community.title': 'Communauté',
   'aboutPage.values.community.body':
-    "Nous travaillons main dans la main avec celles et ceux qui nous entourent pêcheurs, agriculteurs et artisans dont le travail et le savoir font Ko Sa. Quand vous séjournez ici, leurs vies grandissent aussi",
+    "Nous travaillons main dans la main avec celles et ceux qui nous entourent pêcheurs, agriculteurs et artisans dont le travail et le savoir font KoSa. Quand vous séjournez ici, leurs vies grandissent aussi",
   'aboutPage.values.wellness.title': 'Bien-être',
   'aboutPage.values.wellness.body':
     "Nourrir le corps et l’esprit par une bonne cuisine, le coaching et le calme · Nous croyons que le bien-être doit être beau, naturel et accessible pas un luxe réservé à quelques-uns",
@@ -1255,7 +1255,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
     "Vingt années de liens sincères et de soin continu au bord de la mer · L’océan nous garde humbles · Les invités qui reviennent nous tiennent debout",
   'aboutPage.closing.headline': 'Venez voir par vous-même',
   'aboutPage.closing.body':
-    "Nous pourrions vous en dire davantage mais Ko Sa se vit, mieux qu’il ne se raconte · L’air marin, la cuisine, les gens, le silence · Il y a ici quelque chose qui ne se laisse pas mettre en mots · Mais qui vous attend",
+    "Nous pourrions vous en dire davantage mais KoSa se vit, mieux qu’il ne se raconte · L’air marin, la cuisine, les gens, le silence · Il y a ici quelque chose qui ne se laisse pas mettre en mots · Mais qui vous attend",
   'aboutPage.closing.ctaBook': 'Réserver mon séjour',
   'aboutPage.closing.ctaGet': 'Nous contacter',
 
@@ -1268,7 +1268,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'exit.thanks': 'Merci · Surveillez votre boîte de réception',
 
   'common.bookYourStay': 'Réservez votre séjour',
-  'common.exploreKosa': 'Découvrir Ko Sa',
+  'common.exploreKosa': 'Découvrir KoSa',
   'common.whatsapp': 'WhatsApp',
   'common.getInTouch': 'Nous contacter',
   'common.startPlanning': 'Commencer à planifier',
@@ -1327,7 +1327,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.notSure': 'Pas encore sûr - conseillez-moi',
   'wellnessForm.guestType': 'Séjournez-vous chez nous ?',
   'wellnessForm.day': 'Visiteur à la journée',
-  'wellnessForm.staying': 'En séjour au Ko Sa',
+  'wellnessForm.staying': 'En séjour au KoSa',
   'wellnessForm.date': 'Date souhaitée',
   'wellnessForm.guests': 'Nombre de personnes',
   'wellnessForm.message': 'Autre chose ?',
@@ -1335,18 +1335,18 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.whatsapp': 'Envoyer via WhatsApp',
   'wellnessForm.thankTitle': 'Merci',
   'wellnessForm.thankBody': 'Nous avons bien reçu votre demande et reviendrons vers vous très vite',
-  'wellnessForm.waIntro': 'Bonjour Ko Sa ! Je souhaite une demande bien-être :',
+  'wellnessForm.waIntro': 'Bonjour KoSa ! Je souhaite une demande bien-être :',
   'wellnessPage.treatmentsHeading': 'Soins & séances',
-  'wellnessPage.treatmentsIntro': 'Choisissez selon vos envies - massages et soins du corps au Ko Sa Health Spa, ou les rituels et retraites plus profonds d’O2 Wellness.',
+  'wellnessPage.treatmentsIntro': 'Choisissez selon vos envies - massages et soins du corps au KoSa Health Spa, ou les rituels et retraites plus profonds d’O2 Wellness.',
   "quote.ocean": "L'océan ne se presse pas. Vous non plus",
   "quote.stop": "Voici ce que l'on ressent quand on s'arrête enfin",
   'home.welcome.eyebrow': 'Akwaba · Bienvenue à la maison',
-  'home.welcome.heading': 'Certains lieux, on les visite. Ko Sa, on y revient comme chez soi',
-  'home.welcome.body': 'Regardez un accueil Ko Sa se dérouler : les tambours sur le sable, le linge blanc dans la brise, une cérémonie de baptême au bord de l’océan. Voilà ce que l’on ressent en arrivant.',
+  'home.welcome.heading': 'Certains lieux, on les visite. KoSa, on y revient comme chez soi',
+  'home.welcome.body': 'Regardez un accueil KoSa se dérouler : les tambours sur le sable, le linge blanc dans la brise, une cérémonie de baptême au bord de l’océan. Voilà ce que l’on ressent en arrivant.',
   'home.welcome.cta': 'Lancer le film',
   'home.welcome.play': 'Lancer le film Welcome Home',
   "wellnessPage.hero.line": "Vous n'avez pas besoin d'un programme. Vous avez besoin de la permission de vous arrêter",
-  "wellnessPage.offerings.eyebrow": "Bien-être Ko Sa",
+  "wellnessPage.offerings.eyebrow": "Bien-être KoSa",
   "wellnessPage.yoga.title": "Yoga au bord de la mer",
   "wellnessPage.yoga.body": "Des mouvements doux sur le sable, le souffle et l'océan au même rythme. Venez comme vous êtes ; tous les niveaux sont les bienvenus.",
   "wellnessPage.journeys.sense": "Rien n'est prévu que vous n'ayez choisi. La journée s'adapte à vous, et non l'inverse.",
@@ -1355,7 +1355,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   "wellnessPage.tea.sense": "Nous infusons des herbes du domaine. Certains clients demandent la recette.",
   "wellnessPage.yoga.sense": "Les séances ont lieu à 7 h, quand la lumière est encore douce et la plage tranquille.",
   "wellnessPage.day.eyebrow": "Une journée ici",
-  "wellnessPage.day.heading": "À quoi ressemble une journée bien-être à Ko Sa",
+  "wellnessPage.day.heading": "À quoi ressemble une journée bien-être à KoSa",
   "wellnessPage.day.intro": "Aucun horaire à tenir. Juste un rythme doux que vous suivez autant que vous le souhaitez.",
   "wellnessPage.day.s1.time": "Au lever du soleil",
   "wellnessPage.day.s1.text": "Un thé sur la terrasse pendant que le jour se lève. Aucune hâte, rien à être encore.",
@@ -1380,7 +1380,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.daily.eyebrow': 'Chaque jour, inclus',
   'experiencesPage.daily.heading': 'Activités quotidiennes gratuites',
   'experiencesPage.daily.intro':
-    "Chaque journée à Ko Sa a son rythme. Toutes les activités sont gratuites pour nos hôtes : participez à celles qui vous tentent, ou prenez simplement le temps de vous reposer.",
+    "Chaque journée à KoSa a son rythme. Toutes les activités sont gratuites pour nos hôtes : participez à celles qui vous tentent, ou prenez simplement le temps de vous reposer.",
   'experiencesPage.daily.free': 'Gratuit',
   'experiencesPage.daily.footnote':
     "Toutes les activités sont gratuites pour les hôtes. Inscrivez-vous à la réception. Le programme peut varier.",
@@ -1408,7 +1408,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'contactPage.title': 'Parlons, tout simplement',
   'contactPage.whereToFind': 'Où nous trouver',
   'contactPage.whatsappUs': 'Écrivez-nous sur WhatsApp',
-  'contactPage.mapTitle': 'Carte de localisation de Ko Sa',
+  'contactPage.mapTitle': 'Carte de localisation de KoSa',
 
   'bookPage.eyebrow': 'Préparez votre retour',
   'bookPage.title': 'Réservez votre séjour',
@@ -1502,9 +1502,9 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'chat.errorEmpty': "Akwaaba je suis là, mais mon esprit de concierge s’est tu un instant · Réessayez, ou écrivez-nous sur WhatsApp au +233 24 437 5432",
   'chat.errorTimeout': 'Cela a pris plus de temps que prévu réessayez, ou écrivez-nous sur WhatsApp au +233 24 437 5432',
   'chat.errorGeneric': "J’ai du mal à accéder aux informations du domaine pour le moment. Écrivez-nous sur WhatsApp au +233 24 437 5432, nous répondrons rapidement",
-  'alt.heroShoreline': 'Vue aérienne du littoral de Ko Sa, Elmina, Ghana',
-  'alt.feelingHammock': 'Un hamac paisible entre les palmiers de Ko Sa',
-  'alt.aboutSea': 'Ko Sa Beach Resort au bord de la mer',
+  'alt.heroShoreline': 'Vue aérienne du littoral de KoSa, Elmina, Ghana',
+  'alt.feelingHammock': 'Un hamac paisible entre les palmiers de KoSa',
+  'alt.aboutSea': 'KoSa Beach Resort au bord de la mer',
   'aboutPage.enrichedSetting': "Cela se reflète dans les pêcheurs avec qui nous travaillons, les agriculteurs qui approvisionnent notre cuisine, les artisans dont les mains ont façonné ce que vous voyez autour de vous.",
   'aboutPage.enrichedEco': "Nous n’avons jamais cherché à créer un complexe de luxe. Nous voulions un lieu où l’on puisse ressentir la côte telle qu’elle est vraiment - sans hâte, généreuse, vivante.",
   'aboutPage.seaTurtle.title': 'Le projet Tortues marines',
@@ -1521,7 +1521,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.signature.capeCoast.title': 'Château de Cape Coast',
   'experiencesPage.signature.capeCoast.body': 'Une courte route vers l’est · Un poids qu’il faut porter emportez de l’eau, prévoyez du temps pour vous taire ensuite',
   'experiencesPage.signature.elmina.title': 'Château d’Elmina',
-  'experiencesPage.signature.elmina.body': 'À vingt minutes de Ko Sa. L’une des plus anciennes constructions européennes d’Afrique de l’Ouest, à parcourir lentement',
+  'experiencesPage.signature.elmina.body': 'À vingt minutes de KoSa. L’une des plus anciennes constructions européennes d’Afrique de l’Ouest, à parcourir lentement',
   'experiencesPage.signature.kakum.title': 'Parc national de Kakum',
   'experiencesPage.signature.kakum.body': 'Forêt tropicale, passerelles dans la canopée, papillons que vous ne croiserez nulle part ailleurs · Départ tôt, retour pour le dîner',
   'experiencesPage.signature.massage.title': 'Massage thaï au bord de la mer',
@@ -1553,7 +1553,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'hero.scrollAria': 'Ir a la siguiente sección',
 
   'intro.eyebrow': 'Bienvenidos · Akwaaba',
-  'intro.headline.l1': 'Ko Sa no es un hotel',
+  'intro.headline.l1': 'KoSa no es un hotel',
   'intro.headline.l2': 'Es el lugar al que siempre vuelves',
   'intro.body':
     'En un tramo de costa atlántica en Elmina, donde las palmeras se mecen con la brisa y el océano dicta su propio ritmo, creamos un refugio para detenerse · Eco-lujo de raíz, anclado en la artesanía ghanesa y sostenido por los rituales de quienes lo cuidan cada día',
@@ -1576,7 +1576,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'experiences.eyebrow': 'Vive plenamente',
   'experiences.headline': 'Cuatro formas de reconectarte',
   'experiences.blurb':
-    'Desde yoga al amanecer sobre el acantilado hasta círculos de tambor junto al fuego cada día en Ko Sa es una invitación a volver a ti',
+    'Desde yoga al amanecer sobre el acantilado hasta círculos de tambor junto al fuego cada día en KoSa es una invitación a volver a ti',
   'experiences.discover': 'Descubrir',
 
   'wellness.bgWord': 'Solo respira',
@@ -1628,7 +1628,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Conserje digital · responde al momento',
   'chat.greeting':
-    'Akwaaba soy Abena, tu conserje en Ko Sa. Pregúntame sobre el resort, las habitaciones o cómo organizar tu estancia',
+    'Akwaaba soy Abena, tu conserje en KoSa. Pregúntame sobre el resort, las habitaciones o cómo organizar tu estancia',
   'chat.placeholder': 'Pregunta lo que quieras…',
   'chat.send': 'Enviar',
   'chat.close': 'Cerrar',
@@ -1712,7 +1712,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'testimonials.2.country': 'París, Francia',
   'testimonials.2.quote': 'Un santuario en el sentido más puro · El personal te hace sentir como un amigo que vuelve, no como un huésped',
   'testimonials.3.country': 'Lagos, Nigeria',
-  'testimonials.3.quote': 'Ko Sa es lo que podría ser cada costa africana con raíces, hermosa, digna',
+  'testimonials.3.quote': 'KoSa es lo que podría ser cada costa africana con raíces, hermosa, digna',
 
   'treatments.atlantic-salt-scrub.name': 'Exfoliante de sal atlántica',
   'treatments.palm-oil-deep-tissue.name': 'Masaje profundo con aceite de palma',
@@ -1742,14 +1742,14 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'home.hero.headline': 'Reconecta · Recarga · Renueva',
   'home.hero.subhead': 'La vida es mejor en la playa',
   'home.hero.ctaPrimary': 'Reserva tu estancia',
-  'home.hero.ctaSecondary': 'Descubre Ko Sa',
+  'home.hero.ctaSecondary': 'Descubre KoSa',
 
   'home.social.copy':
     'Apreciado por 5.000+ viajeros. 9,1/10 en Booking.com · 4,8/5 en Google · 4,7/5 en TripAdvisor',
 
   'home.feeling.headline': 'Así se ve bajar el ritmo',
   'home.feeling.body':
-    'Ko Sa es un retiro costero pensado para la conexión con la naturaleza, con los demás y contigo · Un lugar donde cada amanecer y cada brisa marina invitan a detenerse · Donde la cocina es fresca y el ritmo es suave · Donde el océano no es solo un paisaje es todo lo importante',
+    'KoSa es un retiro costero pensado para la conexión con la naturaleza, con los demás y contigo · Un lugar donde cada amanecer y cada brisa marina invitan a detenerse · Donde la cocina es fresca y el ritmo es suave · Donde el océano no es solo un paisaje es todo lo importante',
 
   'home.itineraries.eyebrow': 'Itinerarios sugeridos',
   'home.itineraries.weekend': 'Escapada de fin de semana · 2 noches',
@@ -1774,7 +1774,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'home.roomsTeaser.cta': 'Ver las habitaciones →',
 
   'home.testimonials.example':
-    'Llegué agotada y me fui sintiéndome yo misma otra vez · Ko Sa tiene esa forma de hacer las cosas',
+    'Llegué agotada y me fui sintiéndome yo misma otra vez · KoSa tiene esa forma de hacer las cosas',
 
   'home.email.headline': 'Sé el primero en saberlo',
   'home.email.body':
@@ -1784,17 +1784,17 @@ const es: Partial<Record<keyof typeof en, string>> = {
 
   'roomsPage.headline': 'Tu sitio junto al mar',
   'roomsPage.intro':
-    'Cada habitación en Ko Sa nació de una sola pregunta: ¿cómo se siente descansar de verdad? Luz que viene del océano · Aire que trae el jardín. Una comodidad que no se anuncia simplemente te rodea',
+    'Cada habitación en KoSa nació de una sola pregunta: ¿cómo se siente descansar de verdad? Luz que viene del océano · Aire que trae el jardín. Una comodidad que no se anuncia simplemente te rodea',
   'roomsPage.cardCta': 'Reservar',
   'roomsPage.trust':
     'Reserva directo para la mejor tarifa · Cancelación flexible en todas las habitaciones · Una bebida de bienvenida nuestra forma de decirte gracias por venir. ¿Dudas? Estamos en WhatsApp',
 
-  'wellnessPage.headline': 'Bienestar, al estilo Ko Sa',
-  'wellnessPage.hero.title': 'Bienestar, al estilo Ko Sa',
+  'wellnessPage.headline': 'Bienestar, al estilo KoSa',
+  'wellnessPage.hero.title': 'Bienestar, al estilo KoSa',
   'wellnessPage.hero.sub': 'La naturaleza restaura encuentra el equilibrio de cuerpo y mente',
   'wellnessPage.approach.eyebrow': 'Nuestro enfoque',
   'wellnessPage.approach.title': 'Bienestar a través de la naturaleza',
-  'wellnessPage.approach.body1': 'Construimos Ko Sa sobre una creencia sencilla: el bienestar debe ser bello, natural y estar al alcance. Aquí, el bienestar no es un programa - es el ritmo del lugar. Está en la infusión de hierbas que te espera al llegar. En el aire del mar que te recibe al amanecer. En la calma que no sabías que necesitabas.',
+  'wellnessPage.approach.body1': 'Construimos KoSa sobre una creencia sencilla: el bienestar debe ser bello, natural y estar al alcance. Aquí, el bienestar no es un programa - es el ritmo del lugar. Está en la infusión de hierbas que te espera al llegar. En el aire del mar que te recibe al amanecer. En la calma que no sabías que necesitabas.',
   'wellnessPage.approach.body2': 'Aquí el bienestar no es algo que haces. Es algo que recuerdas.',
   'wellnessPage.features.heading': 'Servicios de bienestar',
   'wellnessPage.feat.spa.title': 'Servicios de spa',
@@ -1813,7 +1813,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.holistic.title': 'Cuerpo, mente y espíritu',
   'wellnessPage.holistic.body1': 'Nuestros programas cuidan a la persona entera cuerpo, mente y espíritu · Busques relajación, energía o paz interior, nuestro equipo te guía en un viaje personalizado',
   'wellnessPage.holistic.body2': 'Del yoga al amanecer a la meditación al atardecer, de los tés a los masajes, todo se une para restaurar tu equilibrio',
-  'wellnessPage.benefits.heading': 'Los beneficios del bienestar en Ko Sa',
+  'wellnessPage.benefits.heading': 'Los beneficios del bienestar en KoSa',
   'wellnessPage.benefit.stress.title': 'Alívio del estrés',
   'wellnessPage.benefit.stress.body': 'Libera tensión con terapias naturales y un entorno tranquilo',
   'wellnessPage.benefit.renewal.title': 'Renovación física',
@@ -1823,7 +1823,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.benefit.lasting.title': 'Cambio duradero',
   'wellnessPage.benefit.lasting.body': 'Desarrolla hábitos de bienestar que perduran tras tu estancia',
   'wellnessPage.intro':
-    'Construimos Ko Sa desde una convicción simple: el bienestar debe ser hermoso, natural y al alcance · Aquí no es un programa es el ritmo del lugar · Está en la infusión que te recibe al llegar · En el aire del mar al amanecer · En el silencio que no sabías que necesitabas',
+    'Construimos KoSa desde una convicción simple: el bienestar debe ser hermoso, natural y al alcance · Aquí no es un programa es el ritmo del lugar · Está en la infusión que te recibe al llegar · En el aire del mar al amanecer · En el silencio que no sabías que necesitabas',
   'wellnessPage.journeys.title': 'Viajes de bienestar',
   'wellnessPage.journeys.body':
     'Experiencias guiadas de descanso, reflexión y renovación. Vengas solo o acompañado, modelamos tu tiempo aquí en torno a lo que tu cuerpo y mente realmente necesitan',
@@ -1833,7 +1833,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.spa.title': 'Servicios de spa',
   'wellnessPage.spa.body':
     'Masajes, aromaterapia y tratamientos herbales cada uno elegido por lo que devuelve al cuerpo · Manos que saben escuchar · Tratamientos arraigados en esta tierra',
-  'wellnessPage.tea.title': 'Ko Sa Tea Bar',
+  'wellnessPage.tea.title': 'KoSa Tea Bar',
   'wellnessPage.tea.body':
     'Infusiones y zumos frescos que nutren en silencio · Sin prisas · Sin ruido · Solo la calidez de una taza y el rumor del océano cerca',
   'wellnessPage.cta.book': 'Reservar una experiencia de bienestar',
@@ -1842,7 +1842,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'diningPage.headline': 'Comer como la costa lo pensó',
   'diningPage.popular': 'Popular',
   'diningPage.intro':
-    'En Ko Sa, la cocina forma parte del bienestar · Trabajamos con pescadores y agricultores locales gente que conoce esta tierra y estas aguas y dejamos que la frescura hable · Sabores ghaneses, preparados con cariño. Una comida que parece hecha para ti',
+    'En KoSa, la cocina forma parte del bienestar · Trabajamos con pescadores y agricultores locales gente que conoce esta tierra y estas aguas y dejamos que la frescura hable · Sabores ghaneses, preparados con cariño. Una comida que parece hecha para ti',
   'diningPage.restaurant.title': 'El restaurante',
   'diningPage.restaurant.body':
     'Donde el día empieza y la noche se calma · Nuestro restaurante sirve comida fresca y de temporada, anclada en la tradición ghanesa, con atención para cada persona en la mesa incluyendo opciones halal, platos vegetarianos y comidas que sientan tan bien como saben',
@@ -1860,10 +1860,10 @@ const es: Partial<Record<keyof typeof en, string>> = {
 
   'experiencesPage.headline': 'Ghana empieza aquí',
   'experiencesPage.intro':
-    'Ko Sa se sitúa al borde de uno de los litorales más bellos e históricamente ricos de África Occidental · Somos tu base, tu guía y tu casa al volver de cada aventura · Te quedes en la propiedad o te aventures más allá, hacemos que cada experiencia merezca traerla contigo',
+    'KoSa se sitúa al borde de uno de los litorales más bellos e históricamente ricos de África Occidental · Somos tu base, tu guía y tu casa al volver de cada aventura · Te quedes en la propiedad o te aventures más allá, hacemos que cada experiencia merezca traerla contigo',
   'experiencesPage.property.title': 'En la propiedad',
   'experiencesPage.property.body':
-    'El océano está ahí mismo · Lo mismo la piscina, el jardín, la esterilla de yoga y la hamaca con tu nombre · Los días en los que solo quieres ser, Ko Sa basta y sobra',
+    'El océano está ahí mismo · Lo mismo la piscina, el jardín, la esterilla de yoga y la hamaca con tu nombre · Los días en los que solo quieres ser, KoSa basta y sobra',
   'experiencesPage.ghana.title': 'Hacia Ghana',
   'experiencesPage.ghana.body':
     'Cuando estés listo para explorar, nosotros también. Cape Coast Castle · Elmina · Kakum · Los pueblos pesqueros · Los mercados · Las historias que merecen conocerse · Te conectamos con guías que conocen estos lugares profundamente no como turistas, sino como gente que vive aquí',
@@ -1875,17 +1875,17 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'eventsPage.empty': 'Aún no hay nada en esta categoría.',
 
   'eventsPage.intro':
-    'Algunos momentos merecen un escenario a su altura · Ko Sa se extiende entre el océano y el jardín un telón natural para celebraciones que se sienten reales, retiros que de verdad restauran y encuentros donde uno llega como colega y se marcha como algo más cercano',
+    'Algunos momentos merecen un escenario a su altura · KoSa se extiende entre el océano y el jardín un telón natural para celebraciones que se sienten reales, retiros que de verdad restauran y encuentros donde uno llega como colega y se marcha como algo más cercano',
   'eventsPage.weddings.title': 'Bodas y celebraciones',
   'eventsPage.weddings.body':
-    'Una boda en Ko Sa es esa ceremonia en la playa que siempre imaginaste el sonido de las olas, la calidez de la costa y las personas que más amas reunidas en un solo lugar precioso · Cuidamos cada detalle · Tú solo aparece y celebra',
+    'Una boda en KoSa es esa ceremonia en la playa que siempre imaginaste el sonido de las olas, la calidez de la costa y las personas que más amas reunidas en un solo lugar precioso · Cuidamos cada detalle · Tú solo aparece y celebra',
   'eventsPage.weddings.cta': 'Empezar a planificar mi boda',
   'eventsPage.retreats.title': 'Retiros de bienestar',
   'eventsPage.retreats.body':
-    'Ko Sa nació para restaurar · Los retiros en grupo intensivos de yoga, fines de semana de mindfulness o programas a medida encuentran aquí su hogar natural · Ponemos el espacio, la calma y el apoyo · Tú pones la intención',
+    'KoSa nació para restaurar · Los retiros en grupo intensivos de yoga, fines de semana de mindfulness o programas a medida encuentran aquí su hogar natural · Ponemos el espacio, la calma y el apoyo · Tú pones la intención',
   'eventsPage.corporate.title': 'Retiros corporativos y reuniones offsite',
   'eventsPage.corporate.body':
-    'Las mejores ideas no nacen en salas de reuniones · Trae a tu equipo a la costa, sal de lo cotidiano y observa lo que pasa cuando por fin se puede pensar · Ko Sa ofrece espacios de reunión, alojamiento para grupos y experiencias de equipo pensadas para reconectar a las personas detrás del trabajo',
+    'Las mejores ideas no nacen en salas de reuniones · Trae a tu equipo a la costa, sal de lo cotidiano y observa lo que pasa cuando por fin se puede pensar · KoSa ofrece espacios de reunión, alojamiento para grupos y experiencias de equipo pensadas para reconectar a las personas detrás del trabajo',
   'eventsPage.corporate.cta': 'Consultar reservas de grupo',
   'eventsPage.form.name': 'Nombre',
   'eventsPage.form.company': 'Empresa',
@@ -1897,19 +1897,19 @@ const es: Partial<Record<keyof typeof en, string>> = {
 
   'planPage.headline': 'Todo lo que necesitas para llegar listo',
   'planPage.intro':
-    'Queremos que tu experiencia Ko Sa empiece antes de llegar · Aquí abajo encontrarás todo para preparar tu estancia itinerarios sugeridos, cómo llegar, preguntas frecuentes y la información práctica que de verdad marca la diferencia',
+    'Queremos que tu experiencia KoSa empiece antes de llegar · Aquí abajo encontrarás todo para preparar tu estancia itinerarios sugeridos, cómo llegar, preguntas frecuentes y la información práctica que de verdad marca la diferencia',
   'planPage.experiences.eyebrow': 'Qué hacer aquí',
   'planPage.experiences.body':
-    'Experiencias reales en Ko Sa, de la orilla a la costa elige lo que te llame',
+    'Experiencias reales en KoSa, de la orilla a la costa elige lo que te llame',
   'planPage.experiences.cta': 'Ver todas las experiencias',
   'planPage.itineraries.eyebrow': 'Itinerarios sugeridos',
   'planPage.itineraries.body':
-    'Tres estancias pre-armadas en formato día a día no agendas, sino historias · Cada una termina con: esta es una versión de tu Ko Sa. La tuya será la tuya la moldeamos al llegar o nos cuentas qué necesitas antes de venir',
+    'Tres estancias pre-armadas en formato día a día no agendas, sino historias · Cada una termina con: esta es una versión de tu KoSa. La tuya será la tuya la moldeamos al llegar o nos cuentas qué necesitas antes de venir',
   'planPage.itineraries.cta1': 'Reservar esta estancia',
   'planPage.itineraries.cta2': 'Personalizar mi plan',
   'planPage.getting.title': 'Cómo llegar',
   'planPage.getting.body':
-    'Ko Sa Beach Resort está en la Región Central de Ghana, a unos 25 km de Elmina y 30 km del castillo de Cape Coast · Desde el aeropuerto internacional Kotoka de Accra, el viaje es de unas 3 horas y podemos organizar tu traslado para que el descanso empiece al aterrizar',
+    'KoSa Beach Resort está en la Región Central de Ghana, a unos 25 km de Elmina y 30 km del castillo de Cape Coast · Desde el aeropuerto internacional Kotoka de Accra, el viaje es de unas 3 horas y podemos organizar tu traslado para que el descanso empiece al aterrizar',
   'planPage.getting.cta': 'Reservar traslado al aeropuerto',
   'planPage.faqs.title': 'Preguntas frecuentes',
   'planPage.faq.checkin.q': '¿Qué horario tiene el check-in y check-out?',
@@ -1926,7 +1926,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
     'Sí. Hay opciones halal en toda la carta · Vegetarianos, veganos y otras necesidades atendidos con cariño',
   'planPage.faq.children.q': '¿Puedo venir con niños?',
   'planPage.faq.children.a':
-    'Por supuesto · Ko Sa es tranquilo pero family-friendly · Cuéntanos las edades y preparamos lo necesario',
+    'Por supuesto · KoSa es tranquilo pero family-friendly · Cuéntanos las edades y preparamos lo necesario',
   'planPage.faq.payment.q': '¿Qué métodos de pago aceptan?',
   'planPage.faq.payment.a':
     'Las principales tarjetas, mobile money y transferencia · Un depósito confirma la reserva; el resto a la llegada',
@@ -1939,16 +1939,16 @@ const es: Partial<Record<keyof typeof en, string>> = {
 
   'aboutPage.headline': 'Dos décadas junto al mar. Y aún así, cada huésped se siente como el primero',
   'aboutPage.opening':
-    'Ko Sa Beach Resort no nació de un plan de negocio. Nació de una convicción - que la costa ghanesa es uno de los lugares más restauradores del mundo, y que todos los que vienen aquí deberían poder sentirlo. Durante más de veinte años, hemos mantenido esa convicción.',
+    'KoSa Beach Resort no nació de un plan de negocio. Nació de una convicción - que la costa ghanesa es uno de los lugares más restauradores del mundo, y que todos los que vienen aquí deberían poder sentirlo. Durante más de veinte años, hemos mantenido esa convicción.',
   'aboutPage.continued':
-    'Somos parte del Akwaaba Stays Hospitality Group - una familia de establecimientos en Ghana y África Occidental que comparten un compromiso con la hospitalidad enraizada en el cuidado, la comunidad y los lugares que llamamos hogar. Ko Sa es donde ese compromiso vive más cerca del agua.',
+    'Somos parte del Akwaaba Stays Hospitality Group - una familia de establecimientos en Ghana y África Occidental que comparten un compromiso con la hospitalidad enraizada en el cuidado, la comunidad y los lugares que llamamos hogar. KoSa es donde ese compromiso vive más cerca del agua.',
   'aboutPage.values': 'Nuestros valores',
   'aboutPage.values.authenticity.title': 'Autenticidad',
   'aboutPage.values.authenticity.body':
-    'Hospitalidad honesta que refleja el ritmo real de esta costa · Sin actuaciones · Sin pretensiones · Ko Sa tal como es y como siempre ha sido',
+    'Hospitalidad honesta que refleja el ritmo real de esta costa · Sin actuaciones · Sin pretensiones · KoSa tal como es y como siempre ha sido',
   'aboutPage.values.community.title': 'Comunidad',
   'aboutPage.values.community.body':
-    'Trabajamos codo con codo con quienes nos rodean pescadores, agricultores y artesanos cuyo trabajo y saber hacen lo que Ko Sa es · Cuando te quedas aquí, sus vidas también crecen',
+    'Trabajamos codo con codo con quienes nos rodean pescadores, agricultores y artesanos cuyo trabajo y saber hacen lo que KoSa es · Cuando te quedas aquí, sus vidas también crecen',
   'aboutPage.values.wellness.title': 'Bienestar',
   'aboutPage.values.wellness.body':
     'Nutrir cuerpo y mente con buena comida, coaching y calma · Creemos que el bienestar debería ser hermoso, natural y al alcance no un lujo para unos pocos',
@@ -1960,7 +1960,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
     'Dos décadas de conexión genuina y cuidado continuo junto al mar · El océano nos mantiene humildes · Los huéspedes que vuelven nos mantienen en pie',
   'aboutPage.closing.headline': 'Ven y compruébalo por ti mismo',
   'aboutPage.closing.body':
-    'Podríamos contarte más pero Ko Sa se vive mejor de lo que se cuenta · El aire marino, la cocina, las personas, el silencio · Hay algo aquí que no cabe en palabras · Pero te espera',
+    'Podríamos contarte más pero KoSa se vive mejor de lo que se cuenta · El aire marino, la cocina, las personas, el silencio · Hay algo aquí que no cabe en palabras · Pero te espera',
   'aboutPage.closing.ctaBook': 'Reservar mi estancia',
   'aboutPage.closing.ctaGet': 'Contáctanos',
 
@@ -1973,7 +1973,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'exit.thanks': 'Gracias · Estate atento a tu bandeja de entrada',
 
   'common.bookYourStay': 'Reserva tu estancia',
-  'common.exploreKosa': 'Descubre Ko Sa',
+  'common.exploreKosa': 'Descubre KoSa',
   'common.whatsapp': 'WhatsApp',
   'common.getInTouch': 'Contáctanos',
   'common.startPlanning': 'Empezar a planificar',
@@ -2032,7 +2032,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.notSure': 'Aún no estoy seguro - asesórame',
   'wellnessForm.guestType': '¿Te alojas con nosotros?',
   'wellnessForm.day': 'Visitante de día',
-  'wellnessForm.staying': 'Alojado en Ko Sa',
+  'wellnessForm.staying': 'Alojado en KoSa',
   'wellnessForm.date': 'Fecha preferida',
   'wellnessForm.guests': 'Número de personas',
   'wellnessForm.message': '¿Algo más?',
@@ -2040,18 +2040,18 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.whatsapp': 'Enviar por WhatsApp',
   'wellnessForm.thankTitle': 'Gracias',
   'wellnessForm.thankBody': 'Hemos recibido tu consulta y te contactaremos pronto',
-  'wellnessForm.waIntro': '¡Hola Ko Sa! Quisiera consultar sobre bienestar:',
+  'wellnessForm.waIntro': '¡Hola KoSa! Quisiera consultar sobre bienestar:',
   'wellnessPage.treatmentsHeading': 'Tratamientos y sesiones',
-  'wellnessPage.treatmentsIntro': 'Explora según lo que necesitas - masajes y trabajo corporal en el Ko Sa Health Spa, o los rituales y retiros más profundos de O2 Wellness.',
+  'wellnessPage.treatmentsIntro': 'Explora según lo que necesitas - masajes y trabajo corporal en el KoSa Health Spa, o los rituales y retiros más profundos de O2 Wellness.',
   "quote.ocean": "El océano no se apura. Tú tampoco deberías",
   "quote.stop": "Así se siente parar por fin",
   'home.welcome.eyebrow': 'Akwaba · Bienvenido a casa',
-  'home.welcome.heading': 'Hay lugares que se visitan. A Ko Sa se vuelve a casa',
-  'home.welcome.body': 'Mira cómo se despliega una bienvenida en Ko Sa: los tambores en la arena, la tela blanca en la brisa, una ceremonia de nombramiento junto al océano. Así se siente llegar.',
+  'home.welcome.heading': 'Hay lugares que se visitan. A KoSa se vuelve a casa',
+  'home.welcome.body': 'Mira cómo se despliega una bienvenida en KoSa: los tambores en la arena, la tela blanca en la brisa, una ceremonia de nombramiento junto al océano. Así se siente llegar.',
   'home.welcome.cta': 'Reproducir el vídeo',
   'home.welcome.play': 'Reproducir el vídeo Welcome Home',
   "wellnessPage.hero.line": "No necesitas un programa. Necesitas permiso para parar",
-  "wellnessPage.offerings.eyebrow": "Bienestar Ko Sa",
+  "wellnessPage.offerings.eyebrow": "Bienestar KoSa",
   "wellnessPage.yoga.title": "Yoga junto al mar",
   "wellnessPage.yoga.body": "Movimiento suave sobre la arena, la respiración y el océano al mismo compás. Ven como estás; todos los niveles son bienvenidos.",
   "wellnessPage.journeys.sense": "No se programa nada que no hayas elegido. El día se adapta a ti, no al revés.",
@@ -2060,7 +2060,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   "wellnessPage.tea.sense": "Preparamos infusiones con hierbas de la propiedad. Algunos huéspedes piden la receta.",
   "wellnessPage.yoga.sense": "Las sesiones son a las 7 de la mañana, cuando la luz aún es suave y la playa está tranquila.",
   "wellnessPage.day.eyebrow": "Un día aquí",
-  "wellnessPage.day.heading": "Cómo es un día de bienestar en Ko Sa",
+  "wellnessPage.day.heading": "Cómo es un día de bienestar en KoSa",
   "wellnessPage.day.intro": "Sin horarios que cumplir. Solo un ritmo suave que sigues tanto como quieras.",
   "wellnessPage.day.s1.time": "Al amanecer",
   "wellnessPage.day.s1.text": "Té en la terraza mientras sale la luz. Sin prisa, sin nada que ser todavía.",
@@ -2085,7 +2085,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.daily.eyebrow': 'Cada día, incluido',
   'experiencesPage.daily.heading': 'Actividades diarias gratuitas',
   'experiencesPage.daily.intro':
-    'Cada día en Ko Sa tiene su ritmo. Todas las actividades son gratuitas para nuestros huéspedes: únete a las que quieras o simplemente tómate el tiempo de descansar.',
+    'Cada día en KoSa tiene su ritmo. Todas las actividades son gratuitas para nuestros huéspedes: únete a las que quieras o simplemente tómate el tiempo de descansar.',
   'experiencesPage.daily.free': 'Gratis',
   'experiencesPage.daily.footnote':
     'Todas las actividades son gratuitas para los huéspedes. Apúntate en recepción. El programa puede variar.',
@@ -2113,7 +2113,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'contactPage.title': 'Hablemos, sin más',
   'contactPage.whereToFind': 'Dónde encontrarnos',
   'contactPage.whatsappUs': 'Escríbenos por WhatsApp',
-  'contactPage.mapTitle': 'Mapa de ubicación de Ko Sa',
+  'contactPage.mapTitle': 'Mapa de ubicación de KoSa',
 
   'bookPage.eyebrow': 'Prepara tu regreso',
   'bookPage.title': 'Reserva tu estancia',
@@ -2207,9 +2207,9 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'chat.errorEmpty': "Akwaaba estoy aquí, pero mi mente de conserje se quedó en silencio un momento · Inténtalo de nuevo o escríbenos por WhatsApp al +233 24 437 5432",
   'chat.errorTimeout': 'Tardó más de lo esperado inténtalo de nuevo o escríbenos por WhatsApp al +233 24 437 5432',
   'chat.errorGeneric': "Ahora mismo no consigo acceder a la información del resort · Escríbenos por WhatsApp al +233 24 437 5432 y te responderemos enseguida",
-  'alt.heroShoreline': 'Vista aérea de la costa de Ko Sa, Elmina, Ghana',
-  'alt.feelingHammock': 'Una hamaca tranquila entre las palmeras de Ko Sa',
-  'alt.aboutSea': 'Ko Sa Beach Resort junto al mar',
+  'alt.heroShoreline': 'Vista aérea de la costa de KoSa, Elmina, Ghana',
+  'alt.feelingHammock': 'Una hamaca tranquila entre las palmeras de KoSa',
+  'alt.aboutSea': 'KoSa Beach Resort junto al mar',
   'aboutPage.enrichedSetting': 'Se refleja en los pescadores con quienes trabajamos, los agricultores que abastecen nuestra cocina, los artesanos cuyas manos dieron forma a lo que ves a tu alrededor.',
   'aboutPage.enrichedEco': 'Nunca quisimos construir un resort de lujo. Quisimos crear un lugar donde se pudiera sentir la costa tal como es de verdad - sin prisa, generosa, viva.',
   'aboutPage.seaTurtle.title': 'Proyecto Tortugas marinas',
@@ -2226,7 +2226,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.signature.capeCoast.title': 'Castillo de Cape Coast',
   'experiencesPage.signature.capeCoast.body': 'Un trayecto corto hacia el este · Un peso que merece la pena cargar lleva agua, deja tiempo para el silencio después',
   'experiencesPage.signature.elmina.title': 'Castillo de Elmina',
-  'experiencesPage.signature.elmina.body': 'A veinte minutos de Ko Sa. Una de las construcciones europeas más antiguas de África Occidental, para recorrerla despacio',
+  'experiencesPage.signature.elmina.body': 'A veinte minutos de KoSa. Una de las construcciones europeas más antiguas de África Occidental, para recorrerla despacio',
   'experiencesPage.signature.kakum.title': 'Parque Nacional Kakum',
   'experiencesPage.signature.kakum.body': 'Selva, pasarelas en el dosel, mariposas que solo encontrarás aquí. Salida temprano, vuelta para cenar',
   'experiencesPage.signature.massage.title': 'Masaje tailandés junto al mar',
@@ -2258,7 +2258,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'hero.scrollAria': 'Naar het volgende onderdeel',
 
   'intro.eyebrow': 'Welkom · Akwaaba',
-  'intro.headline.l1': 'Ko Sa is geen hotel',
+  'intro.headline.l1': 'KoSa is geen hotel',
   'intro.headline.l2': 'Het is de plek waar je steeds terugkomt',
   'intro.body':
     'Aan een rustig stuk Atlantische kust in Elmina, waar palmbomen meebuigen met de wind en de oceaan zijn eigen tempo bepaalt, bouwden wij een plek om tot rust te komen · Eco-luxe in alles, geworteld in Ghanees vakmanschap, gedragen door de rituelen van wie er dagelijks voor zorgt',
@@ -2281,7 +2281,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'experiences.eyebrow': 'Beleef het ten volle',
   'experiences.headline': 'Vier manieren om wortel te schieten',
   'experiences.blurb':
-    'Van yoga bij zonsopgang op de rotsen tot trommelkringen rond het vuur elke dag bij Ko Sa brengt je een stukje dichter bij jezelf',
+    'Van yoga bij zonsopgang op de rotsen tot trommelkringen rond het vuur elke dag bij KoSa brengt je een stukje dichter bij jezelf',
   'experiences.discover': 'Ontdek',
 
   'wellness.bgWord': 'Gewoon ademen',
@@ -2333,12 +2333,12 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Digitale conciërge · antwoordt vrijwel direct',
   'chat.greeting':
-    'Akwaaba ik ben Abena, uw conciërge bij Ko Sa. Vraag me gerust alles over het resort, onze kamers of het plannen van uw verblijf',
+    'Akwaaba ik ben Abena, uw conciërge bij KoSa. Vraag me gerust alles over het resort, onze kamers of het plannen van uw verblijf',
   'chat.placeholder': 'Stel uw vraag…',
   'chat.send': 'Versturen',
   'chat.close': 'Sluiten',
   'chat.suggested.rooms': 'Welke kamers zijn beschikbaar?',
-  'chat.suggested.directions': 'Hoe reis ik van Accra naar Ko Sa?',
+  'chat.suggested.directions': 'Hoe reis ik van Accra naar KoSa?',
   'chat.suggested.spa': 'Vertel me over de spa',
   'chat.suggested.included': 'Wat is inbegrepen?',
 
@@ -2417,7 +2417,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'testimonials.2.country': 'Parijs, Frankrijk',
   'testimonials.2.quote': 'Een toevluchtsoord in de zuiverste zin · Het team laat je voelen als een vriend die terugkomt, niet als een gast',
   'testimonials.3.country': 'Lagos, Nigeria',
-  'testimonials.3.quote': 'Ko Sa toont wat elke Afrikaanse kustlijn kan zijn geworteld, mooi, waardig',
+  'testimonials.3.quote': 'KoSa toont wat elke Afrikaanse kustlijn kan zijn geworteld, mooi, waardig',
 
   'treatments.atlantic-salt-scrub.name': 'Atlantische zoutscrub',
   'treatments.palm-oil-deep-tissue.name': 'Diepe weefselmassage met palmolie',
@@ -2447,14 +2447,14 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'home.hero.headline': 'Verbind · Herlaad · Vernieuw',
   'home.hero.subhead': 'Het leven is beter aan het strand',
   'home.hero.ctaPrimary': 'Boek je verblijf',
-  'home.hero.ctaSecondary': 'Ontdek Ko Sa',
+  'home.hero.ctaSecondary': 'Ontdek KoSa',
 
   'home.social.copy':
     'Geliefd bij 5.000+ gasten. 9,1/10 op Booking.com · 4,8/5 op Google · 4,7/5 op TripAdvisor',
 
   'home.feeling.headline': 'Zo voelt het om vaart te minderen',
   'home.feeling.body':
-    'Ko Sa is een kustretraite ontworpen voor verbinding met de natuur, met anderen en met jezelf · Een plek waar elke zonsopkomst en zeebries je uitnodigt stil te staan · Waar het eten vers is en het tempo zacht · Waar de oceaan niet alleen uitzicht is maar de hele bedoeling',
+    'KoSa is een kustretraite ontworpen voor verbinding met de natuur, met anderen en met jezelf · Een plek waar elke zonsopkomst en zeebries je uitnodigt stil te staan · Waar het eten vers is en het tempo zacht · Waar de oceaan niet alleen uitzicht is maar de hele bedoeling',
 
   'home.itineraries.eyebrow': 'Voorbeeld-itineraries',
   'home.itineraries.weekend': 'Weekend Escape · 2 nachten',
@@ -2479,7 +2479,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'home.roomsTeaser.cta': 'Bekijk de kamers →',
 
   'home.testimonials.example':
-    'Ik kwam uitgeput aan en vertrok weer als mezelf · Ko Sa heeft die kracht',
+    'Ik kwam uitgeput aan en vertrok weer als mezelf · KoSa heeft die kracht',
 
   'home.email.headline': 'Wees als eerste op de hoogte',
   'home.email.body':
@@ -2489,17 +2489,17 @@ const nl: Partial<Record<keyof typeof en, string>> = {
 
   'roomsPage.headline': 'Jouw plek aan zee',
   'roomsPage.intro':
-    'Elke kamer bij Ko Sa is ontworpen met één vraag in gedachten: hoe voelt echte rust? Licht dat van de oceaan komt · Lucht die de tuin meedraagt · Comfort dat zich niet aankondigt het omringt je gewoon',
+    'Elke kamer bij KoSa is ontworpen met één vraag in gedachten: hoe voelt echte rust? Licht dat van de oceaan komt · Lucht die de tuin meedraagt · Comfort dat zich niet aankondigt het omringt je gewoon',
   'roomsPage.cardCta': 'Nu boeken',
   'roomsPage.trust':
     'Boek direct voor de beste prijs · Flexibele annulering op alle kamers · Een welkomstdrankje bij aankomst onze manier om te zeggen dat we blij zijn dat je er bent · Vragen? We zijn bereikbaar via WhatsApp',
 
-  'wellnessPage.headline': 'Welzijn, op zijn Ko Sa',
-  'wellnessPage.hero.title': 'Welzijn, op zijn Ko Sa',
+  'wellnessPage.headline': 'Welzijn, op zijn KoSa',
+  'wellnessPage.hero.title': 'Welzijn, op zijn KoSa',
   'wellnessPage.hero.sub': 'De natuur herstelt vind balans in lichaam en geest',
   'wellnessPage.approach.eyebrow': 'Onze aanpak',
   'wellnessPage.approach.title': 'Welzijn door de natuur',
-  'wellnessPage.approach.body1': 'We bouwden Ko Sa op een eenvoudige overtuiging: welzijn hoort mooi, natuurlijk en binnen handbereik te zijn. Hier is welzijn geen programma - het is het ritme van de plek. Het zit in de kruidenthee die bij aankomst op je wacht. In de zeelucht die je bij dageraad begroet. In de rust waarvan je niet wist dat je die nodig had.',
+  'wellnessPage.approach.body1': 'We bouwden KoSa op een eenvoudige overtuiging: welzijn hoort mooi, natuurlijk en binnen handbereik te zijn. Hier is welzijn geen programma - het is het ritme van de plek. Het zit in de kruidenthee die bij aankomst op je wacht. In de zeelucht die je bij dageraad begroet. In de rust waarvan je niet wist dat je die nodig had.',
   'wellnessPage.approach.body2': 'Welzijn is hier niet iets wat je doet. Het is iets wat je je herinnert.',
   'wellnessPage.features.heading': 'Wellnessvoorzieningen',
   'wellnessPage.feat.spa.title': 'Spabehandelingen',
@@ -2518,7 +2518,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.holistic.title': 'Lichaam, geest en ziel',
   'wellnessPage.holistic.body1': 'Onze programma’s richten zich op de hele mens lichaam, geest en ziel · Of je nu ontspanning, energie of innerlijke rust zoekt, ons team begeleidt je persoonlijk',
   'wellnessPage.holistic.body2': 'Van yoga bij zonsopgang tot meditatie bij zonsondergang, van thee tot massages alles werkt samen om je balans te herstellen',
-  'wellnessPage.benefits.heading': 'De voordelen van welzijn bij Ko Sa',
+  'wellnessPage.benefits.heading': 'De voordelen van welzijn bij KoSa',
   'wellnessPage.benefit.stress.title': 'Stressverlichting',
   'wellnessPage.benefit.stress.body': 'Laat spanning los met natuurlijke therapieën en een rustige omgeving',
   'wellnessPage.benefit.renewal.title': 'Fysieke vernieuwing',
@@ -2528,7 +2528,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.benefit.lasting.title': 'Blijvende verandering',
   'wellnessPage.benefit.lasting.body': 'Ontwikkel welzijnsgewoonten die verder reiken dan je verblijf',
   'wellnessPage.intro':
-    'We hebben Ko Sa gebouwd vanuit een eenvoudige overtuiging: welzijn hoort mooi, natuurlijk en bereikbaar te zijn · Hier is welzijn geen programma het is het ritme van de plek · Het zit in de kruidenthee die je ontvangt bij aankomst · In de zeelucht die je begroet bij zonsopkomst · In de stilte waarvan je niet wist dat je haar nodig had',
+    'We hebben KoSa gebouwd vanuit een eenvoudige overtuiging: welzijn hoort mooi, natuurlijk en bereikbaar te zijn · Hier is welzijn geen programma het is het ritme van de plek · Het zit in de kruidenthee die je ontvangt bij aankomst · In de zeelucht die je begroet bij zonsopkomst · In de stilte waarvan je niet wist dat je haar nodig had',
   'wellnessPage.journeys.title': 'Welzijnsreizen',
   'wellnessPage.journeys.body':
     'Begeleide ervaringen in rust, reflectie en hernieuwing · Of je nu alleen komt of met iemand die je liefhebt, we vormen je tijd hier rondom wat lichaam en geest werkelijk nodig hebben',
@@ -2538,7 +2538,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.spa.title': 'Spa-diensten',
   'wellnessPage.spa.body':
     'Massages, aromatherapie en kruidenbehandelingen elk gekozen om wat ze het lichaam teruggeven · Handen die weten te luisteren · Behandelingen geworteld in dit land',
-  'wellnessPage.tea.title': 'Ko Sa Tea Bar',
+  'wellnessPage.tea.title': 'KoSa Tea Bar',
   'wellnessPage.tea.body':
     'Kruidenthees en verse sappen die in stilte voeden · Geen haast · Geen ruis · Alleen warmte in een kop en de zee die nooit ver weg klinkt',
   'wellnessPage.cta.book': 'Boek een welzijnservaring',
@@ -2547,7 +2547,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'diningPage.headline': 'Eten zoals de kust het bedoelde',
   'diningPage.popular': 'Populair',
   'diningPage.intro':
-    'Bij Ko Sa is de keuken onderdeel van het welzijn · We werken met lokale vissers en boeren mensen die dit land en deze wateren kennen en laten de versheid spreken · Ghanese smaken, met zorg bereid · Voeding die smaakt alsof ze voor jou gemaakt is',
+    'Bij KoSa is de keuken onderdeel van het welzijn · We werken met lokale vissers en boeren mensen die dit land en deze wateren kennen en laten de versheid spreken · Ghanese smaken, met zorg bereid · Voeding die smaakt alsof ze voor jou gemaakt is',
   'diningPage.restaurant.title': 'Het restaurant',
   'diningPage.restaurant.body':
     'Waar de dag begint en de avond tot rust komt · Ons restaurant serveert verse, seizoensgebonden gerechten verworteld in de Ghanese traditie, met aandacht voor iedereen aan tafel inclusief halal-opties, vegetarische gerechten en maaltijden die net zo goed voelen als ze smaken',
@@ -2565,10 +2565,10 @@ const nl: Partial<Record<keyof typeof en, string>> = {
 
   'experiencesPage.headline': 'Ghana begint hier',
   'experiencesPage.intro':
-    'Ko Sa ligt aan de rand van een van de mooiste en historisch rijkste kuststreken van West-Afrika · Wij zijn je basis, je gids en je thuis na elk avontuur · Of je nu op het terrein blijft of erop uit trekt elke ervaring is er een om mee naar huis te nemen',
+    'KoSa ligt aan de rand van een van de mooiste en historisch rijkste kuststreken van West-Afrika · Wij zijn je basis, je gids en je thuis na elk avontuur · Of je nu op het terrein blijft of erop uit trekt elke ervaring is er een om mee naar huis te nemen',
   'experiencesPage.property.title': 'Op het terrein',
   'experiencesPage.property.body':
-    'De oceaan ligt vlakbij · Net als het zwembad, de tuin, de yogamat en de hangmat met jouw naam erop · Op dagen dat je alleen maar wilt zijn, is Ko Sa meer dan genoeg',
+    'De oceaan ligt vlakbij · Net als het zwembad, de tuin, de yogamat en de hangmat met jouw naam erop · Op dagen dat je alleen maar wilt zijn, is KoSa meer dan genoeg',
   'experiencesPage.ghana.title': 'Het land in',
   'experiencesPage.ghana.body':
     'Wanneer je klaar bent om te ontdekken, zijn wij klaar om je mee te nemen · Cape Coast Castle · Elmina · Kakum · De visdorpen · De markten · De geschiedenissen die het verdienen gekend te worden · We verbinden je met gidsen die deze plekken diep kennen niet als toeristen, maar als mensen die hier horen',
@@ -2580,17 +2580,17 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'eventsPage.empty': 'Nog niets in deze categorie.',
 
   'eventsPage.intro':
-    'Sommige momenten verdienen een decor dat ze recht doet · Ko Sa ligt tussen oceaan en tuin een natuurlijk decor voor vieringen die echt voelen, retraites die werkelijk herstellen en bijeenkomsten waar je als collega aankomt en als iets dichter vertrekt',
+    'Sommige momenten verdienen een decor dat ze recht doet · KoSa ligt tussen oceaan en tuin een natuurlijk decor voor vieringen die echt voelen, retraites die werkelijk herstellen en bijeenkomsten waar je als collega aankomt en als iets dichter vertrekt',
   'eventsPage.weddings.title': 'Bruiloften & vieringen',
   'eventsPage.weddings.body':
-    'Een bruiloft op Ko Sa is de strandceremonie die je altijd voor je zag het geluid van de golven, de warmte van de kust, je dierbaarsten samen op één prachtige plek · Wij regelen elk detail met zorg · Jij komt en viert',
+    'Een bruiloft op KoSa is de strandceremonie die je altijd voor je zag het geluid van de golven, de warmte van de kust, je dierbaarsten samen op één prachtige plek · Wij regelen elk detail met zorg · Jij komt en viert',
   'eventsPage.weddings.cta': 'Begin met plannen',
   'eventsPage.retreats.title': 'Welzijnsretreats',
   'eventsPage.retreats.body':
-    'Ko Sa is gebouwd voor herstel · Groepsretraites yoga-intensives, mindfulness-weekenden of maatwerk healing-programma’s vinden hier een natuurlijk thuis · Wij brengen de ruimte, de stilte en de ondersteuning · Jij brengt de intentie',
+    'KoSa is gebouwd voor herstel · Groepsretraites yoga-intensives, mindfulness-weekenden of maatwerk healing-programma’s vinden hier een natuurlijk thuis · Wij brengen de ruimte, de stilte en de ondersteuning · Jij brengt de intentie',
   'eventsPage.corporate.title': 'Bedrijfsretreats & offsite meetings',
   'eventsPage.corporate.body':
-    'De beste ideeën ontstaan niet in vergaderzalen · Breng je team naar de kust, stap weg uit het gewone en kijk wat er gebeurt als mensen weer kunnen denken · Ko Sa biedt vergaderruimte, groepsaccommodatie en teamervaringen om de mensen achter het werk weer te verbinden',
+    'De beste ideeën ontstaan niet in vergaderzalen · Breng je team naar de kust, stap weg uit het gewone en kijk wat er gebeurt als mensen weer kunnen denken · KoSa biedt vergaderruimte, groepsaccommodatie en teamervaringen om de mensen achter het werk weer te verbinden',
   'eventsPage.corporate.cta': 'Vraag groepsboeking aan',
   'eventsPage.form.name': 'Naam',
   'eventsPage.form.company': 'Bedrijf',
@@ -2602,19 +2602,19 @@ const nl: Partial<Record<keyof typeof en, string>> = {
 
   'planPage.headline': 'Alles wat je nodig hebt om voorbereid aan te komen',
   'planPage.intro':
-    'We willen dat je Ko Sa-ervaring al begint voordat je hier bent · Hieronder vind je alles om je verblijf voor te bereiden voorbeeld-itineraries, route, FAQ en de praktische info die echt verschil maakt',
+    'We willen dat je KoSa-ervaring al begint voordat je hier bent · Hieronder vind je alles om je verblijf voor te bereiden voorbeeld-itineraries, route, FAQ en de praktische info die echt verschil maakt',
   'planPage.experiences.eyebrow': 'Wat je hier kunt doen',
   'planPage.experiences.body':
-    'Echte ervaringen bij Ko Sa, van het strand tot de kust kies wat je aanspreekt',
+    'Echte ervaringen bij KoSa, van het strand tot de kust kies wat je aanspreekt',
   'planPage.experiences.cta': 'Bekijk alle ervaringen',
   'planPage.itineraries.eyebrow': 'Voorbeeld-itineraries',
   'planPage.itineraries.body':
-    'Drie vooraf samengestelde verblijven, dag voor dag geen schema, maar een verhaal · Elk eindigt met: dit is één versie van je Ko Sa-verblijf · De jouwe wordt de jouwe vorm hem bij aankomst, of vertel ons wat je nodig hebt voordat je komt',
+    'Drie vooraf samengestelde verblijven, dag voor dag geen schema, maar een verhaal · Elk eindigt met: dit is één versie van je KoSa-verblijf · De jouwe wordt de jouwe vorm hem bij aankomst, of vertel ons wat je nodig hebt voordat je komt',
   'planPage.itineraries.cta1': 'Boek dit verblijf',
   'planPage.itineraries.cta2': 'Stel mijn plan samen',
   'planPage.getting.title': 'Hoe je hier komt',
   'planPage.getting.body':
-    'Ko Sa Beach Resort ligt aan de Centrale kust van Ghana, ongeveer 25 km van Elmina en 30 km van Cape Coast Castle · Vanaf Accra’s Kotoka International Airport is het ongeveer 3 uur rijden en we regelen graag je transfer zodat de rust begint zodra je landt',
+    'KoSa Beach Resort ligt aan de Centrale kust van Ghana, ongeveer 25 km van Elmina en 30 km van Cape Coast Castle · Vanaf Accra’s Kotoka International Airport is het ongeveer 3 uur rijden en we regelen graag je transfer zodat de rust begint zodra je landt',
   'planPage.getting.cta': 'Boek een luchthaventransfer',
   'planPage.faqs.title': 'Veelgestelde vragen',
   'planPage.faq.checkin.q': 'Hoe laat is in- en uitchecken?',
@@ -2631,7 +2631,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
     'Ja. Halal-opties beschikbaar in de hele kaart · Vegetarisch, veganistisch en andere dieetwensen worden met plezier opgevangen',
   'planPage.faq.children.q': 'Kunnen kinderen mee?',
   'planPage.faq.children.a':
-    'Natuurlijk · Ko Sa is rustig maar gezinsvriendelijk · Vertel ons de leeftijden en we maken het verblijf zo gemakkelijk mogelijk',
+    'Natuurlijk · KoSa is rustig maar gezinsvriendelijk · Vertel ons de leeftijden en we maken het verblijf zo gemakkelijk mogelijk',
   'planPage.faq.payment.q': 'Welke betaalmethoden accepteren jullie?',
   'planPage.faq.payment.a':
     'Alle grote kaarten, mobile money en bankoverschrijving · Een aanbetaling bevestigt de boeking, het saldo rekenen we af bij aankomst',
@@ -2644,16 +2644,16 @@ const nl: Partial<Record<keyof typeof en, string>> = {
 
   'aboutPage.headline': 'Twee decennia aan zee. En toch voelt elke gast zich als de eerste',
   'aboutPage.opening':
-    'Ko Sa Beach Resort is niet gebouwd vanuit een businessplan. Het is gebouwd vanuit een overtuiging - dat de Ghanese kust een van de meest herstellende plekken op aarde is, en dat iedereen die hier komt dat moet kunnen voelen. Al meer dan twintig jaar houden we die overtuiging vast.',
+    'KoSa Beach Resort is niet gebouwd vanuit een businessplan. Het is gebouwd vanuit een overtuiging - dat de Ghanese kust een van de meest herstellende plekken op aarde is, en dat iedereen die hier komt dat moet kunnen voelen. Al meer dan twintig jaar houden we die overtuiging vast.',
   'aboutPage.continued':
-    'We zijn onderdeel van de Akwaaba Stays Hospitality Group - een familie van verblijven in Ghana en West-Afrika die een gezamenlijke toewijding delen aan gastvrijheid geworteld in zorg, gemeenschap en de plekken die we thuis noemen. Ko Sa is waar die toewijding het dichtst bij het water leeft.',
+    'We zijn onderdeel van de Akwaaba Stays Hospitality Group - een familie van verblijven in Ghana en West-Afrika die een gezamenlijke toewijding delen aan gastvrijheid geworteld in zorg, gemeenschap en de plekken die we thuis noemen. KoSa is waar die toewijding het dichtst bij het water leeft.',
   'aboutPage.values': 'Onze waarden',
   'aboutPage.values.authenticity.title': 'Authenticiteit',
   'aboutPage.values.authenticity.body':
-    'Eerlijke gastvrijheid die het werkelijke ritme van deze kust weerspiegelt · Geen show · Geen pretentie · Ko Sa zoals het is en altijd is geweest',
+    'Eerlijke gastvrijheid die het werkelijke ritme van deze kust weerspiegelt · Geen show · Geen pretentie · KoSa zoals het is en altijd is geweest',
   'aboutPage.values.community.title': 'Gemeenschap',
   'aboutPage.values.community.body':
-    'We werken samen met de mensen om ons heen vissers, boeren en ambachtslieden wier werk en kennis Ko Sa maken tot wat het is · Wanneer je hier verblijft, groeien hun levens mee',
+    'We werken samen met de mensen om ons heen vissers, boeren en ambachtslieden wier werk en kennis KoSa maken tot wat het is · Wanneer je hier verblijft, groeien hun levens mee',
   'aboutPage.values.wellness.title': 'Welzijn',
   'aboutPage.values.wellness.body':
     'Het voeden van lichaam en geest via gezond eten, coaching en stilte · We geloven dat welzijn mooi, natuurlijk en bereikbaar hoort te zijn geen luxe voor een enkeling',
@@ -2665,11 +2665,11 @@ const nl: Partial<Record<keyof typeof en, string>> = {
     'Twee decennia van oprechte verbinding en zorg aan zee · De oceaan houdt ons nederig · De gasten die terugkomen houden ons gaande',
   'aboutPage.closing.headline': 'Kom en ervaar het zelf',
   'aboutPage.closing.body':
-    'We zouden je meer kunnen vertellen maar Ko Sa beleef je het beste in persoon · De zeelucht, het eten, de mensen, de stilte · Er is hier iets dat niet in woorden past · Maar het wacht op je',
+    'We zouden je meer kunnen vertellen maar KoSa beleef je het beste in persoon · De zeelucht, het eten, de mensen, de stilte · Er is hier iets dat niet in woorden past · Maar het wacht op je',
   'aboutPage.closing.ctaBook': 'Boek je verblijf',
   'aboutPage.closing.ctaGet': 'Neem contact op',
 
-  'exit.headline': 'Ontvang Ko Sa-tarieven voordat ze vollopen',
+  'exit.headline': 'Ontvang KoSa-tarieven voordat ze vollopen',
   'exit.body':
     'Vroege toegang tot seizoenstarieven, rustige weken en nieuwe ervaringen · Eén keer per maand, niet meer',
   'exit.cta': 'Houd me op de hoogte',
@@ -2678,7 +2678,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'exit.thanks': 'Bedankt · Kijk je inbox in de gaten',
 
   'common.bookYourStay': 'Boek je verblijf',
-  'common.exploreKosa': 'Ontdek Ko Sa',
+  'common.exploreKosa': 'Ontdek KoSa',
   'common.whatsapp': 'WhatsApp',
   'common.getInTouch': 'Neem contact op',
   'common.startPlanning': 'Begin met plannen',
@@ -2737,7 +2737,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.notSure': 'Nog niet zeker - adviseer me',
   'wellnessForm.guestType': 'Verblijf je bij ons?',
   'wellnessForm.day': 'Daggast (verblijft niet)',
-  'wellnessForm.staying': 'Verblijft bij Ko Sa',
+  'wellnessForm.staying': 'Verblijft bij KoSa',
   'wellnessForm.date': 'Voorkeursdatum',
   'wellnessForm.guests': 'Aantal gasten',
   'wellnessForm.message': 'Nog iets?',
@@ -2745,18 +2745,18 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.whatsapp': 'Verstuur via WhatsApp',
   'wellnessForm.thankTitle': 'Dank je',
   'wellnessForm.thankBody': 'We hebben je aanvraag ontvangen en nemen snel contact op',
-  'wellnessForm.waIntro': 'Hoi Ko Sa! Ik heb een wellnessvraag:',
+  'wellnessForm.waIntro': 'Hoi KoSa! Ik heb een wellnessvraag:',
   'wellnessPage.treatmentsHeading': 'Behandelingen & sessies',
-  'wellnessPage.treatmentsIntro': 'Blader op wat je nodig hebt - massage en bodywork in de Ko Sa Health Spa, of de diepere rituelen en retraites van O2 Wellness.',
+  'wellnessPage.treatmentsIntro': 'Blader op wat je nodig hebt - massage en bodywork in de KoSa Health Spa, of de diepere rituelen en retraites van O2 Wellness.',
   "quote.ocean": "De oceaan haast zich niet. Jij zou dat ook niet moeten doen",
   "quote.stop": "Dit is hoe het voelt om eindelijk te stoppen",
   'home.welcome.eyebrow': 'Akwaba · Welkom thuis',
-  'home.welcome.heading': 'Sommige plekken bezoek je. Bij Ko Sa kom je thuis',
-  'home.welcome.body': 'Zie een Ko Sa-welkom zich ontvouwen: trommels op het zand, wit linnen in de bries, een naamceremonie aan de oceaan. Zo voelt aankomen.',
+  'home.welcome.heading': 'Sommige plekken bezoek je. Bij KoSa kom je thuis',
+  'home.welcome.body': 'Zie een KoSa-welkom zich ontvouwen: trommels op het zand, wit linnen in de bries, een naamceremonie aan de oceaan. Zo voelt aankomen.',
   'home.welcome.cta': 'Speel de film af',
   'home.welcome.play': 'Speel de Welcome Home-film af',
   "wellnessPage.hero.line": "Je hebt geen programma nodig. Je hebt toestemming nodig om te stoppen",
-  "wellnessPage.offerings.eyebrow": "Ko Sa Welzijn",
+  "wellnessPage.offerings.eyebrow": "KoSa Welzijn",
   "wellnessPage.yoga.title": "Yoga aan zee",
   "wellnessPage.yoga.body": "Zachte beweging op het zand, adem en oceaan in hetzelfde ritme. Kom zoals je bent; elk niveau is welkom.",
   "wellnessPage.journeys.sense": "Er wordt niets ingepland wat je niet zelf koos. De dag past zich aan jou aan, niet andersom.",
@@ -2765,7 +2765,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   "wellnessPage.tea.sense": "We zetten thee met kruiden van het terrein. Sommige gasten vragen om het recept.",
   "wellnessPage.yoga.sense": "De sessies zijn om 7 uur, als het licht nog zacht is en het strand stil.",
   "wellnessPage.day.eyebrow": "Een dag hier",
-  "wellnessPage.day.heading": "Hoe een wellnessdag bij Ko Sa eruitziet",
+  "wellnessPage.day.heading": "Hoe een wellnessdag bij KoSa eruitziet",
   "wellnessPage.day.intro": "Geen schema om te volgen. Gewoon een zacht ritme dat je volgt zoveel je wilt.",
   "wellnessPage.day.s1.time": "Bij zonsopgang",
   "wellnessPage.day.s1.text": "Ochtendthee op het terras terwijl het licht opkomt. Geen haast, nog niets te zijn.",
@@ -2790,7 +2790,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.daily.eyebrow': 'Elke dag, inbegrepen',
   'experiencesPage.daily.heading': 'Gratis dagelijkse activiteiten',
   'experiencesPage.daily.intro':
-    'Elke dag bij Ko Sa heeft zijn eigen ritme. Alle activiteiten zijn gratis voor onze gasten: doe mee met wat je aanspreekt of geniet gewoon van de rust.',
+    'Elke dag bij KoSa heeft zijn eigen ritme. Alle activiteiten zijn gratis voor onze gasten: doe mee met wat je aanspreekt of geniet gewoon van de rust.',
   'experiencesPage.daily.free': 'Gratis',
   'experiencesPage.daily.footnote':
     'Alle activiteiten zijn gratis voor gasten. Schrijf je in bij de receptie. Het programma kan variëren.',
@@ -2818,7 +2818,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'contactPage.title': 'Laten we praten, eenvoudigweg',
   'contactPage.whereToFind': 'Waar je ons vindt',
   'contactPage.whatsappUs': 'Stuur ons een WhatsApp',
-  'contactPage.mapTitle': 'Locatiekaart van Ko Sa',
+  'contactPage.mapTitle': 'Locatiekaart van KoSa',
 
   'bookPage.eyebrow': 'Plan je terugkeer',
   'bookPage.title': 'Boek je verblijf',
@@ -2912,9 +2912,9 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'chat.errorEmpty': "Akwaaba ik ben er, maar mijn conciërgebrein viel even stil · Probeer het opnieuw of stuur ons een WhatsApp op +233 24 437 5432",
   'chat.errorTimeout': 'Dat duurde langer dan verwacht probeer het opnieuw of stuur ons een WhatsApp op +233 24 437 5432',
   'chat.errorGeneric': "Het lukt me nu niet om de resortinformatie te bereiken · Stuur ons een WhatsApp op +233 24 437 5432, dan reageren we snel",
-  'alt.heroShoreline': 'Luchtfoto van de kustlijn van Ko Sa, Elmina, Ghana',
-  'alt.feelingHammock': 'Een rustige hangmat tussen de palmen bij Ko Sa',
-  'alt.aboutSea': 'Ko Sa Beach Resort aan zee',
+  'alt.heroShoreline': 'Luchtfoto van de kustlijn van KoSa, Elmina, Ghana',
+  'alt.feelingHammock': 'Een rustige hangmat tussen de palmen bij KoSa',
+  'alt.aboutSea': 'KoSa Beach Resort aan zee',
   'aboutPage.enrichedSetting': 'Het is te zien in de vissers met wie we samenwerken, de boeren die onze keuken bevoorraden, de ambachtslieden die met hun handen vormgaven aan wat je om je heen ziet.',
   'aboutPage.enrichedEco': 'We wilden nooit een luxeresort bouwen. We wilden een plek maken waar je de kust kunt voelen zoals die echt is - ongehaast, gul, levend.',
   'aboutPage.seaTurtle.title': 'Het zeeschildpad-project',
@@ -2931,7 +2931,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.signature.capeCoast.title': 'Cape Coast Castle',
   'experiencesPage.signature.capeCoast.body': 'Een korte rit oostwaarts · Een gewicht dat het waard is om te dragen neem water mee, gun jezelf stilte daarna',
   'experiencesPage.signature.elmina.title': 'Elmina Castle',
-  'experiencesPage.signature.elmina.body': 'Twintig minuten van Ko Sa. Een van de oudste door Europeanen gebouwde bouwwerken in West-Afrika, op je gemak te bewandelen',
+  'experiencesPage.signature.elmina.body': 'Twintig minuten van KoSa. Een van de oudste door Europeanen gebouwde bouwwerken in West-Afrika, op je gemak te bewandelen',
   'experiencesPage.signature.kakum.title': 'Kakum National Park',
   'experiencesPage.signature.kakum.body': 'Regenwoud, hangbruggen door de boomkruinen, vlinders die je alleen hier tegenkomt · Vroeg vertrekken, op tijd terug voor het diner',
   'experiencesPage.signature.massage.title': 'Thaise massage aan zee',
@@ -2963,7 +2963,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'hero.scrollAria': 'Zum nächsten Abschnitt',
 
   'intro.eyebrow': 'Willkommen · Akwaaba',
-  'intro.headline.l1': 'Ko Sa ist kein Hotel',
+  'intro.headline.l1': 'KoSa ist kein Hotel',
   'intro.headline.l2': 'Es ist der Ort, an den man immer zurückkehrt',
   'intro.body':
     'An einem ruhigen Abschnitt der Atlantikküste in Elmina, wo Palmen sich im Wind wiegen und der Ozean sein eigenes Tempo vorgibt, haben wir einen Ort zum Innehalten geschaffen · Eco-Luxus im Kern, verwurzelt in ghanaischem Handwerk, getragen von den Ritualen derer, die täglich dafür sorgen',
@@ -2986,7 +2986,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'experiences.eyebrow': 'Voll und ganz erleben',
   'experiences.headline': 'Vier Wege, bei sich anzukommen',
   'experiences.blurb':
-    'Von Yoga bei Sonnenaufgang auf den Klippen bis zu Trommelkreisen am Lagerfeuer jeder Tag bei Ko Sa führt ein Stück näher zu sich selbst',
+    'Von Yoga bei Sonnenaufgang auf den Klippen bis zu Trommelkreisen am Lagerfeuer jeder Tag bei KoSa führt ein Stück näher zu sich selbst',
   'experiences.discover': 'Entdecken',
 
   'wellness.bgWord': 'Einfach atmen',
@@ -3038,12 +3038,12 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'chat.title': 'Abena',
   'chat.subtitle': 'Digitale Concierge · antwortet sofort',
   'chat.greeting':
-    'Akwaaba ich bin Abena, Ihre Concierge bei Ko Sa. Fragen Sie mich alles über das Resort, unsere Zimmer oder die Planung Ihres Aufenthalts',
+    'Akwaaba ich bin Abena, Ihre Concierge bei KoSa. Fragen Sie mich alles über das Resort, unsere Zimmer oder die Planung Ihres Aufenthalts',
   'chat.placeholder': 'Ihre Frage…',
   'chat.send': 'Senden',
   'chat.close': 'Schließen',
   'chat.suggested.rooms': 'Welche Zimmer sind verfügbar?',
-  'chat.suggested.directions': 'Wie komme ich von Accra nach Ko Sa?',
+  'chat.suggested.directions': 'Wie komme ich von Accra nach KoSa?',
   'chat.suggested.spa': 'Erzählen Sie mir vom Spa',
   'chat.suggested.included': 'Was ist im Aufenthalt inbegriffen?',
 
@@ -3122,7 +3122,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'testimonials.2.country': 'Paris, Frankreich',
   'testimonials.2.quote': 'Ein Refugium im wahrsten Sinne · Das Team begegnet einem wie einem Freund, der zurückkehrt nicht wie einem Gast',
   'testimonials.3.country': 'Lagos, Nigeria',
-  'testimonials.3.quote': 'Ko Sa zeigt, was jede afrikanische Küstenlinie sein könnte verwurzelt, schön, würdevoll',
+  'testimonials.3.quote': 'KoSa zeigt, was jede afrikanische Küstenlinie sein könnte verwurzelt, schön, würdevoll',
 
   'treatments.atlantic-salt-scrub.name': 'Atlantik-Salzpeeling',
   'treatments.palm-oil-deep-tissue.name': 'Tiefengewebsmassage mit Palmöl',
@@ -3152,14 +3152,14 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'home.hero.headline': 'Verbinden · Auftanken · Erneuern',
   'home.hero.subhead': 'Das Leben ist schöner am Strand',
   'home.hero.ctaPrimary': 'Aufenthalt buchen',
-  'home.hero.ctaSecondary': 'Ko Sa entdecken',
+  'home.hero.ctaSecondary': 'KoSa entdecken',
 
   'home.social.copy':
     'Geliebt von 5.000+ Gästen. 9,1/10 auf Booking.com · 4,8/5 auf Google · 4,7/5 auf TripAdvisor',
 
   'home.feeling.headline': 'So sieht Entschleunigung aus',
   'home.feeling.body':
-    'Ko Sa ist ein Küstenrefugium für Verbindung mit der Natur, mit anderen und mit dir selbst · Ein Ort, an dem jeder Sonnenaufgang und jede Meeresbrise zur Stille einlädt · Wo die Küche frisch ist und das Tempo sanft · Wo der Ozean nicht nur Aussicht ist er ist der eigentliche Sinn',
+    'KoSa ist ein Küstenrefugium für Verbindung mit der Natur, mit anderen und mit dir selbst · Ein Ort, an dem jeder Sonnenaufgang und jede Meeresbrise zur Stille einlädt · Wo die Küche frisch ist und das Tempo sanft · Wo der Ozean nicht nur Aussicht ist er ist der eigentliche Sinn',
 
   'home.itineraries.eyebrow': 'Beispiel-Reisepläne',
   'home.itineraries.weekend': 'Wochenend-Auszeit · 2 Nächte',
@@ -3184,7 +3184,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'home.roomsTeaser.cta': 'Zimmer ansehen →',
 
   'home.testimonials.example':
-    'Ich kam erschöpft an und ging als ich selbst wieder · Ko Sa hat diese Art an sich',
+    'Ich kam erschöpft an und ging als ich selbst wieder · KoSa hat diese Art an sich',
 
   'home.email.headline': 'Sei als Erste*r informiert',
   'home.email.body':
@@ -3194,17 +3194,17 @@ const de: Partial<Record<keyof typeof en, string>> = {
 
   'roomsPage.headline': 'Dein Platz am Meer',
   'roomsPage.intro':
-    'Jedes Zimmer bei Ko Sa wurde mit einer Frage im Kopf entworfen: Wie fühlt sich echte Ruhe an? Licht, das vom Ozean kommt · Luft, die den Garten trägt · Komfort, der sich nicht ankündigt er umgibt dich einfach',
+    'Jedes Zimmer bei KoSa wurde mit einer Frage im Kopf entworfen: Wie fühlt sich echte Ruhe an? Licht, das vom Ozean kommt · Luft, die den Garten trägt · Komfort, der sich nicht ankündigt er umgibt dich einfach',
   'roomsPage.cardCta': 'Jetzt buchen',
   'roomsPage.trust':
     'Buche direkt für den besten Preis · Flexible Stornierung auf allen Zimmern · Ein Begrüßungsdrink bei Ankunft unser Dank dafür, dass du gekommen bist · Fragen? Wir sind per WhatsApp erreichbar',
 
-  'wellnessPage.headline': 'Wohlbefinden auf Ko Sa-Art',
-  'wellnessPage.hero.title': 'Wohlbefinden auf Ko Sa-Art',
+  'wellnessPage.headline': 'Wohlbefinden auf KoSa-Art',
+  'wellnessPage.hero.title': 'Wohlbefinden auf KoSa-Art',
   'wellnessPage.hero.sub': 'Die Natur erneuert finde Balance in Körper und Geist',
   'wellnessPage.approach.eyebrow': 'Unser Ansatz',
   'wellnessPage.approach.title': 'Wohlbefinden durch Natur',
-  'wellnessPage.approach.body1': 'Wir haben Ko Sa auf einer einfachen Überzeugung aufgebaut: Wohlbefinden sollte schön, natürlich und erreichbar sein. Hier ist Wohlbefinden kein Programm - es ist der Rhythmus des Ortes. Es liegt im Kräutertee, der bei der Ankunft auf dich wartet. In der Meeresluft, die dich im Morgengrauen begrüßt. In der Stille, von der du nicht wusstest, dass du sie brauchst.',
+  'wellnessPage.approach.body1': 'Wir haben KoSa auf einer einfachen Überzeugung aufgebaut: Wohlbefinden sollte schön, natürlich und erreichbar sein. Hier ist Wohlbefinden kein Programm - es ist der Rhythmus des Ortes. Es liegt im Kräutertee, der bei der Ankunft auf dich wartet. In der Meeresluft, die dich im Morgengrauen begrüßt. In der Stille, von der du nicht wusstest, dass du sie brauchst.',
   'wellnessPage.approach.body2': 'Wohlbefinden ist hier nichts, was du tust. Es ist etwas, woran du dich erinnerst.',
   'wellnessPage.features.heading': 'Wellness-Angebote',
   'wellnessPage.feat.spa.title': 'Spa-Behandlungen',
@@ -3223,7 +3223,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.holistic.title': 'Körper, Geist und Seele',
   'wellnessPage.holistic.body1': 'Unsere Programme richten sich an den ganzen Menschen Körper, Geist und Seele · Ob Entspannung, Energie oder innerer Frieden unser Team begleitet dich persönlich',
   'wellnessPage.holistic.body2': 'Vom Sonnenaufgangs-Yoga bis zur Abendmeditation, vom Tee bis zur Massage alles wirkt zusammen, um deine Balance wiederherzustellen',
-  'wellnessPage.benefits.heading': 'Die Vorteile von Wellness im Ko Sa',
+  'wellnessPage.benefits.heading': 'Die Vorteile von Wellness im KoSa',
   'wellnessPage.benefit.stress.title': 'Stressabbau',
   'wellnessPage.benefit.stress.body': 'Löse Anspannung mit natürlichen Therapien und ruhiger Umgebung',
   'wellnessPage.benefit.renewal.title': 'Körperliche Erneuerung',
@@ -3233,7 +3233,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.benefit.lasting.title': 'Bleibende Veränderung',
   'wellnessPage.benefit.lasting.body': 'Entwickle Wellness-Gewohnheiten, die über deinen Aufenthalt hinaus bleiben',
   'wellnessPage.intro':
-    'Wir haben Ko Sa auf einer einfachen Überzeugung gebaut: Wohlbefinden sollte schön, natürlich und erreichbar sein · Hier ist Wellness kein Programm es ist der Rhythmus des Ortes · Er liegt im Kräutertee, der dich bei der Ankunft erwartet · In der Meeresluft im Morgengrauen · In der Stille, von der du nicht wusstest, dass du sie brauchst',
+    'Wir haben KoSa auf einer einfachen Überzeugung gebaut: Wohlbefinden sollte schön, natürlich und erreichbar sein · Hier ist Wellness kein Programm es ist der Rhythmus des Ortes · Er liegt im Kräutertee, der dich bei der Ankunft erwartet · In der Meeresluft im Morgengrauen · In der Stille, von der du nicht wusstest, dass du sie brauchst',
   'wellnessPage.journeys.title': 'Wellness-Reisen',
   'wellnessPage.journeys.body':
     'Begleitete Erfahrungen in Ruhe, Reflexion und Erneuerung · Ob allein oder zu zweit wir gestalten deine Zeit hier um das, was Körper und Geist wirklich brauchen',
@@ -3243,7 +3243,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessPage.spa.title': 'Spa-Behandlungen',
   'wellnessPage.spa.body':
     'Massagen, Aromatherapie und Kräuterbehandlungen jede ausgewählt für das, was sie dem Körper zurückgibt · Hände, die zuhören können · Behandlungen verwurzelt in diesem Land',
-  'wellnessPage.tea.title': 'Ko Sa Tea Bar',
+  'wellnessPage.tea.title': 'KoSa Tea Bar',
   'wellnessPage.tea.body':
     'Kräutertees und frische Säfte, die in Ruhe nähren · Keine Eile · Kein Lärm · Nur Wärme in einer Tasse und das Meer ganz nah',
   'wellnessPage.cta.book': 'Wellness-Erlebnis buchen',
@@ -3252,7 +3252,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'diningPage.headline': 'Essen, wie die Küste es vorgesehen hat',
   'diningPage.popular': 'Beliebt',
   'diningPage.intro':
-    'In Ko Sa ist die Küche Teil des Wohlbefindens · Wir arbeiten mit lokalen Fischern und Bauern Menschen, die dieses Land und diese Gewässer kennen und lassen die Frische sprechen · Ghanaische Aromen, mit Liebe zubereitet · Eine Mahlzeit, die schmeckt, als sei sie für dich gemacht',
+    'In KoSa ist die Küche Teil des Wohlbefindens · Wir arbeiten mit lokalen Fischern und Bauern Menschen, die dieses Land und diese Gewässer kennen und lassen die Frische sprechen · Ghanaische Aromen, mit Liebe zubereitet · Eine Mahlzeit, die schmeckt, als sei sie für dich gemacht',
   'diningPage.restaurant.title': 'Das Restaurant',
   'diningPage.restaurant.body':
     'Wo der Tag beginnt und der Abend zur Ruhe kommt · Unser Restaurant serviert frische, saisonale Küche in ghanaischer Tradition mit Sorgfalt für jeden Gast am Tisch, inklusive halal, vegetarisch und Speisen, die so gut tun wie sie schmecken',
@@ -3270,10 +3270,10 @@ const de: Partial<Record<keyof typeof en, string>> = {
 
   'experiencesPage.headline': 'Ghana beginnt hier',
   'experiencesPage.intro':
-    'Ko Sa liegt am Rand einer der schönsten und historisch reichsten Küsten Westafrikas · Wir sind deine Basis, dein Guide und dein Heimathafen nach jedem Abenteuer · Ob du auf dem Gelände bleibst oder darüber hinausgehst jede Erfahrung lohnt sich, mit nach Hause zu nehmen',
+    'KoSa liegt am Rand einer der schönsten und historisch reichsten Küsten Westafrikas · Wir sind deine Basis, dein Guide und dein Heimathafen nach jedem Abenteuer · Ob du auf dem Gelände bleibst oder darüber hinausgehst jede Erfahrung lohnt sich, mit nach Hause zu nehmen',
   'experiencesPage.property.title': 'Auf dem Gelände',
   'experiencesPage.property.body':
-    'Der Ozean ist direkt dort · Genauso wie der Pool, der Garten, die Yogamatte und die Hängematte mit deinem Namen darauf · An den Tagen, an denen du einfach nur sein willst, reicht Ko Sa mehr als aus',
+    'Der Ozean ist direkt dort · Genauso wie der Pool, der Garten, die Yogamatte und die Hängematte mit deinem Namen darauf · An den Tagen, an denen du einfach nur sein willst, reicht KoSa mehr als aus',
   'experiencesPage.ghana.title': 'Nach Ghana',
   'experiencesPage.ghana.body':
     'Wenn du erkunden möchtest, sind wir bereit · Cape Coast Castle · Elmina · Kakum · Die Fischerdörfer · Die Märkte · Die Geschichten, die es wert sind, gekannt zu werden · Wir verbinden dich mit Guides, die diese Orte tief kennen nicht als Touristen, sondern als Menschen, die hierhergehören',
@@ -3285,17 +3285,17 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'eventsPage.empty': 'In dieser Kategorie ist noch nichts.',
 
   'eventsPage.intro':
-    'Manche Momente verdienen eine Kulisse, die ihnen gerecht wird · Ko Sa liegt zwischen Meer und Garten ein natürlicher Rahmen für Feiern, die echt wirken, Retreats, die wirklich erholen, und Treffen, bei denen man als Kollegen ankommt und als etwas Näheres geht',
+    'Manche Momente verdienen eine Kulisse, die ihnen gerecht wird · KoSa liegt zwischen Meer und Garten ein natürlicher Rahmen für Feiern, die echt wirken, Retreats, die wirklich erholen, und Treffen, bei denen man als Kollegen ankommt und als etwas Näheres geht',
   'eventsPage.weddings.title': 'Hochzeiten & Feiern',
   'eventsPage.weddings.body':
-    'Eine Hochzeit bei Ko Sa ist die Strandzeremonie, die du dir immer vorgestellt hast Wellenrauschen, die Wärme der Küste, die Menschen, die du liebst, an einem schönen Ort versammelt · Wir kümmern uns mit Sorgfalt um jedes Detail · Du kommst und feierst',
+    'Eine Hochzeit bei KoSa ist die Strandzeremonie, die du dir immer vorgestellt hast Wellenrauschen, die Wärme der Küste, die Menschen, die du liebst, an einem schönen Ort versammelt · Wir kümmern uns mit Sorgfalt um jedes Detail · Du kommst und feierst',
   'eventsPage.weddings.cta': 'Hochzeit jetzt planen',
   'eventsPage.retreats.title': 'Wellness-Retreats',
   'eventsPage.retreats.body':
-    'Ko Sa wurde zur Wiederherstellung gebaut · Gruppen-Retreats Yoga-Intensives, Achtsamkeits-Wochenenden oder individuelle Heilprogramme finden hier ein natürliches Zuhause · Wir bringen Raum, Stille und Begleitung · Du bringst die Absicht',
+    'KoSa wurde zur Wiederherstellung gebaut · Gruppen-Retreats Yoga-Intensives, Achtsamkeits-Wochenenden oder individuelle Heilprogramme finden hier ein natürliches Zuhause · Wir bringen Raum, Stille und Begleitung · Du bringst die Absicht',
   'eventsPage.corporate.title': 'Firmenretreats & Offsite-Meetings',
   'eventsPage.corporate.body':
-    'Die besten Ideen entstehen nicht in Konferenzräumen · Bring dein Team an die Küste, raus aus dem Alltag und sieh, was passiert, wenn Menschen endlich denken können · Ko Sa bietet Tagungsräume, Gruppenunterkünfte und Team-Erlebnisse, die die Menschen hinter der Arbeit wieder verbinden',
+    'Die besten Ideen entstehen nicht in Konferenzräumen · Bring dein Team an die Küste, raus aus dem Alltag und sieh, was passiert, wenn Menschen endlich denken können · KoSa bietet Tagungsräume, Gruppenunterkünfte und Team-Erlebnisse, die die Menschen hinter der Arbeit wieder verbinden',
   'eventsPage.corporate.cta': 'Gruppenbuchung anfragen',
   'eventsPage.form.name': 'Name',
   'eventsPage.form.company': 'Unternehmen',
@@ -3307,19 +3307,19 @@ const de: Partial<Record<keyof typeof en, string>> = {
 
   'planPage.headline': 'Alles, was du brauchst, um bereit anzukommen',
   'planPage.intro':
-    'Wir möchten, dass dein Ko Sa-Erlebnis schon vor der Ankunft beginnt · Unten findest du alles, was du zur Planung brauchst Beispiel-Routen, Anreise, FAQs und die praktischen Infos, die wirklich einen Unterschied machen',
+    'Wir möchten, dass dein KoSa-Erlebnis schon vor der Ankunft beginnt · Unten findest du alles, was du zur Planung brauchst Beispiel-Routen, Anreise, FAQs und die praktischen Infos, die wirklich einen Unterschied machen',
   'planPage.experiences.eyebrow': 'Was es hier zu tun gibt',
   'planPage.experiences.body':
-    'Echte Erlebnisse im Ko Sa, vom Strand bis zur Küste wähle, was dich anspricht',
+    'Echte Erlebnisse im KoSa, vom Strand bis zur Küste wähle, was dich anspricht',
   'planPage.experiences.cta': 'Alle Erlebnisse ansehen',
   'planPage.itineraries.eyebrow': 'Beispiel-Reisepläne',
   'planPage.itineraries.body':
-    'Drei vorgefertigte Aufenthalte im Tag-für-Tag-Format keine Stundenpläne, sondern Geschichten · Jede endet mit: Dies ist eine Version deines Ko Sa-Aufenthalts · Deine wird deine eigene sein gestalte sie bei Ankunft mit uns oder sag uns vorher, was du brauchst',
+    'Drei vorgefertigte Aufenthalte im Tag-für-Tag-Format keine Stundenpläne, sondern Geschichten · Jede endet mit: Dies ist eine Version deines KoSa-Aufenthalts · Deine wird deine eigene sein gestalte sie bei Ankunft mit uns oder sag uns vorher, was du brauchst',
   'planPage.itineraries.cta1': 'Diesen Aufenthalt buchen',
   'planPage.itineraries.cta2': 'Plan individualisieren',
   'planPage.getting.title': 'Anreise',
   'planPage.getting.body':
-    'Ko Sa Beach Resort liegt an der Küste der Central Region Ghanas, etwa 25 km von Elmina und 30 km vom Cape Coast Castle entfernt · Von Accras Kotoka International Airport sind es rund 3 Stunden Fahrt und wir organisieren gern den Transfer, damit deine Ruhe schon nach der Landung beginnt',
+    'KoSa Beach Resort liegt an der Küste der Central Region Ghanas, etwa 25 km von Elmina und 30 km vom Cape Coast Castle entfernt · Von Accras Kotoka International Airport sind es rund 3 Stunden Fahrt und wir organisieren gern den Transfer, damit deine Ruhe schon nach der Landung beginnt',
   'planPage.getting.cta': 'Flughafentransfer buchen',
   'planPage.faqs.title': 'Häufige Fragen',
   'planPage.faq.checkin.q': 'Wann ist Check-in und Check-out?',
@@ -3336,7 +3336,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
     'Ja. Halal-Optionen stehen über die gesamte Karte zur Verfügung · Vegetarische, vegane und andere Ernährungsbedürfnisse werden herzlich berücksichtigt',
   'planPage.faq.children.q': 'Können Kinder mitkommen?',
   'planPage.faq.children.a':
-    'Selbstverständlich · Ko Sa ist ruhig, aber familienfreundlich · Sag uns das Alter wir richten alles passend ein',
+    'Selbstverständlich · KoSa ist ruhig, aber familienfreundlich · Sag uns das Alter wir richten alles passend ein',
   'planPage.faq.payment.q': 'Welche Zahlungsarten akzeptiert ihr?',
   'planPage.faq.payment.a':
     'Alle gängigen Karten, Mobile Money und Banküberweisung · Eine Anzahlung bestätigt die Buchung, den Rest zahlst du bei Ankunft',
@@ -3349,16 +3349,16 @@ const de: Partial<Record<keyof typeof en, string>> = {
 
   'aboutPage.headline': 'Zwei Jahrzehnte am Meer. Und dennoch fühlt sich jeder Gast wie der Erste an',
   'aboutPage.opening':
-    'Ko Sa Beach Resort entstand nicht aus einem Geschäftsplan. Es entstand aus einer Überzeugung - dass die ghanaische Küste einer der regenerierendsten Orte der Welt ist, und dass jeder, der hierher kommt, das spüren sollte. Seit über zwanzig Jahren halten wir an dieser Überzeugung fest.',
+    'KoSa Beach Resort entstand nicht aus einem Geschäftsplan. Es entstand aus einer Überzeugung - dass die ghanaische Küste einer der regenerierendsten Orte der Welt ist, und dass jeder, der hierher kommt, das spüren sollte. Seit über zwanzig Jahren halten wir an dieser Überzeugung fest.',
   'aboutPage.continued':
-    'Wir sind Teil der Akwaaba Stays Hospitality Group - einer Familie von Unterkünften in Ghana und Westafrika, die ein gemeinsames Engagement für Gastfreundschaft teilen, die in Fürsorge, Gemeinschaft und den Orten verwurzelt ist, die wir Zuhause nennen. Ko Sa ist dort, wo dieses Engagement dem Wasser am nächsten lebt.',
+    'Wir sind Teil der Akwaaba Stays Hospitality Group - einer Familie von Unterkünften in Ghana und Westafrika, die ein gemeinsames Engagement für Gastfreundschaft teilen, die in Fürsorge, Gemeinschaft und den Orten verwurzelt ist, die wir Zuhause nennen. KoSa ist dort, wo dieses Engagement dem Wasser am nächsten lebt.',
   'aboutPage.values': 'Unsere Werte',
   'aboutPage.values.authenticity.title': 'Authentizität',
   'aboutPage.values.authenticity.body':
-    'Ehrliche Gastfreundschaft, die den echten Rhythmus dieser Küste widerspiegelt · Keine Inszenierung · Kein Schein · Ko Sa, wie es ist und immer war',
+    'Ehrliche Gastfreundschaft, die den echten Rhythmus dieser Küste widerspiegelt · Keine Inszenierung · Kein Schein · KoSa, wie es ist und immer war',
   'aboutPage.values.community.title': 'Gemeinschaft',
   'aboutPage.values.community.body':
-    'Wir arbeiten Seite an Seite mit den Menschen um uns lokale Fischer, Bauern und Handwerker, deren Arbeit und Wissen Ko Sa zu dem machen, was es ist · Wenn du hier bleibst, wachsen auch ihre Leben',
+    'Wir arbeiten Seite an Seite mit den Menschen um uns lokale Fischer, Bauern und Handwerker, deren Arbeit und Wissen KoSa zu dem machen, was es ist · Wenn du hier bleibst, wachsen auch ihre Leben',
   'aboutPage.values.wellness.title': 'Wohlbefinden',
   'aboutPage.values.wellness.body':
     'Körper und Geist mit gutem Essen, Coaching und Stille nähren · Wir glauben, dass Wohlbefinden schön, natürlich und erreichbar sein sollte kein Luxus für wenige',
@@ -3370,11 +3370,11 @@ const de: Partial<Record<keyof typeof en, string>> = {
     'Zwei Jahrzehnte echter Verbindung und stetiger Fürsorge am Meer · Der Ozean hält uns demütig · Die Gäste, die zurückkehren, halten uns am Leben',
   'aboutPage.closing.headline': 'Komm und sieh selbst',
   'aboutPage.closing.body':
-    'Wir könnten dir mehr erzählen aber Ko Sa erlebt man am besten persönlich · Die Meeresluft, das Essen, die Menschen, die Stille · Es gibt hier etwas, das sich nicht in Worte übersetzen lässt · Aber es wartet auf dich',
+    'Wir könnten dir mehr erzählen aber KoSa erlebt man am besten persönlich · Die Meeresluft, das Essen, die Menschen, die Stille · Es gibt hier etwas, das sich nicht in Worte übersetzen lässt · Aber es wartet auf dich',
   'aboutPage.closing.ctaBook': 'Aufenthalt buchen',
   'aboutPage.closing.ctaGet': 'Kontakt aufnehmen',
 
-  'exit.headline': 'Sichere dir Ko Sa-Tarife, bevor sie ausgebucht sind',
+  'exit.headline': 'Sichere dir KoSa-Tarife, bevor sie ausgebucht sind',
   'exit.body':
     'Früher Zugang zu Saisonpreisen, ruhigen Wochen und neuen Erlebnissen · Einmal im Monat, mehr nicht',
   'exit.cta': 'Halt mich auf dem Laufenden',
@@ -3383,7 +3383,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'exit.thanks': 'Danke · Schau in dein Postfach',
 
   'common.bookYourStay': 'Aufenthalt buchen',
-  'common.exploreKosa': 'Ko Sa entdecken',
+  'common.exploreKosa': 'KoSa entdecken',
   'common.whatsapp': 'WhatsApp',
   'common.getInTouch': 'Kontakt aufnehmen',
   'common.startPlanning': 'Mit der Planung beginnen',
@@ -3442,7 +3442,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.notSure': 'Noch unsicher - bitte beraten',
   'wellnessForm.guestType': 'Wohnst du bei uns?',
   'wellnessForm.day': 'Tagesgast (kein Aufenthalt)',
-  'wellnessForm.staying': 'Gast im Ko Sa',
+  'wellnessForm.staying': 'Gast im KoSa',
   'wellnessForm.date': 'Wunschdatum',
   'wellnessForm.guests': 'Anzahl der Gäste',
   'wellnessForm.message': 'Sonst noch etwas?',
@@ -3450,18 +3450,18 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'wellnessForm.whatsapp': 'Per WhatsApp senden',
   'wellnessForm.thankTitle': 'Danke',
   'wellnessForm.thankBody': 'Wir haben deine Anfrage erhalten und melden uns in Kürze',
-  'wellnessForm.waIntro': 'Hallo Ko Sa! Ich möchte eine Wellness-Anfrage stellen:',
+  'wellnessForm.waIntro': 'Hallo KoSa! Ich möchte eine Wellness-Anfrage stellen:',
   'wellnessPage.treatmentsHeading': 'Behandlungen & Sessions',
-  'wellnessPage.treatmentsIntro': 'Stöbere nach dem, was du brauchst - Massagen und Körperarbeit im Ko Sa Health Spa oder die tieferen Rituale und Retreats von O2 Wellness.',
+  'wellnessPage.treatmentsIntro': 'Stöbere nach dem, was du brauchst - Massagen und Körperarbeit im KoSa Health Spa oder die tieferen Rituale und Retreats von O2 Wellness.',
   "quote.ocean": "Das Meer hat es nicht eilig. Du solltest es auch nicht haben",
   "quote.stop": "So fühlt es sich an, endlich anzuhalten",
   'home.welcome.eyebrow': 'Akwaba · Willkommen zu Hause',
-  'home.welcome.heading': 'Manche Orte besucht man. Nach Ko Sa kommt man heim',
-  'home.welcome.body': 'Erlebe, wie ein Ko Sa-Willkommen entsteht: Trommeln im Sand, weißes Tuch in der Brise, eine Namensfeier am Meer. So fühlt sich Ankommen an.',
+  'home.welcome.heading': 'Manche Orte besucht man. Nach KoSa kommt man heim',
+  'home.welcome.body': 'Erlebe, wie ein KoSa-Willkommen entsteht: Trommeln im Sand, weißes Tuch in der Brise, eine Namensfeier am Meer. So fühlt sich Ankommen an.',
   'home.welcome.cta': 'Film abspielen',
   'home.welcome.play': 'Den Welcome-Home-Film abspielen',
   "wellnessPage.hero.line": "Du brauchst kein Programm. Du brauchst die Erlaubnis, innezuhalten",
-  "wellnessPage.offerings.eyebrow": "Ko Sa Wohlbefinden",
+  "wellnessPage.offerings.eyebrow": "KoSa Wohlbefinden",
   "wellnessPage.yoga.title": "Yoga am Meer",
   "wellnessPage.yoga.body": "Sanfte Bewegung im Sand, Atem und Meer im selben Takt. Komm, wie du bist; jedes Niveau ist willkommen.",
   "wellnessPage.journeys.sense": "Es wird nichts geplant, was du nicht gewählt hast. Der Tag richtet sich nach dir, nicht umgekehrt.",
@@ -3470,7 +3470,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   "wellnessPage.tea.sense": "Wir brühen mit Kräutern vom Grundstück. Manche Gäste fragen nach dem Rezept.",
   "wellnessPage.yoga.sense": "Die Einheiten beginnen um 7 Uhr, wenn das Licht noch weich und der Strand still ist.",
   "wellnessPage.day.eyebrow": "Ein Tag hier",
-  "wellnessPage.day.heading": "So sieht ein Wellness-Tag im Ko Sa aus",
+  "wellnessPage.day.heading": "So sieht ein Wellness-Tag im KoSa aus",
   "wellnessPage.day.intro": "Kein Zeitplan. Nur ein sanfter Rhythmus, dem du so viel folgst, wie du magst.",
   "wellnessPage.day.s1.time": "Bei Sonnenaufgang",
   "wellnessPage.day.s1.text": "Morgentee auf der Terrasse, während das Licht kommt. Keine Eile, noch nichts zu sein.",
@@ -3495,7 +3495,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.daily.eyebrow': 'Jeden Tag, inklusive',
   'experiencesPage.daily.heading': 'Kostenlose tägliche Aktivitäten',
   'experiencesPage.daily.intro':
-    'Jeder Tag im Ko Sa hat seinen Rhythmus. Alle Aktivitäten sind für unsere Gäste kostenlos: Mach mit, wobei du möchtest, oder genieße einfach die Ruhe.',
+    'Jeder Tag im KoSa hat seinen Rhythmus. Alle Aktivitäten sind für unsere Gäste kostenlos: Mach mit, wobei du möchtest, oder genieße einfach die Ruhe.',
   'experiencesPage.daily.free': 'Kostenlos',
   'experiencesPage.daily.footnote':
     'Alle Aktivitäten sind für Gäste kostenlos. Anmeldung an der Rezeption. Das Programm kann variieren.',
@@ -3523,7 +3523,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'contactPage.title': 'Sprich mit uns, ganz einfach',
   'contactPage.whereToFind': 'Wo du uns findest',
   'contactPage.whatsappUs': 'Schreib uns auf WhatsApp',
-  'contactPage.mapTitle': 'Standortkarte von Ko Sa',
+  'contactPage.mapTitle': 'Standortkarte von KoSa',
 
   'bookPage.eyebrow': 'Plane deine Rückkehr',
   'bookPage.title': 'Aufenthalt buchen',
@@ -3617,9 +3617,9 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'chat.errorEmpty': "Akwaaba ich bin da, aber mein Concierge-Gehirn war kurz still · Versuche es erneut oder schreib uns auf WhatsApp unter +233 24 437 5432",
   'chat.errorTimeout': 'Das hat länger gedauert als erwartet versuche es erneut oder schreib uns auf WhatsApp unter +233 24 437 5432',
   'chat.errorGeneric': "Ich erreiche die Resort-Informationen gerade nicht · Schreib uns auf WhatsApp unter +233 24 437 5432, wir antworten gleich",
-  'alt.heroShoreline': 'Luftaufnahme der Küste von Ko Sa, Elmina, Ghana',
-  'alt.feelingHammock': 'Eine ruhige Hängematte zwischen den Palmen von Ko Sa',
-  'alt.aboutSea': 'Ko Sa Beach Resort am Meer',
+  'alt.heroShoreline': 'Luftaufnahme der Küste von KoSa, Elmina, Ghana',
+  'alt.feelingHammock': 'Eine ruhige Hängematte zwischen den Palmen von KoSa',
+  'alt.aboutSea': 'KoSa Beach Resort am Meer',
   'aboutPage.enrichedSetting': 'Es zeigt sich in den Fischern, mit denen wir zusammenarbeiten, den Bauern, die unsere Küche versorgen, den Handwerkern, deren Hände all das geformt haben, was dich hier umgibt.',
   'aboutPage.enrichedEco': 'Wir wollten nie ein Luxusresort bauen. Wir wollten einen Ort schaffen, an dem man die Küste so erleben kann, wie sie wirklich ist - ungehetzt, großzügig, lebendig.',
   'aboutPage.seaTurtle.title': 'Das Meeresschildkröten-Projekt',
@@ -3636,7 +3636,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.signature.capeCoast.title': 'Cape Coast Castle',
   'experiencesPage.signature.capeCoast.body': 'Eine kurze Fahrt nach Osten · Ein Gewicht, das es lohnt zu tragen nimm Wasser mit, lass danach Zeit für die Stille',
   'experiencesPage.signature.elmina.title': 'Elmina Castle',
-  'experiencesPage.signature.elmina.body': 'Zwanzig Minuten von Ko Sa. Eines der ältesten von Europäern errichteten Bauwerke Westafrikas, in Ruhe begangen',
+  'experiencesPage.signature.elmina.body': 'Zwanzig Minuten von KoSa. Eines der ältesten von Europäern errichteten Bauwerke Westafrikas, in Ruhe begangen',
   'experiencesPage.signature.kakum.title': 'Kakum-Nationalpark',
   'experiencesPage.signature.kakum.body': 'Regenwald, Hängebrücken in der Baumkrone, Schmetterlinge, die du nur hier siehst · Früh los, rechtzeitig zurück zum Abendessen',
   'experiencesPage.signature.massage.title': 'Thai-Massage am Meer',

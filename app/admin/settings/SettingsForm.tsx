@@ -239,7 +239,7 @@ function PricingSection({
         )}
         {toggleRow(
           'Hide wellness prices',
-          'Hides spa treatment prices (Ko Sa Health Spa & O2 Wellness) on the Wellness page.',
+          'Hides spa treatment prices (KoSa Health Spa & O2 Wellness) on the Wellness page.',
           'hideWellnessPrices',
         )}
         {toggleRow(

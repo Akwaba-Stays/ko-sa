@@ -48,7 +48,7 @@ export function Preloader() {
               <span aria-hidden className="absolute inset-0 rounded-full bg-primary/25 blur-2xl scale-110" />
               <Image
                 src="/logo.png"
-                alt="Ko Sa"
+                alt="KoSa"
                 width={120}
                 height={120}
                 priority

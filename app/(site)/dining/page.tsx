@@ -10,7 +10,7 @@ import { waPrefill } from '@/lib/pricing';
 export const metadata: Metadata = {
   title: 'Dining',
   description:
-    'Food the way the coast intended · Fresh, local, Ghanaian cooking restaurant, bar, breakfast and private dining at Ko Sa Beach Resort',
+    'Food the way the coast intended · Fresh, local, Ghanaian cooking restaurant, bar, breakfast and private dining at KoSa Beach Resort',
 };
 
 export const dynamic = 'force-dynamic';

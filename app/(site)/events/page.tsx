@@ -8,7 +8,7 @@ import { listPublicEvents } from '@/lib/cms/events';
 export const metadata: Metadata = {
   title: 'Events & Activities',
   description:
-    'Cooking classes, drumming and dancing, batik and bead making, castle and Kakum tours, naming ceremonies and more at Ko Sa Beach Resort, Ghana.',
+    'Cooking classes, drumming and dancing, batik and bead making, castle and Kakum tours, naming ceremonies and more at KoSa Beach Resort, Ghana.',
 };
 
 export const dynamic = 'force-dynamic';

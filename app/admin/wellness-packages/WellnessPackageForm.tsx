@@ -111,7 +111,7 @@ export function WellnessPackageForm({ initial }: { initial?: Partial<PackageForm
     <form onSubmit={onSubmit} className="space-y-6 max-w-2xl">
       <TextField label="Package Name" name="name" value={values.name}
         onChange={(e) => { set('name', e.target.value); autoSlug(e.target.value); }}
-        placeholder="The Ko Sa Reset" required />
+        placeholder="The KoSa Reset" required />
       <TextField label="Slug" name="slug" value={values.slug}
         onChange={(e) => set('slug', e.target.value)}
         placeholder="the-ko-sa-reset" required />

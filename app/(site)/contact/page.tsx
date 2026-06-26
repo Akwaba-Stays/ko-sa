@@ -7,7 +7,7 @@ import { getT } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Reach the Ko Sa Beach Resort concierge enquiries, reservations, group bookings, weddings',
+  description: 'Reach the KoSa Beach Resort concierge enquiries, reservations, group bookings, weddings',
 };
 
 export const dynamic = 'force-dynamic';

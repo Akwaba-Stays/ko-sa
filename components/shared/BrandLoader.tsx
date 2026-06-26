@@ -13,7 +13,7 @@ interface BrandLoaderProps {
 }
 
 /**
- * Branded loading indicator the Ko Sa logo with a calming "tide" animation:
+ * Branded loading indicator the KoSa logo with a calming "tide" animation:
  * the mark breathes slowly while soft concentric rings ripple outward like
  * water settling, in brand teal. Mirrors the wave motif of the brand guide.
  *
@@ -70,7 +70,7 @@ export function BrandLoader({
         >
           <Image
             src="/logo.png"
-            alt="Ko Sa"
+            alt="KoSa"
             width={size}
             height={size}
             priority

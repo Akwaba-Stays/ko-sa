@@ -10,7 +10,7 @@ export default function NotFound() {
       <div className="max-w-md mx-auto">
         <Image
           src="/logo.png"
-          alt="Ko Sa Beach Resort"
+          alt="KoSa Beach Resort"
           width={140}
           height={94}
           priority

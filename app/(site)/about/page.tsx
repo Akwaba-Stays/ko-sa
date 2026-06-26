@@ -8,7 +8,7 @@ import { site } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Our Story',
   description:
-    'Two decades by the sea · The story and values behind Ko Sa Beach Resort part of the Akwaaba Stays Hospitality Group',
+    'Two decades by the sea · The story and values behind KoSa Beach Resort part of the Akwaaba Stays Hospitality Group',
 };
 
 export const dynamic = 'force-dynamic';
@@ -30,7 +30,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow={t('nav.story')}
         title={t('aboutPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/gallery/beach/12-772A2007.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/feeling/slowing-down-guests.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
