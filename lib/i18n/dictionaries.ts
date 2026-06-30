@@ -467,7 +467,7 @@ const en = {
     'Yes - and we recommend it. WhatsApp us before you arrive and we’ll reserve your treatments so you’re not waiting on the day.',
 
   // Our Story (brief §02 page 08)
-  'aboutPage.headline': 'Two decades by the sea. And still, every guest feels like the first',
+  'aboutPage.headline': 'Two decades by the sea And still, every guest feels like the first',
   'aboutPage.opening':
     'KoSa Beach Resort was not built from a business plan. It was built from a belief - that the Ghanaian coast is one of the most restorative places on earth, and that everyone who comes here should be able to feel that. For over twenty years, we have held that belief.',
   'aboutPage.enrichedSetting':
