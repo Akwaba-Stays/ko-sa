@@ -28,6 +28,7 @@ export interface RoomFormValues {
   amenities: string[];
   features: string[];
   cloudbedsRoomTypeId: string;
+  available: boolean;
   status: 'DRAFT' | 'PUBLISHED';
   sortOrder: number;
   translations: Partial<Record<Locale, Record<string, string>>>;
@@ -49,6 +50,7 @@ const EMPTY: RoomFormValues = {
   amenities: [],
   features: [],
   cloudbedsRoomTypeId: '',
+  available: true,
   status: 'PUBLISHED',
   sortOrder: 0,
   translations: {},
@@ -86,6 +88,7 @@ export function RoomForm({ initial }: { initial?: Partial<RoomFormValues> }) {
         amenities: values.amenities,
         features: values.features,
         cloudbedsRoomTypeId: values.cloudbedsRoomTypeId || null,
+        available: values.available,
         status: values.status,
         sortOrder: Number(values.sortOrder),
         translations: values.translations,
@@ -301,6 +304,20 @@ export function RoomForm({ initial }: { initial?: Partial<RoomFormValues> }) {
               </h2>
               <StatusToggle value={values.status} onChange={(v) => set('status', v)} />
             </div>
+            <label className="flex items-center justify-between gap-3 cursor-pointer pt-2 border-t border-warm-grey/30">
+              <span className="font-poppins text-[11px] uppercase tracking-tracked text-umber/70">
+                Availability
+              </span>
+              <span className="inline-flex items-center gap-2 text-sm text-umber">
+                <input
+                  type="checkbox"
+                  checked={values.available}
+                  onChange={(e) => set('available', e.target.checked)}
+                  className="h-4 w-4 accent-primary"
+                />
+                {values.available ? 'Available' : 'Occupied'}
+              </span>
+            </label>
             <TextField
               type="number"
               label="Sort order"

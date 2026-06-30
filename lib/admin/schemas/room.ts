@@ -19,6 +19,7 @@ export const roomInputSchema = z.object({
   amenities: stringArray.default([]),
   features: stringArray.default([]),
   cloudbedsRoomTypeId: z.string().trim().max(120).optional().nullable(),
+  available: z.boolean().default(true),
   status: publishStatusEnum.default('PUBLISHED'),
   sortOrder: z.coerce.number().int().default(0),
   translations: translationsSchema,

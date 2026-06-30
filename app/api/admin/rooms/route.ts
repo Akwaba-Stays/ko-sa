@@ -78,6 +78,7 @@ export async function POST(req: NextRequest) {
         amenities: data.amenities,
         features: data.features,
         cloudbedsRoomTypeId: data.cloudbedsRoomTypeId,
+        available: data.available,
         status: data.status,
         sortOrder: data.sortOrder,
         translations: sanitizeTranslations(data.translations),

@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { searchKnowledge } from '@/lib/knowledge';
+import { getAvailability, availabilityToPrompt } from '@/lib/cms/availability';
 import { streamOpenRouter, type ChatMsg } from '@/lib/ai/openrouter';
 
 export const runtime = 'nodejs';
@@ -30,11 +31,12 @@ RULES:
 - If you don't know something, say warmly: "Let me connect you with our team who can help with that." Then a colleague will follow up.
 - For booking requests: direct to /book on the website.
 - Never invent prices, policies, or amenities.
+- For room availability, rely ONLY on the CURRENT ROOM AVAILABILITY block. Never promise a room that is Occupied, and if the resort is fully booked, say so warmly and do not offer a room.
 - Respond in the language the guest uses.
 - Keep replies concise for simple questions; elaborate only for trip planning.`;
 
-function buildSystem(context: string) {
-  return `${SYSTEM_BASE}\n\nRESORT KNOWLEDGE:\n${context}`;
+function buildSystem(context: string, availability: string) {
+  return `${SYSTEM_BASE}\n\n${availability}\n\nRESORT KNOWLEDGE:\n${context}`;
 }
 
 export async function POST(req: Request) {
@@ -51,6 +53,9 @@ export async function POST(req: Request) {
   const context = docs.length
     ? docs.map((d) => `[${d.category}] ${d.title}\n${d.content}`).join('\n\n')
     : FALLBACK_KB;
+
+  // Live availability so the concierge is aware of bookings on every message.
+  const availability = availabilityToPrompt(await getAvailability());
 
   // Persist user message + ensure session
   let agentIsActive = false;
@@ -96,7 +101,7 @@ export async function POST(req: Request) {
   if (!apiKey) {
     const reply =
       "I'm Abena our AI concierge isn't fully configured yet, but I can already help with the basics. " +
-      `Here's what I know:\n\n${FALLBACK_KB}\n\nFor live booking, please visit /book or WhatsApp +233 24 437 5432.`;
+      `Here's what I know:\n\n${FALLBACK_KB}\n\n${availability}\n\nFor live booking, please visit /book or WhatsApp +233 24 437 5432.`;
     return streamPlain(reply, async (full) => {
       try {
         await prisma.chatMessage.create({
@@ -107,7 +112,7 @@ export async function POST(req: Request) {
   }
 
   const messages: ChatMsg[] = [
-    { role: 'system', content: buildSystem(context) },
+    { role: 'system', content: buildSystem(context, availability) },
     ...history,
     { role: 'user', content: message },
   ];

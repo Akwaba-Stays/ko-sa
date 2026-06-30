@@ -52,6 +52,24 @@ const flags: Record<string, JSX.Element> = {
       <rect width="60" height="10" fill="#000" />
     </>
   ),
+  // China - red field with one large + four small gold stars
+  cn: (
+    <>
+      <rect width="60" height="30" fill="#DE2910" />
+      <defs>
+        <path
+          id="flag-cn-star"
+          fill="#FFDE00"
+          d="M0,-1 0.2245,-0.309 0.9511,-0.309 0.3633,0.118 0.5878,0.809 0,0.382 -0.5878,0.809 -0.3633,0.118 -0.9511,-0.309 -0.2245,-0.309Z"
+        />
+      </defs>
+      <use href="#flag-cn-star" transform="translate(10,7.5) scale(5)" />
+      <use href="#flag-cn-star" transform="translate(20,3) scale(1.7) rotate(23)" />
+      <use href="#flag-cn-star" transform="translate(23.5,6.5) scale(1.7) rotate(45)" />
+      <use href="#flag-cn-star" transform="translate(23.5,11) scale(1.7) rotate(70)" />
+      <use href="#flag-cn-star" transform="translate(20,14.5) scale(1.7) rotate(105)" />
+    </>
+  ),
 };
 
 interface FlagProps {

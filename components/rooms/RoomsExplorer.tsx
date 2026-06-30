@@ -24,6 +24,7 @@ type Labels = {
   resultsMany: string;
   empty: string;
   view: string;
+  occupied: string;
   bookingUrl: string;
 };
 
@@ -127,6 +128,11 @@ export function RoomsExplorer({
                   ) : (
                     <div className="aspect-[4/3] bg-sand-light" />
                   )}
+                  {!r.available && (
+                    <span className="absolute top-3 right-3 z-10 rounded-full bg-umber/90 text-cream font-opensans uppercase tracking-tracked-sm text-[10px] px-3 py-1.5 shadow-sm">
+                      {labels.occupied}
+                    </span>
+                  )}
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <span className="font-opensans uppercase tracking-tracked text-[10px] text-coral">{catText}</span>
@@ -154,14 +160,23 @@ export function RoomsExplorer({
                     >
                       {labels.view}
                     </Link>
-                    <a
-                      href={labels.bookingUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex-1 text-center text-xs font-opensans uppercase tracking-tracked-sm text-cream bg-coral hover:bg-coral-600 transition-colors rounded-full px-4 py-3 mt-4"
-                    >
-                      {labels.cardCta}
-                    </a>
+                    {r.available ? (
+                      <a
+                        href={labels.bookingUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex-1 text-center text-xs font-opensans uppercase tracking-tracked-sm text-cream bg-coral hover:bg-coral-600 transition-colors rounded-full px-4 py-3 mt-4"
+                      >
+                        {labels.cardCta}
+                      </a>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className="flex-1 text-center text-xs font-opensans uppercase tracking-tracked-sm text-forest/50 bg-sand-300/50 rounded-full px-4 py-3 mt-4 cursor-not-allowed"
+                      >
+                        {labels.occupied}
+                      </span>
+                    )}
                   </div>
                 </div>
               </article>

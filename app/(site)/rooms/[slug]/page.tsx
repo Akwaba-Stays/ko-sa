@@ -145,9 +145,18 @@ export default async function RoomDetailPage({ params }: Props) {
                 </p>
               )}
               <div className="mt-6 space-y-3">
-                <Button href={site.bookingUrl} target="_blank" rel="noreferrer" fullWidth size="lg">
-                  {t('roomDetail.reserve')} {room.name}
-                </Button>
+                {room.available ? (
+                  <Button href={site.bookingUrl} target="_blank" rel="noreferrer" fullWidth size="lg">
+                    {t('roomDetail.reserve')} {room.name}
+                  </Button>
+                ) : (
+                  <div
+                    aria-disabled="true"
+                    className="w-full text-center font-poppins text-sm uppercase tracking-tracked-sm text-umber/60 bg-warm-grey/30 rounded-full px-6 py-4 cursor-not-allowed"
+                  >
+                    {t('roomsPage.occupied')}
+                  </div>
+                )}
                 <Button href="/contact" variant="gold-outline" fullWidth>
                   {t('roomDetail.askConcierge')}
                 </Button>

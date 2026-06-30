@@ -84,6 +84,7 @@ export async function PATCH(req: NextRequest, { params }: Ctx) {
           data.cloudbedsRoomTypeId === undefined
             ? existing.cloudbedsRoomTypeId
             : data.cloudbedsRoomTypeId,
+        available: data.available ?? existing.available,
         status: data.status ?? existing.status,
         sortOrder: data.sortOrder ?? existing.sortOrder,
         translations:

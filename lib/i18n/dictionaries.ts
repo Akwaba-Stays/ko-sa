@@ -4,7 +4,9 @@
  * Used via `useT()` (client) and `getT()` (server).
  */
 
-export const SUPPORTED_LOCALES = ['en', 'fr', 'es', 'nl', 'de'] as const;
+import { zh } from './zh';
+
+export const SUPPORTED_LOCALES = ['en', 'fr', 'es', 'nl', 'de', 'zh'] as const;
 export type Locale = (typeof SUPPORTED_LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 export const LOCALE_COOKIE = 'kosa_locale';
@@ -23,6 +25,7 @@ export const LOCALE_META: Record<
   es: { label: 'Spanish',  native: 'Español',    flag: '🇪🇸', country: 'es', code: 'ES' },
   nl: { label: 'Dutch',    native: 'Nederlands', flag: '🇳🇱', country: 'nl', code: 'NL' },
   de: { label: 'German',   native: 'Deutsch',    flag: '🇩🇪', country: 'de', code: 'DE' },
+  zh: { label: 'Chinese',  native: '中文',        flag: '🇨🇳', country: 'cn', code: 'ZH' },
 };
 
 const en = {
@@ -538,6 +541,7 @@ const en = {
   'roomsPage.resultsOne': '1 room type',
   'roomsPage.resultsMany': '{n} room types',
   'roomsPage.searchEmpty': 'No rooms match your search yet - try another word or filter',
+  'roomsPage.occupied': 'Booked',
   'roomsPage.upTo': 'Up to',
   'roomsPage.guestsUnit': 'guests',
 
@@ -1294,6 +1298,7 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'roomsPage.resultsOne': '1 type de chambre',
   'roomsPage.resultsMany': '{n} types de chambres',
   'roomsPage.searchEmpty': 'Aucune chambre ne correspond essayez un autre mot ou filtre',
+  'roomsPage.occupied': 'Réservé',
   'roomsPage.upTo': "Jusqu’à",
   'roomsPage.guestsUnit': 'voyageurs',
 
@@ -1999,6 +2004,7 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'roomsPage.resultsOne': '1 tipo de habitación',
   'roomsPage.resultsMany': '{n} tipos de habitación',
   'roomsPage.searchEmpty': 'Ninguna habitación coincide prueba otra palabra o filtro',
+  'roomsPage.occupied': 'Reservado',
   'roomsPage.upTo': 'Hasta',
   'roomsPage.guestsUnit': 'huéspedes',
 
@@ -2704,6 +2710,7 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'roomsPage.resultsOne': '1 kamertype',
   'roomsPage.resultsMany': '{n} kamertypes',
   'roomsPage.searchEmpty': 'Geen kamers gevonden probeer een ander woord of filter',
+  'roomsPage.occupied': 'Volgeboekt',
   'roomsPage.upTo': 'Tot',
   'roomsPage.guestsUnit': 'gasten',
 
@@ -3409,6 +3416,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'roomsPage.resultsOne': '1 Zimmertyp',
   'roomsPage.resultsMany': '{n} Zimmertypen',
   'roomsPage.searchEmpty': 'Keine Zimmer gefunden versuche ein anderes Wort oder Filter',
+  'roomsPage.occupied': 'Belegt',
   'roomsPage.upTo': 'Bis zu',
   'roomsPage.guestsUnit': 'Gäste',
 
@@ -3645,7 +3653,7 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'experiencesPage.signature.horse.body': 'Strandritte zur goldenen Stunde, Schmuckworkshops mit lokalen Handwerker*innen kleine Dinge, die einen Aufenthalt zur Erinnerung machen',
 };
 
-export const dictionaries = { en, fr, es, nl, de } as const;
+export const dictionaries = { en, fr, es, nl, de, zh } as const;
 export type DictKey = keyof typeof en;
 
 export function translate(locale: Locale, key: DictKey): string {

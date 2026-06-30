@@ -18,6 +18,7 @@ export interface PublicRoom {
   gallery: string[];
   amenities: string[];
   features: string[];
+  available: boolean;
   sortOrder: number;
 }
 

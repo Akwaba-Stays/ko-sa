@@ -86,6 +86,13 @@ export async function POST(req: Request) {
       },
     });
 
+    // Mark the booked room type as occupied so the site + AI concierge reflect it.
+    if (data.roomTypeID) {
+      await prisma.room
+        .updateMany({ where: { cloudbedsRoomTypeId: data.roomTypeID }, data: { available: false } })
+        .catch(() => {});
+    }
+
     await sendMail({
       to: data.guest.email,
       subject: `Your KoSa reservation is confirmed ${reservation.confirmationNumber ?? cached.id}`,

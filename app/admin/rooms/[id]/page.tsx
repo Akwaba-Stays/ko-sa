@@ -29,6 +29,7 @@ export default async function EditRoomPage({ params }: { params: { id: string } 
     amenities: room.amenities,
     features: room.features,
     cloudbedsRoomTypeId: room.cloudbedsRoomTypeId ?? '',
+    available: room.available,
     status: room.status,
     sortOrder: room.sortOrder,
     translations: (room.translations as Partial<Record<Locale, Record<string, string>>> | null) ?? {},

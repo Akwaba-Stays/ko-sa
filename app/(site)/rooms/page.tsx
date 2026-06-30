@@ -64,6 +64,7 @@ export default async function RoomsPage() {
               resultsOne: t('roomsPage.resultsOne'),
               resultsMany: t('roomsPage.resultsMany'),
               empty: t('roomsPage.searchEmpty'),
+              occupied: t('roomsPage.occupied'),
               bookingUrl: site.bookingUrl,
             }}
           />

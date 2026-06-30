@@ -214,6 +214,10 @@ model Room {
   features     String[]
   // Cloudbeds linkage (optional — overrides price/availability when set)
   cloudbedsRoomTypeId String?
+  // Occupancy: false = currently booked/occupied. The AI concierge and the
+  // public site read this (plus active Bookings) so a fully-booked resort stays
+  // shown as booked until an admin frees the room.
+  available    Boolean       @default(true)
   status       PublishStatus @default(PUBLISHED)
   sortOrder    Int           @default(0)
   translations Json?

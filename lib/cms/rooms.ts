@@ -36,6 +36,7 @@ function serialize(r: {
   gallery: string[];
   amenities: string[];
   features: string[];
+  available: boolean;
   sortOrder: number;
   translations: unknown;
 }): PublicRoom & { translations?: unknown } {
@@ -55,6 +56,7 @@ function serialize(r: {
     gallery: r.gallery,
     amenities: r.amenities,
     features: r.features,
+    available: r.available,
     sortOrder: r.sortOrder,
     translations: r.translations,
   };
@@ -78,6 +80,7 @@ function getFallbackRooms(locale: Locale): PublicRoom[] {
     gallery: [],
     amenities: [],
     features: [],
+    available: true,
     sortOrder: i,
   }));
 }
