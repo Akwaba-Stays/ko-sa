@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic';
 
-// New edited dining photography (media/dining/, June 2026).
+// Edited dining photography (media/dining/). Selected per section, July 2026.
 const DINE = 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/dining';
 
 const SECTIONS = [
@@ -24,7 +24,7 @@ const SECTIONS = [
     titleKey: 'diningPage.restaurant.title',
     bodyKey: 'diningPage.restaurant.body',
     hoursKey: 'diningPage.restaurant.hours' as const,
-    image: `${DINE}/the-restaurant.webp`,
+    image: `${DINE}/the-restaurant-jollof-chicken.webp`,
     cta: {
       labelKey: 'diningPage.restaurant.cta' as const,
       category: 'DINING' as const,
@@ -39,21 +39,21 @@ const SECTIONS = [
     nameKey: 'diningPage.bar.name' as const,
     bodyKey: 'diningPage.bar.body',
     hoursKey: 'diningPage.bar.hours' as const,
-    image: `${DINE}/the-bar.webp`,
+    image: `${DINE}/the-bar-cocktails.webp`,
   },
   {
     key: 'breakfast',
     titleKey: 'diningPage.breakfast.title',
     bodyKey: 'diningPage.breakfast.body',
     hoursKey: 'diningPage.breakfast.hours' as const,
-    image: `${DINE}/breakfast.webp`,
+    image: `${DINE}/breakfast-pancakes.webp`,
   },
   {
     key: 'private',
     titleKey: 'diningPage.private.title',
     leadKey: 'diningPage.private.lead' as const,
     bodyKey: 'diningPage.private.body',
-    image: `${DINE}/private-and-beach-dining.webp`,
+    image: `${DINE}/private-beach-dining.webp`,
     cta: {
       labelKey: 'diningPage.private.cta' as const,
       category: 'DINING' as const,
@@ -72,7 +72,7 @@ export default async function DiningPage() {
       <PageHero
         eyebrow={t('nav.dine')}
         title={t('diningPage.headline')}
-        image={`${DINE}/banner-main.webp`}
+        image={`${DINE}/hero-seafood-grill.webp`}
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
