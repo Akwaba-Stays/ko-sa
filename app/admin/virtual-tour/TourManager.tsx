@@ -6,6 +6,7 @@ import { Plus, Trash2, ArrowUp, ArrowDown, Upload } from 'lucide-react';
 import { Button } from '@/components/admin/Button';
 import { useToast } from '@/components/admin/Toast';
 import { StatusBadge } from '@/components/admin/DataTable';
+import { uploadMedia } from '@/lib/admin/uploadMedia';
 
 interface Scene {
   id: string;
@@ -60,14 +61,9 @@ export function TourManager({ initial }: { initial: Scene[] }) {
     setBusy(true);
     try {
       for (const file of Array.from(files)) {
-        const fd = new FormData();
-        fd.append('file', file);
-        fd.append('folder', 'virtual-tour');
-        const up = await fetch('/api/admin/upload', { method: 'POST', body: fd });
-        const uj = await up.json();
-        if (!up.ok) throw new Error(uj?.error || 'Upload failed');
+        const { url } = await uploadMedia(file, { folder: 'virtual-tour' });
         const sceneName = name || file.name.replace(/\.[^.]+$/, '');
-        await create(sceneName, uj.url);
+        await create(sceneName, url);
       }
     } catch (e) {
       toast.push('error', (e as Error).message);

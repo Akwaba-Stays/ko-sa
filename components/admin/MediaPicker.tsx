@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Upload, Trash2, ImagePlus } from 'lucide-react';
 import { FieldShell } from './FormField';
-import { toUploadableImage } from '@/lib/admin/heic';
+import { uploadMedia } from '@/lib/admin/uploadMedia';
 
 interface SingleProps {
   label: string;
@@ -28,17 +28,8 @@ export function MediaPickerSingle({ label, name, value, onChange, hint, folder }
     setUploading(true);
     setError(null);
     try {
-      const file = await toUploadableImage(raw);
-      const fd = new FormData();
-      fd.append('file', file);
-      if (folder) fd.append('folder', folder);
-      const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
-      if (!res.ok) {
-        const j = await res.json().catch(() => ({}));
-        throw new Error(j?.error || 'Upload failed');
-      }
-      const data = (await res.json()) as { url: string };
-      onChange(data.url);
+      const { url } = await uploadMedia(raw, { folder });
+      onChange(url);
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -122,17 +113,8 @@ export function MediaPickerMulti({ label, name, values, onChange, hint, folder }
     const next = [...values];
     try {
       for (const raw of Array.from(files)) {
-        const file = await toUploadableImage(raw);
-        const fd = new FormData();
-        fd.append('file', file);
-        if (folder) fd.append('folder', folder);
-        const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
-        if (!res.ok) {
-          const j = await res.json().catch(() => ({}));
-          throw new Error(j?.error || 'Upload failed');
-        }
-        const data = (await res.json()) as { url: string };
-        next.push(data.url);
+        const { url } = await uploadMedia(raw, { folder });
+        next.push(url);
       }
       onChange(next);
     } catch (e) {

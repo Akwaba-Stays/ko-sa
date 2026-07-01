@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Upload, Trash2, Copy, Check } from 'lucide-react';
 import { Button } from '@/components/admin/Button';
 import { useToast } from '@/components/admin/Toast';
+import { uploadMedia } from '@/lib/admin/uploadMedia';
 
 interface Asset {
   id: string;
@@ -47,12 +48,7 @@ export function MediaManager({ initial }: { initial: Asset[] }) {
     try {
       const newOnes: Asset[] = [];
       for (const file of Array.from(files)) {
-        const fd = new FormData();
-        fd.append('file', file);
-        if (folder.trim()) fd.append('folder', folder.trim());
-        const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
-        const j = await res.json();
-        if (!res.ok) throw new Error(j?.error || 'Upload failed');
+        const j = await uploadMedia(file, { folder: folder.trim() || undefined });
         newOnes.push({
           id: j.id,
           url: j.url,

@@ -6,6 +6,7 @@ import { Plus, Trash2, Upload, ArrowUp, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/admin/Button';
 import { useToast } from '@/components/admin/Toast';
 import { StatusBadge } from '@/components/admin/DataTable';
+import { uploadMedia } from '@/lib/admin/uploadMedia';
 
 interface Item {
   id: string;
@@ -52,13 +53,8 @@ export function GalleryManager({ initial }: { initial: Item[] }) {
     setBusy(true);
     try {
       for (const file of Array.from(files)) {
-        const fd = new FormData();
-        fd.append('file', file);
-        fd.append('folder', 'gallery');
-        const up = await fetch('/api/admin/upload', { method: 'POST', body: fd });
-        const uj = await up.json();
-        if (!up.ok) throw new Error(uj?.error || 'Upload failed');
-        await createFromUrl(uj.url);
+        const { url } = await uploadMedia(file, { folder: 'gallery' });
+        await createFromUrl(url);
       }
     } catch (e) {
       toast.push('error', (e as Error).message);
