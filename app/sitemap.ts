@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/',
     '/rooms',
     '/experiences',
-    '/virtual-tour',
+    // '/virtual-tour', // temporarily hidden from the public nav + sitemap
     '/dining',
     '/wellness',
     '/about',

@@ -9,21 +9,21 @@ import { NewsletterForm } from '@/components/shared/NewsletterForm';
 import { useT } from '@/lib/i18n';
 import type { DictKey } from '@/lib/i18n/dictionaries';
 
-// Footer links - primary destinations plus the secondary pages that were
-// removed from the streamlined primary nav (Events, Gallery, Journal, Virtual
-// Tour, Contact) so every page stays reachable.
+// Footer Quick Links - main destinations only. The secondary pages remain
+// reachable via the navbar "Explore" menu; uncomment any line to add it back.
 const QUICK_LINKS: { href: string; dictKey: DictKey }[] = [
   { href: '/rooms', dictKey: 'nav.stay' },
   { href: '/wellness', dictKey: 'nav.wellness' },
   { href: '/dining', dictKey: 'nav.dine' },
   { href: '/experiences', dictKey: 'nav.experiences' },
-  { href: '/events', dictKey: 'nav.events' },
   { href: '/plan', dictKey: 'nav.plan' },
   { href: '/about', dictKey: 'nav.about' },
-  { href: '/gallery', dictKey: 'nav.gallery' },
-  { href: '/blog', dictKey: 'nav.blog' },
-  { href: '/virtual-tour', dictKey: 'nav.virtualTour' },
-  { href: '/contact', dictKey: 'nav.contact' },
+  // Secondary pages (kept in the navbar Explore menu):
+  // { href: '/events', dictKey: 'nav.events' },
+  // { href: '/gallery', dictKey: 'nav.gallery' },
+  // { href: '/blog', dictKey: 'nav.blog' },
+  // { href: '/virtual-tour', dictKey: 'nav.virtualTour' },
+  // { href: '/contact', dictKey: 'nav.contact' },
 ];
 
 export function Footer() {

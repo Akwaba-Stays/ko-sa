@@ -54,7 +54,8 @@ export const site = {
         { href: '/events', dictKey: 'nav.events' },
         { href: '/gallery', dictKey: 'nav.gallery' },
         { href: '/blog', dictKey: 'nav.blog' },
-        { href: '/virtual-tour', dictKey: 'nav.virtualTour' },
+        // Virtual Tour temporarily hidden from the nav (re-enable when ready).
+        // { href: '/virtual-tour', dictKey: 'nav.virtualTour' },
         { href: '/contact', dictKey: 'nav.contact' },
       ],
     },
