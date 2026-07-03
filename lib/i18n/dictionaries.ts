@@ -595,7 +595,7 @@ const en = {
   'home.welcome.body': 'Watch a KoSa welcome unfold: drums on the sand, white cloth in the breeze, a naming ceremony by the ocean. This is what arriving feels like.',
   'home.welcome.cta': 'Play the film',
   'home.welcome.play': 'Play the Welcome Home film',
-  "wellnessPage.hero.line": "You don't need a programme You need permission to stop",
+  "wellnessPage.hero.line": "Here is your permission to pause, Restore your energy, and just be",
   "wellnessPage.offerings.eyebrow": "KoSa Wellness",
   "wellnessPage.yoga.title": "Yoga by the Sea",
   "wellnessPage.yoga.body": "Gentle movement on the sand, breath and ocean keeping time together. Come as you are; every level is welcome.",

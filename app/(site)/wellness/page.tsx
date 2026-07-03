@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: 'Wellness',
   description:
-    'You don\'t need a programme. You need permission to stop. Spa, coaching, yoga by the sea, a herbal tea bar and slow days at KoSa Beach Resort, Elmina, Ghana.',
+    'Here is your permission to pause, Restore your energy, and just be. Spa, coaching, yoga by the sea, a herbal tea bar and slow days at KoSa Beach Resort, Elmina, Ghana.',
 };
 
 export const dynamic = 'force-dynamic';
