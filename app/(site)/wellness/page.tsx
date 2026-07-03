@@ -26,14 +26,14 @@ const BASE = 'https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/
 const WELLNESS = `${BASE}/media/wellness`;
 
 const HERO_IMG = `${WELLNESS}/banner.webp`;
-const DAY_IMG = `${WELLNESS}/palm-grove-loungers.webp`;
+const DAY_IMG = `${WELLNESS}/wellness-day-v2.webp`;
 
 // Each offering becomes a full-width, magazine-style spread (image one side,
 // copy the other), alternating left/right down the page. Each has one grounding
 // sensory sentence so the visitor can picture being there.
 const OFFERINGS = [
-  { key: 'journeys', titleKey: 'wellnessPage.journeys.title', bodyKey: 'wellnessPage.journeys.body', senseKey: 'wellnessPage.journeys.sense', img: `${WELLNESS}/wellness-journeys.webp` },
-  { key: 'coaching', titleKey: 'wellnessPage.coaching.title', bodyKey: 'wellnessPage.coaching.body', senseKey: 'wellnessPage.coaching.sense', img: `${WELLNESS}/coaching-stillness.webp` },
+  { key: 'journeys', titleKey: 'wellnessPage.journeys.title', bodyKey: 'wellnessPage.journeys.body', senseKey: 'wellnessPage.journeys.sense', img: `${WELLNESS}/wellness-journeys-v2.webp` },
+  { key: 'coaching', titleKey: 'wellnessPage.coaching.title', bodyKey: 'wellnessPage.coaching.body', senseKey: 'wellnessPage.coaching.sense', img: `${WELLNESS}/wellness-coaching-v2.webp` },
   { key: 'spa', titleKey: 'wellnessPage.spa.title', bodyKey: 'wellnessPage.spa.body', senseKey: 'wellnessPage.spa.sense', img: `${WELLNESS}/spa-services.webp` },
   { key: 'tea', titleKey: 'wellnessPage.tea.title', bodyKey: 'wellnessPage.tea.body', senseKey: 'wellnessPage.tea.sense', img: `${WELLNESS}/kosa-tea-bar.webp` },
   { key: 'yoga', titleKey: 'wellnessPage.yoga.title', bodyKey: 'wellnessPage.yoga.body', senseKey: 'wellnessPage.yoga.sense', img: `${WELLNESS}/yoga-by-the-sea.webp` },
@@ -50,8 +50,8 @@ const DAY = [
   { timeKey: 'wellnessPage.day.s7.time', textKey: 'wellnessPage.day.s7.text' },
 ] as const;
 
-// Representative image per treatment category (treatments carry no own photo
-// in the CMS yet). Keeps each card visual and on-brand.
+// Per-category fallback, only used if a treatment ever loses its own CMS image
+// (all treatments now carry their own photo, editable at /admin/wellness).
 const CATEGORY_IMG: Record<string, string> = {
   'KoSa Health Spa': `${WELLNESS}/spa-services.webp`,
   'O2 Wellness': `${WELLNESS}/wellness-journeys.webp`,
