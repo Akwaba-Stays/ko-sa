@@ -447,6 +447,7 @@ model DailyActivity {
   title       String
   description String        @db.Text
   tag         String?
+  image       String?
   isFree      Boolean       @default(true)
   status      PublishStatus @default(PUBLISHED)
   sortOrder   Int           @default(0)

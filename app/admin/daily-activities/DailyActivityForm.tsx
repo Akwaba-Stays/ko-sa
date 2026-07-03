@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Save, Trash2 } from 'lucide-react';
 import { Button } from '@/components/admin/Button';
 import { TextField, TextareaField, SelectField } from '@/components/admin/FormField';
+import { MediaPickerSingle } from '@/components/admin/MediaPicker';
 import { StatusToggle } from '@/components/admin/StatusToggle';
 import { useToast } from '@/components/admin/Toast';
 
@@ -18,13 +19,14 @@ export interface DailyActivityFormValues {
   title: string;
   description: string;
   tag: string;
+  image: string;
   isFree: boolean;
   status: 'DRAFT' | 'PUBLISHED';
   sortOrder: number;
 }
 
 const EMPTY: DailyActivityFormValues = {
-  day: 'MONDAY', time: '8:00 AM', title: '', description: '', tag: '',
+  day: 'MONDAY', time: '8:00 AM', title: '', description: '', tag: '', image: '',
   isFree: true, status: 'PUBLISHED', sortOrder: 0,
 };
 
@@ -49,7 +51,7 @@ export function DailyActivityForm({ initial }: { initial?: Partial<DailyActivity
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...values, sortOrder: Number(values.sortOrder) }),
+        body: JSON.stringify({ ...values, image: values.image || null, sortOrder: Number(values.sortOrder) }),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
@@ -99,6 +101,9 @@ export function DailyActivityForm({ initial }: { initial?: Partial<DailyActivity
       <TextField label="Tag / Callout (optional)" name="tag" value={values.tag}
         onChange={(e) => set('tag', e.target.value)}
         placeholder="All levels welcome, just bring yourself." />
+      <MediaPickerSingle label="Day card image (optional)" name="image" value={values.image}
+        onChange={(v) => set('image', v)} folder="experiences"
+        hint="Shown as the banner on this day's card in the Free Daily Activities rail. The first activity of a day that has an image is used." />
       <div className="flex items-center gap-3">
         <input type="checkbox" id="isFree" checked={values.isFree}
           onChange={(e) => set('isFree', e.target.checked)}

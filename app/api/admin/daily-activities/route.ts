@@ -13,6 +13,7 @@ const schema = z.object({
   title: z.string().min(1).max(120),
   description: z.string().min(1).max(2000),
   tag: z.string().max(120).optional().nullable(),
+  image: z.string().max(600).optional().nullable(),
   isFree: z.boolean().default(true),
   status: z.enum(['DRAFT','PUBLISHED']).default('PUBLISHED'),
   sortOrder: z.number().int().default(0),

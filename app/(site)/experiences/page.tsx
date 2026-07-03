@@ -42,6 +42,8 @@ export default async function ExperiencesPage() {
   const railDays: RailDay[] = DAY_ORDER.map((day) => ({
     day,
     label: DAY_LABEL[day],
+    // Day-card banner = the first activity of the day that has an image (admin-set).
+    image: (activitiesByDay.get(day) ?? []).find((a) => a.image)?.image ?? undefined,
     activities: (activitiesByDay.get(day) ?? []).map((a) => ({
       id: a.id,
       time: a.time,

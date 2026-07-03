@@ -30,7 +30,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow={t('nav.story')}
         title={t('aboutPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/feeling/slowing-down-guests.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/about/about-hero-resort-goldenhour.webp"
       />
 
       <section className="py-16 md:py-24 bg-sand-light">

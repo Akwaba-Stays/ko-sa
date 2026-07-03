@@ -7,6 +7,7 @@
 
 import { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 
 export type RailActivity = {
   id: string;
@@ -16,7 +17,7 @@ export type RailActivity = {
   tag: string | null;
   isFree: boolean;
 };
-export type RailDay = { day: string; label: string; activities: RailActivity[] };
+export type RailDay = { day: string; label: string; image?: string; activities: RailActivity[] };
 
 export function DailyActivitiesRail({
   days,
@@ -44,11 +45,17 @@ export function DailyActivitiesRail({
             key={d.day}
             className="snap-start shrink-0 w-[88%] sm:w-[66%] lg:w-[60%] bg-cream rounded-2xl overflow-hidden shadow-sm border border-sand-300/40"
           >
-            <div className="bg-teal-700 text-cream px-7 py-5 flex items-baseline justify-between">
-              <p className="font-playfair text-2xl">{d.label}</p>
-              <p className="font-opensans text-[10px] uppercase tracking-tracked text-cream/60">
-                KoSa Beach Resort
-              </p>
+            <div className="relative h-36 bg-teal-700 branded-img text-cream">
+              {d.image && (
+                <Image src={d.image} alt={d.label} fill sizes="(min-width:1024px) 60vw, 88vw" className="object-cover" />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-teal-900/85 via-teal-900/30 to-teal-900/10" />
+              <div className="absolute inset-x-0 bottom-0 px-7 py-4 flex items-baseline justify-between">
+                <p className="font-playfair text-2xl drop-shadow-[0_1px_10px_rgba(0,0,0,0.4)]">{d.label}</p>
+                <p className="font-opensans text-[10px] uppercase tracking-tracked text-cream/70">
+                  KoSa Beach Resort
+                </p>
+              </div>
             </div>
             <div className="divide-y divide-sand-300/40">
               {d.activities.map((a) => (

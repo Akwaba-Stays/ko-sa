@@ -15,7 +15,7 @@ export default async function EditDailyActivityPage({ params }: Props) {
   return (
     <section className="px-4 md:px-10 py-10">
       <PageHeader eyebrow="Daily Activities" title="Edit Activity" />
-      <DailyActivityForm initial={{ ...activity, tag: activity.tag ?? '' }} />
+      <DailyActivityForm initial={{ ...activity, tag: activity.tag ?? '', image: activity.image ?? '' }} />
     </section>
   );
 }

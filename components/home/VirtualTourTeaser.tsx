@@ -32,8 +32,8 @@ export function VirtualTourTeaser() {
           className="relative aspect-[16/9] w-full overflow-hidden rounded-md branded-img group"
         >
           <Image
-            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/luxury-double-sea-view/0-LDRWSV.webp"
-            alt="360° preview of the KoSa beachfront suite"
+            src="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/media/home/virtual-tour-teaser-suite.webp"
+            alt="A sea-view suite interior at KoSa, previewed in the virtual tour"
             fill
             sizes="100vw"
             className="object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
