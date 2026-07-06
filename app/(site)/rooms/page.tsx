@@ -29,7 +29,7 @@ export default async function RoomsPage() {
       <PageHero
         eyebrow={t('nav.stay')}
         title={t('roomsPage.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/luxury-double-sea-view/0-LDRWSV.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/luxury-double-sea-view/01.webp"
       />
 
       {/* Intro: distinct tonal + textured band so it reads as a statement,

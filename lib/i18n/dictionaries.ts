@@ -387,6 +387,15 @@ const en = {
     'Celebrating something? Let us set a table on the beach - under the stars, with the ocean as your backdrop. Tell us the occasion and we’ll take care of everything else.',
   'diningPage.private.cta': 'Enquire About Private Dining',
 
+  // Food gallery (dine page)
+  'diningPage.gallery.eyebrow': 'Fresh from the kitchen',
+  'diningPage.gallery.title': 'Food gallery',
+  'diningPage.gallery.body': 'A closer look at what lands on the table · caught, grown and cooked along this coast',
+  'diningPage.gallery.filter.dishes': 'Dishes',
+  'diningPage.gallery.filter.breakfast': 'Breakfast',
+  'diningPage.gallery.filter.drinks': 'Drinks',
+  'diningPage.gallery.filter.moments': 'At the table',
+
   // Experiences page (brief §02 page 05)
   'experiencesPage.headline': 'Ghana begins here',
   'experiencesPage.intro':
@@ -1156,6 +1165,13 @@ const fr: Partial<Record<keyof typeof en, string>> = {
   'diningPage.private.body':
     "Vous célébrez quelque chose ? Laissez-nous dresser une table rien que pour vous sur la plage, sous les étoiles, l’océan en toile de fond · Dites-nous l’occasion, nous nous occupons du reste",
   'diningPage.private.cta': 'Organiser un dîner d’exception',
+  'diningPage.gallery.eyebrow': 'Tout droit de la cuisine',
+  'diningPage.gallery.title': 'Galerie gourmande',
+  'diningPage.gallery.body': 'Un aperçu de ce qui arrive à table · pêché, cultivé et cuisiné le long de cette côte',
+  'diningPage.gallery.filter.dishes': 'Plats',
+  'diningPage.gallery.filter.breakfast': 'Petit-déjeuner',
+  'diningPage.gallery.filter.drinks': 'Boissons',
+  'diningPage.gallery.filter.moments': 'À table',
 
   'experiencesPage.headline': 'Le Ghana commence ici',
   'experiencesPage.intro':
@@ -1862,6 +1878,13 @@ const es: Partial<Record<keyof typeof en, string>> = {
   'diningPage.private.body':
     '¿Celebras algo? Te ponemos una mesa solo para ti en la playa, bajo las estrellas, con el océano de fondo · Cuéntanos la ocasión y nos ocupamos del resto',
   'diningPage.private.cta': 'Planificar una cena especial',
+  'diningPage.gallery.eyebrow': 'Recién salido de la cocina',
+  'diningPage.gallery.title': 'Galería gastronómica',
+  'diningPage.gallery.body': 'Una mirada de cerca a lo que llega a la mesa · pescado, cultivado y cocinado en esta costa',
+  'diningPage.gallery.filter.dishes': 'Platos',
+  'diningPage.gallery.filter.breakfast': 'Desayuno',
+  'diningPage.gallery.filter.drinks': 'Bebidas',
+  'diningPage.gallery.filter.moments': 'En la mesa',
 
   'experiencesPage.headline': 'Ghana empieza aquí',
   'experiencesPage.intro':
@@ -2568,6 +2591,13 @@ const nl: Partial<Record<keyof typeof en, string>> = {
   'diningPage.private.body':
     'Iets te vieren? Wij dekken een tafel speciaal voor jou op het strand, onder de sterren, met de oceaan als decor · Vertel ons de gelegenheid en wij regelen de rest',
   'diningPage.private.cta': 'Plan een speciaal diner',
+  'diningPage.gallery.eyebrow': 'Vers uit de keuken',
+  'diningPage.gallery.title': 'Foodgalerij',
+  'diningPage.gallery.body': 'Een blik op wat er op tafel komt · gevangen, geteeld en gekookt langs deze kust',
+  'diningPage.gallery.filter.dishes': 'Gerechten',
+  'diningPage.gallery.filter.breakfast': 'Ontbijt',
+  'diningPage.gallery.filter.drinks': 'Drankjes',
+  'diningPage.gallery.filter.moments': 'Aan tafel',
 
   'experiencesPage.headline': 'Ghana begint hier',
   'experiencesPage.intro':
@@ -3274,6 +3304,13 @@ const de: Partial<Record<keyof typeof en, string>> = {
   'diningPage.private.body':
     'Etwas zu feiern? Wir decken einen Tisch nur für dich am Strand, unter den Sternen, mit dem Ozean als Kulisse · Sag uns den Anlass, wir kümmern uns um den Rest',
   'diningPage.private.cta': 'Spezial-Dinner planen',
+  'diningPage.gallery.eyebrow': 'Frisch aus der Küche',
+  'diningPage.gallery.title': 'Food-Galerie',
+  'diningPage.gallery.body': 'Ein näherer Blick auf das, was auf den Tisch kommt · gefangen, angebaut und gekocht an dieser Küste',
+  'diningPage.gallery.filter.dishes': 'Gerichte',
+  'diningPage.gallery.filter.breakfast': 'Frühstück',
+  'diningPage.gallery.filter.drinks': 'Getränke',
+  'diningPage.gallery.filter.moments': 'Am Tisch',
 
   'experiencesPage.headline': 'Ghana beginnt hier',
   'experiencesPage.intro':

@@ -3,7 +3,9 @@ import { SmoothImage as Image } from '@/components/shared/SmoothImage';
 import { PageHero } from '@/components/shared/PageHero';
 import { getT } from '@/lib/i18n/server';
 import { listPublicDiningVenues } from '@/lib/cms/dining';
+import { listPublicGallery } from '@/lib/cms/gallery';
 import { DiningMenu } from '@/components/dining/DiningMenu';
+import { FoodGallery } from '@/components/dining/FoodGallery';
 import { BookButton } from '@/components/shared/BookButton';
 import { waPrefill } from '@/lib/pricing';
 
@@ -24,7 +26,7 @@ const SECTIONS = [
     titleKey: 'diningPage.restaurant.title',
     bodyKey: 'diningPage.restaurant.body',
     hoursKey: 'diningPage.restaurant.hours' as const,
-    image: `${DINE}/the-restaurant-jollof-chicken.webp`,
+    image: `${DINE}/the-restaurant.webp`,
     cta: {
       labelKey: 'diningPage.restaurant.cta' as const,
       category: 'DINING' as const,
@@ -39,21 +41,21 @@ const SECTIONS = [
     nameKey: 'diningPage.bar.name' as const,
     bodyKey: 'diningPage.bar.body',
     hoursKey: 'diningPage.bar.hours' as const,
-    image: `${DINE}/the-bar-cocktails.webp`,
+    image: `${DINE}/the-bar.webp`,
   },
   {
     key: 'breakfast',
     titleKey: 'diningPage.breakfast.title',
     bodyKey: 'diningPage.breakfast.body',
     hoursKey: 'diningPage.breakfast.hours' as const,
-    image: `${DINE}/breakfast-pancakes.webp`,
+    image: `${DINE}/breakfast.webp`,
   },
   {
     key: 'private',
     titleKey: 'diningPage.private.title',
     leadKey: 'diningPage.private.lead' as const,
     bodyKey: 'diningPage.private.body',
-    image: `${DINE}/private-beach-dining.webp`,
+    image: `${DINE}/private-beach-dining-v2.webp`,
     cta: {
       labelKey: 'diningPage.private.cta' as const,
       category: 'DINING' as const,
@@ -65,14 +67,15 @@ const SECTIONS = [
 
 export default async function DiningPage() {
   const { t } = getT();
-  const venues = await listPublicDiningVenues();
+  const [venues, galleryItems] = await Promise.all([listPublicDiningVenues(), listPublicGallery()]);
+  const foodItems = galleryItems.filter((i) => i.category === 'dining');
 
   return (
     <>
       <PageHero
         eyebrow={t('nav.dine')}
         title={t('diningPage.headline')}
-        image={`${DINE}/hero-seafood-grill.webp`}
+        image={`${DINE}/hero-plantain-platter.webp`}
       />
 
       <section className="py-16 md:py-24 bg-sand-light">
@@ -134,6 +137,19 @@ export default async function DiningPage() {
             </article>
           ))}
         </div>
+      </section>
+
+      {/* Full-width taste-of-the-coast band */}
+      <section aria-hidden className="relative h-56 md:h-72 lg:h-80 branded-img overflow-hidden">
+        <Image src={`${DINE}/band-seafood-fruit.webp`} alt="" fill sizes="100vw" className="object-cover" />
+      </section>
+
+      {/* Filterable Food Gallery (dining photos from the Gallery CMS) */}
+      <FoodGallery items={foodItems} />
+
+      {/* Second full-width band, easing into the menu */}
+      <section aria-hidden className="relative h-56 md:h-72 lg:h-80 branded-img overflow-hidden">
+        <Image src={`${DINE}/band-grilled-platter.webp`} alt="" fill sizes="100vw" className="object-cover" />
       </section>
 
       {/* Interactive, filterable menu from the Dining CMS */}

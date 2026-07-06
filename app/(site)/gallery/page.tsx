@@ -19,7 +19,7 @@ export default async function GalleryPage() {
       <PageHero
         eyebrow={t('gallery.eyebrow')}
         title={t('gallery.headline')}
-        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/deluxe-twin-sea-view/0-DTRWSV.webp"
+        image="https://ubsgvfouroqkgqufzeat.supabase.co/storage/v1/object/public/kosa-public/rooms/deluxe-twin-sea-view/01.webp"
         height="sm"
       />
       <Gallery items={items} />
