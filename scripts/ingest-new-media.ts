@@ -11,7 +11,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { ingestLocalImage, readLocalAsBuffer } from './lib/ingest';
 
-const ROOT = 'files';
+const ROOT = 'files/Kosa-Images';
 
 // folder on disk → storage category folder
 const SOURCES: { dir: string; category: string }[] = [
