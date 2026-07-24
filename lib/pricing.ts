@@ -122,6 +122,159 @@ export function treatmentPriceGhs(slug: string, dbPrice?: number): number {
   return TREATMENTS_FALLBACK.find((t) => t.slug === slug)?.priceGhs ?? 350;
 }
 
+// ── O2 Spa & Wellness packages (Website Change Request, July 2026) ─────────
+// One-Day Escapes: bundled treatments at a 20% discount off the individual
+// menu prices below. Figures come from the O2 Spa & Wellness pricing
+// proposal built with Doc's clinical guidance (internal PDF, July 2026).
+export type EscapeKey = 'detox' | 'relaxation' | 'beauty';
+
+export const ESCAPES: Record<
+  EscapeKey,
+  { name: string; theme: string; items: { name: string; ghs: number }[]; originalGhs: number; priceGhs: number }
+> = {
+  detox: {
+    name: 'Detox',
+    theme: 'Deep Gut Cleanse',
+    items: [
+      { name: 'Colon Hydrotherapy · 45min', ghs: 700 },
+      { name: 'Reflexology · 45min', ghs: 350 },
+      { name: 'Wellness Support Product', ghs: 200 },
+      { name: 'Wholesome Meal', ghs: 120 },
+    ],
+    originalGhs: 1370,
+    priceGhs: 1100,
+  },
+  relaxation: {
+    name: 'Relaxation',
+    theme: 'Rest & Restore',
+    items: [
+      { name: 'Herbal Sauna · 30min', ghs: 300 },
+      { name: 'Reflexology · 30min', ghs: 250 },
+      { name: 'Swedish Massage · 45min', ghs: 300 },
+      { name: 'Fresh Juice Elixir', ghs: 32 },
+      { name: 'Wholesome Meal', ghs: 120 },
+    ],
+    originalGhs: 1002,
+    priceGhs: 800,
+  },
+  beauty: {
+    name: 'Beauty',
+    theme: 'Radiance & Polish',
+    items: [
+      { name: 'Herbal Sauna · 30min', ghs: 300 },
+      { name: 'Facial Therapy · 45min', ghs: 350 },
+      { name: 'Mineral Body Peeling · 45min', ghs: 550 },
+      { name: 'Holistic Massage · 45min', ghs: 330 },
+      { name: 'Fresh Juice Elixir', ghs: 32 },
+      { name: 'Wholesome Meal', ghs: 120 },
+    ],
+    originalGhs: 1682,
+    priceGhs: 1350,
+  },
+};
+
+// Multi-day tiers: Relaxation → Detox → Beauty rotation, room + full board
+// included throughout. spaGhs = treatments only, totalGhs = incl. nights.
+export type RetreatTier = { days: number; rotation: string; spaGhs: number; totalGhs: number };
+export const RETREAT_TIERS: RetreatTier[] = [
+  { days: 3, rotation: 'Relaxation · Detox · Beauty', spaGhs: 3440, totalGhs: 7265 },
+  { days: 7, rotation: 'Relaxation ×3 · Detox ×2 · Beauty ×2', spaGhs: 7340, totalGhs: 16265 },
+  { days: 10, rotation: 'Relaxation ×4 · Detox ×3 · Beauty ×3', spaGhs: 9960, totalGhs: 22710 },
+];
+
+// Day-by-day breakdown for the 3-day Signature Rotation plus the two
+// gendered 3-day journeys (Tide Reset / Saltwater Bloom).
+export type RetreatTrackKey = 'rotation' | 'him' | 'her';
+export type RetreatDay = { label: string; title: string; sense: string; items: string };
+export const RETREAT_TRACKS: Record<
+  RetreatTrackKey,
+  { for: string; name: string; sense: string; days: RetreatDay[]; spaGhs: number; totalGhs: number; oneDayGhs?: number }
+> = {
+  rotation: {
+    for: '3-Day Journey',
+    name: 'The Signature Rotation',
+    sense: 'Three rhythms, woven together — a longer path back to yourself.',
+    days: [
+      {
+        label: 'Day 01 · Relax',
+        title: 'Relaxation',
+        sense: 'Slow down. Breathe deep. Let go.',
+        items: 'Herbal Sauna · Reflexology · Swedish Massage · Fresh Juice Elixir · Full Board',
+      },
+      {
+        label: 'Day 02 · Detox',
+        title: 'Detox',
+        sense: 'A deep reset for your gut and glow.',
+        items: 'Colon Hydrotherapy · Reflexology · Wellness Support Product · Full Board',
+      },
+      {
+        label: 'Day 03 · Beauty',
+        title: 'Beauty',
+        sense: 'Radiance, from the inside out.',
+        items: 'Herbal Sauna · Facial Therapy · Mineral Body Peeling · Holistic Massage · Fresh Juice Elixir · Full Board',
+      },
+    ],
+    spaGhs: 3440,
+    totalGhs: 7265,
+  },
+  him: {
+    for: 'For Him',
+    name: 'Tide Reset',
+    sense: "Recovery, detox, stress relief — built for a body that's been carrying a lot.",
+    days: [
+      {
+        label: 'Day 01 · Reset',
+        title: 'Deep Reset',
+        sense: 'Clear out, then quiet down.',
+        items: 'Colon Hydrotherapy · Herbal Sauna · Reflexology · Full Board',
+      },
+      {
+        label: 'Day 02 · Recover',
+        title: 'Muscle Recovery',
+        sense: 'Work the tension out, properly.',
+        items: 'Deep Tissue Massage · Mineral Body Wrap · Full Board',
+      },
+      {
+        label: 'Day 03 · Restore',
+        title: 'Restore & Unwind',
+        sense: 'A slow close to the reset.',
+        items: 'Holistic Massage · Reflexology · Full Board',
+      },
+    ],
+    spaGhs: 3060,
+    totalGhs: 6885,
+    oneDayGhs: 1400,
+  },
+  her: {
+    for: 'For Her',
+    name: 'Saltwater Bloom',
+    sense: 'Radiance, nourishment, polish — three days of coming back to yourself.',
+    days: [
+      {
+        label: 'Day 01 · Renew',
+        title: 'Renewal Ritual',
+        sense: 'A soft start — skin and breath, both.',
+        items: 'Facial Therapy · Herbal Sauna · Full Board',
+      },
+      {
+        label: 'Day 02 · Nourish',
+        title: 'Deep Nourish',
+        sense: 'Give something back to the body.',
+        items: 'Mineral Body Wrap · Swedish Massage · Full Board',
+      },
+      {
+        label: 'Day 03 · Glow',
+        title: 'Polish & Glow',
+        sense: 'Finish bright.',
+        items: 'Mineral Body Peeling · Manicure · Pedicure · Full Board',
+      },
+    ],
+    spaGhs: 2680,
+    totalGhs: 6505,
+    oneDayGhs: 1240,
+  },
+};
+
 // ── Signature experiences (duration + GHS per person) ────────────────────────
 // Keyed to the dictionary "experiencesPage.signature.*" tiles.
 export const EXPERIENCE_DETAILS: Record<string, { duration: string; fromGhs: number }> = {
@@ -148,4 +301,8 @@ export const waPrefill = {
   planMyStay: () => "Hi KoSa! I'd like help planning my stay.",
   turtleWalk: () => 'Hi KoSa! I’d like to ask about the sea turtle night walks.',
   customiseStay: () => "Hi KoSa! I'd like to customise my stay.",
+  escape: (name: string) => `Hi KoSa! I'd like to book the ${name} One-Day Escape at O2 Spa & Wellness.`,
+  retreat: (name: string) => `Hi KoSa! I'd like to book the ${name} retreat at O2 Spa & Wellness.`,
+  consultation: () =>
+    "Hi KoSa! I'd like to book a Private Wellness Consultation to design my own O2 Spa retreat.",
 };
