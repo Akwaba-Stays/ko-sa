@@ -5,12 +5,18 @@ import { BookButton } from '@/components/shared/BookButton';
 import { Reveal } from '@/components/shared/Reveal';
 import { PullQuote } from '@/components/shared/PullQuote';
 import { TreatmentsExplorer, type TreatmentCard } from '@/components/wellness/TreatmentsExplorer';
+import { RetreatRhythm } from '@/components/wellness/RetreatRhythm';
 import { getT } from '@/lib/i18n/server';
 import { listPublicTreatments } from '@/lib/cms/treatments';
 import { getSetting } from '@/lib/cms/settings';
 import {
   TREATMENTS_FALLBACK,
   treatmentPriceGhs,
+  ESCAPES,
+  RETREAT_TIERS,
+  formatGhs,
+  waPrefill,
+  type EscapeKey,
 } from '@/lib/pricing';
 
 export const metadata: Metadata = {
@@ -103,7 +109,18 @@ export default async function WellnessPage() {
     return Array.from(map.values());
   })();
 
-  const programmes = [...OFFERINGS.map((o) => t(o.titleKey)), ...treatmentGroups.map((tr) => tr.name)];
+  const packageNames = [
+    ...(Object.keys(ESCAPES) as EscapeKey[]).map((k) => `${ESCAPES[k].name} Escape (1 Day)`),
+    'The Signature Rotation Retreat',
+    'Tide Reset Retreat — For Him',
+    'Saltwater Bloom Retreat — For Her',
+    'Private Wellness Consultation (Design My Own)',
+  ];
+  const programmes = [
+    ...packageNames,
+    ...OFFERINGS.map((o) => t(o.titleKey)),
+    ...treatmentGroups.map((tr) => tr.name),
+  ];
 
   return (
     <>
@@ -131,6 +148,114 @@ export default async function WellnessPage() {
               {t('wellnessPage.approach.body1')}
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* One-Day Escapes: Detox / Relaxation / Beauty, bundled pricing */}
+      <section className="py-20 md:py-28 bg-cream">
+        <div className="container-page">
+          <Reveal className="text-center max-w-2xl mx-auto mb-14">
+            <p className="font-opensans uppercase tracking-tracked text-[10px] text-coral mb-3">
+              One-Day Escapes
+            </p>
+            <h2 className="font-playfair text-display-sm text-teal">Signature Day Journeys</h2>
+            <p className="mt-4 font-raleway text-forest/70 leading-relaxed">
+              Three ways to spend a single unhurried day at O2. Each includes treatments, a fresh
+              juice elixir where noted, and a wholesome meal.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7 max-w-6xl mx-auto">
+            {(Object.keys(ESCAPES) as EscapeKey[]).map((key, i) => {
+              const esc = ESCAPES[key];
+              const headerTone =
+                key === 'detox'
+                  ? 'bg-gradient-to-br from-teal-500 to-teal-800'
+                  : key === 'relaxation'
+                    ? 'bg-gradient-to-br from-teal-300 to-teal-600'
+                    : 'bg-gradient-to-br from-sunshine-500 to-coral-600';
+              return (
+                <Reveal key={key} delay={i * 0.08} className="card-3d">
+                  <div className="card-3d-inner card-shine group flex flex-col h-full bg-cream rounded-xl overflow-hidden shadow-sm transition-all duration-500">
+                    <div className={`relative h-32 ${headerTone} flex items-end p-5`}>
+                      <span className="font-opensans text-[10px] uppercase tracking-tracked text-cream/90">
+                        {esc.theme}
+                      </span>
+                    </div>
+                    <div className="card-3d-float p-6 flex flex-col flex-1">
+                      <h3 className="font-playfair text-2xl text-teal mb-4">{esc.name}</h3>
+                      <ul className="space-y-1.5 mb-5 flex-1">
+                        {esc.items.map((item) => (
+                          <li
+                            key={item.name}
+                            className="flex items-baseline justify-between gap-3 text-xs font-opensans text-forest/70 border-b border-sand-300/40 pb-1.5"
+                          >
+                            <span>{item.name}</span>
+                            <span className="font-semibold text-teal shrink-0">{formatGhs(item.ghs)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="flex items-baseline gap-2.5 mb-5">
+                        <span className="text-xs text-forest/40 line-through">{formatGhs(esc.originalGhs)}</span>
+                        <span className="font-playfair text-2xl text-teal">{formatGhs(esc.priceGhs)}</span>
+                      </div>
+                      <BookButton
+                        category="PACKAGE"
+                        itemName={`${esc.name} Escape`}
+                        message={waPrefill.escape(esc.name)}
+                        source="wellness/escapes"
+                        className="mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-[11px] px-5 py-3 hover:bg-coral-600 transition-colors"
+                      >
+                        Reserve This Escape →
+                      </BookButton>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Multi-Day Retreats: rotation tiers + interactive day-by-day rhythm */}
+      <section className="py-20 md:py-28 bg-teal-700 text-cream">
+        <div className="container-page">
+          <Reveal className="text-center max-w-2xl mx-auto mb-14">
+            <p className="font-opensans uppercase tracking-tracked text-[10px] text-sunshine mb-3">
+              Multi-Day Retreats
+            </p>
+            <h2 className="font-playfair text-display-sm text-cream">Give It Room to Breathe</h2>
+            <p className="mt-4 font-raleway text-cream/70 leading-relaxed">
+              The Signature Rotation carries Relaxation, Detox, and Beauty days across a longer
+              stay, with room and full board included throughout.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-20">
+            {RETREAT_TIERS.map((tier, i) => (
+              <Reveal
+                key={tier.days}
+                delay={i * 0.08}
+                className="rounded-xl bg-cream/10 border border-cream/20 backdrop-blur-md px-7 py-8 text-center transition-colors hover:bg-cream/[0.14] hover:border-sunshine/60"
+              >
+                <p className="font-playfair text-4xl text-cream">
+                  {tier.days} <span className="font-opensans text-sm text-cream/60 tracking-tracked-sm">DAYS</span>
+                </p>
+                <p className="mt-2.5 mb-5 font-raleway italic text-xs text-cream/60">{tier.rotation}</p>
+                <p className="font-playfair text-2xl text-sunshine">{formatGhs(tier.spaGhs)}</p>
+                <p className="mt-1 font-opensans text-[11px] text-cream/55">
+                  {formatGhs(tier.totalGhs)} total incl. {tier.days} nights
+                </p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <RetreatRhythm />
+          </Reveal>
+          <p className="text-center mt-6 font-raleway text-xs text-cream/45">
+            The Signature Rotation extends to 7 or 10-day journeys — see tiers above.
+          </p>
         </div>
       </section>
 
@@ -241,27 +366,52 @@ export default async function WellnessPage() {
         </section>
       )}
 
-      {/* Closing CTA - personal, not transactional */}
+      {/* Closing CTA - Design Your Own, then the quiet lead-capture form */}
       <section className="py-20 md:py-28 bg-teal-700 text-cream">
         <div className="container-page max-w-3xl text-center">
           <Reveal>
             <p className="font-opensans uppercase tracking-tracked text-xs text-sunshine mb-4">
-              {t('wellnessPage.closing.eyebrow')}
+              Beyond The Menu
             </p>
-            <h2 className="font-playfair text-display-md leading-tight">{t('wellnessPage.closing.headline')}</h2>
+            <h2 className="font-playfair text-display-md leading-tight">Or, let&rsquo;s design yours</h2>
             <p className="mt-5 font-raleway text-cream/85 leading-relaxed max-w-xl mx-auto">
-              {t('wellnessPage.closing.body')}
+              Not every guest fits a set journey. Sit with our wellness team for a private
+              consultation, and we&rsquo;ll build something around what you actually need — pulled
+              from our full treatment menu.
             </p>
-            <div className="mt-8">
+
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-left max-w-2xl mx-auto">
+              {[
+                { n: '1', h: 'Consult', p: 'A private session to talk through goals, sensitivities, and time on property.' },
+                { n: '2', h: 'Design', p: 'We build your itinerary from the same menu behind every package above.' },
+                { n: '3', h: 'Arrive & Exhale', p: 'Your rhythm is ready when you check in — nothing left to plan.' },
+              ].map((s) => (
+                <div key={s.n} className="flex gap-3.5">
+                  <span className="shrink-0 h-8 w-8 rounded-full bg-sunshine text-teal-900 font-playfair text-sm grid place-items-center">
+                    {s.n}
+                  </span>
+                  <div>
+                    <h4 className="font-playfair text-base text-cream mb-1">{s.h}</h4>
+                    <p className="font-raleway text-xs text-cream/65 leading-relaxed">{s.p}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10">
               <BookButton
                 category="OTHER"
-                itemName="Wellness during my stay"
-                message="Hi KoSa! I'd like to find out about wellness during my stay."
+                itemName="Private Wellness Consultation"
+                message={waPrefill.consultation()}
                 source="wellness/closing"
                 className="inline-flex items-center gap-2 rounded-full bg-coral text-cream font-opensans uppercase tracking-tracked-sm text-sm px-8 py-4 hover:bg-coral-600 transition-colors"
               >
-                {t('wellnessPage.closing.cta')} →
+                Book a Consultation →
               </BookButton>
+              <p className="mt-4 font-raleway text-xs text-cream/55">
+                Private Wellness Consultation — <span className="text-sunshine font-semibold">GHS 200</span>,
+                credited toward your custom itinerary.
+              </p>
             </div>
           </Reveal>
 
